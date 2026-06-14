@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>臨時駐車場ご案内 | cafe nora</title>
+  <meta name="description" content="cafe noraライブイベントの臨時駐車場ご案内。小野自動車駐車場をご利用ください（cafe noraまで徒歩約5分）。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .pk-hero {
+      background: linear-gradient(135deg, #4d7350 0%, #7a9e7e 60%, #b8d4b8 100%);
+      color: #fff;
+      text-align: center;
+      padding: 3.5rem 1.5rem 3rem;
+    }
+    .pk-hero-event { font-size: 0.85rem; letter-spacing: 0.15em; opacity: 0.85; margin-bottom: 0.5rem; }
+    .pk-hero-title { font-family: var(--font-en); font-size: clamp(1.5rem, 5vw, 2.4rem); font-weight: 600; letter-spacing: 0.04em; margin-bottom: 0.4rem; }
+    .pk-hero-sub { font-size: 0.95rem; opacity: 0.85; }
+
+    .pk-alert {
+      background: #f5e8d4;
+      color: #5a3a1a;
+      padding: 1rem 1.5rem;
+      text-align: center;
+      font-size: 0.92rem;
+      font-weight: 500;
+      line-height: 1.7;
+    }
+    .pk-alert a { color: #7a3a10; font-weight:700; text-decoration: underline; }
+
+    .pk-notice {
+      background: #f2ece0;
+      color: var(--color-text);
+      text-align: center;
+      padding: 0.85rem 1.5rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .pk-wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .pk-section {
+      padding: 2.5rem 0;
+      border-bottom: 1px solid var(--color-beige);
+    }
+    .pk-section:last-of-type { border-bottom: none; }
+
+    .pk-section-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--color-primary-dark);
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .pk-section-title::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 1.2em;
+      background: var(--color-primary);
+      border-radius: 2px;
+    }
+
+    /* 地図 */
+    .pk-map-img {
+      width: 100%;
+      height: auto;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      margin-bottom: 0.8rem;
+    }
+    .pk-map-link { text-align: center; margin-top: 0.8rem; }
+    .pk-map-link a {
+      display: inline-block;
+      padding: 0.6rem 1.6rem;
+      background: var(--color-primary);
+      color: #fff;
+      border-radius: 2rem;
+      font-size: 0.88rem;
+      font-weight: 500;
+    }
+
+    /* ステップ */
+    .pk-step {
+      margin-bottom: 2.2rem;
+    }
+    .pk-step-header {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin-bottom: 0.8rem;
+    }
+    .pk-step-num {
+      flex-shrink: 0;
+      width: 2.2rem;
+      height: 2.2rem;
+      border-radius: 50%;
+      background: var(--color-primary);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+    .pk-step-label {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--color-text);
+    }
+    .pk-step-body { font-size: 0.93rem; line-height: 1.8; margin-bottom: 0.8rem; }
+    .pk-step-body strong { color: var(--color-primary-dark); }
+
+    .pk-photos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.6rem;
+      margin-top: 0.6rem;
+    }
+    .pk-photos.single { grid-template-columns: 1fr; }
+    .pk-photos.triple { grid-template-columns: 1fr 1fr 1fr; }
+    .pk-photos img {
+      width: 100%;
+      border-radius: var(--radius-sm);
+      object-fit: cover;
+      aspect-ratio: 4/3;
+      box-shadow: var(--shadow);
+      cursor: zoom-in;
+    }
+    /* ライトボックス */
+    #lb-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:9999;align-items:center;justify-content:center;padding:16px}
+    #lb-overlay.show{display:flex}
+    #lb-img{max-width:100%;max-height:90vh;border-radius:6px;object-fit:contain;box-shadow:0 4px 32px rgba(0,0,0,.6)}
+    #lb-close{position:fixed;top:14px;right:18px;color:#fff;font-size:2rem;cursor:pointer;line-height:1;z-index:10000;background:rgba(0,0,0,.4);border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center}
+    .pk-photo-cap {
+      font-size: 0.78rem;
+      color: var(--color-text-light);
+      text-align: center;
+      margin-top: 0.2rem;
+    }
+
+    /* NG エリア強調 */
+    .pk-ng {
+      background: #fdf0ee;
+      border: 1.5px solid #e8a090;
+      border-radius: var(--radius-sm);
+      padding: 0.7rem 1rem;
+      font-size: 0.88rem;
+      color: #c0392b;
+      font-weight: 500;
+      margin-bottom: 0.6rem;
+    }
+
+    /* 注意事項ボックス */
+    .pk-notes {
+      background: var(--color-base-warm);
+      border-radius: var(--radius);
+      padding: 1.4rem 1.6rem;
+    }
+    .pk-notes li {
+      padding: 0.45rem 0 0.45rem 1.4rem;
+      position: relative;
+      font-size: 0.93rem;
+      border-bottom: 1px solid var(--color-beige-light);
+    }
+    .pk-notes li:last-child { border-bottom: none; }
+    .pk-notes li::before {
+      content: '●';
+      color: var(--color-primary);
+      position: absolute;
+      left: 0;
+      font-size: 0.6em;
+      top: 0.75em;
+    }
+
+    /* cafe noraへのルート */
+    .pk-route-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+    .pk-route-step {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+    .pk-route-num {
+      flex-shrink: 0;
+      width: 1.8rem;
+      height: 1.8rem;
+      border-radius: 50%;
+      background: var(--color-accent);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-top: 0.1rem;
+    }
+    .pk-route-text { font-size: 0.93rem; line-height: 1.75; }
+    .pk-route-text strong { color: var(--color-primary-dark); }
+
+    /* イベント情報 */
+    .pk-event-box {
+      background: var(--color-primary-dark);
+      color: #fff;
+      border-radius: var(--radius);
+      padding: 1.6rem 1.8rem;
+      text-align: center;
+      margin: 2.5rem 0;
+    }
+    .pk-event-name { font-family: var(--font-en); font-size: 1.5rem; font-weight: 600; letter-spacing: 0.05em; margin-bottom: 0.5rem; }
+    .pk-event-box p { font-size: 0.9rem; opacity: 0.9; line-height: 2.1; }
+    .pk-reserve-btn {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.75rem 2.2rem;
+      background: #fff;
+      color: var(--color-primary-dark);
+      border-radius: 2rem;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    @media (max-width: 480px) {
+      .pk-photos.triple { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+  <link rel="canonical" href="https://cafenora.jp/parking.html">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#7a9e7e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="cafe nora">
+  <link rel="apple-touch-icon" href="/images/icon-192.png">
+  <script src=https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js defer></script>
+  <script>
+    window.OneSignalDeferred = window.OneSignalDeferred || [];
+    OneSignalDeferred.push(function(OneSignal) {
+      OneSignal.init({
+        appId: 'f214c199-2cb9-4e02-90d4-91ca8462d321',
+        notifyButton: { enable: false }
+      });
+    });
+  </script>
+</head>
+<body>
+
+  <header class="header" id="header">
+    <div class="header-inner">
+      <div class="header-left"><a href="index.html" class="logo">
+        <span class="logo-en">cafe nora</span>
+        <span class="logo-jp">カフェ ノラ</span>
+      </a><span class="parking-badge" style="cursor:default;">🚗 臨時駐車場</span></div>
+      <button class="menu-btn" id="menuBtn" aria-label="メニューを開く">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav" id="nav">
+        <ul class="nav-list">
+          <li><a href="index.html">トップ</a></li>
+          <li><a href="cafe.html">カフェ</a></li>
+          <li><a href="calendar.html">カレンダー</a></li>
+          <li><a href="events.html">イベント</a></li>
+          <li><a href="popup.html">出店情報</a></li>
+          <li><a href="access.html">アクセス</a></li>
+          <li><a href="service.html">HP制作</a></li>
+          <li><a href="notifications.html">お知らせ</a></li>
+          <li><a href="contact.html">お問い合わせ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ヒーロー -->
+  <div class="pk-hero">
+    <p class="pk-hero-event">ライブイベントご来場の方へ</p>
+    <h1 class="pk-hero-title">臨時駐車場のご案内</h1>
+    <p class="pk-hero-sub">ライブ<strong>開催日のみ</strong>ご利用いただける臨時駐車場です</p>
+    <p class="pk-hero-sub" style="margin-top:0.4rem; font-size:0.9rem;">場所：<strong>小野自動車</strong>（cafe noraまで徒歩約5分）</p>
+  </div>
+
+  <!-- 重要警告 -->
+  <div class="pk-alert">
+    ⚠️ <strong>小野自動車は近くに2か所あります。</strong>お間違えのないよう<br>
+    <a href="https://maps.google.com/?q=33.919641,133.267504" target="_blank" rel="noopener noreferrer">Googleマップで正しい駐車場を確認する →</a>
+  </div>
+
+  <div class="pk-notice" style="background:#e6efe6; color:#3d6040; font-weight:600; border-left:3px solid #7a9e7e;">
+    🌿 この案内は<strong>ライブ開催日のみ</strong>有効です。開催予定は<a href="events.html" style="color:#4d7350; text-decoration:underline;">イベントページ</a>でご確認ください。
+  </div>
+  <div class="pk-notice">
+    🚗 cafe nora の駐車スペースは限りがあります。ご来場の際は臨時駐車場をご利用ください。
+  </div>
+
+  <div class="pk-wrap">
+
+    <!-- ルート地図 -->
+    <div class="pk-section">
+      <h2 class="pk-section-title">全体ルート</h2>
+      <img
+        src="images/cahp_3aa9d18c.png"
+        alt="国道11号から小野自動車までのルート地図"
+        width="1080" height="2160"
+        class="pk-map-img" fetchpriority="high">
+      <p style="font-size:0.88rem; color:var(--color-text-light); text-align:left">国道11号線から「cafe nora」までの道順です。<br><br>目的地検索: Googleマップで「小野自動車」を検索すると2箇所表示されます。西側の店舗へお越しください。<br>所要時間: 国道11号線からの所要時間は約4分です！<br><br>道順:<br>    1.  国道11号線から南へ進みます。<br>    2.  「旧道」を越えるとY字路があります。そこを右に進んでください。<br>    3.  Y字路を右折後、約100m直進すると「cafe nora」があります。<br>　4. 「cafe nora」を通り過ぎて、そのまま南へ進むと「小野自動車」があります。</p>
+      <div class="pk-map-link">
+        <a href="https://maps.google.com/?q=33.9239862,133.2676539" target="_blank" rel="noopener noreferrer">
+          Google マップで開く →
+        </a>
+      </div>
+      <!-- 埋め込みマップ（HP編集画面の「Googleマップ」行で変更できます） -->
+      <iframe
+        src="https://maps.google.com/maps?q=33.9239862,133.2676539&hl=ja&output=embed"
+        width="100%" height="300"
+        style="border:0;border-radius:8px;margin-top:12px"
+        allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+
+    <!-- 5ステップ駐車ガイド -->
+    <div class="pk-section">
+      <h2 class="pk-section-title">駐車場への行き方（5ステップ）</h2>
+
+      <!-- Step 1 -->
+      <div class="pk-step">
+        <div class="pk-step-header">
+          <div class="pk-step-num">1</div>
+          <p class="pk-step-label">SUBARU の看板が目印です</p>
+        </div>
+        <p class="pk-step-body">国道11号線から南へ入り、旧道を過ぎてすぐのY字路は迷わず右へ。約100m進んだ右手に「cafe nora」が見えてきます。<br><br>「cafe nora」を通り過ぎて更に南へ進みます。<br>青いSUBARUの看板が目印。看板手前か、過ぎて少し先の左手が駐車場です。</p>
+        <div class="pk-photos">
+          <div>
+            <img loading="lazy" src="https://leafy-brigadeiros-84e9ce.netlify.app/DSC_0714.JPG" alt="SUBARU看板全景">
+            <p class="pk-photo-cap">道路からの全景</p>
+          </div>
+          <div>
+            <img loading="lazy" src="https://leafy-brigadeiros-84e9ce.netlify.app/DSC_0715.JPG" alt="SUBARU看板アップ">
+            <p class="pk-photo-cap">目印のSUBARU看板</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="pk-step">
+        <div class="pk-step-header">
+          <div class="pk-step-num">2</div>
+          <p class="pk-step-label">小野自動車の事務所前は通過してください</p>
+        </div>
+        <div class="pk-ng">🚫 カーポート・事務所前は業務スペースのため駐車禁止です</div>
+        <p class="pk-step-body">
+          カーポートや事務所の前は<strong>駐車禁止</strong>です。そのまま奥へ進んでください。
+        </p>
+        <div class="pk-photos">
+          <div>
+            <img loading="lazy" src="https://leafy-brigadeiros-84e9ce.netlify.app/DSC_0716.JPG" alt="カーポート・駐車禁止エリア">
+            <p class="pk-photo-cap">ここは駐車禁止</p>
+          </div>
+          <div>
+            <img loading="lazy" src="https://leafy-brigadeiros-84e9ce.netlify.app/DSC_0717.JPG" alt="事務所前・駐車禁止">
+            <p class="pk-photo-cap">事務所前も駐車禁止</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="pk-step">
+        <div class="pk-step-header">
+          <div class="pk-step-num">3</div>
+          <p class="pk-step-label">広い駐車場も通過してください</p>
+        </div>
+        <div class="pk-ng">🚫 並んでいる車は店舗所有車です。来場者は駐車できません</div>
+        <p class="pk-step-body">
+          並んでいる車はすべて<strong>お店の所有車</strong>です。ここは駐車禁止。さらに奥へ進んでください。
+        </p>
+        <div class="pk-photos single">
+          <div>
+            <img loading="lazy" src="https://leafy-brigadeiros-84e9ce.netlify.app/DSC_0718.JPG" alt="お店の広い駐車場">
+            <p class="pk-photo-cap">ここも駐車禁止（店舗所有車）</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="pk-step">
+        <div class="pk-step-header">
+          <div class="pk-step-num">4</div>
+          <p class="pk-step-label">駐車場に到着！看板が目印です</p>
+        </div>
+        <p class="pk-step-body">
+          <strong>損保ジャパン（赤い看板）</strong>と<strong>三菱モーターズ（黒い看板）</strong>が見えたら到着です。<br>
+          白線はありませんので、<strong>奥から詰めて整列駐車</strong>にご協力ください。<br>
+          周辺に水路がありますので、<strong>足元に十分ご注意ください</strong>。
+        </p>
+        <div class="pk-photos triple">
+          <div>
+            <img loading="lazy" src="https://leafy-brigadeiros-84e9ce.netlify.app/DSC_0720.JPG" alt="駐車場・道路からの見え方">
+            <p class="pk-photo-cap">道路からの見え方</p>
+          </div>
+          <div>
+            <img loading="lazy" src="https://leafy-brigadeiros-84e9ce.netlify.app/DSC_0721.JPG" alt="駐車場全景">
+            <p class="pk-photo-cap"></p>
+          </div>
+          <div>
+            <img loading="lazy" src="https://leafy-brigadeiros-84e9ce.netlify.app/DSC_0722.JPG" alt="三菱モーターズ看板">
+            <p class="pk-photo-cap">三菱モーターズ黒看板</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 5 -->
+      <div class="pk-step">
+        <div class="pk-step-header">
+          <div class="pk-step-num">5</div>
+          <p class="pk-step-label">奥に止まっている車はそのままでOK</p>
+        </div>
+        <p class="pk-step-body">
+          東側の奥に<strong>ナンバープレートのない車</strong>が止まっています。動かない固定車ですので、<strong>近くに寄せて停めていただいて大丈夫</strong>です。奥から詰めてご駐車ください。
+        </p>
+        <div class="pk-photos single">
+          <div>
+            <img loading="lazy" src="https://leafy-brigadeiros-84e9ce.netlify.app/DSC_0723.JPG" alt="東側奥の固定車">
+            <p class="pk-photo-cap">ナンバーなし＝固定車。近くに停めてOK</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 駐車場の注意事項 -->
+    <div class="pk-section">
+      <h2 class="pk-section-title">駐車場をご利用の際のお願い</h2>
+      <div class="pk-notes">
+        <ul>
+          <li>カーポート・事務所前・お店の広い駐車場は<strong>駐車禁止</strong>です</li>
+          <li>白線がないため、<strong>奥から詰めて整列駐車</strong>にご協力ください</li>
+          <li>周辺に<strong>水路があります</strong>。足元に十分ご注意ください</li>
+          <li>夜間の出入りの際は静かにお願いいたします</li>
+          <li>駐車場内での事故・盗難等につきましては、主催者は一切の責任を負いかねます</li>
+          <li>ゴミのお持ち帰りにご協力ください</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- cafe noraへの徒歩ルート -->
+    <div class="pk-section">
+      <h2 class="pk-section-title">臨時駐車場から cafe nora へは来た道を下ってください（徒歩約5分）</h2>
+      <div class="pk-route-steps">
+        
+        
+        
+      </div>
+
+      <div style="margin-top:1.4rem;">
+        <div class="pk-photos">
+          <div>
+            
+            
+          </div>
+          <div>
+            
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- イベント情報 -->
+    <div class="pk-event-box">
+      <p class="pk-event-name">cafe nora LIVE EVENTS</p>
+      <p>
+        開催中のライブイベント情報・ご予約は<br>
+        イベントページをご覧ください。
+      </p>
+      <a href="events.html" class="pk-reserve-btn">イベント一覧を見る →</a>
+    </div>
+
+  </div><!-- /pk-wrap -->
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <p class="footer-logo">cafe nora</p>
+          <p class="footer-tagline">カフェ・ヨガ・ライブイベント</p>
+          <p class="footer-address">〒792-0050 愛媛県新居浜市萩生2133-29</p>
+          <p class="footer-tel"><a href="tel:090-9459-1733">090-9459-1733</a></p>
+        </div>
+        <nav class="footer-nav">
+          <a href="index.html">トップ</a>
+          <a href="cafe.html">カフェ</a>
+          <a href="maruyoga/">ヨガ</a>
+          <a href="events.html">イベント</a>
+          <a href="past-events.html">過去のイベント</a>
+          <a href="access.html">アクセス</a>
+        </nav>
+      </div>
+      <p class="footer-copy">&copy; 2026 cafe nora. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ライトボックス -->
+  <div id="lb-overlay" onclick="closeLb()"><span id="lb-close" onclick="closeLb()">✕</span><img id="lb-img" src="" alt=""></div>
+  <script>
+    document.querySelectorAll('.pk-photos img').forEach(function(img){
+      img.addEventListener('click',function(){
+        document.getElementById('lb-img').src=this.src;
+        document.getElementById('lb-overlay').classList.add('show');
+        document.body.style.overflow='hidden';
+      });
+    });
+    function closeLb(){
+      document.getElementById('lb-overlay').classList.remove('show');
+      document.body.style.overflow='';
+    }
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb();});
+  </script>
+  <script src="js/main.js"></script>
+<script>(function(){var p=new URLSearchParams(location.search);if(p.get("owner")==="nora")localStorage.setItem("nora_owner","1");if(p.get("owner")==="off")localStorage.removeItem("nora_owner");if(!localStorage.getItem("nora_owner"))fetch("https://noratool.pythonanywhere.com/pv?p="+encodeURIComponent(location.pathname)).catch(function(){});})();</script>
+
+</body>
+</html>

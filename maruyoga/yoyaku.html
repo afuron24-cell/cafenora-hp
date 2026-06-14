@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>やさしいヨガ教室 予約フォーム | まるヨガ × リアントゥール</title>
+  <meta name="description" content="新居浜リアントゥールのやさしいヨガ教室（2026年6月24日）の予約フォーム。まるヨガ（MARU YOGA）主催。参加費3,500円。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green-deep:  #2d5a3d;
+      --green-mid:   #4a7c59;
+      --green-light: #7aab88;
+      --green-pale:  #e8f4eb;
+      --green-bg:    #f4faf5;
+      --cream:       #fdfaf6;
+      --text:        #2c2c2c;
+      --text-sub:    #666;
+      --radius:      14px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      color: var(--text);
+      background: var(--green-bg);
+      line-height: 1.85;
+      min-height: 100vh;
+    }
+
+    /* ── ヘッダー ── */
+    header {
+      background: rgba(253,250,246,.97);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid #dde8de;
+      padding: 14px 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      position: sticky; top: 0; z-index: 100;
+    }
+    .logo-wrap { display: flex; flex-direction: column; line-height: 1.2; }
+    .logo-en { font-family: 'Noto Serif JP', serif; font-size: 1.15rem; font-weight: 600; color: var(--green-deep); letter-spacing: .08em; }
+    .logo-jp { font-size: .7rem; color: var(--green-mid); letter-spacing: .12em; }
+    .back-link {
+      color: var(--green-deep); text-decoration: none; font-size: .85rem; font-weight: 500;
+      padding: 6px 14px; border-radius: 20px; border: 1.5px solid var(--green-mid);
+      transition: all .2s;
+    }
+    .back-link:hover { background: var(--green-mid); color: white; }
+
+    /* ── メイン ── */
+    .page-wrap { max-width: 640px; margin: 0 auto; padding: 40px 20px 80px; }
+
+    /* ── ステップバー ── */
+    .steps {
+      display: flex; align-items: center; justify-content: center;
+      gap: 0; margin-bottom: 36px;
+    }
+    .step {
+      display: flex; flex-direction: column; align-items: center; gap: 5px;
+      flex: 1; position: relative;
+    }
+    .step:not(:last-child)::after {
+      content: ''; position: absolute;
+      top: 18px; left: calc(50% + 18px);
+      width: calc(100% - 36px); height: 2px;
+      background: #cce4d0;
+    }
+    .step.active:not(:last-child)::after { background: var(--green-mid); }
+    .step-num {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: #cce4d0; color: var(--green-deep);
+      display: flex; align-items: center; justify-content: center;
+      font-size: .85rem; font-weight: 700; position: relative; z-index: 1;
+    }
+    .step.active .step-num { background: var(--green-deep); color: white; }
+    .step.done .step-num { background: var(--green-mid); color: white; }
+    .step-label { font-size: .72rem; color: var(--text-sub); letter-spacing: .06em; }
+    .step.active .step-label { color: var(--green-deep); font-weight: 600; }
+
+    /* ── ヒーロー帯 ── */
+    .hero-strip {
+      background: linear-gradient(rgba(22,50,32,.78), rgba(22,50,32,.82)), url('../images/liantour_yoga_bg.jpg') center/cover no-repeat;
+      border-radius: var(--radius);
+      padding: 32px 28px; text-align: center; margin-bottom: 20px;
+      color: white;
+    }
+    .hero-leaf { font-size: 2rem; display: block; margin-bottom: 10px; }
+    .hero-strip h1 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(1.3rem, 4vw, 1.75rem);
+      font-weight: 600; letter-spacing: .08em; margin-bottom: 8px;
+    }
+    .hero-strip .hero-date {
+      display: inline-block; background: rgba(255,255,255,.2);
+      border: 1px solid rgba(255,255,255,.4);
+      border-radius: 20px; padding: 4px 16px;
+      font-size: .85rem; letter-spacing: .06em; margin-bottom: 12px;
+    }
+    .hero-strip p { font-size: .86rem; opacity: .88; line-height: 1.9; }
+
+    /* ── イベント情報カード ── */
+    .event-info {
+      background: white; border-radius: var(--radius);
+      box-shadow: 0 2px 16px rgba(45,90,61,.1);
+      padding: 22px 24px; margin-bottom: 20px;
+      border-left: 5px solid var(--green-mid);
+    }
+    .event-info-title {
+      font-size: .78rem; font-weight: 700; letter-spacing: .12em;
+      color: var(--green-mid); text-transform: uppercase; margin-bottom: 14px;
+    }
+    .event-timeline { display: flex; flex-direction: column; gap: 10px; }
+    .event-row { display: flex; align-items: center; gap: 14px; }
+    .event-time {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.05rem; font-weight: 600; color: var(--green-deep);
+      min-width: 52px;
+    }
+    .event-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--green-light); flex-shrink: 0;
+    }
+    .event-label { font-size: .9rem; color: var(--text); }
+    .event-sub { font-size: .78rem; color: var(--text-sub); margin-left: 74px; margin-top: -6px; }
+    .event-fee {
+      margin-top: 14px; padding-top: 14px;
+      border-top: 1px solid var(--green-pale);
+      font-size: .88rem; color: var(--green-deep); font-weight: 600;
+    }
+
+    /* ── カード ── */
+    .card {
+      background: white; border-radius: var(--radius);
+      box-shadow: 0 2px 20px rgba(45,90,61,.08);
+      padding: 36px 32px; margin-bottom: 20px;
+    }
+    @media (max-width: 480px) { .card { padding: 28px 20px; } }
+
+    /* ── フォーム ── */
+    .form-group { margin-bottom: 22px; }
+    .form-group label {
+      display: block; font-size: .87rem; font-weight: 500;
+      color: #444; margin-bottom: 7px; letter-spacing: .03em;
+    }
+    .required {
+      display: inline-block; background: var(--green-mid); color: white;
+      font-size: .68rem; padding: 1px 7px; border-radius: 10px;
+      margin-left: 6px; vertical-align: middle; font-weight: 700;
+    }
+    .optional {
+      display: inline-block; background: #e0ece2; color: var(--green-mid);
+      font-size: .68rem; padding: 1px 7px; border-radius: 10px;
+      margin-left: 6px; vertical-align: middle;
+    }
+    input, select, textarea {
+      width: 100%; padding: 12px 14px;
+      border: 1.5px solid #dde8de; border-radius: 10px;
+      font-family: inherit; font-size: .93rem; color: #333;
+      background: #fafdfa; transition: border-color .2s, box-shadow .2s;
+      -webkit-appearance: none; appearance: none;
+    }
+    input:focus, select:focus, textarea:focus {
+      outline: none; border-color: var(--green-mid);
+      box-shadow: 0 0 0 3px rgba(74,124,89,.12); background: white;
+    }
+    textarea { resize: vertical; min-height: 110px; }
+
+    /* ── ヒント・注記 ── */
+    .form-hint { font-size: .78rem; color: var(--text-sub); margin-top: 5px; }
+    .notice {
+      background: var(--green-pale); border-left: 4px solid var(--green-light);
+      border-radius: 0 10px 10px 0; padding: 13px 16px;
+      font-size: .83rem; color: var(--green-deep); line-height: 1.8;
+      margin-bottom: 24px;
+    }
+
+    /* ── ボタン ── */
+    .btn-next {
+      width: 100%; padding: 15px;
+      background: linear-gradient(135deg, var(--green-deep), var(--green-mid));
+      color: white; border: none; border-radius: 50px;
+      font-family: inherit; font-size: 1rem; font-weight: 700;
+      cursor: pointer; letter-spacing: .08em;
+      box-shadow: 0 4px 16px rgba(45,90,61,.25);
+      transition: opacity .2s, transform .15s;
+    }
+    .btn-next:hover { opacity: .9; transform: translateY(-1px); }
+    .btn-next:disabled { opacity: .6; cursor: not-allowed; transform: none; }
+    .btn-back {
+      width: 100%; padding: 13px;
+      background: transparent; color: var(--green-mid);
+      border: 1.5px solid var(--green-light); border-radius: 50px;
+      font-family: inherit; font-size: .9rem; font-weight: 500;
+      cursor: pointer; transition: background .2s;
+      margin-top: 10px;
+    }
+    .btn-back:hover { background: var(--green-pale); }
+
+    /* ── 確認画面 ── */
+    .confirm-table { width: 100%; border-collapse: collapse; }
+    .confirm-table tr { border-bottom: 1px solid var(--green-pale); }
+    .confirm-table tr:last-child { border-bottom: none; }
+    .confirm-table th {
+      text-align: left; padding: 12px 4px;
+      font-size: .82rem; font-weight: 600; color: var(--green-mid);
+      white-space: nowrap; width: 110px; vertical-align: top;
+    }
+    .confirm-table td {
+      padding: 12px 8px; font-size: .9rem; color: var(--text);
+      word-break: break-word;
+    }
+    .confirm-note {
+      background: var(--green-pale); border-radius: 10px;
+      padding: 16px 18px; margin-top: 20px;
+      font-size: .83rem; color: var(--green-deep); line-height: 1.8;
+    }
+
+    /* ── 完了画面 ── */
+    .complete-wrap { text-align: center; padding: 16px 0; }
+    .complete-icon { font-size: 3.5rem; margin-bottom: 16px; display: block; }
+    .complete-wrap h2 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.5rem; color: var(--green-deep);
+      margin-bottom: 12px; letter-spacing: .06em;
+    }
+    .complete-wrap p { font-size: .9rem; color: var(--text-sub); line-height: 1.9; margin-bottom: 8px; }
+    .complete-btns { display: flex; flex-direction: column; gap: 10px; margin-top: 28px; }
+    .complete-btn-primary {
+      display: block; background: var(--green-deep); color: white;
+      padding: 13px 20px; border-radius: 50px; text-decoration: none;
+      font-weight: 700; font-size: .9rem; text-align: center;
+      transition: opacity .2s;
+    }
+    .complete-btn-primary:hover { opacity: .85; }
+    .complete-btn-outline {
+      display: block; background: transparent; color: var(--green-mid);
+      padding: 11px 20px; border-radius: 50px; text-decoration: none;
+      font-size: .88rem; text-align: center; border: 1.5px solid var(--green-light);
+      transition: background .2s;
+    }
+    .complete-btn-outline:hover { background: var(--green-pale); }
+
+    .hidden { display: none !important; }
+
+    /* ── フッター ── */
+    footer {
+      text-align: center; padding: 24px;
+      font-size: .78rem; color: var(--text-sub);
+    }
+    footer a { color: var(--green-mid); text-decoration: none; }
+  </style>
+  <link rel="canonical" href="https://cafenora.jp/maruyoga/yoyaku.html">
+</head>
+<body>
+
+<header>
+  <div class="logo-wrap">
+    <span class="logo-en">MARU YOGA</span>
+    <span class="logo-jp">出張ヨガ×ランチ 予約フォーム</span>
+  </div>
+  <a href="index.html" class="back-link">← まるヨガへ</a>
+</header>
+
+<div class="page-wrap">
+
+  <!-- ヒーロー -->
+  <div class="hero-strip">
+    <span class="hero-leaf">🌿</span>
+    <h1>やさしいヨガ教室<br>ご予約フォーム</h1>
+    <span class="hero-date">2026年 6月 24日（水）</span>
+    <p>新居浜リアントゥールで開催。<br>ヨガ 10:30〜 ／ ランチ 12:00〜</p>
+  </div>
+
+  <!-- イベント情報 -->
+  <div class="event-info">
+    <p class="event-info-title">当日のスケジュール</p>
+    <div class="event-timeline">
+      <div class="event-row">
+        <span class="event-time">10:30</span>
+        <span class="event-dot"></span>
+        <span class="event-label">ヨガクラス スタート</span>
+      </div>
+      <div class="event-sub">まるヨガ・金丸良子インストラクターによる古典・ハタヨガ</div>
+      <div class="event-row">
+        <span class="event-time">12:00</span>
+        <span class="event-dot"></span>
+        <span class="event-label">ランチタイム</span>
+      </div>
+      <div class="event-sub">リアントゥールのランチをお楽しみください</div>
+    </div>
+    <p class="event-fee">💴 参加費：3,500円（ヨガ＋ランチセット）　📍 会場：新居浜リアントゥール</p>
+  </div>
+
+  <!-- ステップバー -->
+  <div class="steps" id="stepBar">
+    <div class="step active" id="step1Indicator">
+      <div class="step-num">1</div>
+      <div class="step-label">入力</div>
+    </div>
+    <div class="step" id="step2Indicator">
+      <div class="step-num">2</div>
+      <div class="step-label">確認</div>
+    </div>
+    <div class="step" id="step3Indicator">
+      <div class="step-num">3</div>
+      <div class="step-label">完了</div>
+    </div>
+  </div>
+
+  <!-- STEP 1: 入力 -->
+  <div id="formStep1">
+    <div class="card">
+      <div class="notice">
+        🌱 初めての方も大歓迎です。ヨガマットの貸し出しもあります。気になることがあれば何でもメモ欄にお書きください。
+      </div>
+
+      <form id="yogaForm" novalidate>
+        <div class="form-group">
+          <label>お名前 <span class="required">必須</span></label>
+          <input type="text" id="fname" name="name" placeholder="例：金丸 花子" autocomplete="name">
+        </div>
+        <div class="form-group">
+          <label>電話番号 <span class="required">必須</span></label>
+          <input type="tel" id="fphone" name="phone" placeholder="例：090-0000-0000" autocomplete="tel">
+          <p class="form-hint">確認のご連絡にお電話させていただく場合があります</p>
+        </div>
+        <div class="form-group">
+          <label>メールアドレス <span class="required">必須</span></label>
+          <input type="email" id="femail" name="email" placeholder="例：hanako@example.com" autocomplete="email">
+          <p class="form-hint">確認メールをお送りします。迷惑メールフォルダもご確認ください</p>
+        </div>
+        <div class="form-group">
+          <label>ヨガの経験 <span class="optional">任意</span></label>
+          <select id="fexp" name="experience">
+            <option value="">-- 選んでください --</option>
+            <option value="まったくはじめて">まったくはじめて</option>
+            <option value="少し経験あり（数回程度）">少し経験あり（数回程度）</option>
+            <option value="経験あり（定期的に通っていた）">経験あり（定期的に通っていた）</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>ご質問・メッセージ <span class="optional">任意</span></label>
+          <textarea id="fmessage" name="message" placeholder="持ち物のこと、体の状態、ご不安なことなど、なんでもお気軽にどうぞ。"></textarea>
+        </div>
+
+        <button type="button" class="btn-next" onclick="goConfirm()">内容を確認する →</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- STEP 2: 確認 -->
+  <div id="formStep2" class="hidden">
+    <div class="card">
+      <p style="font-size:.9rem; color:var(--text-sub); margin-bottom:20px; text-align:center;">以下の内容でよろしければ「送信する」を押してください。</p>
+      <table class="confirm-table">
+        <tr><th>イベント</th><td>やさしいヨガ教室 at リアントゥール<br><span style="font-size:.82rem; color:var(--text-sub);">2026年6月24日（水）10:30〜 ／ 3,500円</span></td></tr>
+        <tr><th>お名前</th><td id="cfName"></td></tr>
+        <tr><th>電話番号</th><td id="cfPhone"></td></tr>
+        <tr><th>メール</th><td id="cfEmail"></td></tr>
+        <tr><th>ヨガ経験</th><td id="cfExp"></td></tr>
+        <tr><th>メッセージ</th><td id="cfMessage" style="white-space:pre-wrap;"></td></tr>
+      </table>
+      <div class="confirm-note">
+        🌿 送信後、確認メールをお送りします。<br>
+        折り返し、まるヨガ担当よりご連絡いたします（通常1〜2営業日以内）。
+      </div>
+    </div>
+    <button type="button" class="btn-next" id="sendBtn" onclick="sendForm()">送信する ✓</button>
+    <button type="button" class="btn-back" onclick="goBack()">← 入力に戻る</button>
+  </div>
+
+  <!-- STEP 3: 完了 -->
+  <div id="formStep3" class="hidden">
+    <div class="card">
+      <div class="complete-wrap">
+        <span class="complete-icon">🌸</span>
+        <h2>送信が完了しました</h2>
+        <p>リアントゥールヨガ×ランチのご予約、<br>ありがとうございます！</p>
+        <p>確認メールをお送りしましたのでご確認ください。<br>担当よりお返事いたします（通常1〜2営業日以内）。</p>
+        <p style="font-size:.8rem; margin-top:12px; color:#999;">
+          ※ メールが届かない場合は迷惑メールフォルダをご確認ください。<br>
+          それでも届かない場合は <strong>090-9459-1733</strong> までお電話ください。
+        </p>
+        <div class="complete-btns">
+          <a href="index.html" class="complete-btn-primary">🌿 まるヨガのページへ戻る</a>
+          <a href="../index.html" class="complete-btn-outline">☕ cafe nora トップへ</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p>まるヨガ（MARU YOGA）/ <a href="../index.html">cafe nora</a> ｜ 〒792-0050 愛媛県新居浜市萩生2133-29</p>
+  <p style="margin-top:4px;">📞 <a href="tel:090-9459-1733">090-9459-1733</a>（かなまる）</p>
+</footer>
+
+<script>
+const FORMSUBMIT_URL = 'https://formsubmit.co/ajax/cafenora.k@gmail.com';
+
+function setStep(n) {
+  [1,2,3].forEach(i => {
+    document.getElementById('step'+i+'Indicator').className = 'step' + (i < n ? ' done' : i === n ? ' active' : '');
+  });
+  document.getElementById('formStep1').classList.toggle('hidden', n !== 1);
+  document.getElementById('formStep2').classList.toggle('hidden', n !== 2);
+  document.getElementById('formStep3').classList.toggle('hidden', n !== 3);
+  window.scrollTo({top: 0, behavior: "instant"});
+}
+
+function goConfirm() {
+  const name  = document.getElementById('fname').value.trim();
+  const phone = document.getElementById('fphone').value.trim();
+  const email = document.getElementById('femail').value.trim();
+
+  if (!name)  { alert('お名前をご記入ください。'); return; }
+  if (!phone) { alert('電話番号をご記入ください。'); return; }
+  if (!email || !email.includes('@')) { alert('メールアドレスを正しくご記入ください。'); return; }
+
+  document.getElementById('cfName').textContent    = name;
+  document.getElementById('cfPhone').textContent   = phone;
+  document.getElementById('cfEmail').textContent   = email;
+  document.getElementById('cfExp').textContent     = document.getElementById('fexp').value || '（未記入）';
+  document.getElementById('cfMessage').textContent = document.getElementById('fmessage').value.trim() || '（なし）';
+
+  setStep(2);
+}
+
+function goBack() { setStep(1); }
+
+async function sendForm() {
+  const btn = document.getElementById('sendBtn');
+  btn.disabled = true;
+  btn.textContent = '送信中...';
+
+  const data = {
+    _subject: '【やさしいヨガ教室予約】' + document.getElementById('cfName').textContent + ' 様',
+    _captcha: 'false',
+    _autoresponse: 'この度は、出張ヨガ×ランチ at リアントゥールへのご予約をいただきありがとうございます。\n\n【イベント詳細】\n日時：2026年6月24日（水）\nヨガクラス：10:30スタート\nランチタイム：12:00〜\n会場：新居浜リアントゥール\n参加費：3,500円（ヨガ＋ランチセット）\n\n内容を確認次第、担当よりご連絡いたします（通常1〜2営業日以内）。\n\n―まるヨガ（cafe nora 内）―\n〒792-0050 愛媛県新居浜市萩生2133-29\nTEL：090-9459-1733',
+    イベント: 'やさしいヨガ教室 at リアントゥール（2026年6月24日 水曜 10:30〜）',
+    お名前: document.getElementById('cfName').textContent,
+    電話番号: document.getElementById('cfPhone').textContent,
+    メールアドレス: document.getElementById('cfEmail').textContent,
+    ヨガ経験: document.getElementById('cfExp').textContent,
+    メッセージ: document.getElementById('cfMessage').textContent,
+  };
+
+  try {
+    const res = await fetch(FORMSUBMIT_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(data),
+    });
+    if (res.ok) {
+      setStep(3);
+    } else {
+      throw new Error('送信失敗');
+    }
+  } catch {
+    alert('送信に失敗しました。お手数ですが、お電話（090-9459-1733）にてご連絡ください。');
+    btn.disabled = false;
+    btn.textContent = '送信する ✓';
+  }
+}
+</script>
+</body>
+</html>

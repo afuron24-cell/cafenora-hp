@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HP作成代行サービス | cafe nora</title>
+  <meta name="description" content="café noraマスターによるHP作成代行サービス。初期費用¥30,000・月額¥5,000で、café noraクオリティのホームページをお作りします。ドメイン・サーバー・公開まで全てマスターにお任せください。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="canonical" href="https://cafenora.jp/service.html">
+  <style>
+    /* --- service.html 専用スタイル --- */
+    .service-intro {
+      text-align: center;
+      padding: 3rem 1rem 2rem;
+    }
+    .service-intro .catchcopy {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--color-primary-dark);
+      margin: 1.5rem 0 0.5rem;
+      font-family: var(--font-jp);
+    }
+    .service-intro .sub-copy {
+      font-size: 1rem;
+      color: var(--color-text-light);
+    }
+
+    .portfolio-card {
+      background: var(--color-white);
+      border: 2px solid var(--color-primary-light);
+      border-radius: var(--radius);
+      padding: 2.5rem 2rem;
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+    .portfolio-card p {
+      color: var(--color-text);
+      margin-bottom: 1rem;
+      line-height: 2;
+    }
+    .portfolio-card .btn-primary {
+      margin-top: 1rem;
+    }
+
+    .use-cases-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.2rem;
+      margin-top: 2rem;
+    }
+    .use-case-item {
+      background: var(--color-white);
+      border-left: 4px solid var(--color-primary);
+      border-radius: var(--radius-sm);
+      padding: 1.2rem 1.5rem;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      box-shadow: var(--shadow);
+    }
+
+    .phase-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.8rem;
+      margin-top: 2.5rem;
+    }
+    .phase-card {
+      background: var(--color-white);
+      border-radius: var(--radius);
+      padding: 2rem 1.8rem;
+      box-shadow: var(--shadow);
+      border-top: 4px solid var(--color-primary);
+    }
+    .phase-card.phase-free {
+      border-top-color: var(--color-primary-light);
+    }
+    .phase-card.phase-main {
+      border-top-color: var(--color-accent);
+    }
+    .phase-card.phase-monthly {
+      border-top-color: var(--color-primary-dark);
+    }
+    .phase-card h4 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+      color: var(--color-text);
+    }
+    .phase-price {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--color-accent);
+      margin: 0.5rem 0 1rem;
+      font-family: var(--font-en);
+    }
+    .phase-free .phase-price {
+      color: var(--color-primary-dark);
+      font-size: 1.3rem;
+    }
+    .phase-desc {
+      font-size: 0.85rem;
+      color: var(--color-text-light);
+      margin-bottom: 0.8rem;
+    }
+    .phase-list {
+      list-style: none;
+      padding: 0;
+    }
+    .phase-list li {
+      font-size: 0.9rem;
+      padding: 0.35rem 0;
+      border-bottom: 1px solid var(--color-beige-light);
+      color: var(--color-text);
+    }
+    .phase-list li:last-child {
+      border-bottom: none;
+    }
+
+    .omakase-box {
+      background: var(--color-white);
+      border: 2px solid var(--color-primary-light);
+      border-radius: var(--radius);
+      padding: 2.5rem 2rem;
+      max-width: 720px;
+      margin: 2rem auto 0;
+      box-shadow: var(--shadow);
+    }
+    .omakase-box h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--color-primary-dark);
+      margin-bottom: 1.2rem;
+      text-align: center;
+    }
+    .omakase-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    @media (max-width: 600px) {
+      .omakase-cols { grid-template-columns: 1fr; gap: 1.2rem; }
+    }
+    .omakase-col h4 {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--color-text-light);
+      margin-bottom: 0.8rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid var(--color-beige);
+    }
+    .omakase-list {
+      list-style: none;
+      padding: 0;
+    }
+    .omakase-list li {
+      font-size: 0.88rem;
+      padding: 0.3rem 0;
+      color: var(--color-text);
+      line-height: 1.6;
+    }
+    .omakase-note {
+      text-align: center;
+      font-size: 0.88rem;
+      color: var(--color-text-light);
+      margin-top: 1.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid var(--color-beige-light);
+    }
+
+    .update-box {
+      background: var(--color-base-warm);
+      border-radius: var(--radius);
+      padding: 2.5rem 2rem;
+      max-width: 640px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .update-box .update-lead {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--color-primary-dark);
+      margin-bottom: 1.5rem;
+    }
+    .update-list {
+      list-style: none;
+      padding: 0;
+      text-align: left;
+      display: inline-block;
+    }
+    .update-list li {
+      font-size: 0.95rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--color-beige);
+      color: var(--color-text);
+    }
+    .update-list li:last-child {
+      border-bottom: none;
+    }
+    .update-note {
+      font-size: 0.88rem;
+      color: var(--color-text-light);
+      margin-top: 1.2rem;
+    }
+
+    .faq-list {
+      max-width: 720px;
+      margin: 2rem auto 0;
+    }
+    .faq-item {
+      border-bottom: 1px solid var(--color-beige);
+      padding: 1.8rem 0;
+    }
+    .faq-q {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--color-primary-dark);
+      margin-bottom: 0.8rem;
+    }
+    .faq-q::before {
+      content: "Q. ";
+      color: var(--color-accent);
+    }
+    .faq-a {
+      font-size: 0.95rem;
+      color: var(--color-text);
+      line-height: 1.9;
+    }
+
+    .contact-box {
+      background: var(--color-base-warm);
+      border-radius: var(--radius);
+      padding: 3rem 2rem;
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .contact-box p {
+      margin-bottom: 0.8rem;
+      color: var(--color-text);
+    }
+    .contact-box .btn-primary {
+      margin-top: 1.5rem;
+    }
+
+    @media (max-width: 600px) {
+      .service-intro .catchcopy { font-size: 1.2rem; }
+      .phase-price { font-size: 1.3rem; }
+      .phase-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#7a9e7e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="cafe nora">
+  <link rel="apple-touch-icon" href="/images/icon-192.png">
+  <script src=https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js defer></script>
+  <script>
+    window.OneSignalDeferred = window.OneSignalDeferred || [];
+    OneSignalDeferred.push(function(OneSignal) {
+      OneSignal.init({
+        appId: 'f214c199-2cb9-4e02-90d4-91ca8462d321',
+        notifyButton: { enable: false }
+      });
+    });
+  </script>
+</head>
+<body>
+  <header class="header" id="header">
+    <div class="header-inner">
+      <div class="header-left"><a href="index.html" class="logo">
+        <span class="logo-en">cafe nora</span>
+        <span class="logo-jp">カフェ ノラ</span>
+      </a><a href="parking-zahatorte.html" class="parking-badge">🚗 臨時駐車場</a></div>
+      <button class="menu-btn" id="menuBtn" aria-label="メニューを開く">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav" id="nav">
+        <ul class="nav-list">
+          <li><a href="index.html">トップ</a></li>
+          <li><a href="cafe.html">カフェ</a></li>
+          <li><a href="calendar.html">カレンダー</a></li>
+          <li><a href="events.html">イベント</a></li>
+          <li><a href="popup.html">出店情報</a></li>
+          <li><a href="access.html">アクセス</a></li>
+          <li><a href="service.html" class="active">HP制作</a></li>
+          <li><a href="notifications.html">お知らせ</a></li>
+          <li><a href="contact.html">お問い合わせ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ページヒーロー -->
+  <div class="page-hero-plain">
+    <h1 class="page-hero-en">Service</h1>
+    <p class="page-hero-jp">HP作成代行</p>
+  </div>
+
+  <!-- Section 1: イントロ -->
+  <section class="section">
+    <div class="container">
+      <div class="service-intro fade-in">
+        <p class="section-lead">cafe noraマスターがお手伝いします</p>
+        <p class="catchcopy">「このレベルのHP、作ります」</p>
+        <p class="sub-copy" style="text-align:center">このカフェのHPを、夜な夜な時間をかけて<br>丁寧に作りました。<br>同じ気持ちで、あなたのお店のHPも<br>一緒に作ります。<br>ドメイン取得・サーバー構築・公開まで、<br>全てお任せください。</p>
+        <p style="margin-top:1.5rem;display:inline-block;background:#fff3cd;color:#856404;font-size:0.88rem;font-weight:700;padding:0.5rem 1.2rem;border-radius:20px;border:1px solid #ffc107">📋 月3件まで受付 <br>丁寧に仕上げるため件数を限定しています</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: ポートフォリオ -->
+  <section class="section bg-warm">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2 class="section-title">実績：cafe nora</h2>
+        <p class="section-lead">このサイト自体が、完成形のサンプルです。</p>
+      </div>
+      <div class="portfolio-card fade-in">
+        <p>ライブ情報・マルシェ・<br>ランチメニュー……<br><br>          お客さんが見たい情報を、<br>          スマホのホーム画面に追加して<br>          いつでも見られるサイト。</p>
+        <p>
+          このレベルのHP、<br>
+          あなたのお店・事業にも作ります。
+        </p>
+        <a href="https://cafenora.jp" target="_blank" rel="noopener noreferrer" class="btn-primary">café nora を見る →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: こんなご要望に -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2 class="section-title">こんなご要望に対応</h2>
+      </div>
+      <div class="use-cases-list fade-in">
+        <div class="use-case-item">マルシェを開いてるから HPで告知したい</div>
+        <div class="use-case-item">スマホでも見やすいサイトが欲しい</div>
+        <div class="use-case-item">「自分たちらしさ」が伝わるデザインにしたい</div>
+        <div class="use-case-item">気軽に相談できる人に全部任せたい</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: サービスの流れ -->
+  <section class="section bg-warm">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2 class="section-title">サービスの流れ</h2>
+        <p class="section-lead">3つのフェーズで、安心してスタートできます。</p>
+      </div>
+      <div class="phase-grid fade-in">
+        <div class="phase-card phase-free">
+          <h4>🆓 Phase 1：無料試作</h4>
+          <p class="phase-price">無料</p>
+          <ul class="phase-list">
+            <li>LP 1ページ（café noraのような雰囲気）</li>
+            <li>納期：2〜3週間</li>
+            <li>修正：2回まで</li>
+            <li>完成後「使う／使わない」を判定</li>
+          </ul>
+        </div>
+        <div class="phase-card phase-main">
+          <h4>💰 Phase 2：本格版制作</h4>
+          <p class="phase-price">¥30,000</p>
+          <p class="phase-desc">初回特別価格・制作＆セットアップ一式</p>
+          <ul class="phase-list">
+            <li>✅ 5〜6ページ制作</li>
+            <li>✅ スマホ対応</li>
+            <li>✅ 問い合わせフォーム</li>
+            <li>✅ café noraのクオリティ</li>
+            <li>✅ ドメイン取得・設定（マスター代行）</li>
+            <li>✅ サーバー・SSL設定</li>
+            <li>✅ テスト・調整・公開作業</li>
+          </ul>
+        </div>
+        <div class="phase-card phase-monthly">
+          <h4>📅 Phase 3：月額運用保守</h4>
+          <p class="phase-price">¥5,000/月</p>
+          <p class="phase-desc">以下をすべて含みます</p>
+          <ul class="phase-list">
+            <li>✅ ドメイン・サーバー・SSL維持管理</li>
+            <li>✅ セキュリティアップデート</li>
+            <li>✅ 自動バックアップ</li>
+            <li>✅ 月10回までの修正・更新対応（無料）</li>
+            <li>✅ メール・電話サポート</li>
+            <li>※ 11回目以降の修正は ¥1,000/回</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA mid 1 -->
+  <section class="section" style="padding:1.5rem 0">
+    <div class="container" style="text-align:center">
+      <a href="#hp-contact-form" class="btn-primary" style="font-size:1rem;padding:0.9rem 2.5rem">まず無料試作を相談する →</a>
+      <p style="margin-top:0.8rem;font-size:0.82rem;color:var(--color-text-light)">返信無料・押し売りなし・気軽にどうぞ</p>
+    </div>
+  </section>
+
+  <!-- Section 5: マスターが全てお任せ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2 class="section-title">マスターが全てお手伝いします</h2>
+        <p class="section-lead">あなたは情報を提供するだけで大丈夫。面倒なことは全部まかせてください。</p>
+      </div>
+      <div class="omakase-box fade-in">
+        <h3>あなたがご用意するもの / マスターがやること</h3>
+        <div class="omakase-cols">
+          <div class="omakase-col">
+            <h4>📋 あなたがご用意するもの</h4>
+            <ul class="omakase-list">
+              <li>✅ HPに載せたいテキスト・文章</li>
+              <li>✅ 商品・店舗・スタッフの写真</li>
+              <li>✅ ロゴ・ブランドカラー（あれば）</li>
+              <li>✅ 営業時間・アクセス・メニュー等</li>
+              <li>✅ 「こんな感じにしたい」という要望</li>
+              <li>✅ 修正・変更の指示</li>
+            </ul>
+          </div>
+          <div class="omakase-col">
+            <h4>🛠 マスターが全てやること</h4>
+            <ul class="omakase-list">
+              <li>✅ ドメイン取得・設定</li>
+              <li>✅ サーバー構築・SSL設定</li>
+              <li>✅ HP設計・デザイン・コーディング</li>
+              <li>✅ 写真編集・配置</li>
+              <li>✅ フォーム機能の実装</li>
+              <li>✅ SEO設定</li>
+              <li>✅ テスト・調整・公開作業</li>
+              <li>✅ 公開後の修正対応</li>
+            </ul>
+          </div>
+        </div>
+        <p class="omakase-note">
+          「HTMLって何？」という方でも大丈夫。<br>
+          技術的なことは全部マスターにお任せください。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6: 修正・変更について -->
+  <section class="section bg-warm">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2 class="section-title">修正・変更はいつでもご依頼ください</h2>
+        <p class="section-lead">公開後も、気になることがあればお気軽にご連絡ください。マスターが対応します。</p>
+      </div>
+      <div class="update-box fade-in">
+        <p class="update-lead">こんな変更も、ご連絡いただければすぐ対応</p>
+        <ul class="update-list">
+          <li>📅 営業時間が変わった → ご連絡ください（月10回まで無料）</li>
+          <li>🎪 イベント情報を追加したい → ご連絡ください（月10回まで無料）</li>
+          <li>📸 商品写真を新しくしたい → ご連絡ください（月10回まで無料）</li>
+          <li>✉️ メニューの内容を変えたい → ご連絡ください（月10回まで無料）</li>
+        </ul>
+        <p class="update-note">月10回を超える修正は ¥1,000/回 となります。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA mid 2 -->
+  <section class="section" style="padding:1.5rem 0">
+    <div class="container" style="text-align:center">
+      <a href="#hp-contact-form" class="btn-primary" style="font-size:1rem;padding:0.9rem 2.5rem">まず無料試作を相談する →</a>
+      <p style="margin-top:0.8rem;font-size:0.82rem;color:var(--color-text-light)">返信無料・押し売りなし・気軽にどうぞ</p>
+    </div>
+  </section>
+
+  <!-- Section 7: よくある質問 -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2 class="section-title">よくある質問</h2>
+      </div>
+      <div class="faq-list fade-in">
+        <div class="faq-item">
+          <p class="faq-q">カフェのマスターに頼んで大丈夫ですか？</p>
+          <p class="faq-a">今見ているこのサイトが、実績そのものです。デザイン・文章・構成・公開まで、全てマスターが手をかけて作りました。まずここを見てから判断してください。</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">SNSがあればHPはいらないのでは？</p>
+          <p class="faq-a">SNSは「流れてくる人」に届きます。HPは「探している人」に届きます。「新居浜 ヨガ」「新居浜 カフェ ランチ」のように、あなたのお店を探している人が、HPがあることで初めて出会えます。両方あると強いです。</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">無料試作が気に入らなかったら？</p>
+          <p class="faq-a">「使いません」で終わりです。費用は一切かかりません。気に入ったときだけ、本格版に進んでください。</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">制作期間はどのくらいかかりますか？</p>
+          <p class="faq-a">無料試作：2〜3週間、本格版：3〜4週間が目安です。写真や文章など、情報をいただけるほど早く仕上がります。</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">月額 ¥5,000 に含まれるものは？</p>
+          <p class="faq-a">ドメイン・サーバー・SSL維持管理、セキュリティアップデート、自動バックアップ、月10回までの修正・更新対応、メール・電話サポートを全て含みます。別途費用が発生することはありません。</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">ドメインは自分で用意が必要ですか？</p>
+          <p class="faq-a">不要です。「どんなドメイン名にしたいか」を教えていただければ、取得から設定まで全てマスターが代行します。</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">まず相談だけしたい場合は？</p>
+          <p class="faq-a">このページのフォームからどうぞ。返信は無料です。または café nora に来て、コーヒーを飲みながら話してもらうのが一番早いです。「HPのこと相談したい」と声をかけてください。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 8: HP代行専用お問い合わせフォーム -->
+  <section class="section bg-warm">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2 class="section-title">ご相談・お問い合わせ</h2>
+        <p class="section-lead">返信は無料・お気軽にどうぞ。何個でもチェックしてください。</p>
+      </div>
+
+      <div class="omakase-box fade-in" id="hp-contact-form" style="max-width:780px">
+        <!-- 送信完了メッセージ -->
+        <div id="form-done" style="display:none;text-align:center;padding:2rem">
+          <p style="font-size:1.6rem;margin-bottom:1rem">✅</p>
+          <p style="font-weight:700;font-size:1.1rem;color:var(--color-primary-dark)">送信できました！</p>
+          <p style="margin-top:0.8rem;font-size:0.95rem;color:var(--color-text-light)">マスターから折り返しご連絡します。<br>お気軽にお待ちください。</p>
+        </div>
+
+        <form id="hpForm" onsubmit="submitHpForm(event)">
+
+          <!-- ご相談の内容 -->
+          <fieldset style="border:none;margin-bottom:1.8rem">
+            <legend style="font-weight:700;font-size:1rem;color:var(--color-primary-dark);margin-bottom:0.9rem">📌 ご相談の内容（複数選択OK）</legend>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0.5rem">
+              <label class="ck-label"><input type="checkbox" name="topics" value="新しくHPを作りたい"> 新しくHPを作りたい</label>
+              <label class="ck-label"><input type="checkbox" name="topics" value="HPをリニューアルしたい（Jimdo・WordPress等）"> HPをリニューアルしたい（Jimdo等）</label>
+              <label class="ck-label"><input type="checkbox" name="topics" value="イベント・マルシェ告知ページが欲しい"> イベント・マルシェ告知ページが欲しい</label>
+              <label class="ck-label"><input type="checkbox" name="topics" value="メニューや予約フォームを付けたい"> メニューや予約フォームを付けたい</label>
+              <label class="ck-label"><input type="checkbox" name="topics" value="インスタ・SNSと連携させたい"> インスタ・SNSと連携させたい</label>
+              <label class="ck-label"><input type="checkbox" name="topics" value="Google検索に強くしたい（SEO）"> Google検索に強くしたい（SEO）</label>
+              <label class="ck-label"><input type="checkbox" name="topics" value="スマホでも見やすいサイトにしたい"> スマホでも見やすいサイトにしたい</label>
+              <label class="ck-label"><input type="checkbox" name="topics" value="まず見積もり・費用を知りたい"> まず見積もり・費用だけ知りたい</label>
+            </div>
+          </fieldset>
+
+          <!-- お店の種類 -->
+          <fieldset style="border:none;margin-bottom:1.8rem">
+            <legend style="font-weight:700;font-size:1rem;color:var(--color-primary-dark);margin-bottom:0.9rem">🏪 お店・事業の種類（複数選択OK）</legend>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0.5rem">
+              <label class="ck-label"><input type="checkbox" name="topics" value="カフェ・飲食店"> カフェ・飲食店</label>
+              <label class="ck-label"><input type="checkbox" name="topics" value="ヨガ・フィットネス"> ヨガ・フィットネス</label>
+              <label class="ck-label"><input type="checkbox" name="topics" value="マルシェ・ハンドメイド・作家活動"> マルシェ・ハンドメイド</label>
+              <label class="ck-label"><input type="checkbox" name="topics" value="美容サロン"> 美容サロン</label>
+              <label class="ck-label"><input type="checkbox" name="topics" value="教室・スクール"> 教室・スクール</label>
+              <label class="ck-label"><input type="checkbox" name="topics" value="その他の事業"> その他</label>
+            </div>
+          </fieldset>
+
+          <!-- 2カラム：予算・時期 -->
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:1.8rem">
+            <fieldset style="border:none">
+              <legend style="font-weight:700;font-size:1rem;color:var(--color-primary-dark);margin-bottom:0.9rem">💰 ご予算の目安</legend>
+              <div style="display:flex;flex-direction:column;gap:0.4rem">
+                <label class="ck-label"><input type="radio" name="budget" value="まず無料試作で見てみたい"> まず無料試作で見てみたい</label>
+                <label class="ck-label"><input type="radio" name="budget" value="¥30,000くらいまで"> ¥30,000くらいまで</label>
+                <label class="ck-label"><input type="radio" name="budget" value="月額込みで長く付き合いたい"> 月額込みで長く付き合いたい</label>
+                <label class="ck-label"><input type="radio" name="budget" value="まだわからない"> まだわからない</label>
+              </div>
+            </fieldset>
+            <fieldset style="border:none">
+              <legend style="font-weight:700;font-size:1rem;color:var(--color-primary-dark);margin-bottom:0.9rem">📅 希望の公開時期</legend>
+              <div style="display:flex;flex-direction:column;gap:0.4rem">
+                <label class="ck-label"><input type="radio" name="timeline" value="なるべく早く"> なるべく早く</label>
+                <label class="ck-label"><input type="radio" name="timeline" value="1〜2ヶ月以内"> 1〜2ヶ月以内</label>
+                <label class="ck-label"><input type="radio" name="timeline" value="3ヶ月以内"> 3ヶ月以内</label>
+                <label class="ck-label"><input type="radio" name="timeline" value="まだ未定"> まだ未定</label>
+              </div>
+            </fieldset>
+          </div>
+
+          <!-- 自由記入 -->
+          <div style="margin-bottom:1.5rem">
+            <label style="font-weight:700;font-size:1rem;color:var(--color-primary-dark);display:block;margin-bottom:0.6rem">✏️ ご質問・その他ご要望（任意）</label>
+            <textarea name="message" placeholder="「参考にしたいサイトがある」「カフェに来て直接話したい」など、なんでもどうぞ。" style="width:100%;border:1px solid var(--color-beige);border-radius:var(--radius-sm);padding:0.8rem;font-size:0.9rem;line-height:1.7;resize:vertical;min-height:90px;font-family:inherit"></textarea>
+          </div>
+
+          <!-- 連絡先 -->
+          <div style="background:var(--color-base-warm);border-radius:var(--radius-sm);padding:1.2rem;margin-bottom:1.5rem">
+            <p style="font-weight:700;font-size:1rem;color:var(--color-primary-dark);margin-bottom:0.9rem">📬 ご連絡先</p>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+              <div>
+                <label style="font-size:0.85rem;color:var(--color-text-light);display:block;margin-bottom:4px">お名前 <span style="color:#c0392b">必須</span></label>
+                <input type="text" name="name" required placeholder="山田 花子" style="width:100%;border:1px solid var(--color-beige);border-radius:var(--radius-sm);padding:0.6rem 0.8rem;font-size:0.9rem;font-family:inherit">
+              </div>
+              <div>
+                <label style="font-size:0.85rem;color:var(--color-text-light);display:block;margin-bottom:4px">メールアドレス <span style="color:#c0392b">必須</span></label>
+                <input type="email" name="email" required placeholder="example@email.com" style="width:100%;border:1px solid var(--color-beige);border-radius:var(--radius-sm);padding:0.6rem 0.8rem;font-size:0.9rem;font-family:inherit">
+              </div>
+            </div>
+            <div style="margin-top:0.8rem">
+              <label style="font-size:0.85rem;color:var(--color-text-light);display:block;margin-bottom:4px">電話番号（任意）</label>
+              <input type="tel" name="tel" placeholder="090-0000-0000" style="width:200px;border:1px solid var(--color-beige);border-radius:var(--radius-sm);padding:0.6rem 0.8rem;font-size:0.9rem;font-family:inherit">
+            </div>
+          </div>
+
+          <div style="text-align:center">
+            <button type="submit" class="btn-primary" id="submitBtn" style="font-size:1rem;padding:0.9rem 2.5rem">
+              送信する（返信無料）→
+            </button>
+            <p id="form-err" style="display:none;color:#c0392b;margin-top:0.8rem;font-size:0.88rem"></p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .ck-label {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      padding: 0.5rem 0.8rem;
+      border: 1px solid var(--color-beige);
+      border-radius: var(--radius-sm);
+      background: var(--color-white);
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s;
+      line-height: 1.4;
+    }
+    .ck-label:hover { background: var(--color-base-warm); border-color: var(--color-primary-light); }
+    .ck-label input[type="checkbox"]:checked + *,
+    .ck-label input[type="radio"]:checked + * { color: var(--color-primary-dark); font-weight: 600; }
+    .ck-label:has(input:checked) { background: #f0ebe4; border-color: var(--color-primary); }
+    @media (max-width:600px) {
+      #hpForm > div[style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
+    }
+  </style>
+
+  <script>
+  async function submitHpForm(e) {
+    e.preventDefault();
+    const form = e.target;
+    const btn  = document.getElementById('submitBtn');
+    const err  = document.getElementById('form-err');
+    err.style.display = 'none';
+    btn.disabled = true;
+    btn.textContent = '送信中...';
+
+    const data = {
+      type: 'hp_daiko',
+      name:     form.name.value.trim(),
+      email:    form.email.value.trim(),
+      tel:      form.tel.value.trim(),
+      topics:   [...form.querySelectorAll('input[name="topics"]:checked')].map(c => c.value),
+      budget:   (form.querySelector('input[name="budget"]:checked') || {}).value || '',
+      timeline: (form.querySelector('input[name="timeline"]:checked') || {}).value || '',
+      message:  form.message.value.trim(),
+    };
+
+    try {
+      const r = await fetch('https://noratool.pythonanywhere.com/contact/submit', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(data),
+      });
+      if (r.ok) {
+        form.style.display = 'none';
+        document.getElementById('form-done').style.display = 'block';
+      } else {
+        throw new Error('送信に失敗しました');
+      }
+    } catch(ex) {
+      err.textContent = '送信に失敗しました。お手数ですが、直接カフェにお越しいただくか、Instagramよりご連絡ください。';
+      err.style.display = 'block';
+      btn.disabled = false;
+      btn.textContent = '送信する（返信無料）→';
+    }
+  }
+  </script>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <p class="footer-logo">cafe nora</p>
+          <p class="footer-tagline">カフェ・ヨガ・ライブイベント</p>
+          <p class="footer-address">〒792-0050 愛媛県新居浜市萩生2133-29</p>
+          <p class="footer-tel"><a href="tel:090-9459-1733">090-9459-1733</a></p>
+        </div>
+        <nav class="footer-nav">
+          <a href="index.html">トップ</a>
+          <a href="cafe.html">カフェ</a>
+          <a href="events.html">イベント</a>
+          <a href="past-events.html">過去のイベント</a>
+          <a href="access.html">アクセス</a>
+          <a href="service.html">HP制作</a>
+        </nav>
+      </div>
+      <p class="footer-copy">&copy; 2026 cafe nora. All rights reserved. <a href="flyer-login.html" style="color:rgba(255,255,255,0.2); margin-left:1rem; font-size:0.75rem; text-decoration:none;" title="管理者">🔒</a></p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>(function(){var p=new URLSearchParams(location.search);if(p.get("owner")==="nora")localStorage.setItem("nora_owner","1");if(p.get("owner")==="off")localStorage.removeItem("nora_owner");if(!localStorage.getItem("nora_owner"))fetch("https://noratool.pythonanywhere.com/pv?p="+encodeURIComponent(location.pathname)).catch(function(){});})();</script>
+
+</body>
+</html>

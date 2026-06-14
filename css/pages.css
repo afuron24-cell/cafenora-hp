@@ -1,0 +1,321 @@
+/* =============================================
+   pages.css — カフェ・ヨガ・アクセス共通スタイル
+   ============================================= */
+
+/* ページヘッダー（共通） */
+.page-hero-plain {
+  background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-brown) 100%);
+  padding: 8rem 1.5rem 4rem;
+  text-align: center;
+  color: var(--color-white);
+}
+.page-hero-en {
+  font-family: var(--font-en);
+  font-size: clamp(2.5rem, 7vw, 4.5rem);
+  letter-spacing: 0.08em;
+  font-style: italic;
+  margin-bottom: 0.3rem;
+}
+.page-hero-jp {
+  font-size: 0.85rem;
+  letter-spacing: 0.25em;
+  opacity: 0.75;
+}
+
+/* アクセスページ */
+.access-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+  margin-bottom: 4rem;
+}
+
+/* カフェ・ヨガページ: フィーチャーブロック */
+.cafe-feature {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.cafe-feature-img {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background-color: var(--color-beige-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow);
+}
+.cafe-feature-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.cafe-feature-fallback {
+  font-size: 4rem;
+  opacity: 0.3;
+  position: absolute;
+}
+.cafe-feature-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+.cafe-feature-text {
+  font-size: 0.93rem;
+  color: var(--color-text-light);
+  line-height: 2;
+}
+
+/* メニューカテゴリ */
+.menu-categories {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+.menu-category {
+  background-color: var(--color-white);
+  border-radius: var(--radius);
+  padding: 1.8rem;
+  box-shadow: var(--shadow);
+}
+.menu-cat-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  margin-bottom: 1rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 2px solid var(--color-beige);
+}
+.menu-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+.menu-list li {
+  font-size: 0.9rem;
+  color: var(--color-text);
+  padding-left: 1rem;
+  position: relative;
+}
+.menu-list li::before {
+  content: "・";
+  position: absolute;
+  left: 0;
+  color: var(--color-primary);
+}
+.menu-note {
+  font-size: 0.78rem;
+  color: var(--color-text-light);
+}
+.menu-avail {
+  font-size: 0.78rem;
+  color: var(--color-accent);
+  margin-top: auto;
+}
+.cafe-notice {
+  background-color: var(--color-base-warm);
+  border-radius: var(--radius-sm);
+  padding: 1.2rem 1.5rem;
+  font-size: 0.88rem;
+  color: var(--color-text-light);
+  border-left: 3px solid var(--color-primary-light);
+}
+.cafe-notice a {
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
+/* ヨガインストラクター */
+.instructor-card {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 2.5rem;
+  align-items: center;
+  background-color: var(--color-white);
+  border-radius: var(--radius);
+  padding: 2.5rem;
+  box-shadow: var(--shadow);
+  margin-bottom: 2rem;
+}
+.instructor-img {
+  position: relative;
+  border-radius: 50%;
+  overflow: hidden;
+  aspect-ratio: 1;
+  background-color: var(--color-beige-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.instructor-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.instructor-name {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  margin-bottom: 0.3rem;
+}
+.instructor-role {
+  font-size: 0.82rem;
+  color: var(--color-text-light);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+}
+.instructor-bio {
+  font-size: 0.92rem;
+  color: var(--color-text-light);
+  line-height: 2;
+}
+
+/* ヨガ：準備中ボックス */
+.yoga-coming-soon {
+  background-color: var(--color-base-warm);
+  border-radius: var(--radius);
+  padding: 2.5rem;
+  text-align: center;
+  color: var(--color-text-light);
+  font-size: 0.95rem;
+  line-height: 2;
+  margin-bottom: 2rem;
+}
+.coming-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.8rem;
+}
+.yoga-contact {
+  margin-top: 0.5rem;
+}
+.yoga-contact a {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+/* 過去のイベント：プレースホルダー */
+.past-events-placeholder {
+  text-align: center;
+  padding: 5rem 2rem;
+  color: var(--color-text-light);
+  font-size: 0.95rem;
+  line-height: 2;
+}
+.placeholder-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+/* レスポンシブ */
+@media (max-width: 860px) {
+  .access-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .cafe-feature {
+    grid-template-columns: 1fr;
+  }
+  .menu-categories {
+    grid-template-columns: 1fr;
+  }
+  .instructor-card {
+    grid-template-columns: 140px 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .instructor-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .instructor-img {
+    width: 140px;
+    margin: 0 auto;
+  }
+}
+
+/* メニュー価格タグ */
+.menu-price-tag {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  margin-bottom: 0.8rem;
+  letter-spacing: 0.03em;
+}
+
+/* セット情報ボックス */
+.menu-set-info {
+  background-color: var(--color-base-warm);
+  border-radius: var(--radius-sm);
+  padding: 0.7rem 0.9rem;
+  margin: 0.8rem 0;
+  font-size: 0.88rem;
+  line-height: 1.9;
+  border-left: 3px solid var(--color-accent-light);
+}
+.menu-set-info strong { color: var(--color-accent); }
+
+/* テイクアウト補足メモ */
+.menu-note-block {
+  font-size: 0.83rem;
+  color: var(--color-text-light);
+  margin-top: 0.8rem;
+  line-height: 1.8;
+}
+
+/* もっと見るボックス */
+.menu-more-box {
+  background-color: var(--color-base-warm);
+  border-radius: var(--radius);
+  padding: 2rem;
+  text-align: center;
+  margin: 2rem 0;
+}
+.menu-more-text {
+  font-size: 0.92rem;
+  color: var(--color-text-light);
+  line-height: 2;
+  margin-bottom: 1.2rem;
+}
+
+/* スマホ：メニューカテゴリ */
+@media (max-width: 768px) {
+  .menu-categories { grid-template-columns: 1fr; }
+  .menu-cat-title { font-size: 0.95rem; }
+  .menu-list li { font-size: 0.88rem; }
+  .menu-price-tag { font-size: 1rem; }
+  .cafe-feature { grid-template-columns: 1fr; }
+  .cafe-feature-title { font-size: 1.2rem; }
+  .cafe-feature-text { font-size: 0.875rem; } /* 22字×14px=308px ≦ 360px端末コンテンツ幅 */
+}
+
+/* コーヒー豆価格テーブル */
+.bean-price-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.5rem;
+}
+.bean-price-table td {
+  padding: 0.6rem 0.5rem;
+  border-bottom: 1px solid var(--color-beige-light);
+  font-size: 0.95rem;
+  color: var(--color-text);
+}
+.bean-price-table td.bean-price {
+  text-align: right;
+  font-weight: 500;
+  color: var(--color-primary-dark);
+  white-space: nowrap;
+}

@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HP作成代行サービス | cafe nora</title>
+  <meta name="description" content="cafe noraマスターによるHP作成代行サービス。初期費用¥20,000・月額¥5,000で、cafe noraクオリティのホームページをお作りします。ドメイン・サーバー・公開まで全てマスターにお任せください。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="canonical" href="https://cafenora.jp/service.html">
+  <style>
+    :root {
+      --dk:    #0e0c09;
+      --dk-m:  #1e1a14;
+      --dk-l:  #2e2820;
+      --gold:  #c8a96e;
+      --gold-l:#e8d4a8;
+      --cream: #faf6f0;
+      --text:  #2c2018;
+      --sub:   rgba(255,255,255,.6);
+    }
+
+    /* ── リセット ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Noto Sans JP', sans-serif; color: var(--text); background: var(--cream); line-height: 1.85; overflow-x: hidden; }
+
+    /* ── ヘッダー ── */
+    .header { position: sticky; top: 0; z-index: 200; background: rgba(14,12,9,.94); backdrop-filter: blur(10px); padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; }
+    .header-logo { font-family: 'Noto Serif JP', serif; font-size: 1rem; font-weight: 600; color: white; letter-spacing: .12em; text-decoration: none; }
+    .header-logo span { display: block; font-size: .6rem; color: rgba(255,255,255,.45); letter-spacing: .18em; font-weight: 300; }
+    .header-nav a { color: rgba(255,255,255,.75); text-decoration: none; font-size: .8rem; padding: 6px 14px; border: 1px solid rgba(255,255,255,.25); border-radius: 20px; transition: all .2s; }
+    .header-nav a:hover { background: rgba(255,255,255,.1); color: white; }
+
+    /* ── ヒーロー ── */
+    .hero { position: relative; min-height: 90vh; display: flex; align-items: flex-end; overflow: hidden; }
+    .hero-bg { position: absolute; inset: 0; background: url('images/hero.jpg') center 40% / cover no-repeat; will-change: background-position; }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(8,6,4,.95) 0%, rgba(8,6,4,.55) 45%, rgba(8,6,4,.2) 100%); }
+    .hero-particles { position: absolute; inset: 0; pointer-events: none; z-index: 1; overflow: hidden; }
+    .hero-content { position: relative; z-index: 2; padding: 0 28px 72px; max-width: 900px; margin: 0 auto; width: 100%; color: white; }
+    .hero-label { font-size: .65rem; font-weight: 700; letter-spacing: .32em; color: var(--gold); margin-bottom: 16px; text-transform: uppercase; }
+    .hero-title { font-family: 'Playfair Display', 'Noto Serif JP', serif; font-size: clamp(2.6rem, 8vw, 5rem); font-weight: 600; letter-spacing: .06em; line-height: 1.1; margin-bottom: 18px; }
+    .hero-title em { font-style: italic; color: var(--gold-l); }
+    .hero-sub { font-size: 1rem; color: var(--sub); margin-bottom: 32px; letter-spacing: .08em; line-height: 2; }
+    .hero-chips { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; }
+    .hero-chip { background: rgba(200,169,110,.15); border: 1px solid rgba(200,169,110,.4); border-radius: 20px; padding: 5px 16px; font-size: .78rem; color: var(--gold-l); letter-spacing: .06em; }
+    .hero-btn { display: inline-block; background: var(--gold); color: var(--dk); font-weight: 700; font-size: .9rem; padding: 14px 34px; border-radius: 28px; text-decoration: none; letter-spacing: .06em; box-shadow: 0 6px 24px rgba(200,169,110,.35); transition: transform .2s, box-shadow .2s; }
+    .hero-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 32px rgba(200,169,110,.5); }
+    .hero-btn-outline { display: inline-block; background: transparent; color: var(--gold-l); border: 1px solid rgba(200,169,110,.5); font-weight: 500; font-size: .85rem; padding: 13px 28px; border-radius: 28px; text-decoration: none; letter-spacing: .06em; transition: all .2s; }
+    .hero-btn-outline:hover { background: rgba(200,169,110,.12); border-color: var(--gold); color: var(--gold-l); }
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    /* ── ヒーローアニメ ── */
+    @keyframes svDown  { from { opacity:0; transform:translateY(-12px); filter:blur(4px); } to { opacity:1; transform:none; filter:none; } }
+    @keyframes svUp    { from { opacity:0; transform:translateY(12px);  filter:blur(4px); } to { opacity:1; transform:none; filter:none; } }
+    @keyframes svBlur  { from { opacity:0; filter:blur(8px); } to { opacity:1; filter:none; } }
+    .hero-label { animation: svDown 1.2s ease-out .2s both; }
+    .hero-title { animation: svBlur 1.6s ease-out .5s both; }
+    .hero-sub   { animation: svUp  1.2s ease-out 1.2s both; }
+    .hero-chips { animation: svUp  1.1s ease-out 1.7s both; }
+    .hero-btn   { animation: svUp  1.0s ease-out 2.2s both; }
+
+    /* 粒子 */
+    .sv-p {
+      position: absolute; bottom: -10px;
+      width: 3px; height: 3px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(200,169,110,1) 0%, rgba(200,169,110,0) 70%);
+      opacity: 0; animation: svParticle linear infinite;
+    }
+    @keyframes svParticle {
+      0%   { transform: translateY(0) translateX(0) scale(1); opacity: 0; }
+      5%   { opacity: .8; }
+      85%  { opacity: .15; }
+      100% { transform: translateY(-88vh) translateX(var(--pdx)) scale(.3); opacity: 0; }
+    }
+
+    /* ── スクロールフェードイン ── */
+    .sv-fade { opacity: 0; transform: translateY(24px); transition: opacity .8s ease, transform .8s ease; }
+    .sv-fade.visible { opacity: 1; transform: none; }
+    .sv-fade-l { opacity: 0; transform: translateX(-28px); transition: opacity .8s ease, transform .8s ease; }
+    .sv-fade-l.visible { opacity: 1; transform: none; }
+    .sv-fade-r { opacity: 0; transform: translateX(28px); transition: opacity .8s ease, transform .8s ease; }
+    .sv-fade-r.visible { opacity: 1; transform: none; }
+
+    /* ── 斜め区切り ── */
+    .clip-down { clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%); margin-bottom: -4%; padding-bottom: calc(4% + 64px); }
+    .clip-up   { clip-path: polygon(0 8%, 100% 0, 100% 100%, 0 100%); margin-top: -4%; padding-top: calc(4% + 64px); }
+
+    /* ── セクション共通 ── */
+    .section { padding: 80px 24px; }
+    .container { max-width: 900px; margin: 0 auto; }
+    .sec-label { font-size: .62rem; font-weight: 700; letter-spacing: .3em; color: var(--gold); text-transform: uppercase; text-align: center; margin-bottom: 12px; }
+    .sec-title { font-family: 'Noto Serif JP', serif; font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 600; text-align: center; margin-bottom: 12px; }
+    .sec-title.white { color: white; }
+    .sec-lead { text-align: center; font-size: .9rem; color: #6a5848; margin-bottom: 48px; line-height: 2; }
+    .sec-lead.white { color: var(--sub); }
+
+    /* ── ポートフォリオ ── */
+    .portfolio-block { background: var(--dk-m); border-radius: 16px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,.4); }
+    .portfolio-screen { background: var(--dk-l); padding: 12px 16px 0; }
+    .portfolio-bar { display: flex; align-items: center; gap: 6px; margin-bottom: 10px; }
+    .portfolio-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .portfolio-url { flex: 1; background: rgba(255,255,255,.08); border-radius: 6px; padding: 4px 12px; font-size: .7rem; color: rgba(255,255,255,.4); font-family: monospace; }
+    .portfolio-img { width: 100%; display: block; border-radius: 4px 4px 0 0; }
+    .portfolio-body { padding: 28px 32px 32px; color: white; }
+    .portfolio-body h3 { font-family: 'Noto Serif JP', serif; font-size: 1.1rem; color: var(--gold-l); margin-bottom: 10px; }
+    .portfolio-body p { font-size: .88rem; color: var(--sub); line-height: 2; margin-bottom: 20px; }
+    .portfolio-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+    .portfolio-tag { background: rgba(200,169,110,.15); border: 1px solid rgba(200,169,110,.3); border-radius: 12px; padding: 3px 12px; font-size: .72rem; color: var(--gold-l); }
+    .portfolio-link { display: inline-block; background: var(--gold); color: var(--dk); font-weight: 700; font-size: .82rem; padding: 10px 24px; border-radius: 20px; text-decoration: none; transition: opacity .2s; }
+    .portfolio-link:hover { opacity: .85; }
+
+    /* ── 特徴バッジ（PWAなど） ── */
+    .feature-badges { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 40px; }
+    .feature-badge { background: rgba(200,169,110,.08); border: 1px solid rgba(200,169,110,.25); border-radius: 14px; padding: 20px; text-align: center; transition: transform .2s, background .2s; }
+    .feature-badge:hover { transform: translateY(-4px); background: rgba(200,169,110,.14); }
+    .feature-badge-icon { font-size: 1.8rem; margin-bottom: 8px; }
+    .feature-badge-name { font-size: .82rem; font-weight: 700; color: var(--gold-l); margin-bottom: 4px; }
+    .feature-badge-desc { font-size: .75rem; color: var(--sub); line-height: 1.7; }
+
+    /* ── フェーズ ── */
+    .phase-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; margin-top: 40px; }
+    .phase-step { background: white; border-radius: 16px; padding: 32px 28px; box-shadow: 0 4px 24px rgba(0,0,0,.07); position: relative; overflow: hidden; transition: transform .25s, box-shadow .25s; }
+    .phase-step:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(0,0,0,.13); }
+    .phase-step::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; }
+    .phase-step.free::before  { background: #9ec8a0; }
+    .phase-step.main::before  { background: var(--gold); }
+    .phase-step.monthly::before { background: #7a9eb8; }
+    .phase-num { font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 600; line-height: 1; opacity: .08; position: absolute; top: 16px; right: 20px; }
+    .phase-step.free    .phase-num { color: #4a8a50; }
+    .phase-step.main    .phase-num { color: #a07828; }
+    .phase-step.monthly .phase-num { color: #3a6a8a; }
+    .phase-badge { display: inline-block; font-size: .65rem; font-weight: 700; letter-spacing: .12em; padding: 3px 10px; border-radius: 10px; margin-bottom: 12px; text-transform: uppercase; }
+    .phase-step.free    .phase-badge { background: #e8f5e8; color: #2a6a30; }
+    .phase-step.main    .phase-badge { background: #fdf4e3; color: #8a6020; }
+    .phase-step.monthly .phase-badge { background: #e3eef5; color: #2a5a7a; }
+    .phase-price { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 600; line-height: 1.1; margin-bottom: 6px; }
+    .phase-step.free    .phase-price { color: #2a6a30; }
+    .phase-step.main    .phase-price { color: #8a6020; }
+    .phase-step.monthly .phase-price { color: #2a5a7a; }
+    .phase-subtitle { font-size: .78rem; color: #888; margin-bottom: 20px; }
+    .phase-note { font-size: .72rem; color: #c0392b; margin-bottom: 16px; font-weight: 600; }
+    .phase-list { list-style: none; padding: 0; border-top: 1px solid #f0ece6; padding-top: 16px; }
+    .phase-list li { font-size: .85rem; padding: 6px 0; border-bottom: 1px solid #f8f4f0; color: #4a3828; display: flex; align-items: flex-start; gap: 6px; line-height: 1.5; }
+    .phase-list li:last-child { border-bottom: none; }
+
+    /* ── お任せ2カラム ── */
+    .omakase-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,.08); margin-top: 40px; }
+    @media (max-width: 600px) { .omakase-grid { grid-template-columns: 1fr; } }
+    .omakase-col { background: white; padding: 32px 28px; }
+    .omakase-col:first-child { background: #faf6f0; }
+    .omakase-col h4 { font-size: .78rem; font-weight: 700; color: #8a7060; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #e8e0d8; }
+    .omakase-col ul { list-style: none; padding: 0; }
+    .omakase-col li { font-size: .88rem; padding: 7px 0; border-bottom: 1px solid #f0ece6; color: #4a3828; display: flex; gap: 8px; align-items: flex-start; line-height: 1.5; }
+    .omakase-col li:last-child { border-bottom: none; }
+
+    /* ── FAQ ── */
+    .faq-list { max-width: 720px; margin: 40px auto 0; }
+    details { border-bottom: 1px solid #e8e0d8; }
+    details:first-of-type { border-top: 1px solid #e8e0d8; }
+    summary { font-weight: 700; font-size: .95rem; color: #3a2818; padding: 20px 0; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+    summary::after { content: '+'; font-size: 1.3rem; color: var(--gold); flex-shrink: 0; transition: transform .2s; }
+    details[open] summary::after { transform: rotate(45deg); }
+    summary::-webkit-details-marker { display: none; }
+    .faq-a { font-size: .9rem; color: #5a4838; line-height: 2; padding: 0 0 20px 0; }
+
+    /* ── CTA ── */
+    .cta-strip { background: linear-gradient(135deg, var(--dk) 0%, var(--dk-l) 100%); padding: 60px 24px; text-align: center; position: relative; overflow: hidden; }
+    .cta-strip::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 100%, rgba(200,169,110,.12) 0%, transparent 70%); }
+    .cta-strip h3 { font-family: 'Noto Serif JP', serif; font-size: 1.3rem; color: white; margin-bottom: 10px; position: relative; }
+    .cta-strip p { font-size: .88rem; color: var(--sub); margin-bottom: 28px; position: relative; line-height: 2; }
+    .cta-strip .cta-btn { display: inline-block; background: var(--gold); color: var(--dk); font-weight: 700; font-size: .9rem; padding: 14px 36px; border-radius: 28px; text-decoration: none; margin: 6px; box-shadow: 0 6px 24px rgba(200,169,110,.35); transition: transform .2s; position: relative; }
+    .cta-strip .cta-btn:hover { transform: translateY(-3px); }
+
+    /* ── お問い合わせフォーム ── */
+    .form-box { background: white; border-radius: 16px; padding: 40px 36px; box-shadow: 0 4px 32px rgba(0,0,0,.08); max-width: 780px; margin: 40px auto 0; }
+    .form-done { display: none; text-align: center; padding: 2rem; }
+    .ck-label { display: flex; align-items: center; gap: .5rem; font-size: .88rem; padding: .5rem .8rem; border: 1px solid #e0d8d0; border-radius: 10px; background: #faf6f0; cursor: pointer; transition: background .15s, border-color .15s; line-height: 1.4; }
+    .ck-label:hover { background: #f0ece4; border-color: #c8b89a; }
+    .ck-label:has(input:checked) { background: #f5efe5; border-color: var(--gold); }
+    .ck-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 8px; }
+    .ck-grid-sm { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 8px; }
+    .field-label { font-weight: 700; font-size: .88rem; color: #5a4030; display: block; margin-bottom: 8px; }
+    .field-group { margin-bottom: 24px; }
+    .form-input { width: 100%; border: 1px solid #e0d8d0; border-radius: 10px; padding: .65rem .9rem; font-size: .9rem; font-family: inherit; transition: border-color .2s; background: #faf6f0; }
+    .form-input:focus { outline: none; border-color: var(--gold); background: white; }
+    .form-textarea { min-height: 90px; resize: vertical; }
+    .form-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    @media (max-width: 600px) { .form-2col { grid-template-columns: 1fr; } .form-box { padding: 28px 20px; } }
+    .form-submit { background: var(--gold); color: var(--dk); font-weight: 700; font-size: 1rem; padding: 14px 40px; border-radius: 28px; border: none; cursor: pointer; box-shadow: 0 4px 16px rgba(200,169,110,.3); transition: transform .2s, box-shadow .2s; }
+    .form-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(200,169,110,.4); }
+    .form-submit:disabled { opacity: .6; cursor: not-allowed; transform: none; }
+    .form-err { color: #c0392b; font-size: .85rem; margin-top: 8px; display: none; }
+    .required { color: #c0392b; font-size: .75rem; margin-left: 4px; }
+
+    footer { background: var(--dk); color: white; text-align: center; padding: 32px 24px; }
+    footer nav a { color: rgba(255,255,255,.5); text-decoration: none; font-size: .82rem; margin: 0 10px; transition: color .2s; }
+    footer nav a:hover { color: white; }
+    footer .copy { font-size: .7rem; opacity: .35; margin-top: 12px; }
+
+    @media (max-width: 600px) {
+      .hero-content { padding: 0 20px 56px; }
+      .phase-steps { grid-template-columns: 1fr; }
+      .hero-title { font-size: 2.4rem; }
+    }
+  </style>
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#7a9e7e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="cafe nora">
+  <link rel="apple-touch-icon" href="/images/icon-192.png">
+  <script src=https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js defer></script>
+  <script>
+    window.OneSignalDeferred = window.OneSignalDeferred || [];
+    OneSignalDeferred.push(function(OneSignal) {
+      OneSignal.init({ appId: 'f214c199-2cb9-4e02-90d4-91ca8462d321', notifyButton: { enable: false } });
+    });
+  </script>
+</head>
+<body>
+
+<!-- ヘッダー -->
+<header class="header">
+  <a href="index.html" class="header-logo">
+    cafe nora
+    <span>カフェ ノラ</span>
+  </a>
+  <nav class="header-nav">
+    <a href="index.html">← cafe nora</a>
+  </nav>
+</header>
+
+<!-- ヒーロー -->
+<div class="hero">
+  <div class="hero-particles" id="heroParticles"></div>
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-label">HP Design & Build Service</p>
+    <h1 class="hero-title">「このレベルの<br><em>HP</em>、作ります」</h1>
+    <p class="hero-sub">今見ているこのサイトが、<br>完成形のサンプルです。<br>あなたのお店・教室・活動のために、<br>同じ気持ちで作ります。</p>
+    <div class="hero-chips">
+      <span class="hero-chip">📱 スマホ対応</span>
+      <span class="hero-chip">🔔 プッシュ通知対応</span>
+      <span class="hero-chip">📲 アプリ化対応</span>
+      <span class="hero-chip">🆓 まず無料試作</span>
+    </div>
+    <div class="hero-btns">
+    <a href="#contact" class="hero-btn">無料で相談してみる →</a>
+    <a href="/service-slides" target="_blank" class="hero-btn-outline">📋 提案資料を見る</a>
+  </div>
+  </div>
+</div>
+
+<!-- ポートフォリオ -->
+<section class="section clip-down" style="background: var(--dk-m);">
+  <div class="container">
+    <p class="sec-label sv-fade">実績</p>
+    <h2 class="sec-title white sv-fade">このサイト自体が、サンプルです</h2>
+    <p class="sec-lead white sv-fade">cafe nora のHPを、<br>夜な夜な時間をかけて丁寧に作りました。</p>
+    <div class="portfolio-block sv-fade">
+      <div class="portfolio-screen">
+        <div class="portfolio-bar">
+          <div class="portfolio-dot" style="background:#ff5f57"></div>
+          <div class="portfolio-dot" style="background:#febc2e"></div>
+          <div class="portfolio-dot" style="background:#28c840"></div>
+          <div class="portfolio-url">cafenora.jp</div>
+        </div>
+        <img src="images/hero.jpg" alt="cafe nora HP" class="portfolio-img" style="aspect-ratio:16/7; object-fit:cover; object-position:center 30%;">
+      </div>
+      <div class="portfolio-body">
+        <h3>cafe nora — カフェ・ヨガ・ライブイベント</h3>
+        <p>ライブ情報・マルシェ・ランチメニュー……<br>お客さんが見たい情報を、<br>スマホのホーム画面に<br>アプリとして追加できる。<br>新しいお知らせを<br>プッシュ通知で届けることもできる。<br>Jimdoやwixにはできない機能です。</p>
+        <div class="portfolio-tags">
+          <span class="portfolio-tag">📱 PWA（アプリ化）</span>
+          <span class="portfolio-tag">🔔 プッシュ通知</span>
+          <span class="portfolio-tag">📅 カレンダー連携</span>
+          <span class="portfolio-tag">🎫 予約フォーム</span>
+          <span class="portfolio-tag">🔍 SEO対応</span>
+        </div>
+        <a href="https://cafenora.jp" target="_blank" rel="noopener" class="portfolio-link">cafe nora を見てみる →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 特徴バッジ -->
+<section class="section clip-up" style="background: var(--dk);">
+  <div class="container">
+    <p class="sec-label sv-fade">cafe nora HP にしかできないこと</p>
+    <h2 class="sec-title white sv-fade">他とは違う3つの強み</h2>
+    <div class="feature-badges">
+      <div class="feature-badge sv-fade">
+        <div class="feature-badge-icon">📲</div>
+        <div class="feature-badge-name">アプリ化（PWA）</div>
+        <div class="feature-badge-desc">スマホのホーム画面に追加でき、<br>アプリのように使える。<br>Jimdoやwixにはない機能。</div>
+      </div>
+      <div class="feature-badge sv-fade">
+        <div class="feature-badge-icon">🔔</div>
+        <div class="feature-badge-name">プッシュ通知</div>
+        <div class="feature-badge-desc">新しいイベントやお知らせを<br>お客さんのスマホに直接通知できる。<br>SNSより確実に届く。</div>
+      </div>
+      <div class="feature-badge sv-fade">
+        <div class="feature-badge-icon">☕</div>
+        <div class="feature-badge-name">マスターが全部やる</div>
+        <div class="feature-badge-desc">ドメイン取得・サーバー・<br>公開まで全部お任せ。<br>「HTMLって何？」でも大丈夫。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- フェーズ -->
+<section class="section" style="background: var(--cream);">
+  <div class="container">
+    <p class="sec-label sv-fade">サービスの流れ</p>
+    <h2 class="sec-title sv-fade">3つのステップで、安心スタート</h2>
+    <p class="sec-lead sv-fade">まず無料で試してみてから、<br>気に入ったら本格版へ。</p>
+    <div class="phase-steps">
+
+      <div class="phase-step free sv-fade">
+        <div class="phase-num">1</div>
+        <span class="phase-badge">Step 1 — Free</span>
+        <div class="phase-price">¥0</div>
+        <div class="phase-subtitle">まず試してみる</div>
+        <ul class="phase-list">
+          <li>✅ LP 1ページ制作</li>
+          <li>✅ スマホ対応</li>
+          <li>✅ 修正 3回まで</li>
+          <li>✅ 気に入らなければ0円で終了</li>
+        </ul>
+      </div>
+
+      <div class="phase-step main sv-fade">
+        <div class="phase-num">2</div>
+        <span class="phase-badge">Step 2 — Standard</span>
+        <div class="phase-price">¥20,000</div>
+        <div class="phase-subtitle">本格版制作・一式</div>
+        <div class="phase-note">※ 素材・情報が揃ってから着手します</div>
+        <ul class="phase-list">
+          <li>✅ 5〜6ページ制作</li>
+          <li>✅ スマホ対応</li>
+          <li>✅ 問い合わせフォーム</li>
+          <li>✅ ドメイン取得・設定</li>
+          <li>✅ サーバー・SSL設定</li>
+          <li>✅ テスト・調整・公開</li>
+          <li>✅ アプリ化対応（PWA）</li>
+          <li>✅ プッシュ通知機能（オプション）</li>
+        </ul>
+      </div>
+
+      <div class="phase-step monthly sv-fade">
+        <div class="phase-num">3</div>
+        <span class="phase-badge">Step 3 — Monthly</span>
+        <div class="phase-price">¥5,000<span style="font-size:1rem;font-weight:400">/月</span></div>
+        <div class="phase-subtitle">運用・保守・更新対応</div>
+        <ul class="phase-list">
+          <li>✅ ドメイン・サーバー・SSL維持</li>
+          <li>✅ セキュリティアップデート</li>
+          <li>✅ 自動バックアップ</li>
+          <li>✅ 月10回までの修正・更新（無料）</li>
+          <li>✅ メール・電話サポート</li>
+          <li>☑ 11回目以降 ¥1,000/回</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA mid -->
+<div class="cta-strip sv-fade">
+  <h3>まず無料試作から始めませんか？</h3>
+  <p>「使わなかった」でも費用ゼロ。<br>気に入ったときだけ本格版へ。</p>
+  <a href="#contact" class="cta-btn">無料で相談する →</a>
+  <a href="/service-slides" target="_blank" class="cta-btn" style="background:transparent;color:var(--gold-l);border:1px solid rgba(200,169,110,.45);box-shadow:none;">📋 提案資料を見る</a>
+</div>
+
+<!-- お任せ -->
+<section class="section" style="background: #f5f0ea;">
+  <div class="container">
+    <p class="sec-label sv-fade">役割分担</p>
+    <h2 class="sec-title sv-fade">あなたは情報を渡すだけ</h2>
+    <p class="sec-lead sv-fade">面倒なことは全部マスターにお任せください。</p>
+    <div class="omakase-grid sv-fade">
+      <div class="omakase-col">
+        <h4>📋 あなたがご用意するもの</h4>
+        <ul>
+          <li>✅ HPに載せたいテキスト・文章</li>
+          <li>✅ 商品・店舗・スタッフの写真</li>
+          <li>✅ ロゴ・ブランドカラー（あれば）</li>
+          <li>✅ 営業時間・アクセス・メニュー等</li>
+          <li>✅ 「こんな感じにしたい」という要望</li>
+        </ul>
+      </div>
+      <div class="omakase-col">
+        <h4>🛠 マスターが全てやること</h4>
+        <ul>
+          <li>✅ ドメイン取得・設定</li>
+          <li>✅ サーバー構築・SSL設定</li>
+          <li>✅ HP設計・デザイン・コーディング</li>
+          <li>✅ 写真編集・配置</li>
+          <li>✅ フォーム・予約機能の実装</li>
+          <li>✅ SEO設定</li>
+          <li>✅ テスト・調整・公開作業</li>
+          <li>✅ 公開後の修正対応</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" style="background: var(--cream);">
+  <div class="container">
+    <p class="sec-label sv-fade">FAQ</p>
+    <h2 class="sec-title sv-fade">よくある質問</h2>
+    <div class="faq-list sv-fade">
+
+      <details>
+        <summary>カフェのマスターに頼んで大丈夫ですか？</summary>
+        <p class="faq-a">今見ているこのサイトが、実績そのものです。デザイン・文章・構成・公開まで全てマスターが手をかけて作りました。まずここを見てから判断してください。</p>
+      </details>
+
+      <details>
+        <summary>SNSがあればHPはいらないのでは？</summary>
+        <p class="faq-a">SNSは「流れてくる人」に届きます。HPは「探している人」に届きます。「新居浜 ヨガ」「新居浜 カフェ ランチ」のように検索している人が、HPがあることで初めて出会えます。両方あると強いです。</p>
+      </details>
+
+      <details>
+        <summary>無料試作が気に入らなかったら？</summary>
+        <p class="faq-a">「使いません」で終わりです。費用は一切かかりません。気に入ったときだけ、本格版に進んでください。</p>
+      </details>
+
+      <details>
+        <summary>制作期間はどのくらいかかりますか？</summary>
+        <p class="faq-a">無料試作：2〜3週間、本格版：3〜4週間が目安です。写真や文章など、情報をいただけるほど早く仕上がります。</p>
+      </details>
+
+      <details>
+        <summary>月額 ¥5,000 に含まれるものは？</summary>
+        <p class="faq-a">ドメイン・サーバー・SSL維持管理、セキュリティアップデート、自動バックアップ、月10回までの修正・更新対応、メール・電話サポートを全て含みます。別途費用が発生することはありません。</p>
+      </details>
+
+      <details>
+        <summary>アプリ化・プッシュ通知って何ですか？</summary>
+        <p class="faq-a">アプリ化（PWA）とは、HPをスマホのホーム画面に追加してアプリのように使える機能です。プッシュ通知は、新しいイベントやお知らせをお客さんのスマホに直接届けられる機能。JimdoやWixでは使えない、このHPならではの仕組みです。</p>
+      </details>
+
+      <details>
+        <summary>ドメインは自分で用意が必要ですか？</summary>
+        <p class="faq-a">不要です。「どんなドメイン名にしたいか」を教えていただければ、取得から設定まで全てマスターが代行します。</p>
+      </details>
+
+      <details>
+        <summary>まず相談だけしたい場合は？</summary>
+        <p class="faq-a">下のフォームからどうぞ。返信は無料です。または cafe nora に来てコーヒーを飲みながら話してもらうのが一番早いです。「HPのこと相談したい」と声をかけてください。</p>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- お問い合わせ -->
+<section class="section" id="contact" style="background: #f0ebe3;">
+  <div class="container">
+    <p class="sec-label sv-fade">Contact</p>
+    <h2 class="sec-title sv-fade">ご相談・お問い合わせ</h2>
+    <p class="sec-lead sv-fade">返信は無料・押し売りなし・気軽にどうぞ。</p>
+    <div class="form-box sv-fade">
+      <div class="form-done" id="form-done">
+        <p style="font-size:2.4rem;margin-bottom:12px">✅</p>
+        <p style="font-weight:700;font-size:1.1rem;color:#3a6a30;margin-bottom:20px">送信できました！</p>
+        <div style="background:#f0ebe3;border-radius:12px;padding:16px 20px;margin-bottom:16px">
+          <p style="font-size:.78rem;color:#888;margin-bottom:6px">返信先メールアドレス</p>
+          <p id="done-email" style="font-size:1.3rem;font-weight:700;color:#2c2018;word-break:break-all;letter-spacing:.04em"></p>
+        </div>
+        <p style="font-size:.85rem;color:#666;line-height:2;margin-bottom:16px">上記アドレスに折り返しご連絡します。<br>もし数日経っても届かない場合は、<br>メアドの入力ミスの可能性があります。<br>その際はInstagramから直接ご連絡ください。</p>
+        <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:8px">
+          <a href="https://www.instagram.com/cafenora.maru/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;background:#f5f0fa;border:1px solid #d0b8e8;border-radius:20px;padding:8px 18px;text-decoration:none;font-size:.85rem;font-weight:700;color:#6a3a8a">📷 @cafenora.maru</a>
+          <a href="https://www.instagram.com/cafenora.kazu/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;background:#f5f0fa;border:1px solid #d0b8e8;border-radius:20px;padding:8px 18px;text-decoration:none;font-size:.85rem;font-weight:700;color:#6a3a8a">📷 @cafenora.kazu</a>
+        </div>
+        <p style="font-size:.78rem;color:#aaa">どちらのアカウントからでもご連絡いただけます</p>
+        <div id="done-history" style="margin-top:24px;text-align:left;border-top:1px solid #e0d8d0;padding-top:20px;display:none">
+          <p style="font-size:.75rem;font-weight:700;color:#888;margin-bottom:10px;letter-spacing:.1em">このブラウザの送信履歴</p>
+          <div id="done-history-list"></div>
+        </div>
+      </div>
+      <form id="hpForm" onsubmit="submitHpForm(event)">
+
+        <div class="field-group">
+          <label class="field-label">📌 ご相談の内容（複数選択OK）</label>
+          <div class="ck-grid">
+            <label class="ck-label"><input type="checkbox" name="topics" value="新しくHPを作りたい"> 新しくHPを作りたい</label>
+            <label class="ck-label"><input type="checkbox" name="topics" value="HPをリニューアルしたい（Jimdo等）"> HPをリニューアルしたい</label>
+            <label class="ck-label"><input type="checkbox" name="topics" value="イベント・マルシェ告知ページが欲しい"> イベント・マルシェ告知ページ</label>
+            <label class="ck-label"><input type="checkbox" name="topics" value="メニューや予約フォームを付けたい"> 予約フォームを付けたい</label>
+            <label class="ck-label"><input type="checkbox" name="topics" value="アプリ化・プッシュ通知を使いたい"> アプリ化・プッシュ通知</label>
+            <label class="ck-label"><input type="checkbox" name="topics" value="Google検索に強くしたい（SEO）"> Google検索に強くしたい</label>
+            <label class="ck-label"><input type="checkbox" name="topics" value="スマホでも見やすいサイトにしたい"> スマホ対応させたい</label>
+            <label class="ck-label"><input type="checkbox" name="topics" value="まず見積もり・費用を知りたい"> まず費用だけ知りたい</label>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">🏪 お店・事業の種類（複数選択OK）</label>
+          <div class="ck-grid-sm">
+            <label class="ck-label"><input type="checkbox" name="topics" value="カフェ・飲食店"> カフェ・飲食店</label>
+            <label class="ck-label"><input type="checkbox" name="topics" value="ヨガ・フィットネス"> ヨガ・フィットネス</label>
+            <label class="ck-label"><input type="checkbox" name="topics" value="マルシェ・ハンドメイド"> マルシェ・ハンドメイド</label>
+            <label class="ck-label"><input type="checkbox" name="topics" value="美容サロン"> 美容サロン</label>
+            <label class="ck-label"><input type="checkbox" name="topics" value="教室・スクール"> 教室・スクール</label>
+            <label class="ck-label"><input type="checkbox" name="topics" value="その他の事業"> その他</label>
+          </div>
+        </div>
+
+        <div class="form-2col field-group">
+          <div>
+            <label class="field-label">💰 ご予算の目安</label>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <label class="ck-label"><input type="radio" name="budget" value="まず無料試作で見てみたい"> まず無料試作で見てみたい</label>
+              <label class="ck-label"><input type="radio" name="budget" value="¥20,000くらいまで"> ¥20,000くらいまで</label>
+              <label class="ck-label"><input type="radio" name="budget" value="月額込みで長く付き合いたい"> 月額込みで長く付き合いたい</label>
+              <label class="ck-label"><input type="radio" name="budget" value="まだわからない"> まだわからない</label>
+            </div>
+          </div>
+          <div>
+            <label class="field-label">📅 希望の公開時期</label>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <label class="ck-label"><input type="radio" name="timeline" value="なるべく早く"> なるべく早く</label>
+              <label class="ck-label"><input type="radio" name="timeline" value="1〜2ヶ月以内"> 1〜2ヶ月以内</label>
+              <label class="ck-label"><input type="radio" name="timeline" value="3ヶ月以内"> 3ヶ月以内</label>
+              <label class="ck-label"><input type="radio" name="timeline" value="まだ未定"> まだ未定</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">✏️ ご質問・その他ご要望（任意）</label>
+          <textarea name="message" class="form-input form-textarea" placeholder="「参考にしたいサイトがある」「cafe noraに来て直接話したい」など、なんでもどうぞ。"></textarea>
+        </div>
+
+        <div class="field-group" style="background:#faf6f0;border-radius:12px;padding:20px">
+          <p class="field-label" style="margin-bottom:16px">📬 ご連絡先</p>
+          <div class="form-2col" style="margin-bottom:12px">
+            <div>
+              <label class="field-label" style="font-weight:400;font-size:.82rem;color:#888">お名前<span class="required">必須</span></label>
+              <input type="text" name="name" required placeholder="山田 花子" class="form-input">
+            </div>
+            <div>
+              <label class="field-label" style="font-weight:400;font-size:.82rem;color:#888">メールアドレス<span class="required">必須</span></label>
+              <input type="email" name="email" required placeholder="example@email.com" class="form-input">
+            </div>
+          </div>
+          <div>
+            <label class="field-label" style="font-weight:400;font-size:.82rem;color:#888">電話番号（任意）</label>
+            <input type="tel" name="tel" placeholder="090-0000-0000" class="form-input" style="max-width:220px">
+          </div>
+        </div>
+
+        <div style="text-align:center">
+          <button type="submit" class="form-submit" id="submitBtn">送信する（返信無料） →</button>
+          <p class="form-err" id="form-err"></p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <nav style="margin-bottom:14px">
+    <a href="index.html">トップ</a>
+    <a href="cafe.html">カフェ</a>
+    <a href="events.html">イベント</a>
+    <a href="access.html">アクセス</a>
+    <a href="service.html">HP制作</a>
+  </nav>
+  <div class="copy">© 2026 cafe nora. All rights reserved.</div>
+</footer>
+
+<script>
+/* パララックス */
+(function(){
+  var bg = document.getElementById('heroBg');
+  var hero = document.querySelector('.hero');
+  if (!bg || !hero || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var ticking = false;
+  window.addEventListener('scroll', function(){
+    if (!ticking) { requestAnimationFrame(function(){
+      var s = window.pageYOffset;
+      if (s <= hero.offsetHeight) bg.style.backgroundPositionY = 'calc(40% + ' + (s * 0.3) + 'px)';
+      ticking = false;
+    }); ticking = true; }
+  }, { passive: true });
+})();
+
+/* 粒子 */
+(function(){
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var cont = document.getElementById('heroParticles');
+  if (!cont) return;
+  for (var i = 0; i < 16; i++) {
+    var el = document.createElement('div');
+    el.className = 'sv-p';
+    var size = 2 + Math.random() * 3.5;
+    el.style.cssText = [
+      'left:' + (5 + Math.random() * 90) + '%',
+      'width:' + size + 'px', 'height:' + size + 'px',
+      'animation-duration:' + (9 + Math.random() * 14) + 's',
+      'animation-delay:' + (Math.random() * 14) + 's',
+      '--pdx:' + ((Math.random() - 0.5) * 90) + 'px'
+    ].join(';');
+    cont.appendChild(el);
+  }
+})();
+
+/* スクロールフェードイン */
+(function(){
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.sv-fade, .sv-fade-l, .sv-fade-r').forEach(function(el){ obs.observe(el); });
+})();
+
+/* フォーム送信 */
+async function submitHpForm(e) {
+  e.preventDefault();
+  var form = e.target, btn = document.getElementById('submitBtn'), err = document.getElementById('form-err');
+  err.style.display = 'none'; btn.disabled = true; btn.textContent = '送信中...';
+  var data = {
+    type: 'hp_daiko',
+    name:     form.name.value.trim(),
+    email:    form.email.value.trim(),
+    tel:      form.tel.value.trim(),
+    topics:   [...form.querySelectorAll('input[name="topics"]:checked')].map(c => c.value),
+    budget:   (form.querySelector('input[name="budget"]:checked') || {}).value || '',
+    timeline: (form.querySelector('input[name="timeline"]:checked') || {}).value || '',
+    message:  form.message.value.trim(),
+  };
+  try {
+    var r = await fetch('https://noratool.pythonanywhere.com/contact/submit', {
+      method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(data)
+    });
+    if (r.ok) {
+      // メアド表示
+      document.getElementById('done-email').textContent = data.email;
+      // localStorage履歴保存
+      var hist = JSON.parse(localStorage.getItem('hp_inquiries') || '[]');
+      hist.unshift({ date: new Date().toLocaleDateString('ja-JP'), name: data.name, email: data.email });
+      if (hist.length > 5) hist = hist.slice(0, 5);
+      localStorage.setItem('hp_inquiries', JSON.stringify(hist));
+      // 履歴表示
+      var listEl = document.getElementById('done-history-list');
+      if (hist.length > 0) {
+        listEl.innerHTML = hist.map(function(h){ return '<div style="font-size:.82rem;padding:6px 0;border-bottom:1px solid #f0ece6;color:#5a4838">' + h.date + ' — ' + h.name + ' (' + h.email + ')</div>'; }).join('');
+        document.getElementById('done-history').style.display = 'block';
+      }
+      form.style.display = 'none';
+      document.getElementById('form-done').style.display = 'block';
+    }
+    else throw new Error();
+  } catch(ex) {
+    err.textContent = '送信に失敗しました。直接 cafe nora にお越しいただくか、Instagramよりご連絡ください。';
+    err.style.display = 'block'; btn.disabled = false; btn.textContent = '送信する（返信無料） →';
+  }
+}
+</script>
+<script>(function(){var p=new URLSearchParams(location.search);if(p.get("owner")==="nora")localStorage.setItem("nora_owner","1");if(p.get("owner")==="off")localStorage.removeItem("nora_owner");if(!localStorage.getItem("nora_owner"))fetch("https://noratool.pythonanywhere.com/pv?p="+encodeURIComponent(location.pathname)).catch(function(){});})();</script>
+</body>
+</html>

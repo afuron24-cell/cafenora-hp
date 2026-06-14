@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>出店・参加イベント | cafe nora 愛媛県新居浜市</title>
+  <meta name="description" content="cafe noraが出店・参加するイベント情報。愛媛県内のマルシェ・クラフトフェアなどに出店します。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <style>
+    .popup-section { padding: 64px 24px; }
+    .popup-event {
+      max-width: 860px; margin: 0 auto 72px;
+      border-bottom: 1px solid #e8ddd0;
+      padding-bottom: 64px;
+    }
+    .popup-event:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .popup-date {
+      display: inline-block;
+      background: var(--color-primary-dark, #4a3728);
+      color: white; font-size: .78rem; font-weight: 700;
+      padding: 4px 14px; border-radius: 20px;
+      letter-spacing: .08em; margin-bottom: 12px;
+    }
+    .popup-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 4vw, 2.2rem);
+      font-weight: 600; color: #2c1a0e;
+      margin-bottom: 6px; line-height: 1.3;
+    }
+    .popup-subtitle {
+      font-size: .88rem; color: #8a6a4a;
+      margin-bottom: 24px; letter-spacing: .06em;
+    }
+    .flyer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px; margin-bottom: 24px;
+    }
+    .flyer-img {
+      width: 100%; border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0,0,0,.12);
+      display: block;
+    }
+    .flyer-single { max-width: 480px; }
+    .popup-detail {
+      background: #faf6f1;
+      border-left: 3px solid #c9a96e;
+      border-radius: 0 8px 8px 0;
+      padding: 16px 20px;
+      font-size: .88rem; line-height: 1.8; color: #5a4030;
+    }
+    .popup-detail strong { color: #2c1a0e; }
+  </style>
+  <link rel="canonical" href="https://cafenora.jp/popup.html">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#7a9e7e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="cafe nora">
+  <link rel="apple-touch-icon" href="/images/icon-192.png">
+  <script src=https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js defer></script>
+  <script>
+    window.OneSignalDeferred = window.OneSignalDeferred || [];
+    OneSignalDeferred.push(function(OneSignal) {
+      OneSignal.init({
+        appId: 'f214c199-2cb9-4e02-90d4-91ca8462d321',
+        notifyButton: { enable: false }
+      });
+    });
+  </script>
+</head>
+<body>
+  <header class="header" id="header">
+    <div class="header-inner">
+      <div class="header-left"><a href="index.html" class="logo">
+        <span class="logo-en">cafe nora</span>
+        <span class="logo-jp">カフェ ノラ</span>
+      </a><a href="parking.html" class="parking-badge">🚗 臨時駐車場</a></div>
+      <button class="menu-btn" id="menuBtn" aria-label="メニューを開く">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav" id="nav">
+        <ul class="nav-list">
+          <li><a href="index.html">トップ</a></li>
+          <li><a href="cafe.html">カフェ</a></li>
+          <li><a href="calendar.html">カレンダー</a></li>
+          <li><a href="events.html">イベント</a></li>
+          <li><a href="popup.html" class="active">出店情報</a></li>
+          <li><a href="access.html">アクセス</a></li>
+          <li><a href="service.html">HP制作</a></li>
+          <li><a href="notifications.html">お知らせ</a></li>
+          <li><a href="contact.html">お問い合わせ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page-hero-plain">
+    <h1 class="page-hero-en">POP UP / EVENTS</h1>
+    <p class="page-hero-jp">出店・参加イベント情報</p>
+  </div>
+
+  <section class="popup-section">
+
+    <!-- クラフトワーク 7/4 -->
+    <div class="popup-event" id="craftwork">
+      <span class="popup-date">2026年 7月 4日（土）</span>
+      <h2 class="popup-title">CRAFT WORK</h2>
+      <p class="popup-subtitle">cafe nora 出店</p>
+      <div class="flyer-grid">
+        <img src="images/クラフトワーク表.jpg" alt="クラフトワーク チラシ表" class="flyer-img">
+        <img src="images/クラフトワーク裏.jpg" alt="クラフトワーク チラシ裏" class="flyer-img">
+      </div>
+      <div class="popup-detail">
+        <strong>詳細はチラシをご確認ください。</strong><br>
+        主催：<a href="https://www.instagram.com/craft_work_2023/" target="_blank" rel="noopener" style="color:#8a6a4a;">@craft_work_2023</a>（CRAFT WORK）<br>
+        Instagram <a href="https://www.instagram.com/cafenora.maru/" target="_blank" rel="noopener" style="color:#8a6a4a;">@cafenora.maru</a> でも<br>最新情報をお知らせします。
+      </div>
+    </div>
+
+    <!-- 区切り -->
+    <div style="border-top:1px solid #e0d4c0; margin:40px 0 32px; text-align:center;">
+      <span style="display:inline-block; background:#f9f5f0; padding:0 16px; position:relative; top:-12px; font-size:0.8rem; color:#b0926a; letter-spacing:0.12em;">終了したイベント</span>
+    </div>
+
+    <!-- りょーちん 5/15（終了） -->
+    <div class="popup-event" id="ryochin" style="opacity:0.75;">
+      <span class="popup-date" style="color:#999;">2026年 5月 15日（金）<span style="background:#888; color:#fff; font-size:.68rem; font-weight:700; padding:2px 9px; border-radius:10px; margin-left:8px; vertical-align:middle;">終了</span></span>
+      <h2 class="popup-title" style="color:#888;">りょーちん</h2>
+      <p class="popup-subtitle">イチディム ／ ロクディム<br>会場：mago おおひがし</p>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:32px; align-items:start; margin-bottom:28px;">
+        <div class="flyer-single" style="max-width:100%;">
+          <img src="images/りょーちん.jpg" alt="りょーちん チラシ" class="flyer-img">
+        </div>
+        <div>
+          <p style="font-size:.95rem; font-weight:700; color:#2c1a0e; margin-bottom:12px; line-height:1.5;">即興芝居歴28年。<br>全国を旅するひとり即興芝居師。</p>
+          <p style="font-size:.87rem; color:#5a4030; line-height:1.85; margin-bottom:16px;">
+            即興コメディパフォーマンス集団<br>「ロクディム」のメンバーとして<br>28都道府県でライブを展開。<br>ひとり即興芝居「イチディム」では、<br>会場のお客さんから言葉をもらいながら、<br>その場で物語を立ち上げる<br>トーク＆ライブを全国で届けている。<br><br>
+            ワークショップ講師としても活躍し、<br>39都府県・1,500人以上を指導。<br>役者・教育・医療・企業・<br>親子向けまで幅広く対応。<br>NHK「明日へ—」でも紹介された。
+          </p>
+          <div style="display:flex; flex-wrap:wrap; gap:8px;">
+            <span style="background:#f5ede0; color:#7a5030; font-size:.78rem; font-weight:700; padding:4px 12px; border-radius:12px;">即興芝居歴28年</span>
+            <span style="background:#f5ede0; color:#7a5030; font-size:.78rem; font-weight:700; padding:4px 12px; border-radius:12px;">39都府県で指導</span>
+            <span style="background:#f5ede0; color:#7a5030; font-size:.78rem; font-weight:700; padding:4px 12px; border-radius:12px;">NHK放送実績</span>
+            <span style="background:#f5ede0; color:#7a5030; font-size:.78rem; font-weight:700; padding:4px 12px; border-radius:12px;">ロクディム</span>
+          </div>
+        </div>
+      </div>
+      <div class="popup-detail">
+        <strong>会場：mago おおひがし（新居浜市）</strong><br>
+        会場 <a href="https://www.instagram.com/oohigashi/" target="_blank" rel="noopener" style="color:#8a6a4a;">@oohigashi</a>
+        りょーちん公式：<a href="https://ryochin6dim.com/" target="_blank" rel="noopener" style="color:#8a6a4a;">ryochin6dim.com</a>
+      </div>
+    </div>
+
+    <!-- おおひがしマルシェ 5/17（終了） -->
+    <div class="popup-event" id="ohigashi" style="opacity:0.75;">
+      <span class="popup-date" style="color:#999;">2026年 5月 17日（日）<span style="background:#888; color:#fff; font-size:.68rem; font-weight:700; padding:2px 9px; border-radius:10px; margin-left:8px; vertical-align:middle;">終了</span></span>
+      <h2 class="popup-title" style="color:#888;">おおひがしマルシェ</h2>
+      <p class="popup-subtitle">cafe nora 出店</p>
+      <div class="flyer-grid">
+        <img src="images/おおひがし表.jpg" alt="おおひがしマルシェ チラシ表" class="flyer-img">
+        <img src="images/おおひがし裏.jpg" alt="おおひがしマルシェ チラシ裏" class="flyer-img">
+      </div>
+      <div class="popup-detail">
+        主催：<a href="https://www.instagram.com/oohigashi/" target="_blank" rel="noopener" style="color:#8a6a4a;">@oohigashi</a><br>（mago おおひがし／<br>古民家レンタルスペース・新居浜市）
+      </div>
+    </div>
+
+    <div style="text-align:center; margin:32px 0 8px;">
+      <a href="past-events.html" class="btn-secondary">思い出アーカイブを見る</a>
+    </div>
+
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <p class="footer-logo">cafe nora</p>
+          <p class="footer-tagline">カフェ・ヨガ・ライブイベント</p>
+          <p class="footer-address">〒792-0050 愛媛県新居浜市萩生2133-29</p>
+          <p class="footer-tel"><a href="tel:090-9459-1733">090-9459-1733</a></p>
+        </div>
+        <nav class="footer-nav">
+          <a href="cafe.html">カフェ</a>
+          <a href="maruyoga/">まるヨガ</a>
+          <a href="events.html">イベント</a>
+          <a href="popup.html">出店情報</a>
+          <a href="access.html">アクセス</a>
+          <a href="https://www.instagram.com/cafenora.maru/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        </nav>
+      </div>
+      <p class="footer-copy">&copy; 2026 cafe nora. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+<script>(function(){var p=new URLSearchParams(location.search);if(p.get("owner")==="nora")localStorage.setItem("nora_owner","1");if(p.get("owner")==="off")localStorage.removeItem("nora_owner");if(!localStorage.getItem("nora_owner"))fetch("https://noratool.pythonanywhere.com/pv?p="+encodeURIComponent(location.pathname)).catch(function(){});})();</script>
+
+</body>
+</html>

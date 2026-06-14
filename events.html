@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ライブ・イベント | cafe nora 愛媛県新居浜市</title>
+  <meta name="description" content="愛媛県新居浜市のcafe noraで開催するライブ・イベント情報。音楽ライブや各種イベントを不定期開催。ご予約はお電話またはInstagram DMにて。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/events.css">
+  <link rel="stylesheet" href="css/events-pickup.css">
+  <style>
+    .event-cd{display:none;margin:1.2rem 0 0.6rem;padding:1rem 1.5rem;border-radius:14px;background:linear-gradient(135deg,#faf6ee,#f5eddc);border:1px solid rgba(201,169,110,.4);text-align:center;}
+    .event-cd .cd-num{display:block;font-family:'Playfair Display',Georgia,serif;font-size:2.8rem;font-weight:600;color:#c9a96e;line-height:1;}
+    .event-cd .cd-unit{font-size:1rem;color:#a07840;font-weight:500;}
+    .event-cd .cd-sub{display:block;font-size:.8rem;color:#888;margin-top:.3rem;letter-spacing:.08em;}
+    .event-cd.cd-soon{background:linear-gradient(135deg,#fdf8ec,#faf0d4);border-color:rgba(201,169,110,.6);}
+    .event-cd.cd-today{background:linear-gradient(135deg,#fef0ed,#fde8e4);border-color:rgba(192,57,43,.4);animation:cdpulse 2s ease-in-out infinite;}
+    .event-cd.cd-today .cd-num{color:#c0392b;}
+    @keyframes cdpulse{0%,100%{box-shadow:0 0 0 0 rgba(192,57,43,.2);}50%{box-shadow:0 0 0 10px rgba(192,57,43,0);}}
+    @keyframes new-pulse{0%,100%{opacity:1;}50%{opacity:.7;}}
+    .new-badge{display:inline-block!important;background:#e03030!important;color:#fff!important;font-size:.62rem!important;font-weight:800!important;padding:.2rem .55rem!important;border-radius:.25rem!important;letter-spacing:.14em!important;vertical-align:middle!important;margin-left:.5rem!important;box-shadow:0 1px 4px rgba(224,48,48,.35)!important;animation:new-pulse 1.8s ease-in-out infinite!important;}
+    /* Events Hero Slideshow */
+    .events-hero{position:relative;height:100svh;min-height:560px;overflow:hidden;display:flex;align-items:center;justify-content:center;}
+    .ev-bg-slides{position:absolute;inset:0;}
+    .ev-bg{position:absolute;inset:-30px;background-size:cover;background-position:center;filter:blur(28px) brightness(.28) saturate(.6);opacity:0;transition:opacity 1.5s ease-in-out;}
+    .ev-bg.active{opacity:1;}
+    .ev-slides{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;}
+    .ev-slide{position:absolute;display:flex;flex-direction:column;align-items:center;gap:1rem;opacity:0;transition:opacity 1.5s ease-in-out;padding:0 1.5rem;pointer-events:none;}
+    .ev-slide.active{pointer-events:auto;}
+    .ev-slide.active{opacity:1;}
+    .ev-flyer{max-height:62vh;max-width:min(420px,88vw);width:auto;height:auto;object-fit:contain;box-shadow:0 8px 48px rgba(0,0,0,.65),0 2px 16px rgba(0,0,0,.4);border-radius:4px;cursor:pointer;}
+    .ev-slides a{display:block;line-height:0;}
+    .ev-slide-info{text-align:center;color:#fff;margin-top:.2rem;}
+    .ev-slide-date{font-family:'Playfair Display',serif;font-size:.8rem;letter-spacing:.22em;color:rgba(255,255,255,.62);margin-right:.6rem;}
+    .ev-slide-name{font-family:'Noto Serif JP',serif;font-size:.88rem;letter-spacing:.08em;font-weight:300;color:rgba(255,255,255,.85);}
+    .ev-dots{position:absolute;bottom:2.6rem;left:50%;transform:translateX(-50%);z-index:3;display:flex;gap:.55rem;}
+    .ev-dot{width:7px;height:7px;border-radius:50%;border:none;background:rgba(255,255,255,.35);cursor:pointer;padding:0;transition:background .3s,transform .3s;}
+    .ev-dot.active{background:#fff;transform:scale(1.25);}
+    .ev-scroll{position:absolute;bottom:4rem;right:2rem;z-index:3;display:flex;flex-direction:column;align-items:center;gap:.3rem;}
+    .ev-scroll .scroll-text{font-size:.55rem;letter-spacing:.26em;color:rgba(255,255,255,.45);text-transform:uppercase;}
+    .ev-scroll .scroll-line{width:1px;height:36px;background:linear-gradient(to bottom,rgba(255,255,255,.45),transparent);animation:scrollDrop 2s ease-in-out infinite;}
+  </style>
+  <link rel="canonical" href="https://cafenora.jp/events.html">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#7a9e7e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="cafe nora">
+  <link rel="apple-touch-icon" href="/images/icon-192.png">
+  <script src=https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js defer></script>
+  <script>
+    window.OneSignalDeferred = window.OneSignalDeferred || [];
+    OneSignalDeferred.push(function(OneSignal) {
+      OneSignal.init({
+        appId: 'f214c199-2cb9-4e02-90d4-91ca8462d321',
+        notifyButton: { enable: false }
+      });
+    });
+  </script>
+</head>
+<body>
+
+  <header class="header" id="header">
+    <div class="header-inner">
+      <div class="header-left"><a href="index.html" class="logo">
+        <span class="logo-en">cafe nora</span>
+        <span class="logo-jp">カフェ ノラ</span>
+      </a><a href="parking.html" class="parking-badge">🚗 臨時駐車場</a></div>
+      <button class="menu-btn" id="menuBtn" aria-label="メニューを開く">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav" id="nav">
+        <ul class="nav-list">
+          <li><a href="index.html">トップ</a></li>
+          <li><a href="cafe.html">カフェ</a></li>
+          <li><a href="calendar.html">カレンダー</a></li>
+          <li><a href="events.html" class="active">イベント</a></li>
+          <li><a href="popup.html">出店情報</a></li>
+          <li><a href="access.html">アクセス</a></li>
+          <li><a href="service.html">HP制作</a></li>
+          <li><a href="notifications.html">お知らせ</a></li>
+          <li><a href="contact.html">お問い合わせ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="events-hero" id="eventsHero">
+    <div class="ev-bg-slides">
+      <div class="ev-bg active" style="background-image:url('images/karitomato.jpg')"></div>
+      <div class="ev-bg" style="background-image:url('images/torubale-flyer.jpg')"></div>
+    </div>
+    <div class="ev-slides">
+      <div class="ev-slide active">
+        <a href="#karitomato"><img src="images/karitomato.jpg" alt="カリトマト フライヤー" class="ev-flyer"></a>
+        <div class="ev-slide-info">
+          <span class="ev-slide-date">7.28</span>
+          <span class="ev-slide-name">カリトマト　2ndアルバム発売ツアー</span>
+        </div>
+      </div>
+      <div class="ev-slide">
+        <a href="#torubale"><img src="images/torubale-flyer.jpg" alt="とぅるばーる フライヤー" class="ev-flyer"></a>
+        <div class="ev-slide-info">
+          <span class="ev-slide-date">8.2</span>
+          <span class="ev-slide-name">とぅるばーる</span>
+        </div>
+      </div>
+    </div>
+    <div class="ev-dots">
+      <button class="ev-dot active" data-idx="0" aria-label="1枚目"></button>
+      <button class="ev-dot" data-idx="1" aria-label="2枚目"></button>
+    </div>
+    <div class="ev-scroll">
+      <span class="scroll-text">scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <section class="pickup-section section">
+    <div class="container">
+      <h2 class="pickup-heading fade-in">PICK UP<span>注目のイベント</span></h2>
+      <div class="pickup-grid">
+
+        <!-- TODAY'S EVENT（当日のみJSで表示） -->
+        <a href="#" id="pickup-today" class="pickup-item fade-in pickup-today" style="display:none;">
+          <p class="pickup-banner">TODAY'S EVENT</p>
+          <div class="pickup-img"><img src="" alt=""></div>
+          <div class="pickup-detail">
+            <p class="pickup-time" id="pickup-today-time"></p>
+            <p class="pickup-ttl" id="pickup-today-ttl"></p>
+            <p class="pickup-name" id="pickup-today-name"></p>
+          </div>
+        </a>
+
+        <!-- カリトマト -->
+        <a href="#karitomato" class="pickup-item fade-in">
+          <span class="new-badge">NEW</span>
+          <div class="pickup-date">
+            <span class="pickup-month">07<small>/tue</small></span>
+            <span class="pickup-day">28</span>
+          </div>
+          <div class="pickup-img"><img src="images/karitomato-album.jpg" alt="カリトマト 2ndアルバム グランスフレ 発売ツアー"></div>
+          <div class="pickup-detail">
+            <p class="pickup-time">18:30開場 / 19:30開演</p>
+            <p class="pickup-ttl">カリトマト<br>2ndアルバム『グランスフレ』発売ツアー</p>
+            <p class="pickup-name">原田忠 × 都丸智栄</p>
+          </div>
+        </a>
+
+        <!-- とぅるばーる -->
+        <a href="#torubale" class="pickup-item fade-in">
+          <span class="new-badge">NEW</span>
+          <div class="pickup-date">
+            <span class="pickup-month">08<small>/sun</small></span>
+            <span class="pickup-day">02</span>
+          </div>
+          <div class="pickup-img"><img src="images/torubale-flyer.jpg" alt="ひるでもよるでもとぅるばーる フライヤー"></div>
+          <div class="pickup-detail">
+            <p class="pickup-time">ひる13:00 / よる17:30 開場</p>
+            <p class="pickup-ttl">ひるでもよるでも<br>とぅるばーる</p>
+            <p class="pickup-name">沖縄フード付き 2公演開催</p>
+          </div>
+        </a>
+
+        <!-- ご予約 -->
+        <a href="https://noratool.pythonanywhere.com/yoyaku" target="_blank" rel="noopener noreferrer" class="pickup-item fade-in pickup-text">
+          <div class="pickup-text-inner">
+            <h3>RESERVE</h3>
+            <p>ライブのご予約は<br>WEBフォームから24時間受付中。<br>複数のライブをまとめて予約できます。<br>お電話・Instagram DMでも承ります。</p>
+            <span class="pickup-link">ご予約はこちら →</span>
+          </div>
+        </a>
+
+        <!-- アクセス -->
+        <a href="access.html" class="pickup-item fade-in pickup-text pickup-access">
+          <div class="pickup-map">
+            <iframe src="https://maps.google.com/maps?q=愛媛県新居浜市萩生2133-29&t=&z=15&ie=UTF8&iwloc=&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+          <div class="pickup-text-inner">
+            <h3>ACCESS</h3>
+            <p>〒792-0050 愛媛県新居浜市萩生2133-29<br>ライブ開催日は駐車場が混み合います。<br>臨時駐車場のご案内あり。</p>
+          </div>
+        </a>
+
+        <!-- 過去のイベント -->
+        <a href="past-events.html" class="pickup-item fade-in pickup-text">
+          <div class="pickup-text-inner">
+            <h3>ARCHIVE</h3>
+            <p>cafe noraでこれまでに<br>開催したライブ・イベントの<br>記録はこちらからご覧いただけます。</p>
+            <span class="pickup-link">過去のイベントを見る →</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="events-section section">
+    <div class="container">
+      <p class="events-intro fade-in">cafe noraでは、音楽ライブや<br>各種イベントを不定期開催しています。<br>ご予約は下記の専用フォームから<br>24時間受付中。<br>複数のライブをまとめて予約できます。</p>
+
+
+      <!-- parking notice -->
+      <div class="fade-in" style="background:#f0f5f0;border:1px solid #b8d4b8;border-radius:0.8rem;padding:0.85rem 1.2rem;margin-bottom:1.5rem;display:flex;align-items:center;gap:0.7rem;flex-wrap:wrap;">
+        <span style="font-size:1.1rem;">🚗</span>
+        <span style="font-size:0.88rem;color:#4d7350;font-weight:600;">ライブ開催日は駐車場が込み合います</span>
+        <a href="parking.html" style="font-size:0.82rem;color:#4d7350;font-weight:700;text-decoration:underline;white-space:nowrap;">臨時駐車場のご案内 &#8594;</a>
+      </div>
+      <!-- 全ライブ予約バナー -->
+      <div class="reserve-banner fade-in">
+        <p class="reserve-banner-heading">🎵 ご予約はこちらから</p>
+
+        <!-- WEB予約（おすすめ） -->
+        <a href="https://noratool.pythonanywhere.com/yoyaku" target="_blank" rel="noopener noreferrer" class="reserve-banner-btn web">
+          <span class="rbtn-recommend">✨ おすすめ</span>
+          <span class="rbtn-ico">📋</span>
+          <span class="rbtn-label">WEB予約</span>
+          <div class="rbtn-tags">
+            <span class="rbtn-tag">⏰ 24時間受付</span>
+            <span class="rbtn-tag">🎵 複数ライブOK</span>
+          </div>
+        </a>
+
+        <!-- WEB予約のメリット -->
+        <div class="web-benefits">
+          ✅&ensp;予約確認メールがその場で届きます<br>
+          ✅&ensp;マイページでいつでも<br>予約内容を確認できます<br>
+          ✅&ensp;ライブ情報をメールで<br>いち早くお届け（希望者）
+        </div>
+
+        <!-- または -->
+        <div class="reserve-or-divider">または</div>
+
+        <!-- 電話・Instagram -->
+        <div class="reserve-banner-btns">
+          <a href="tel:090-9459-1733" class="reserve-banner-btn">
+            <span class="rbtn-ico">☎️</span>
+            <span class="rbtn-label">お電話</span>
+            <span class="rbtn-val">090-9459-1733</span>
+          </a>
+
+          <a href="https://www.instagram.com/cafenora.maru/" target="_blank" rel="noopener noreferrer" class="reserve-banner-btn">
+            <span class="rbtn-ico">📷</span>
+            <span class="rbtn-label">Instagram DM</span>
+            <span class="rbtn-val">@cafenora.maru</span>
+          </a>
+          <a href="https://www.instagram.com/cafenora.kazu/" target="_blank" rel="noopener noreferrer" class="reserve-banner-btn">
+            <span class="rbtn-ico">📷</span>
+            <span class="rbtn-label">Instagram DM</span>
+            <span class="rbtn-val">@cafenora.kazu</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- カリトマト LIVE -->
+      <article class="event-detail-card fade-in" id="karitomato">
+        <div class="event-detail-img">
+          <img src="images/karitomato-album.jpg" alt="カリトマト 2ndアルバム グランスフレ 発売ツアー">
+        </div>
+        <div class="event-detail-body">
+          <div class="event-detail-badge upcoming">開催予定</div><span class="new-badge">NEW</span>
+          <p class="event-detail-date">2026年 7月 28日（火）</p>
+          <h2 class="event-detail-title">カリトマト<br>2ndアルバム『グランスフレ』発売ツアー</h2>
+          <div class="event-detail-meta">
+            <div class="meta-row">
+              <span class="meta-label">開場 / 開演</span>
+              <span class="meta-value">18:30 開場 / 19:30 開演</span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">料金</span>
+              <span class="meta-value">予約 ¥4,000（1ドリンク込み）</span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">会場</span>
+              <span class="meta-value">cafe nora<br><small>愛媛県新居浜市萩生2133-29</small></span>
+            </div>
+          </div>
+          <div class="event-detail-desc">
+            <p>原田忠（ボタンacc）×<br>都丸智栄（鍵盤acc）の<br>デュオ「カリトマト」。<br>2ndアルバム『グランスフレ』<br>リリース記念ツアー愛媛公演。<br>2024年12月のcafe nora<br>ライブ以来の再登場です。<br>ダブルアコーディオンの<br>濃密な世界をお楽しみください。<br>お席に限りがありますので、<br>お早めにご予約ください。</p>
+          </div>
+          <div style="text-align:center; margin-top:1.5rem;">
+            <a href="event-karitomato.html" class="btn-primary">アーティスト詳細はこちら</a>
+          </div>
+          <div class="event-share-bar">
+            <p class="share-label">この公演をシェア</p>
+            <div class="share-btns">
+              <button class="share-btn share-x" onclick="shareX('karitomato')">𝕏 ポスト</button>
+              <button class="share-btn share-line" onclick="shareLine('karitomato')">LINE</button>
+              <button class="share-btn share-copy" onclick="copyEventUrl('karitomato',this)">🔗 URLコピー</button>
+            </div>
+          </div>
+          <div id="cd-karitomato" class="event-cd"></div>
+          <div style="text-align:center; margin-top:0.8rem;">
+            <a href="https://noratool.pythonanywhere.com/yoyaku" target="_blank" rel="noopener noreferrer" class="btn-reserve-now">🎟️ 今すぐ予約する</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- とぅるばーる LIVE -->
+      <article class="event-detail-card fade-in" id="torubale">
+        <div class="event-detail-img">
+          <img src="images/torubale-flyer.jpg" alt="ひるでもよるでもとぅるばーる フライヤー">
+        </div>
+        <div class="event-detail-body">
+          <div class="event-detail-badge upcoming">開催予定</div><span class="new-badge">NEW</span>
+          <p class="event-detail-date">2026年 8月 2日（日）</p>
+          <h2 class="event-detail-title">ひるでもよるでも<br>とぅるばーる</h2>
+          <div class="event-detail-meta">
+            <div class="meta-row">
+              <span class="meta-label">ひるばーる</span>
+              <span class="meta-value">開場 13:00 / 開演 14:00</span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">よるばーる</span>
+              <span class="meta-value">開場 17:30 / 開演 18:30</span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">料金</span>
+              <span class="meta-value">各 ¥3,000（ワンドリンク付）</span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">会場</span>
+              <span class="meta-value">cafe nora<br><small>愛媛県新居浜市萩生2133-29</small></span>
+            </div>
+          </div>
+          <div class="event-detail-desc">
+            <p>真夏の日曜日は2公演！<br>昼の部「ひるばーる」では沖縄ぜんざい、<br>夜の部「よるばーる」では<br>沖縄フードも楽しめます。<br>片方だけでも、両方はしごしても。<br>新居浜の小さなカフェに沖縄の風が吹く、<br>特別な一日です。</p>
+          </div>
+          <div style="text-align:center; margin-top:1.5rem;">
+            <a href="event-torubale.html" class="btn-primary">アーティスト詳細はこちら</a>
+          </div>
+          <div class="event-share-bar">
+            <p class="share-label">この公演をシェア</p>
+            <div class="share-btns">
+              <button class="share-btn share-x" onclick="shareX('torubale')">𝕏 ポスト</button>
+              <button class="share-btn share-line" onclick="shareLine('torubale')">LINE</button>
+              <button class="share-btn share-copy" onclick="copyEventUrl('torubale',this)">🔗 URLコピー</button>
+            </div>
+          </div>
+          <div id="cd-torubale" class="event-cd"></div>
+          <div style="text-align:center; margin-top:0.8rem;">
+            <a href="https://noratool.pythonanywhere.com/yoyaku" target="_blank" rel="noopener noreferrer" class="btn-reserve-now">🎟️ 今すぐ予約する</a>
+          </div>
+        </div>
+      </article>
+
+<!-- events-end -->
+      <div class="past-events-link fade-in">
+        <a href="past-events.html" class="btn-secondary">過去のイベントを見る</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <p class="footer-logo">cafe nora</p>
+          <p class="footer-tagline">カフェ・ヨガ・ライブイベント</p>
+          <p class="footer-address">〒792-0050 愛媛県新居浜市萩生2133-29</p>
+          <p class="footer-tel"><a href="tel:090-9459-1733">090-9459-1733</a></p>
+        </div>
+        <nav class="footer-nav">
+          <a href="index.html">トップ</a>
+          <a href="cafe.html">カフェ</a>
+          
+          <a href="events.html">イベント</a>
+          <a href="past-events.html">過去のイベント</a>
+          <a href="access.html">アクセス</a>
+        </nav>
+      </div>
+      <p class="footer-copy">&copy; 2026 cafe nora. All rights reserved. <a href="flyer-login.html" style="color:rgba(255,255,255,0.2); margin-left:1rem; font-size:0.75rem; text-decoration:none;" title="管理者">🔒</a></p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+<script>
+(function(){
+  var evs=[
+    {id:'karitomato', date:'2026-07-28', img:'images/karitomato-album.jpg',  title:'カリトマト<br>2ndアルバム『グランスフレ』発売ツアー', name:'原田忠 × 都丸智栄',          time:'18:30開場 / 19:30開演'},
+    {id:'torubale',   date:'2026-08-02', img:'images/torubale-flyer.jpg',    title:'ひるでもよるでも<br>とぅるばーる',                   name:'沖縄フード付き 2公演開催',   time:'ひる13:00 / よる17:30 開場'}
+  ];
+  var n=new Date(), today=new Date(n.getFullYear(),n.getMonth(),n.getDate());
+  evs.forEach(function(ev){
+    var p=ev.date.split('-');
+    var diff=Math.round((new Date(+p[0],+p[1]-1,+p[2])-today)/86400000);
+    var el=document.getElementById('cd-'+ev.id);
+    if(diff===0){
+      var card=document.getElementById('pickup-today');
+      if(card){
+        card.href='#'+ev.id;
+        card.querySelector('.pickup-img img').src=ev.img;
+        card.querySelector('.pickup-img img').alt=ev.name;
+        document.getElementById('pickup-today-time').textContent=ev.time;
+        document.getElementById('pickup-today-ttl').innerHTML=ev.title;
+        document.getElementById('pickup-today-name').textContent=ev.name;
+        card.style.display='grid';
+      }
+    }
+    if(!el) return;
+    var html,cls;
+    if(diff>1){
+      var sub=diff<=7?'残りわずか — お早めにご予約を':'音楽の夜まで、あと'+diff+'日';
+      html='<span class="cd-num">'+diff+'</span><span class="cd-unit"> 日後</span><span class="cd-sub">'+sub+'</span>';
+      cls='event-cd'+(diff<=7?' cd-soon':'');
+    } else if(diff===1){
+      html='<span class="cd-num" style="font-size:1.6rem;">いよいよ明日</span><span class="cd-sub">幕が開きます — お席はまだございます</span>';
+      cls='event-cd cd-soon';
+    } else if(diff===0){
+      html='<span class="cd-num" style="font-size:1.6rem;">本日開催</span><span class="cd-unit"> Tonight</span><span class="cd-sub">今夜、音楽が始まります</span>';
+      cls='event-cd cd-today';
+    } else { return; }
+    el.innerHTML=html; el.className=cls; el.style.display='block';
+  });
+})();
+</script>
+<script>
+var EV={
+  karitomato:{text:"カリトマト 2ndアルバム『グランスフレ』発売ツアー 7/28(火)START19:30 ダブルアコーディオンの世界へ🪗 愛媛・新居浜 cafe nora #カリトマト #新居浜 #cafenora",a:"karitomato"},
+  torubale:{text:"ひるでもよるでもとぅるばーる 8/2(日)2公演！昼14:00・夜18:30 各¥3,000ワンドリ付🌺 愛媛・新居浜 cafe nora #とぅるばーる #新居浜 #cafenora",a:"torubale"}
+};
+function shareX(id){var d=EV[id];window.open("https://twitter.com/intent/tweet?text="+encodeURIComponent("【cafe noraライブ】"+d.text)+"&url="+encodeURIComponent("https://cafenora.jp/events.html#"+d.a),"_blank");}
+function shareLine(id){window.open("https://social-plugins.line.me/lineit/share?url="+encodeURIComponent("https://cafenora.jp/events.html#"+EV[id].a),"_blank");}
+function copyEventUrl(id,btn){navigator.clipboard.writeText("https://cafenora.jp/events.html#"+EV[id].a).then(function(){var o=btn.textContent;btn.textContent="✅ コピー済み";setTimeout(function(){btn.textContent=o;},2000);});}
+</script>
+<script>(function(){var p=new URLSearchParams(location.search);if(p.get("owner")==="nora")localStorage.setItem("nora_owner","1");if(p.get("owner")==="off")localStorage.removeItem("nora_owner");if(!localStorage.getItem("nora_owner"))fetch("https://noratool.pythonanywhere.com/pv?p="+encodeURIComponent(location.pathname)).catch(function(){});})();</script>
+
+
+
+<!-- 通知登録バナー -->
+<div id="notify-banner" style="display:none;position:fixed;top:0;left:0;right:0;z-index:9998;background:#4d7350;color:#fff;padding:12px 20px;align-items:center;justify-content:space-between;gap:12px;">
+  <div style="font-size:0.82rem;line-height:1.5;">
+    🔔 <strong>ライブ情報をお知らせ</strong><br>
+    <span style="font-size:0.72rem;opacity:0.85;">新しいライブ・イベントを通知でお届けします</span>
+  </div>
+  <div style="display:flex;gap:8px;flex-shrink:0;">
+    <button id="notify-yes" style="background:#fff;color:#4d7350;border:none;border-radius:8px;padding:8px 14px;font-size:0.8rem;font-weight:700;cursor:pointer;white-space:nowrap;">受け取る</button>
+    <button id="notify-no" style="background:rgba(255,255,255,0.2);color:#fff;border:none;border-radius:8px;padding:8px 10px;font-size:0.8rem;cursor:pointer;">×</button>
+  </div>
+</div>
+<script>
+(function(){
+  if(typeof Notification === 'undefined') return;
+  if(Notification.permission === 'granted') return;
+  if(Notification.permission === 'denied') return;
+  setTimeout(function(){
+    var b = document.getElementById('notify-banner');
+    if(b) b.style.display = 'flex';
+  }, 3000);
+  document.getElementById('notify-yes').addEventListener('click', function(){
+    OneSignalDeferred.push(function(OneSignal){ OneSignal.Notifications.requestPermission(); });
+    document.getElementById('notify-banner').style.display = 'none';
+  });
+  document.getElementById('notify-no').addEventListener('click', function(){
+    document.getElementById('notify-banner').style.display = 'none';
+  });
+})();
+</script>
+
+  <script>
+  (function(){
+    var bgs=document.querySelectorAll('.ev-bg');
+    var slides=document.querySelectorAll('.ev-slide');
+    var dots=document.querySelectorAll('.ev-dot');
+    if(!slides.length)return;
+    var cur=0,timer,INTERVAL=2500;
+    function goTo(n){
+      bgs[cur].classList.remove('active');
+      slides[cur].classList.remove('active');
+      dots[cur].classList.remove('active');
+      cur=(n+slides.length)%slides.length;
+      bgs[cur].classList.add('active');
+      slides[cur].classList.add('active');
+      dots[cur].classList.add('active');
+    }
+    function resetTimer(){
+      clearInterval(timer);
+      timer=setInterval(function(){goTo(cur+1);},INTERVAL);
+    }
+    // ドットクリック
+    dots.forEach(function(dot){
+      dot.addEventListener('click',function(){
+        goTo(+this.dataset.idx);
+        resetTimer();
+      });
+    });
+    // スワイプ
+    var hero=document.getElementById('eventsHero');
+    var sx=0,sy=0,swiping=false;
+    hero.addEventListener('touchstart',function(e){
+      sx=e.touches[0].clientX;
+      sy=e.touches[0].clientY;
+      swiping=true;
+    },{passive:true});
+    hero.addEventListener('touchend',function(e){
+      if(!swiping)return;
+      var dx=e.changedTouches[0].clientX-sx;
+      var dy=e.changedTouches[0].clientY-sy;
+      swiping=false;
+      if(Math.abs(dx)>Math.abs(dy)&&Math.abs(dx)>48){
+        goTo(dx<0?cur+1:cur-1);
+        resetTimer();
+      }
+    },{passive:true});
+    // 自動再生
+    timer=setInterval(function(){goTo(cur+1);},INTERVAL);
+  })();
+  </script>
+</body>
+</html>

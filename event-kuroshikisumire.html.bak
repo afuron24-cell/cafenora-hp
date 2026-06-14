@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>黒色すみれ LIVE 2026 | cafe nora</title>
+  <meta name="description" content="2026年6月5日（金）cafe noraにて黒色すみれ TOUR「金星倶楽部」開催。大正ロマンのネオクラシックデュオ、ノスタルジックな夜へ。前売¥4,000・要予約。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="canonical" href="https://cafenora.jp/event-kuroshikisumire.html">
+  <style>
+    :root {
+      --gold:        #C9A961;
+      --gold-light:  #D4B896;
+      --gold-pale:   #F5E6C8;
+      --gold-deep:   #8B6B20;
+      --purple-deep: #1E0538;
+      --purple:      #5C1F8A;
+      --purple-mid:  #7C3FBB;
+      --purple-pale: #F2ECFF;
+      --cream:       #F7F4EE;
+      --cream-warm:  #EDE5D4;
+      --ink:         #1A1A1A;
+      --ink-mid:     #2E2E2E;
+      --ink-light:   #555555;
+      --dark:        #0E0320;
+      --serif: 'Noto Serif JP','Playfair Display',serif;
+      --sans:  'Noto Sans JP',sans-serif;
+    }
+
+    /* ===== HERO ===== */
+    .gs-hero {
+      position: relative;
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+    .gs-hero-bg {
+      position: absolute;
+      inset: 0;
+      background: url('images/sumire-album.jpg') center top / cover no-repeat;
+      filter: saturate(0.8) brightness(0.45);
+    }
+    .gs-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(170deg, rgba(14,3,32,.45) 0%, rgba(30,5,56,.25) 50%, rgba(14,3,32,.75) 100%);
+    }
+    .gs-particles {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .gs-particle {
+      position: absolute;
+      color: var(--gold);
+      opacity: 0;
+      animation: gsFloat linear infinite;
+      user-select: none;
+    }
+    @keyframes gsFloat {
+      0%   { transform: translateY(110vh) rotate(0deg);   opacity: 0; }
+      5%   { opacity: .6; }
+      90%  { opacity: .25; }
+      100% { transform: translateY(-10vh) rotate(540deg); opacity: 0; }
+    }
+    .gs-hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 120px 24px 80px;
+      max-width: 820px;
+      width: 100%;
+    }
+    .gs-eyebrow {
+      font-family: var(--sans);
+      font-size: clamp(.7rem,1.8vw,.85rem);
+      letter-spacing: .35em;
+      color: var(--gold-light);
+      margin-bottom: 28px;
+      opacity: 0;
+      animation: gsFadeDown 1s ease .2s forwards;
+      text-wrap: balance;
+    }
+    .gs-hero-name {
+      font-family: var(--serif);
+      font-size: clamp(4rem,12vw,8rem);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: 6px;
+      text-shadow: 0 0 60px rgba(201,169,97,.4), 0 2px 8px rgba(0,0,0,.9);
+      opacity: 0;
+      animation: gsFadeDown 1s ease .4s forwards;
+    }
+    .gs-hero-name-en {
+      font-family: 'Playfair Display',serif;
+      font-size: clamp(.85rem,2.5vw,1.15rem);
+      color: var(--gold);
+      letter-spacing: .3em;
+      font-style: italic;
+      margin-bottom: 36px;
+      display: block;
+      opacity: 0;
+      animation: gsFadeDown 1s ease .6s forwards;
+    }
+    .gs-hero-tagline {
+      font-family: var(--serif);
+      font-size: clamp(1rem,2.8vw,1.35rem);
+      color: rgba(255,255,255,.88);
+      line-height: 2;
+      margin-bottom: 40px;
+      font-weight: 300;
+      opacity: 0;
+      animation: gsFadeDown 1s ease .8s forwards;
+      text-wrap: balance;
+    }
+    .gs-hero-meta {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 36px;
+      opacity: 0;
+      animation: gsFadeDown 1s ease 1s forwards;
+    }
+    .gs-hero-date-line {
+      font-family: var(--serif);
+      font-size: clamp(1.1rem,3vw,1.5rem);
+      color: var(--gold);
+      letter-spacing: .12em;
+      text-wrap: balance;
+    }
+    .gs-hero-time-line {
+      font-family: var(--sans);
+      font-size: .9rem;
+      color: rgba(255,255,255,.65);
+      letter-spacing: .2em;
+    }
+    .gs-hero-cd {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      background: rgba(201,169,97,.12);
+      border: 1px solid rgba(201,169,97,.35);
+      border-radius: 60px;
+      padding: 14px 36px;
+      font-family: var(--serif);
+      color: var(--gold-light);
+      font-size: 1rem;
+      letter-spacing: .08em;
+      opacity: 0;
+      animation: gsFadeDown 1s ease 1.2s forwards;
+    }
+    .gs-cd-num {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--gold);
+      animation: gsGlow 2.5s ease-in-out infinite;
+    }
+    @keyframes gsGlow {
+      0%,100% { text-shadow: 0 0 8px var(--gold); }
+      50%      { text-shadow: 0 0 30px var(--gold), 0 0 60px rgba(201,169,97,.4); }
+    }
+    @keyframes gsFadeDown {
+      from { opacity: 0; transform: translateY(-18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .gs-hero-scroll {
+      position: absolute;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      color: rgba(255,255,255,.3);
+      font-size: .65rem;
+      letter-spacing: .3em;
+      animation: gsBounce 2.5s ease infinite;
+    }
+    .gs-hero-scroll::after {
+      content: '';
+      width: 1px;
+      height: 36px;
+      background: linear-gradient(to bottom, rgba(201,169,97,.6), transparent);
+    }
+    @keyframes gsBounce {
+      0%,100% { transform: translateX(-50%) translateY(0); }
+      50%      { transform: translateX(-50%) translateY(10px); }
+    }
+
+    /* ===== URGENCY ===== */
+    .hidden { display: none !important; }
+    .ed-urgency-banner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      background: linear-gradient(135deg, var(--purple), var(--purple-mid));
+      padding: 16px 24px;
+      flex-wrap: wrap;
+    }
+    .ub-text { font-family: var(--sans); color: #fff; font-size: .9rem; }
+    .ub-btn {
+      background: var(--gold);
+      color: var(--dark);
+      padding: 8px 24px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-family: var(--sans);
+      font-size: .85rem;
+      font-weight: 700;
+      transition: all .3s;
+    }
+    .ub-btn:hover { filter: brightness(1.1); box-shadow: 0 4px 15px rgba(201,169,97,.5); }
+
+    /* ===== LAYOUT ===== */
+    .gs-sec       { padding: 80px 0; background: #fff; }
+    .gs-sec-cream { padding: 80px 0; background: var(--cream); }
+    .gs-sec-warm  { padding: 80px 0; background: var(--cream-warm); }
+    .gs-sec-dark  { padding: 80px 0; background: linear-gradient(160deg, var(--dark), var(--purple-deep)); }
+    .gs-wrap      { max-width: 920px; margin: 0 auto; padding: 0 24px; }
+
+    /* ✦ ゴールド区切り線 */
+    .gs-divider {
+      text-align: center;
+      padding: 4px 0;
+      background: #fff;
+      position: relative;
+    }
+    .gs-divider::before, .gs-divider::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      width: calc(50% - 80px);
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(201,169,97,.65));
+    }
+    .gs-divider::before { left: 0; }
+    .gs-divider::after  { right: 0; background: linear-gradient(to left, transparent, rgba(201,169,97,.65)); }
+    .gs-divider-cream { background: var(--cream); }
+    .gs-divider-warm  { background: var(--cream-warm); }
+    .gs-divider span {
+      font-family: 'Playfair Display', serif;
+      font-size: .9rem;
+      color: var(--gold-deep);
+      letter-spacing: .3em;
+    }
+
+    /* Section title */
+    .gs-stitle {
+      font-family: var(--sans);
+      font-size: clamp(1.2rem,3.5vw,1.65rem);
+      text-align: center;
+      margin-bottom: 48px;
+      color: var(--ink);
+      position: relative;
+      line-height: 1.9;
+      text-wrap: balance;
+    }
+    .gs-stitle::after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 1px;
+      background: linear-gradient(to right, var(--gold-deep), var(--gold-light));
+      margin: 18px auto 0;
+    }
+    .gs-stitle-label {
+      display: block;
+      font-family: var(--sans);
+      font-size: .72rem;
+      letter-spacing: .4em;
+      color: var(--gold-deep);
+      margin-bottom: 14px;
+      font-weight: 400;
+    }
+
+    /* Gold frame for images */
+    .gs-gold-frame {
+      display: inline-block;
+      padding: 8px;
+      background: linear-gradient(135deg, var(--gold-deep), var(--gold-light), var(--gold-deep));
+      border-radius: 4px;
+      box-shadow: 0 6px 30px rgba(139,107,32,.18);
+    }
+    .gs-gold-frame img { display: block; width: 100%; border-radius: 2px; }
+    .gs-gold-frame-outer { position: relative; }
+    .gs-gold-frame-outer::before {
+      content: '';
+      position: absolute;
+      inset: -12px;
+      border: 1px solid rgba(201,169,97,.38);
+      border-radius: 8px;
+      pointer-events: none;
+    }
+
+    /* ===== FLYER SECTION ===== */
+    .gs-flyer-grid {
+      display: grid;
+      grid-template-columns: .85fr 1.15fr;
+      gap: 52px;
+      align-items: start;
+    }
+    .gs-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--purple), var(--purple-mid));
+      color: #fff;
+      font-family: var(--sans);
+      font-size: .78rem;
+      letter-spacing: .12em;
+      padding: 5px 18px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+    .gs-table { width: 100%; border-collapse: collapse; font-family: var(--sans); margin-bottom: 28px; }
+    .gs-table tr { border-bottom: 1px solid rgba(201,169,97,.4); }
+    .gs-table tr:first-child { border-top: 1px solid rgba(201,169,97,.4); }
+    .gs-table th {
+      padding: 14px 16px;
+      text-align: left;
+      font-size: .82rem;
+      color: var(--gold-deep);
+      font-weight: 600;
+      letter-spacing: .05em;
+      width: 108px;
+      background: rgba(245,230,200,.3);
+      vertical-align: top;
+    }
+    .gs-table td { padding: 14px 16px; font-size: .97rem; color: var(--ink); line-height: 1.7; }
+    .gs-price-box {
+      background: linear-gradient(135deg, var(--purple-deep), var(--purple));
+      border-radius: 6px;
+      padding: 20px 24px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .gs-price-main { font-family: var(--serif); font-size: 1.35rem; color: var(--gold); }
+    .gs-price-sub  { font-size: .8rem; color: rgba(255,255,255,.55); margin-top: 4px; }
+    .gs-btn {
+      display: block;
+      width: 100%;
+      padding: 15px;
+      background: linear-gradient(135deg, var(--gold-deep), var(--gold), #E2C07A);
+      color: var(--dark);
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: .15em;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 3px;
+      transition: all .3s;
+      box-shadow: 0 3px 16px rgba(201,169,97,.3);
+    }
+    .gs-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(201,169,97,.5); filter: brightness(1.06); }
+
+    /* ===== ZAHATORTE ===== */
+    .gs-zahatorte {
+      border: 1px solid rgba(201,169,97,.35);
+      border-radius: 6px;
+      padding: 36px 48px;
+      text-align: center;
+      background: #fff;
+      position: relative;
+    }
+    .gs-zahatorte::before, .gs-zahatorte::after {
+      content: '✦';
+      position: absolute;
+      color: var(--gold);
+      font-size: 1rem;
+      opacity: .5;
+    }
+    .gs-zahatorte::before { top: 14px; left: 20px; }
+    .gs-zahatorte::after  { bottom: 14px; right: 20px; }
+    .gs-zahatorte-title {
+      font-family: var(--serif);
+      font-size: clamp(1rem,2.8vw,1.3rem);
+      color: var(--ink);
+      font-weight: 600;
+      line-height: 1.9;
+      text-wrap: balance;
+    }
+
+    /* ===== LEAD COPY ===== */
+    .gs-lead {
+      background: #fff;
+      border: 1px solid rgba(201,169,97,.45);
+      border-radius: 6px;
+      padding: 56px 52px;
+      text-align: center;
+      position: relative;
+    }
+    .gs-lead-deco {
+      position: absolute;
+      font-size: 1.4rem;
+      color: rgba(201,169,97,.4);
+      line-height: 1;
+    }
+    .gs-lead-deco.tl { top: 16px; left: 20px; }
+    .gs-lead-deco.tr { top: 16px; right: 20px; }
+    .gs-lead-deco.bl { bottom: 16px; left: 20px; }
+    .gs-lead-deco.br { bottom: 16px; right: 20px; }
+    .gs-lead-headline {
+      font-family: var(--sans);
+      font-size: clamp(1.15rem,3.2vw,1.6rem);
+      color: var(--ink);
+      line-height: 2;
+      margin-bottom: 28px;
+      font-weight: 600;
+      text-wrap: balance;
+    }
+    .gs-lead-body {
+      font-family: var(--sans);
+      font-size: .97rem;
+      color: var(--ink-light);
+      line-height: 2.4;
+      font-weight: 300;
+      text-wrap: pretty;
+      word-break: auto-phrase;
+    }
+
+    /* ===== 3 REASONS ===== */
+    .gs-reasons-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+    .gs-reason-card {
+      background: #fff;
+      border: 1px solid rgba(201,169,97,.45);
+      border-radius: 6px;
+      padding: 40px 24px 36px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+    }
+    .gs-reason-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(to right, var(--gold-deep), var(--gold-light));
+    }
+    .gs-reason-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 56px rgba(139,107,32,.12);
+      border-color: var(--gold);
+    }
+    .gs-reason-icon  { font-size: 2.4rem; display: block; margin-bottom: 18px; }
+    .gs-reason-title { font-family: var(--sans); font-size: .97rem; color: var(--ink); font-weight: 600; line-height: 1.7; margin-bottom: 14px; text-wrap: balance; }
+    .gs-reason-desc  { font-family: var(--sans); font-size: .855rem; color: var(--ink-light); line-height: 1.95; text-wrap: pretty; word-break: auto-phrase; }
+
+    /* ===== STORY SECTION (light, elegant) ===== */
+    .gs-sec-story {
+      padding: 90px 0;
+      background: var(--cream);
+      position: relative;
+      overflow: hidden;
+    }
+    .gs-sec-story::before {
+      content: '✦';
+      position: absolute;
+      font-size: 20rem;
+      color: rgba(201,169,97,.04);
+      top: 50%; right: -3rem;
+      transform: translateY(-50%);
+      pointer-events: none;
+      user-select: none;
+      line-height: 1;
+    }
+    .gs-story-wrap {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+      z-index: 1;
+    }
+    .gs-story-eyebrow {
+      font-family: 'Playfair Display', serif;
+      font-size: .85rem;
+      letter-spacing: .4em;
+      color: var(--gold-deep);
+      text-align: center;
+      margin-bottom: 52px;
+    }
+    .gs-story-p {
+      font-family: var(--sans);
+      font-size: 1.02rem;
+      color: var(--ink-mid);
+      line-height: 2.3;
+      margin-bottom: 26px;
+      text-wrap: pretty;
+      word-break: auto-phrase;
+    }
+    .gs-story-hl { color: var(--gold-deep); font-weight: 600; }
+    .gs-story-bq {
+      font-family: var(--serif);
+      font-size: clamp(1.3rem,3.5vw,1.9rem);
+      color: var(--ink);
+      text-align: center;
+      padding: 28px 20px;
+      margin: 32px 0;
+      position: relative;
+      font-weight: 600;
+      line-height: 1.6;
+    }
+    .gs-story-bq::before, .gs-story-bq::after {
+      content: '';
+      position: absolute;
+      left: 50%; transform: translateX(-50%);
+      width: 60px; height: 1px;
+      background: linear-gradient(to right, transparent, rgba(201,169,97,.6), transparent);
+    }
+    .gs-story-bq::before { top: 0; }
+    .gs-story-bq::after  { bottom: 0; }
+    .gs-story-bq-yes {
+      font-size: clamp(1.8rem,5.5vw,2.8rem);
+      color: var(--gold-deep);
+      padding: 40px 20px;
+    }
+    .gs-story-bq-yes::before, .gs-story-bq-yes::after { width: 100px; }
+    .gs-story-bq-date {
+      font-size: clamp(1.6rem,4.5vw,2.4rem);
+      color: var(--ink);
+    }
+    .gs-story-scene {
+      border-left: 2px solid rgba(201,169,97,.5);
+      padding: 20px 28px;
+      margin: 28px 0;
+      font-family: var(--sans);
+      font-size: 1.02rem;
+      color: var(--ink-mid);
+      line-height: 2.1;
+    }
+    .gs-story-climax {
+      text-align: center;
+      padding: 40px 0 28px;
+      font-family: var(--sans);
+      font-size: clamp(1.2rem,3.5vw,1.65rem);
+      color: var(--ink);
+      line-height: 2.2;
+      font-weight: 600;
+      text-wrap: balance;
+    }
+    .gs-story-closing {
+      background: #fff;
+      border: 1px solid rgba(201,169,97,.4);
+      border-radius: 6px;
+      padding: 32px 36px;
+      font-family: var(--sans);
+      font-size: .96rem;
+      color: var(--ink-light);
+      line-height: 2.2;
+      text-wrap: pretty;
+      word-break: auto-phrase;
+    }
+    .gs-story-closing p + p { margin-top: 1.2em; }
+
+    /* ===== PROFILE (light elegant) ===== */
+    .gs-profile-photo-wrap { text-align: center; margin-bottom: 52px; }
+    .gs-profile-frame {
+      display: inline-block;
+      padding: 10px;
+      background: linear-gradient(135deg, var(--gold-deep), var(--gold-light), var(--gold-deep));
+      border-radius: 6px;
+      box-shadow: 0 12px 48px rgba(139,107,32,.15);
+    }
+    .gs-profile-frame img { max-width: 420px; width: 100%; display: block; border-radius: 3px; }
+    .gs-profile-p { font-family: var(--sans); font-size: .97rem; color: var(--ink-mid); line-height: 2.2; margin-bottom: 20px; text-wrap: pretty; word-break: auto-phrase; }
+    .gs-hl-gold {
+      display: inline;
+      background: rgba(201,169,97,.12);
+      border: 1px solid rgba(201,169,97,.35);
+      color: var(--gold-deep);
+      padding: 1px 8px;
+      border-radius: 3px;
+      font-size: .95em;
+    }
+    .gs-members {
+      border-top: 1px solid rgba(201,169,97,.48);
+      border-bottom: 1px solid rgba(201,169,97,.48);
+      padding: 28px 0;
+      margin: 32px 0;
+    }
+    .gs-members-label {
+      font-family: var(--sans);
+      font-size: .83rem;
+      letter-spacing: .03em;
+      color: var(--ink-light);
+      text-align: center;
+      margin-bottom: 20px;
+      line-height: 1.9;
+      text-wrap: pretty;
+      word-break: auto-phrase;
+    }
+    .gs-members-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .gs-members-list li { display: flex; align-items: baseline; gap: 16px; padding: 8px 0; border-bottom: 1px dashed rgba(201,169,97,.4); font-family: var(--sans); }
+    .gs-members-list li:last-child { border-bottom: none; }
+    .gs-m-name { font-family: var(--sans); font-size: 1.2rem; color: var(--ink); font-weight: 600; min-width: 55px; }
+    .gs-m-inst { font-size: .88rem; color: var(--ink-light); letter-spacing: .04em; }
+    .gs-links { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 24px; }
+    .gs-link-btn {
+      padding: 9px 26px;
+      border: 1px solid rgba(139,107,32,.35);
+      color: var(--gold-deep);
+      text-decoration: none;
+      font-family: var(--sans);
+      font-size: .875rem;
+      border-radius: 30px;
+      letter-spacing: .05em;
+      transition: all .3s;
+    }
+    .gs-link-btn:hover { background: rgba(201,169,97,.1); border-color: var(--gold); }
+    .gs-profile-note {
+      text-align: center;
+      padding: 14px 20px;
+      border: 1px solid rgba(201,169,97,.38);
+      border-radius: 4px;
+      font-family: var(--sans);
+      font-size: .84rem;
+      color: var(--ink-light);
+    }
+    .gs-profile-note a { color: var(--gold-deep); text-decoration: none; font-weight: 500; }
+    .gs-profile-note a:hover { text-decoration: underline; }
+
+    /* ===== ALBUM ===== */
+    .gs-album-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 56px; align-items: start; }
+    .gs-album-info-box {
+      background: rgba(92,31,138,.06);
+      border-left: 3px solid var(--purple-mid);
+      padding: 14px 20px;
+      border-radius: 0 4px 4px 0;
+      margin-bottom: 20px;
+      font-family: var(--sans);
+      font-size: .9rem;
+      color: var(--purple);
+      letter-spacing: .04em;
+    }
+    .gs-album-body { font-family: var(--sans); font-size: .96rem; color: var(--ink-mid); line-height: 2.15; text-wrap: pretty; word-break: auto-phrase; }
+
+    /* ===== TOUR ===== */
+    .gs-tour-center { text-align: center; }
+    .gs-tour-frame {
+      display: inline-block;
+      padding: 8px;
+      background: linear-gradient(135deg, var(--gold-deep), var(--gold-light), var(--gold-deep));
+      border-radius: 4px;
+      box-shadow: 0 8px 32px rgba(139,107,32,.12);
+      max-width: 620px;
+      width: 100%;
+      margin-bottom: 28px;
+    }
+    .gs-tour-frame img { width: 100%; display: block; border-radius: 2px; }
+    .gs-tour-hl {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--gold-deep), var(--gold));
+      color: var(--dark);
+      padding: 12px 36px;
+      border-radius: 3px;
+      font-family: var(--serif);
+      font-size: .97rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+    }
+
+    /* ===== RESERVATION ===== */
+    .gs-reserve-price {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(201,169,97,.48);
+      border-radius: 8px;
+      padding: 28px;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+    .gs-reserve-price-label { font-family: var(--sans); font-size: .75rem; letter-spacing: .2em; color: rgba(255,255,255,.4); margin-bottom: 10px; }
+    .gs-reserve-price-main  { font-family: var(--serif); font-size: clamp(1.4rem,3.5vw,2rem); color: var(--gold); }
+    .gs-reserve-price-note  { font-family: var(--sans); font-size: .82rem; color: rgba(255,255,255,.45); margin-top: 6px; }
+    .gs-reserve-cards { display: grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap: 18px; margin-bottom: 40px; }
+    .gs-reserve-card {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(201,169,97,.38);
+      border-radius: 8px;
+      padding: 28px 20px;
+      text-align: center;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: all .3s;
+    }
+    .gs-reserve-card:hover { background: rgba(201,169,97,.09); border-color: rgba(201,169,97,.45); transform: translateY(-4px); box-shadow: 0 10px 32px rgba(0,0,0,.25); }
+    .gs-reserve-card.featured { border-color: rgba(201,169,97,.4); background: rgba(201,169,97,.07); }
+    .gs-rc-icon  { font-size: 2rem; display: block; margin-bottom: 12px; }
+    .gs-rc-label { font-family: var(--sans); font-size: .82rem; color: rgba(255,255,255,.5); margin-bottom: 8px; line-height: 1.5; }
+    .gs-rc-value { font-family: var(--serif); font-size: .97rem; color: var(--gold-light); }
+    .gs-reserve-btn-large {
+      display: inline-block;
+      padding: 18px 56px;
+      background: linear-gradient(135deg, var(--gold-deep), var(--gold), #E2C07A);
+      color: var(--dark);
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: .15em;
+      text-decoration: none;
+      border-radius: 3px;
+      transition: all .3s;
+      box-shadow: 0 6px 24px rgba(201,169,97,.4);
+    }
+    .gs-reserve-btn-large:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(201,169,97,.6); }
+    .gs-back { margin-top: 40px; text-align: center; }
+    .gs-back a { color: rgba(255,255,255,.3); text-decoration: none; font-family: var(--sans); font-size: .85rem; transition: color .3s; }
+    .gs-back a:hover { color: var(--gold-light); }
+
+    /* ===== FADE IN ===== */
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity .7s ease, transform .7s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 780px) {
+      .gs-flyer-grid   { grid-template-columns: 1fr; }
+      .gs-reasons-grid { grid-template-columns: 1fr; }
+      .gs-album-grid   { grid-template-columns: 1fr; }
+      .gs-lead         { padding: 36px 20px; }
+      .gs-zahatorte    { padding: 28px 20px; }
+      .gs-story-closing { padding: 24px 20px; }
+    }
+    @media (max-width: 480px) {
+      .gs-hero-name      { font-size: 3.5rem; }
+      .gs-reserve-cards  { grid-template-columns: 1fr; }
+      .gs-wrap           { padding: 0 16px; }
+      .gs-divider::before, .gs-divider::after { width: calc(50% - 60px); }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header" id="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-en">cafe nora</span>
+        <span class="logo-jp">カフェ ノラ</span>
+      </a>
+      <button class="menu-btn" id="menuBtn" aria-label="メニューを開く">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav" id="nav">
+        <ul class="nav-list">
+          <li><a href="index.html">トップ</a></li>
+          <li><a href="cafe.html">カフェ</a></li>
+          <li><a href="yoga.html">ヨガ</a></li>
+          <li><a href="calendar.html">カレンダー</a></li>
+          <li><a href="events.html">イベント</a></li>
+          <li><a href="access.html">アクセス</a></li>
+          <li><a href="service.html">HP制作</a></li>
+          <li><a href="contact.html">お問い合わせ</a></li>
+          <li><a href="parking-zahatorte.html" style="color:#c0392b;font-weight:700;">🚗 臨時駐車場のご案内</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <div class="gs-hero">
+    <div class="gs-hero-bg"></div>
+    <div class="gs-hero-overlay"></div>
+    <div class="gs-particles" id="gs-particles"></div>
+    <div class="gs-hero-content">
+      <p class="gs-eyebrow">✦ &nbsp; TOUR「金星倶楽部」at cafe nora &nbsp; ✦</p>
+      <h1 class="gs-hero-name">黒色すみれ</h1>
+      <span class="gs-hero-name-en">Kokusyoku Sumire</span>
+      <p class="gs-hero-tagline">大正ロマンの夢を見た——<br>2人の音が、時間を巻き戻す夜。</p>
+      <div class="gs-hero-meta">
+        <p class="gs-hero-date-line">2026年 6月 5日（金）</p>
+        <p class="gs-hero-time-line">OPEN 18:30 &nbsp;/&nbsp; START 19:30</p>
+      </div>
+      <div class="gs-hero-cd">
+        <span>開催まで あと</span>
+        <span class="gs-cd-num" id="hero-days">—</span>
+        <span>日</span>
+      </div>
+    </div>
+    <div class="gs-hero-scroll">SCROLL</div>
+  </div>
+
+  <div class="ed-urgency-banner hidden" id="urgency-banner">
+    <span class="ub-text">🎟️ 残席わずか ——「行こうかな」と思っているなら、今日です。</span>
+    <a href="https://noratool.pythonanywhere.com/yoyaku" target="_blank" rel="noopener noreferrer" class="ub-btn">今すぐ予約する</a>
+  </div>
+
+  <!-- 1: FLYER + DETAILS -->
+  <div class="gs-sec">
+    <div class="gs-wrap">
+      <div class="gs-flyer-grid fade-in">
+        <div class="gs-gold-frame-outer">
+          <div class="gs-gold-frame">
+            <img src="images/kuroshikisumire-omote.jpg" alt="黒色すみれ TOUR「金星倶楽部」フライヤー">
+          </div>
+        </div>
+        <div>
+          <span class="gs-badge">開催予定</span>
+          <table class="gs-table">
+            <tr><th>📅 日時</th><td>2026年 6月 5日（金）</td></tr>
+            <tr><th>🕐 開場/開演</th><td>OPEN 18:30 / START 19:30</td></tr>
+            <tr><th>💴 料金</th><td>前売 ¥4,000 / 当日 ¥4,500<br><small style="color:#999;">（+1 drink order）</small></td></tr>
+            <tr><th>📍 会場</th><td>cafe nora<br><small style="color:#999;">愛媛県新居浜市萩生2133-29</small></td></tr>
+          </table>
+          <div class="gs-price-box">
+            <p class="gs-price-main">前売 ¥4,000 &nbsp;/&nbsp; 当日 ¥4,500</p>
+            <p class="gs-price-sub">+1 drink order</p>
+          </div>
+          <a href="https://noratool.pythonanywhere.com/yoyaku" target="_blank" rel="noopener noreferrer" class="gs-btn">🎟️ 前売で予約する</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ✦ -->
+  <div class="gs-divider gs-divider-cream">
+    <span>✦</span>
+  </div>
+
+  <!-- 2: ZAHATORTE BANNER -->
+  <div class="gs-sec-cream">
+    <div class="gs-wrap">
+      <div class="gs-zahatorte fade-in">
+        <p class="gs-zahatorte-title">🎉 5月24日のザッハトルテの興奮も<br>冷めない中での、黒色すみれ特別出演です！</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ✦ -->
+  <div class="gs-divider">
+    <span>✦</span>
+  </div>
+
+  <!-- 3: LEAD COPY -->
+  <div class="gs-sec">
+    <div class="gs-wrap">
+      <div class="gs-lead fade-in">
+        <span class="gs-lead-deco tl">✦</span>
+        <span class="gs-lead-deco tr">✦</span>
+        <span class="gs-lead-deco bl">✦</span>
+        <span class="gs-lead-deco br">✦</span>
+        <p class="gs-lead-headline">大正ロマンの夢を見た——<br>2人の音が、時間を巻き戻す夜。</p>
+        <p class="gs-lead-body">ヴァイオリンとピアノ・アコーディオン。たった2人が奏でるのに、<br>そこには映画のような世界が広がります。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ✦ -->
+  <div class="gs-divider gs-divider-cream">
+    <span>✦</span>
+  </div>
+
+  <!-- STORY: この出会いについて -->
+  <div class="gs-sec-story">
+    <div class="gs-story-wrap">
+
+      <p class="gs-story-eyebrow fade-in">— この夜が生まれた話 —</p>
+
+      <p class="gs-story-p fade-in">
+        黒色すみれさんが四国での出演地を探していたとき、蜂鳥あみ太さんが何度も cafe nora に立ってくれた経験から、<span class="gs-story-hl">「ここがいい」</span>って強く推してくれたんです。
+      </p>
+
+      <p class="gs-story-p fade-in">
+        福岡のツアーが終わった後、わざわざこんな田舎まで車を走らせてくれた。
+      </p>
+
+      <p class="gs-story-p fade-in">
+        ランチを召し上がりながら、僕らは思わず言ってしまったんです。
+      </p>
+
+      <blockquote class="gs-story-bq fade-in">
+        「ここで聞けちゃったりします？」
+      </blockquote>
+
+      <p class="gs-story-p fade-in">返ってきたのは、あっけらかんとした返事。</p>
+
+      <blockquote class="gs-story-bq gs-story-bq-yes fade-in">
+        「いいですよ！」
+      </blockquote>
+
+      <p class="gs-story-p fade-in">
+        車からアコーディオンとバイオリンを持ってきてくれて。1〜2mの距離で。
+      </p>
+
+      <div class="gs-story-scene fade-in">
+        <p>ゆかさんの歌声、さちさんのヴァイオリンの音。</p>
+      </div>
+
+      <p class="gs-story-p fade-in">
+        ゆかさんの歌声、ピアノ、アコーディオン。さちさんのヴァイオリン。<br>
+        2004年からのキャリアに積み重ねられた、クラシック、シャンソン、日本歌曲、大正ロマン——<br>
+        新居浜では絶対に見ることのできない、全てがそこにあった。
+      </p>
+
+      <blockquote class="gs-story-bq gs-story-bq-date fade-in">
+        「6月5日だ！」
+      </blockquote>
+
+      <p class="gs-story-p fade-in">
+        演劇・映画・アニメの世界で活躍し、ヨーロッパツアーで数万人を魅了してきたお二人。<br>
+        その場で、ゆかさんとさちさんと三人で予定を見て——
+      </p>
+
+      <div class="gs-story-climax fade-in">
+        あの奇跡をもう一度。<br>
+        いや、新しい奇跡を。
+      </div>
+
+      <div class="gs-story-closing fade-in">
+        <p>あなたが感じるのは、音楽への感動。こんな小さなカフェで、こんな素敵なアーティストの演奏に出会えるなんて。その奇跡、その感動、その喜び、その涙——全部が、ここに詰まっている。</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ✦ -->
+  <div class="gs-divider">
+    <span>✦</span>
+  </div>
+
+  <!-- 4: 3 REASONS -->
+  <div class="gs-sec-cream">
+    <div class="gs-wrap">
+      <h2 class="gs-stitle fade-in">
+        <span class="gs-stitle-label">WHY ATTEND</span>
+        この夜に来てほしい、3つの理由
+      </h2>
+      <div class="gs-reasons-grid">
+        <div class="gs-reason-card fade-in">
+          <span class="gs-reason-icon">🎻</span>
+          <p class="gs-reason-title">新作「金星倶楽部」を携えた<br>リリース記念の一夜</p>
+          <p class="gs-reason-desc">大正ロマンというテーマに20年のキャリアを注ぎ込んだ新作。その音楽世界を、リリース直後の特別なツアーステージで体感できます。</p>
+        </div>
+        <div class="gs-reason-card fade-in">
+          <span class="gs-reason-icon">🌸</span>
+          <p class="gs-reason-title">金曜の夜に、<br>大正ロマンの世界へ</p>
+          <p class="gs-reason-desc">週末のはじまり、コーヒーと音楽に包まれる金曜の夜。日常から切り離された特別な時間が、ここにあります。</p>
+        </div>
+        <div class="gs-reason-card fade-in">
+          <span class="gs-reason-icon">📍</span>
+          <p class="gs-reason-title">演劇・映画・アニメ起用の<br>実力派が目の前に</p>
+          <p class="gs-reason-desc">幅広いフィールドで活躍し続ける黒色すみれ。全国ツアーの中で新居浜に来る機会は貴重。次はいつかわかりません。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ✦ -->
+  <div class="gs-divider gs-divider-warm">
+    <span>✦</span>
+  </div>
+
+  <!-- 5: PROFILE -->
+  <div class="gs-sec-warm">
+    <div class="gs-wrap">
+      <h2 class="gs-stitle fade-in">
+        <span class="gs-stitle-label">PROFILE</span>
+        黒色すみれ（Kokusyoku Sumire）とは
+      </h2>
+      <div class="gs-profile-photo-wrap fade-in">
+        <div class="gs-profile-frame">
+          <img src="images/sumire-album.jpg" alt="黒色すみれ">
+        </div>
+      </div>
+      <p class="gs-profile-p fade-in">
+        ゆか（Vocal / Piano / Accordion）とさち（Violin）——たった2人が生み出す音楽は、クラシックを基調に、フランスのシャンソン、日本歌曲、大正ロマンのエッセンスが溶け合ったノスタルジックな世界。2004年のCDデビュー以来、演劇・映画・アニメーション作品など幅広いフィールドで活躍してきました。
+      </p>
+      <p class="gs-profile-p fade-in">
+        ネオクラシックユニットと銘打ち、メンバーは2人とも「永遠の14歳」を自称。素敵なもの、可愛いもの、綺麗なものにいつも囲まれて生きていたいという乙女の夢と、それらが合わせ持つ恐さや残酷さを同じ位愛しているという、唯一無二の世界観。
+      </p>
+      <div class="gs-members fade-in">
+        <p class="gs-members-label">2026年5月16日発売の新アルバム「金星倶楽部」は、日米友好の親善大使として活躍した「青い目の人形」100周年を記念した作品。大正ロマンというテーマを純粋に追求した、20年のキャリアの集大成。そのリリース記念ツアーが、cafe noraにやってきます。</p>
+        <ul class="gs-members-list">
+          <li><span class="gs-m-name">ゆか</span><span class="gs-m-inst">Vocal / Piano / Accordion</span></li>
+          <li><span class="gs-m-name">さち</span><span class="gs-m-inst">Violin</span></li>
+        </ul>
+      </div>
+      <div class="gs-links fade-in">
+        <a href="https://www.kokusyokusumire.net/" target="_blank" rel="noopener noreferrer" class="gs-link-btn">🌐 公式サイト</a>
+        <a href="https://www.instagram.com/kokusyokusumire/" target="_blank" rel="noopener noreferrer" class="gs-link-btn">📸 Instagram</a>
+        <a href="https://www.youtube.com/channel/UCLUKwHDCj3flxoWP1EIexdw" target="_blank" rel="noopener noreferrer" class="gs-link-btn">▶️ YouTube</a>
+      </div>
+      <p class="gs-profile-note fade-in">
+        詳しいプロフィール情報は
+        <a href="https://www.kokusyokusumire.net/profile.html" target="_blank" rel="noopener noreferrer">黒色すみれ公式プロフィール</a>
+        をご参照ください
+      </p>
+    </div>
+  </div>
+
+  <!-- ✦ -->
+  <div class="gs-divider gs-divider-warm">
+    <span>✦</span>
+  </div>
+
+  <!-- 7: TOUR SCHEDULE -->
+  <div class="gs-sec">
+    <div class="gs-wrap">
+      <h2 class="gs-stitle fade-in">
+        <span class="gs-stitle-label">TOUR</span>
+        TOUR「金星倶楽部」日程
+      </h2>
+      <div class="gs-tour-center fade-in">
+        <div class="gs-tour-frame">
+          <img src="images/sumire-tour.jpg" alt="黒色すみれ TOUR「金星倶楽部」ツアー日程">
+        </div>
+        <p style="margin-bottom:20px;">
+          <span class="gs-tour-hl">6月5日（金）cafe nora 新居浜 ← 全国ツアーの一部です</span>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ✦ -->
+  <div class="gs-divider" style="background:linear-gradient(160deg,var(--dark),var(--purple-deep));">
+    <span style="color:var(--gold);">✦</span>
+  </div>
+
+  <!-- 8: RESERVATION -->
+  <div class="gs-sec-dark">
+    <div class="gs-wrap">
+      <h2 class="gs-stitle fade-in" style="color:var(--gold-light);">
+        <span class="gs-stitle-label" style="color:var(--gold);">TICKET</span>
+        ご予約・チケット
+      </h2>
+      <div class="gs-reserve-price fade-in">
+        <p class="gs-reserve-price-label">TICKET PRICE</p>
+        <p class="gs-reserve-price-main">前売 ¥4,000 &nbsp;/&nbsp; 当日 ¥4,500</p>
+        <p class="gs-reserve-price-note">+1 drink order &nbsp;|&nbsp; 前売のお早めのご予約がお得です</p>
+      </div>
+      <div class="gs-reserve-cards fade-in">
+        <a href="https://noratool.pythonanywhere.com/yoyaku" target="_blank" rel="noopener noreferrer" class="gs-reserve-card featured">
+          <span class="gs-rc-icon">🎵</span>
+          <p class="gs-rc-label">Web予約フォーム<br>24時間受付・複数ライブまとめて予約OK</p>
+          <p class="gs-rc-value">ここから予約する</p>
+        </a>
+        <a href="tel:090-9459-1733" class="gs-reserve-card">
+          <span class="gs-rc-icon">📞</span>
+          <p class="gs-rc-label">お電話で予約</p>
+          <p class="gs-rc-value">090-9459-1733</p>
+        </a>
+        <a href="https://www.instagram.com/cafenora.kazu/" target="_blank" rel="noopener noreferrer" class="gs-reserve-card">
+          <span class="gs-rc-icon">📷</span>
+          <p class="gs-rc-label">Instagram DM で予約</p>
+          <p class="gs-rc-value">@cafenora.kazu</p>
+        </a>
+        <a href="https://www.instagram.com/cafenora.maru/" target="_blank" rel="noopener noreferrer" class="gs-reserve-card">
+          <span class="gs-rc-icon">📷</span>
+          <p class="gs-rc-label">Instagram DM で予約</p>
+          <p class="gs-rc-value">@cafenora.maru</p>
+        </a>
+      </div>
+      <div class="fade-in" style="text-align:center;">
+        <a href="https://noratool.pythonanywhere.com/yoyaku" target="_blank" rel="noopener noreferrer" class="gs-reserve-btn-large">🎟️ 今すぐ前売で予約する</a>
+      </div>
+      <div class="gs-back">
+        <a href="events.html">← イベント一覧に戻る</a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <p class="footer-logo">cafe nora</p>
+          <p class="footer-tagline">カフェ・ヨガ・ライブイベント</p>
+          <p class="footer-address">〒792-0050 愛媛県新居浜市萩生2133-29</p>
+          <p class="footer-tel"><a href="tel:090-9459-1733">090-9459-1733</a></p>
+        </div>
+        <nav class="footer-nav">
+          <a href="index.html">トップ</a>
+          <a href="cafe.html">カフェ</a>
+          <a href="yoga.html">ヨガ</a>
+          <a href="events.html">イベント</a>
+          <a href="past-events.html">過去のイベント</a>
+          <a href="access.html">アクセス</a>
+        </nav>
+      </div>
+      <p class="footer-copy">&copy; 2026 cafe nora. All rights reserved. <a href="flyer-login.html" style="color:rgba(255,255,255,0.2);margin-left:1rem;font-size:0.75rem;text-decoration:none;" title="管理者">🔒</a></p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    /* particles */
+    (function(){
+      var c = document.getElementById('gs-particles');
+      var s = ['✦','♪','♫','✿','❋','◈','✵','❀'];
+      for(var i=0;i<28;i++){
+        var el=document.createElement('span');
+        el.className='gs-particle';
+        el.textContent=s[Math.floor(Math.random()*s.length)];
+        el.style.left=Math.random()*100+'%';
+        el.style.fontSize=(Math.random()*.9+.5)+'rem';
+        el.style.animationDuration=(Math.random()*14+10)+'s';
+        el.style.animationDelay=(Math.random()*12)+'s';
+        c.appendChild(el);
+      }
+    })();
+
+    /* countdown */
+    (function(){
+      var liveDate=new Date('2026-06-05T00:00:00+09:00');
+      var now=new Date();
+      var jstMs=now.getTime()+9*3600000;
+      var todayJST=new Date(Math.floor(jstMs/86400000)*86400000-9*3600000);
+      var diff=Math.round((liveDate-todayJST)/86400000);
+      var el=document.getElementById('hero-days');
+      if(diff>0){
+        el.textContent=diff;
+        if(diff<=7) document.getElementById('urgency-banner').classList.remove('hidden');
+      } else {
+        document.querySelector('.gs-hero-cd').textContent='開催当日！';
+      }
+    })();
+
+    /* scroll fade-in */
+    (function(){
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }
+        });
+      },{threshold:.1});
+      document.querySelectorAll('.fade-in').forEach(function(el){ obs.observe(el); });
+    })();
+  </script>
+  <script>(function(){var p=new URLSearchParams(location.search);if(p.get("owner")==="nora")localStorage.setItem("nora_owner","1");if(p.get("owner")==="off")localStorage.removeItem("nora_owner");if(!localStorage.getItem("nora_owner"))fetch("https://noratool.pythonanywhere.com/pv?p="+encodeURIComponent(location.pathname)).catch(function(){});})();</script>
+</body>
+</html>

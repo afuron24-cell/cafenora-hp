@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" width="800" height="560">
+  <defs>
+    <linearGradient id="bg2" x1="0%" y1="0%" x2="60%" y2="100%">
+      <stop offset="0%" style="stop-color:#2a1f14"/>
+      <stop offset="100%" style="stop-color:#1a120a"/>
+    </linearGradient>
+    <linearGradient id="spotlight" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#d4a96a;stop-opacity:0.4"/>
+      <stop offset="100%" style="stop-color:#d4a96a;stop-opacity:0"/>
+    </linearGradient>
+    <linearGradient id="spotlight2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#a8c098;stop-opacity:0.25"/>
+      <stop offset="100%" style="stop-color:#a8c098;stop-opacity:0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="800" height="560" fill="url(#bg2)"/>
+
+  <!-- スポットライト -->
+  <path d="M300 0 L180 420 L420 420 Z" fill="url(#spotlight)"/>
+  <path d="M500 0 L380 400 L620 400 Z" fill="url(#spotlight2)"/>
+
+  <!-- ステージ床 -->
+  <rect x="0" y="400" width="800" height="160" fill="#1e1408" opacity="0.9"/>
+  <rect x="0" y="398" width="800" height="6" fill="#8b6f47" opacity="0.6"/>
+
+  <!-- マイクスタンド -->
+  <rect x="393" y="220" width="14" height="170" fill="#5a4a3a" rx="3"/>
+  <rect x="350" y="385" width="100" height="8" fill="#5a4a3a" rx="4"/>
+  <rect x="375" y="375" width="50" height="12" fill="#4a3a2a" rx="3"/>
+  <!-- マイク本体 -->
+  <rect x="382" y="180" width="36" height="52" fill="#c8a870" rx="18"/>
+  <rect x="386" y="184" width="28" height="44" fill="#d4b880" rx="14"/>
+  <!-- マイクグリル -->
+  <line x1="386" y1="195" x2="414" y2="195" stroke="#b09050" stroke-width="1.5" opacity="0.6"/>
+  <line x1="386" y1="203" x2="414" y2="203" stroke="#b09050" stroke-width="1.5" opacity="0.6"/>
+  <line x1="386" y1="211" x2="414" y2="211" stroke="#b09050" stroke-width="1.5" opacity="0.6"/>
+  <line x1="386" y1="219" x2="414" y2="219" stroke="#b09050" stroke-width="1.5" opacity="0.6"/>
+
+  <!-- 音符 -->
+  <!-- 大きい音符1 -->
+  <text x="180" y="200" font-size="72" fill="#d4a96a" opacity="0.7" font-family="serif">♪</text>
+  <!-- 大きい音符2 -->
+  <text x="530" y="180" font-size="56" fill="#7a9e7e" opacity="0.6" font-family="serif">♫</text>
+  <!-- 小さい音符たち -->
+  <text x="130" y="310" font-size="36" fill="#d4a96a" opacity="0.4" font-family="serif">♩</text>
+  <text x="610" y="280" font-size="40" fill="#a8c098" opacity="0.4" font-family="serif">♪</text>
+  <text x="620" y="160" font-size="28" fill="#d4a96a" opacity="0.35" font-family="serif">♫</text>
+  <text x="100" y="160" font-size="28" fill="#7a9e7e" opacity="0.35" font-family="serif">♩</text>
+
+  <!-- 星形の光の点 -->
+  <circle cx="260" cy="80" r="3" fill="#fff" opacity="0.5"/>
+  <circle cx="540" cy="60" r="2" fill="#fff" opacity="0.4"/>
+  <circle cx="680" cy="120" r="2.5" fill="#d4a96a" opacity="0.5"/>
+  <circle cx="120" cy="100" r="2" fill="#d4a96a" opacity="0.4"/>
+  <circle cx="700" cy="300" r="2" fill="#fff" opacity="0.3"/>
+  <circle cx="80" cy="350" r="2" fill="#a8c098" opacity="0.35"/>
+
+  <!-- テキスト -->
+  <text x="400" y="465" font-family="Georgia, serif" font-size="28" fill="#d4a96a" text-anchor="middle" font-style="italic" opacity="0.95">Live &amp; Events</text>
+  <text x="400" y="500" font-family="sans-serif" font-size="13" fill="#a89070" text-anchor="middle" letter-spacing="5" opacity="0.8">ライブ・イベント</text>
+
+  <!-- ステージ反射 -->
+  <rect x="360" y="395" width="80" height="30" fill="#d4a96a" opacity="0.06" rx="2"/>
+</svg>

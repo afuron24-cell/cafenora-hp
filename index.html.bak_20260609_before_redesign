@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>cafe nora（カフェノラ）| 愛媛県新居浜市 自家焙煎コーヒー</title>
+  <meta name="google-site-verification" content="YEt6vmIiWF3QRi9HjYwVf3zzIji54vVVu73euAuqCdQ" />
+  <meta name="description" content="愛媛県新居浜市の小さなカフェ。手まわし焙煎の自家焙煎コーヒー、日替わり玄米ランチ、天然酵母パン。月・木・金曜日営業。">
+  <meta property="og:title" content="cafe nora | 愛媛県新居浜市の自家焙煎コーヒー">
+  <meta property="og:description" content="手まわし焙煎コーヒー・日替わり玄米プレート・天然酵母パン。新居浜市の小さなカフェです。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://cafenora.jp/">
+  <meta property="og:image" content="https://cafenora.jp/images/hero.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CafeOrCoffeeShop",
+    "name": "cafe nora",
+    "alternateName": "カフェノラ",
+    "url": "https://cafenora.jp",
+    "image": "https://cafenora.jp/images/hero.jpg",
+    "telephone": "090-9459-1733",
+    "address": {
+      "@type": "PostalAddress",
+      "postalCode": "792-0050",
+      "addressRegion": "愛媛県",
+      "addressLocality": "新居浜市",
+      "streetAddress": "萩生2133-29"
+    },
+    "openingHours": ["Mo 10:00-15:00", "Th 10:00-15:00", "Fr 10:00-15:00"],
+    "servesCuisine": ["コーヒー", "玄米ランチ", "天然酵母パン"],
+    "priceRange": "¥",
+    "description": "愛媛県新居浜市の小さなカフェ。手まわし焙煎の自家焙煎コーヒー、日替わり玄米ランチ、天然酵母パン。",
+    "hasMap": "https://maps.google.com/maps?q=愛媛県新居浜市萩生2133-29"
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ── Hero Slideshow ── */
+    .hero {
+      position: relative;
+      height: 100svh;
+      min-height: 560px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-slides {
+      position: absolute;
+      inset: 0;
+    }
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 1.5s ease-in-out;
+    }
+    .hero-slide.active { opacity: 1; }
+    .hero-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        160deg,
+        rgba(10,22,10,.20) 0%,
+        rgba(10,22,10,.08) 45%,
+        rgba(10,22,10,.62) 100%
+      );
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: #fff;
+      padding: 0 1.5rem;
+    }
+    .hero-eyebrow {
+      font-family: 'Playfair Display', serif;
+      font-size: .72rem;
+      letter-spacing: .48em;
+      color: rgba(255,255,255,.72);
+      margin-bottom: 1.4rem;
+      animation: heroUp 1s ease .1s both;
+    }
+    .hero-main-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(1.9rem, 5.5vw, 3.2rem);
+      font-weight: 300;
+      letter-spacing: .14em;
+      line-height: 1.65;
+      margin-bottom: .9rem;
+      text-shadow: 0 1px 3px rgba(0,0,0,.8), 0 2px 14px rgba(0,0,0,.55), 0 4px 36px rgba(0,0,0,.3);
+      animation: heroUp 1.1s ease .3s both;
+    }
+    .hero-catch-pre {
+      display: block;
+      font-size: clamp(2.1rem, 6.5vw, 4rem);
+      font-weight: 300;
+      letter-spacing: .26em;
+      color: rgba(255,255,255,.92);
+      margin-bottom: .3rem;
+    }
+    .hero-catch-main {
+      display: block;
+      font-size: clamp(2.1rem, 6.5vw, 4rem);
+      font-weight: 700;
+      letter-spacing: .06em;
+      line-height: 1.3;
+      color: #fff;
+    }
+    .hero-sub-title {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: clamp(.82rem, 2.4vw, 1rem);
+      font-weight: 300;
+      letter-spacing: .26em;
+      color: rgba(255,255,255,.65);
+      margin-top: .6rem;
+      animation: heroUp 1s ease .55s both;
+    }
+    .hero-scroll {
+      position: absolute;
+      bottom: 2.2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .4rem;
+      z-index: 2;
+      animation: heroUp .8s ease 1.1s both;
+    }
+    .scroll-text {
+      font-size: .58rem;
+      letter-spacing: .28em;
+      color: rgba(255,255,255,.55);
+      text-transform: uppercase;
+    }
+    .scroll-line {
+      width: 1px;
+      height: 42px;
+      background: linear-gradient(to bottom, rgba(255,255,255,.55), transparent);
+      animation: scrollDrop 2s ease-in-out infinite;
+    }
+    @keyframes scrollDrop {
+      0%   { transform: scaleY(0); transform-origin: top; opacity: 1; }
+      50%  { transform: scaleY(1); transform-origin: top; opacity: 1; }
+      51%  { transform: scaleY(1); transform-origin: bottom; opacity: 1; }
+      100% { transform: scaleY(0); transform-origin: bottom; opacity: 0; }
+    }
+    @keyframes heroUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Events Simple ── */
+    .events-simple {
+      background: var(--color-base-warm);
+      padding: 3.2rem 1.5rem;
+    }
+    .events-simple .ev-label {
+      font-size: .62rem;
+      letter-spacing: .34em;
+      color: var(--color-primary);
+      text-transform: uppercase;
+      text-align: center;
+      display: block;
+      margin-bottom: .45rem;
+    }
+    .events-simple .ev-heading {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.05rem;
+      font-weight: 400;
+      text-align: center;
+      color: var(--color-primary-dark);
+      letter-spacing: .1em;
+      margin-bottom: 1.8rem;
+    }
+    .ev-list {
+      max-width: 540px;
+      margin: 0 auto 2rem;
+      list-style: none;
+      padding: 0;
+    }
+    .ev-item {
+      display: flex;
+      align-items: center;
+      gap: 1.1rem;
+      padding: .9rem 0;
+      border-bottom: 1px solid rgba(61,40,31,.09);
+      text-decoration: none;
+      color: var(--color-text);
+      transition: opacity .2s;
+    }
+    .ev-item:first-child { border-top: 1px solid rgba(61,40,31,.09); }
+    .ev-item:hover { opacity: .6; }
+    .ev-date {
+      font-family: 'Playfair Display', serif;
+      font-size: .98rem;
+      color: var(--color-primary-dark);
+      letter-spacing: .05em;
+      min-width: 3rem;
+      flex-shrink: 0;
+    }
+    .ev-name {
+      font-size: .9rem;
+      flex: 1;
+      letter-spacing: .03em;
+      line-height: 1.5;
+    }
+    .ev-arrow {
+      font-size: .75rem;
+      color: var(--color-text-light);
+      flex-shrink: 0;
+    }
+    .ev-item-next {
+      position: relative;
+      border: 1.5px solid rgba(201,169,97,.32);
+      border-radius: 7px;
+      padding: .9rem .7rem;
+      background: rgba(201,169,97,.04);
+      overflow: hidden;
+    }
+    .ev-item-next.in-view {
+      animation: evNeonPulse 2.6s ease-in-out infinite;
+    }
+    .ev-item-next::after {
+      content: '';
+      position: absolute;
+      top: -30%; left: -90%;
+      width: 55%; height: 160%;
+      background: linear-gradient(105deg, transparent, rgba(255,240,150,.22), transparent);
+      transform: skewX(-18deg);
+      pointer-events: none;
+    }
+    .ev-item-next.in-view::after {
+      animation: evShimmer 3.2s ease-in-out infinite 0.8s;
+    }
+    @keyframes evNeonPulse {
+      0%,100% { box-shadow: 0 0 0 0 rgba(201,169,97,0); border-color: rgba(201,169,97,.35); }
+      45%     { box-shadow: 0 0 10px 4px rgba(201,169,97,.45), 0 0 24px 8px rgba(201,169,97,.18); border-color: rgba(201,169,97,.95); }
+    }
+    @keyframes evShimmer {
+      0%       { left: -90%; opacity: 1; }
+      65%, 100% { left: 140%; opacity: 1; }
+    }
+    .ev-hook {
+      display: block;
+      font-size: .7rem;
+      color: var(--color-primary-dark);
+      letter-spacing: .03em;
+      margin-top: .22rem;
+      line-height: 1.45;
+      font-style: italic;
+    }
+        .events-simple-cta { text-align: center; }
+
+    /* ── Concept ── */
+    .concept-section {
+      padding: 5.5rem 1.5rem;
+      background: var(--color-base);
+    }
+    .concept-inner {
+      max-width: 640px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .concept-label {
+      font-size: .62rem;
+      letter-spacing: .34em;
+      color: var(--color-primary);
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: .5rem;
+    }
+    .concept-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(1.2rem, 3vw, 1.65rem);
+      font-weight: 400;
+      color: var(--color-primary-dark);
+      letter-spacing: .1em;
+      margin-bottom: 2.8rem;
+    }
+    .concept-body {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(.9rem, 2.4vw, 1.03rem);
+      font-weight: 300;
+      line-height: 2.3;
+      color: var(--color-text);
+      letter-spacing: .06em;
+    }
+    .concept-body p + p { margin-top: 1.6em; }
+
+    /* ── Cafe Section ── */
+    .cafe-section {
+      padding: 5.5rem 1.5rem;
+      background: var(--color-base-warm);
+    }
+    .split-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    @media (max-width: 680px) {
+      .split-inner { grid-template-columns: 1fr; gap: 2.2rem; }
+      .split-inner.reverse-mobile .split-body { order: -1; }
+    }
+    .split-imgs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .7rem;
+    }
+    .split-imgs img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      border-radius: var(--radius);
+    }
+    .split-imgs img:first-child { margin-top: 1.8rem; }
+    .split-body .split-label {
+      font-size: .62rem;
+      letter-spacing: .34em;
+      color: var(--color-primary);
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: .5rem;
+    }
+    .split-body h2 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(1.2rem, 3vw, 1.6rem);
+      font-weight: 400;
+      color: var(--color-primary-dark);
+      letter-spacing: .1em;
+      margin-bottom: 1.5rem;
+    }
+    .split-body p {
+      font-size: .91rem;
+      line-height: 2.05;
+      color: var(--color-text);
+      margin-bottom: .9rem;
+    }
+    .split-link {
+      display: inline-flex;
+      align-items: center;
+      gap: .3rem;
+      font-size: .84rem;
+      color: var(--color-primary-dark);
+      border-bottom: 1px solid var(--color-primary-light);
+      padding-bottom: .12rem;
+      transition: border-color .2s;
+      margin-top: .4rem;
+      text-decoration: none;
+    }
+    .split-link:hover { border-color: var(--color-primary-dark); }
+
+    /* ── Live Section ── */
+    .live-section {
+      padding: 5.5rem 1.5rem;
+      background: var(--color-base);
+    }
+    .live-img img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      border-radius: var(--radius);
+    }
+
+    /* ── Yoga Strip ── */
+    .yoga-strip {
+      background: #eef2ee;
+      border-top: 1px solid #d4e0d4;
+      border-bottom: 1px solid #d4e0d4;
+      padding: 1.6rem 1.5rem;
+    }
+    .yoga-strip-inner {
+      max-width: 480px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+    }
+    .yoga-strip-img {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: top;
+      flex-shrink: 0;
+      border: 2px solid #c8dbc8;
+    }
+    .yoga-strip-text p {
+      font-size: .8rem;
+      color: var(--color-text-light);
+      margin-bottom: .3rem;
+      letter-spacing: .05em;
+    }
+    .yoga-strip-text a {
+      font-size: .88rem;
+      color: var(--color-primary-dark);
+      border-bottom: 1px solid var(--color-primary-light);
+      padding-bottom: .1rem;
+      transition: border-color .2s;
+    }
+    .yoga-strip-text a:hover { border-color: var(--color-primary-dark); }
+    /* ev-days */
+    .ev-days{font-size:.7rem;color:var(--color-primary-dark);background:rgba(122,158,126,.14);border-radius:20px;padding:.12rem .5rem;white-space:nowrap;flex-shrink:0;}
+    .ev-days.ev-today{background:rgba(192,57,43,.1);color:#c03c2b;font-weight:700;}
+    /* firstvisit bar */
+    .firstvisit-bar{background:#f5f0e8;border-bottom:1px solid rgba(0,0,0,.07);padding:1rem 1.5rem;display:flex;align-items:center;justify-content:center;gap:1.2rem;flex-wrap:wrap;}
+    .firstvisit-text{font-size:.84rem;color:var(--color-text-light);letter-spacing:.04em;margin:0;}
+    .firstvisit-btn{font-size:.84rem;color:var(--color-primary-dark);border:1px solid var(--color-primary-light);border-radius:20px;padding:.35rem 1rem;white-space:nowrap;transition:border-color .2s,background .2s;text-decoration:none;}
+    .firstvisit-btn:hover{background:var(--color-primary-dark);color:#fff;border-color:var(--color-primary-dark);}
+    /* live centered */
+    /* live centered */
+    .live-center{max-width:600px;margin:0 auto;text-align:center;}
+    .live-center h2{font-family:'Noto Serif JP',serif;font-size:clamp(1.2rem,3vw,1.6rem);font-weight:400;color:var(--color-primary-dark);letter-spacing:.1em;margin-bottom:1.5rem;}
+    .live-center p{font-size:.91rem;line-height:2.05;color:var(--color-text);margin-bottom:.9rem;}
+    .live-quote{font-family:'Noto Serif JP',serif;font-size:1.05rem;font-weight:300;color:var(--color-primary-dark);}
+    .live-center .split-link{display:inline-flex;}
+    .yoga-strip-img{width:100px!important;height:100px!important;}
+
+    /* ── Features Cards ── */
+    .features-section{padding:3.8rem 1.5rem;background:#fff;}
+    .features-grid{max-width:860px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;}
+    @media(max-width:640px){.features-grid{grid-template-columns:1fr;}}
+    .feature-card{background:#faf7f2;border-radius:18px;padding:2.2rem 1.5rem 2rem;text-align:center;border:1.5px solid rgba(201,169,97,.18);transition:transform .22s ease,box-shadow .22s ease;}
+    .feature-card:hover{transform:translateY(-5px);box-shadow:0 10px 28px rgba(0,0,0,.09);}
+    .feature-icon{font-size:2.8rem;display:block;margin-bottom:.9rem;}
+    .feature-title{font-family:'Noto Serif JP',serif;font-size:1rem;font-weight:500;color:#4d7350;letter-spacing:.07em;margin-bottom:.6rem;}
+    .feature-desc{font-size:.83rem;color:#8a7a6a;line-height:1.9;letter-spacing:.02em;}
+
+    /* ── Deco Divider ── */
+    .deco-divider{text-align:center;padding:1.2rem 0;color:rgba(201,169,97,.45);font-size:1rem;letter-spacing:.5em;}
+
+    /* ── Section title deco line ── */
+    .concept-title{position:relative;padding-bottom:.9rem;}
+    .concept-title::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:36px;height:2px;background:linear-gradient(90deg,transparent,rgba(201,169,97,.85),transparent);border-radius:2px;}
+
+    /* ── firstvisit-bar override ── */
+    .firstvisit-bar{background:linear-gradient(135deg,#fdf8f1,#f5ece0)!important;border-top:1.5px solid rgba(201,169,97,.25)!important;border-bottom:1px solid rgba(201,169,97,.15)!important;}
+    .firstvisit-text::before{content:'🗺️  ';}
+
+    /* ── live-section title deco ── */
+    .live-section-title{position:relative;display:inline-block;padding-bottom:.8rem;margin-bottom:1.5rem;}
+    .live-section-title::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:36px;height:2px;background:linear-gradient(90deg,transparent,rgba(201,169,97,.85),transparent);border-radius:2px;}
+
+    /* ── info-section title deco ── */
+    .info-section .section-title{position:relative;display:inline-block;padding-bottom:.8rem;}
+    .info-section .section-title::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:36px;height:2px;background:linear-gradient(90deg,transparent,rgba(201,169,97,.85),transparent);border-radius:2px;}
+  </style>
+  <link rel="canonical" href="https://cafenora.jp/">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#7a9e7e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="cafe nora">
+  <link rel="apple-touch-icon" href="/images/icon-192.png">
+  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+  <script>
+    window.OneSignalDeferred = window.OneSignalDeferred || [];
+    OneSignalDeferred.push(async function(OneSignal) {
+      await OneSignal.init({
+        appId: 'f214c199-2cb9-4e02-90d4-91ca8462d321',
+        notifyButton: { enable: false }
+      });
+      if (Notification.permission === 'granted' && !OneSignal.User.PushSubscription.optedIn) {
+        await OneSignal.User.PushSubscription.optIn();
+      }
+    });
+  </script>
+</head>
+<body>
+
+  <header class="header" id="header">
+    <div class="header-inner">
+      <div class="header-left">
+        <a href="/" class="logo">
+          <span class="logo-en">cafe nora</span>
+          <span class="logo-jp">カフェ ノラ</span>
+        </a>
+      </div>
+      <button class="menu-btn" id="menuBtn" aria-label="メニューを開く">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav" id="nav">
+        <ul class="nav-list">
+          <li><a href="cafe.html">カフェ</a></li>
+          <li><a href="calendar.html">カレンダー</a></li>
+          <li><a href="events.html">イベント</a></li>
+          <li><a href="access.html">アクセス</a></li>
+          <li><a href="maruyoga/">まるヨガ</a></li>
+          <li><a href="service.html">HP制作</a></li>
+          <li><a href="contact.html">お問い合わせ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+<script>
+  (function(){
+    var hdr = document.getElementById('header');
+    var hero = document.querySelector('.hero');
+    if (hdr && hero) {
+      hero.style.paddingTop = hdr.offsetHeight + 'px';
+      window.addEventListener('resize', function(){
+        hero.style.paddingTop = hdr.offsetHeight + 'px';
+      });
+    }
+  })();
+</script>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-slides" id="heroSlides">
+      <div class="hero-slide active">
+        <img src="images/hero.jpg" alt="cafe nora の雰囲気" loading="eager">
+      </div>
+      <div class="hero-slide">
+        <img src="images/coffee.jpg" alt="自家焙煎コーヒー" loading="lazy">
+      </div>
+      <div class="hero-slide">
+        <img src="images/pan.jpg" alt="天然酵母パン" loading="lazy">
+      </div>
+      <div class="hero-slide">
+        <img src="images/mame.jpg" alt="自家焙煎コーヒー豆" loading="lazy">
+      </div>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">cafe &thinsp; nora &ensp;—&ensp; カフェノラ</p>
+      <h1 class="hero-main-title">
+        <span class="hero-catch-pre">おいしいパンと</span>
+        <span class="hero-catch-main">コーヒーに会えるお店</span>
+      </h1>
+      <p class="hero-sub-title">愛媛県新居浜市 &ensp;／&ensp; てまわし焙煎コーヒー・天然酵母パン</p>
+    </div>
+    <div class="hero-scroll">
+      <span class="scroll-text">scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- はじめての方へ -->
+  <div class="firstvisit-bar">
+    <p class="firstvisit-text">はじめてのかたへ &mdash; カフェは少し奥まったところにあります</p>
+    <a href="annai.html" class="firstvisit-btn">道順を見る →</a>
+  </div>
+
+    <!-- 近日のイベント（シンプル） -->
+  <section class="events-simple">
+    <div class="container">
+      <span class="ev-label">Events</span>
+      <h2 class="ev-heading">近日のイベント</h2>
+      <ul class="ev-list">
+        <li>
+          <a href="event-hachinoko.html" class="ev-item ev-item-next">
+            <span class="ev-date">6.14</span>
+            <span class="ev-name">蜂鳥あみ太＝４号　日本凱旋TOUR
+              <span class="ev-hook">全身網タイツの地獄のシャンソン歌手、日曜のおやつ時に降臨。</span>
+            </span>
+            <span class="ev-days" id="evd-hachinoko"></span>
+            <span class="ev-arrow">→</span>
+          </a>
+        </li>
+        <li>
+          <a href="events.html#karitomato" class="ev-item">
+            <span class="ev-date">7.28</span>
+            <span class="ev-name">カリトマト　2ndアルバム発売ツアー</span>
+            <span class="ev-days" id="evd-karitomato"></span>
+            <span class="ev-arrow">→</span>
+          </a>
+        </li>
+        <li>
+          <a href="event-torubale.html" class="ev-item">
+            <span class="ev-date">8.2</span>
+            <span class="ev-name">とぅるばーる</span>
+            <span class="ev-days" id="evd-torubale"></span>
+            <span class="ev-arrow">→</span>
+          </a>
+        </li>
+      </ul>
+      <div class="events-simple-cta">
+        <a href="events.html" class="btn-secondary">すべてのイベントを見る</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- コンセプト -->
+  <section class="concept-section">
+    <div class="concept-inner fade-in">
+      <span class="concept-label">About</span>
+      <h2 class="concept-title">cafe nora について</h2>
+      <div class="concept-body">
+        <p>愛媛県新居浜市の、小さなカフェです。</p>
+        <p>手まわし焙煎機で丁寧に焙煎した<br>自家焙煎コーヒー。<br>日替わりのランチは<br>玄米プレートや天然酵母パンなど。</p>
+        <p>大きくはないけれど、<br>来てくれる人がほっとできる場所で<br>ありたいと思っています。</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="deco-divider">✦ &ensp; ✦ &ensp; ✦</div>
+
+  <!-- 3つの魅力 -->
+  <section class="features-section">
+    <div class="features-grid">
+      <div class="feature-card fade-in">
+        <span class="feature-icon">☕</span>
+        <p class="feature-title">手まわし焙煎コーヒー</p>
+        <p class="feature-desc">豆の状態を見ながら手でまわす焙煎機。一杯ずつドリップで丁寧に淹れています。豆の販売・テイクアウトも。</p>
+      </div>
+      <div class="feature-card fade-in">
+        <span class="feature-icon">🍞</span>
+        <p class="feature-title">天然酵母パン</p>
+        <p class="feature-desc">自家製天然酵母でゆっくり焼き上げたパン。日によって種類が変わります。11時から、売り切れ次第終了。</p>
+      </div>
+      <div class="feature-card fade-in">
+        <span class="feature-icon">🌿</span>
+        <p class="feature-title">日替わり玄米ランチ</p>
+        <p class="feature-desc">季節の野菜を使った玄米プレートや日替わりのおかず。毎日少しずつ違う、今日だけのごはん。</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="deco-divider">✦ &ensp; ✦ &ensp; ✦</div>
+
+  <!-- カフェ -->
+  <section class="cafe-section">
+    <div class="split-inner">
+      <div class="split-imgs fade-in">
+        <img src="images/coffee.jpg" alt="自家焙煎コーヒー">
+        <img src="images/pan.jpg" alt="天然酵母パン">
+      </div>
+      <div class="split-body fade-in">
+        <span class="split-label">Cafe</span>
+        <h2>コーヒー・ランチ・パン</h2>
+        <p>手まわし焙煎機で丁寧に焙煎した自家焙煎コーヒー。ドリップで一杯ずつ淹れています。豆の販売やテイクアウトも。</p>
+        <p>ランチは日替わり。玄米プレートや野菜のおかず、天然酵母パンなど、日によって内容が変わります。</p>
+        <p style="font-size:.82rem; color:var(--color-text-light);">ドリンクは10時から。ランチ（パン含む）は11時から。</p>
+        <a href="yoyaku.html" class="btn-secondary" style="display:inline-block;margin-top:.75rem;">ご予約はこちら →</a>
+        <br><a href="cafe.html" class="split-link" style="margin-top:.9rem;display:inline-flex;">くわしく見る →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ライブ・イベント -->
+  <section class="live-section">
+    <div class="container">
+      <div class="live-center fade-in">
+        <span style="font-size:.62rem;letter-spacing:.34em;color:var(--color-primary);text-transform:uppercase;display:block;margin-bottom:.5rem;">Live &amp; Events</span>
+        <h2 class="live-section-title">ライブ・イベント</h2>
+        <p class="live-quote">「この人が新居浜に来るの？」</p>
+        <p>全国や世界で活躍するアーティストが、小さなcafe noraに来てくれます。こじんまりとした空間だからこそ生まれる、近くて濃い時間を。</p>
+        <a href="events.html" class="split-link">イベント一覧を見る →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- まるヨガ -->
+  <div class="yoga-strip">
+    <p>ヨガスタジオ「まるヨガ」は専用サイトへ</p>
+    <a href="maruyoga/">まるヨガ専用サイトを見る →</a>
+  </div>
+
+  <!-- 営業時間 -->
+  <section class="info-section section bg-warm">
+    <div class="container">
+      <div class="info-hours-only fade-in">
+        <h2 class="section-title">営業時間・お問い合わせ</h2>
+        <table class="hours-table">
+          <tbody>
+            <tr>
+              <th>営業日</th>
+              <td>月・木・金曜日</td>
+            </tr>
+            <tr>
+              <th>営業時間</th>
+              <td>10:00 〜 15:00<small>（ラストオーダー）</small></td>
+            </tr>
+            <tr>
+              <th>ランチ</th>
+              <td>11:00 〜<small>（日替わり・売り切れ次第終了）</small></td>
+            </tr>
+            <tr>
+              <th>定休日</th>
+              <td>火・水・土・日曜日</td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="contact-list">
+          <li>
+            <span class="contact-icon">📞</span>
+            <a href="tel:090-9459-1733">090-9459-1733</a>
+            <span class="contact-note">（かなまる）</span>
+          </li>
+          <li>
+            <span class="contact-icon">📍</span>
+            <span>愛媛県新居浜市萩生2133-29</span>
+          </li>
+          <li>
+            <span class="contact-icon">📷</span>
+            <a href="https://www.instagram.com/cafenora.maru/" target="_blank" rel="noopener noreferrer">@cafenora.maru</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Instagram -->
+  <section class="instagram-section section">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2 class="section-title">Instagram</h2>
+        <p class="section-lead">日々のカフェの様子はInstagramでご覧いただけます。</p>
+        <a href="https://www.instagram.com/cafenora.maru/" target="_blank" rel="noopener noreferrer" class="instagram-link">
+          <span class="instagram-icon">📷</span> @cafenora.maru をフォローする
+        </a>
+        <a href="https://www.instagram.com/cafenora.kazu/" target="_blank" rel="noopener noreferrer" class="instagram-link" style="margin-top:8px;">
+          <span class="instagram-icon">📷</span> @cafenora.kazu をフォローする
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <p class="footer-logo">cafe nora</p>
+          <p class="footer-tagline">コーヒーと、パンと、ランチと。</p>
+          <p class="footer-address">〒792-0050 愛媛県新居浜市萩生2133-29</p>
+          <p class="footer-tel"><a href="tel:090-9459-1733">090-9459-1733</a></p>
+        </div>
+        <nav class="footer-nav">
+          <a href="cafe.html">カフェ</a>
+          <a href="calendar.html">カレンダー</a>
+          <a href="events.html">イベント</a>
+          <a href="popup.html">出店情報</a>
+          <a href="past-events.html">思い出アーカイブ</a>
+          <a href="access.html">アクセス</a>
+          <a href="maruyoga/">まるヨガ</a>
+          <a href="https://www.instagram.com/cafenora.maru/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="contact.html">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="footer-copy">&copy; 2026 cafe nora. All rights reserved. <a href="flyer-login.html" style="color:rgba(255,255,255,0.2);margin-left:1rem;font-size:0.75rem;text-decoration:none;" title="管理者">🔒</a></p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+
+  <script>
+  // Hero Slideshow（4秒毎・1.5秒クロスフェード）
+  (function(){
+    var slides = document.querySelectorAll('#heroSlides .hero-slide');
+    if (slides.length < 2) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var cur = 0;
+    setInterval(function(){
+      slides[cur].classList.remove('active');
+      cur = (cur + 1) % slides.length;
+      slides[cur].classList.add('active');
+    }, 4000);
+  })();
+  </script>
+
+<!-- PWAインストールバナー -->
+<div id="pwa-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#1a1a2e;color:#fff;padding:14px 20px;align-items:center;justify-content:space-between;gap:12px;box-shadow:0 -4px 20px rgba(0,0,0,0.3);">
+  <div style="display:flex;align-items:center;gap:10px;">
+    <img src="/images/icon-192.png" width="40" height="40" style="border-radius:8px;flex-shrink:0;">
+    <div>
+      <div style="font-size:0.85rem;font-weight:700;">cafe nora をホーム画面に追加</div>
+      <div style="font-size:0.72rem;color:rgba(255,255,255,0.6);margin-top:2px;">アプリのように使えます</div>
+    </div>
+  </div>
+  <div style="display:flex;gap:8px;flex-shrink:0;">
+    <button id="pwa-install-btn" style="background:#7a9e7e;color:#fff;border:none;border-radius:8px;padding:8px 16px;font-size:0.82rem;font-weight:700;cursor:pointer;">追加する</button>
+    <button id="pwa-close-btn" style="background:rgba(255,255,255,0.12);color:#fff;border:none;border-radius:8px;padding:8px 12px;font-size:0.8rem;cursor:pointer;">✕</button>
+  </div>
+</div>
+<div id="ios-modal" style="display:none;position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,0.6);align-items:flex-end;justify-content:center;">
+  <div style="background:#fff;border-radius:20px 20px 0 0;padding:28px 24px 40px;width:100%;max-width:480px;">
+    <div style="font-size:1rem;font-weight:700;color:#1a1a2e;margin-bottom:16px;text-align:center;">ホーム画面に追加する方法</div>
+    <div style="font-size:0.88rem;color:#444;line-height:1.9;">
+      <div>① Safari 下部の <strong>共有ボタン（四角に矢印）</strong> をタップ</div>
+      <div>② 「<strong>ホーム画面に追加</strong>」を選択</div>
+      <div>③ 「<strong>追加</strong>」をタップ</div>
+    </div>
+    <button onclick="document.getElementById('ios-modal').style.display='none';" style="margin-top:20px;width:100%;background:#7a9e7e;color:#fff;border:none;border-radius:10px;padding:14px;font-size:0.9rem;font-weight:700;cursor:pointer;">閉じる</button>
+  </div>
+</div>
+<script>
+(function(){
+  if(window.matchMedia('(display-mode: standalone)').matches) return;
+  if(!/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) return;
+  if(sessionStorage.getItem('pwa-dismissed')) return;
+  var banner = document.getElementById('pwa-banner');
+  var deferredPrompt = null;
+  var isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+  banner.style.display = 'flex';
+  window.addEventListener('beforeinstallprompt', function(e){
+    e.preventDefault();
+    deferredPrompt = e;
+  });
+  document.getElementById('pwa-install-btn').addEventListener('click', function(){
+    if(deferredPrompt){
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice.then(function(){ deferredPrompt = null; banner.style.display = 'none'; });
+    } else if(isIOS){
+      document.getElementById('ios-modal').style.display = 'flex';
+    } else {
+      alert('Chromeの右上メニュー（⋮）→「アプリをインストール」または「ホーム画面に追加」をタップしてください');
+    }
+  });
+  document.getElementById('pwa-close-btn').addEventListener('click', function(){
+    banner.style.display = 'none';
+    sessionStorage.setItem('pwa-dismissed', '1');
+  });
+  window.addEventListener('appinstalled', function(){ banner.style.display = 'none'; });
+})();
+</script>
+
+<!-- 通知登録バナー -->
+<div id="notify-banner" style="display:none;position:fixed;top:0;left:0;right:0;z-index:9998;background:#4d7350;color:#fff;padding:12px 20px;align-items:center;justify-content:space-between;gap:12px;">
+  <div style="font-size:0.82rem;line-height:1.5;">
+    🔔 <strong>ライブ情報をお知らせ</strong><br>
+    <span style="font-size:0.72rem;opacity:0.85;">新しいライブ・イベントを通知でお届けします</span>
+  </div>
+  <div style="display:flex;gap:8px;flex-shrink:0;">
+    <button id="notify-yes" style="background:#fff;color:#4d7350;border:none;border-radius:8px;padding:8px 14px;font-size:0.8rem;font-weight:700;cursor:pointer;white-space:nowrap;">受け取る</button>
+    <button id="notify-no" style="background:rgba(255,255,255,0.2);color:#fff;border:none;border-radius:8px;padding:8px 10px;font-size:0.8rem;cursor:pointer;">×</button>
+  </div>
+</div>
+<script>
+(function(){
+  if(typeof Notification === 'undefined') return;
+  if(Notification.permission === 'granted') return;
+  if(Notification.permission === 'denied') return;
+  setTimeout(function(){
+    var b = document.getElementById('notify-banner');
+    if(b) b.style.display = 'flex';
+  }, 3000);
+  document.getElementById('notify-yes').addEventListener('click', function(){
+    OneSignalDeferred.push(function(OneSignal){ OneSignal.Notifications.requestPermission(); });
+    document.getElementById('notify-banner').style.display = 'none';
+  });
+  document.getElementById('notify-no').addEventListener('click', function(){
+    document.getElementById('notify-banner').style.display = 'none';
+  });
+})();
+</script>
+
+<script>(function(){var p=new URLSearchParams(location.search);if(p.get("owner")==="nora")localStorage.setItem("nora_owner","1");if(p.get("owner")==="off")localStorage.removeItem("nora_owner");if(!localStorage.getItem("nora_owner"))fetch("https://noratool.pythonanywhere.com/pv?p="+encodeURIComponent(location.pathname)).catch(function(){});})();</script>
+
+  <script>
+  (function(){
+    var evs=[{id:'hachinoko',date:'2026-06-14'},{id:'karitomato',date:'2026-07-28'},{id:'torubale',date:'2026-08-02'}];
+    var n=new Date(),today=new Date(n.getFullYear(),n.getMonth(),n.getDate());
+    evs.forEach(function(ev){
+      var el=document.getElementById('evd-'+ev.id);
+      if(!el)return;
+      var p=ev.date.split('-');
+      var diff=Math.round((new Date(+p[0],+p[1]-1,+p[2])-today)/86400000);
+      if(diff<0){var li=el.closest('li');if(li)li.style.display='none';return;}
+      if(diff===0){el.textContent='本日！';el.classList.add('ev-today');}
+      else if(diff===1){el.textContent='明日';}
+      else{el.textContent='あと'+diff+'日';}
+    });
+  })();
+  (function(){
+    var el=document.querySelector(".ev-item-next");
+    if(!el) return;
+    if(!window.IntersectionObserver){ el.classList.add("in-view"); return; }
+    new IntersectionObserver(function(entries){
+      if(entries[0].isIntersecting) el.classList.add("in-view");
+    },{threshold:0.3}).observe(el);
+  })();
+  </script>
+
+</body>
+</html>

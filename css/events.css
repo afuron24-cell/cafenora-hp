@@ -1,0 +1,501 @@
+/* events.css - イベントページ追加スタイル */
+
+/* ページヘッダー */
+.page-hero {
+  background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-brown) 100%);
+  padding: 8rem 1.5rem 4rem;
+  text-align: center;
+  color: var(--color-white);
+}
+.page-hero-title {
+  font-family: var(--font-en);
+  font-size: clamp(2.5rem, 7vw, 4.5rem);
+  letter-spacing: 0.08em;
+  margin-bottom: 0.3rem;
+  font-style: italic;
+}
+.page-hero-subtitle {
+  font-size: 0.85rem;
+  letter-spacing: 0.25em;
+  opacity: 0.75;
+}
+
+/* アクティブナビ */
+.nav-list a.active {
+  color: var(--color-primary-dark);
+}
+.nav-list a.active::after {
+  width: 100%;
+}
+
+/* イベントページ全体 */
+.events-intro {
+  text-align: center;
+  color: var(--color-text-light);
+  font-size: 0.92rem;
+  line-height: 2;
+  margin-bottom: 4rem;
+  max-width: 25em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* イベント詳細カード */
+.event-detail-card {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 3rem;
+  background-color: var(--color-white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  margin-bottom: 4rem;
+}
+.event-detail-img {
+  position: relative;
+  background-color: var(--color-beige-light);
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.event-detail-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  inset: 0;
+}
+.event-detail-img-fallback {
+  font-size: 5rem;
+  opacity: 0.3;
+  position: absolute;
+}
+.event-detail-img.no-img img {
+  display: none;
+}
+.event-detail-body {
+  padding: 2.5rem 2.5rem 2.5rem 0;
+}
+.event-detail-badge {
+  display: inline-block;
+  padding: 0.3rem 1rem;
+  border-radius: 2rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin-bottom: 1rem;
+}
+.event-detail-badge.upcoming {
+  background-color: rgba(196, 113, 74, 0.12);
+  color: var(--color-accent);
+}
+.event-detail-badge.past {
+  background-color: var(--color-beige-light);
+  color: var(--color-text-light);
+}
+.event-detail-date {
+  font-size: 0.9rem;
+  color: var(--color-accent);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.5rem;
+}
+.event-detail-title {
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  font-weight: 700;
+  color: var(--color-brown);
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+.event-detail-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  margin-bottom: 1.5rem;
+  padding: 1.2rem;
+  background-color: var(--color-base-warm);
+  border-radius: var(--radius-sm);
+}
+.meta-row {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.9rem;
+  align-items: baseline;
+}
+.meta-label {
+  color: var(--color-text-light);
+  white-space: nowrap;
+  min-width: 90px;
+  font-size: 0.82rem;
+}
+.meta-value {
+  color: var(--color-text);
+  font-weight: 500;
+}
+.event-detail-desc {
+  font-size: 0.92rem;
+  color: var(--color-text-light);
+  line-height: 2;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--color-beige-light);
+  max-width: 25em;
+}
+
+/* 予約フォーム */
+.event-reserve-box {
+  background-color: var(--color-base);
+  border-radius: var(--radius-sm);
+  padding: 1.5rem;
+  border: 1px solid var(--color-beige);
+}
+.reserve-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  margin-bottom: 1.2rem;
+}
+.reserve-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.form-row label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--color-text);
+}
+.required {
+  font-size: 0.72rem;
+  color: var(--color-accent);
+  background-color: rgba(196, 113, 74, 0.1);
+  padding: 0.1rem 0.4rem;
+  border-radius: 3px;
+  margin-left: 0.3rem;
+  vertical-align: middle;
+}
+.form-row input,
+.form-row select,
+.form-row textarea {
+  padding: 0.65rem 0.9rem;
+  border: 1.5px solid var(--color-beige);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-jp);
+  font-size: 0.9rem;
+  color: var(--color-text);
+  background-color: var(--color-white);
+  transition: border-color 0.2s ease;
+  width: 100%;
+}
+.form-row input:focus,
+.form-row select:focus,
+.form-row textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+.form-row textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+.reserve-btn {
+  margin-top: 0.5rem;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-jp);
+  width: 100%;
+}
+/* ─── SNS Share Bar ─── */
+.event-share-bar {
+  margin-top: 1.5rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid rgba(0,0,0,0.08);
+  text-align: center;
+}
+.share-label {
+  font-size: 0.72rem;
+  color: #999;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.7rem;
+}
+.share-btns {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.share-btn {
+  padding: 0.45rem 1.1rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: opacity 0.15s, transform 0.1s;
+  white-space: nowrap;
+}
+.share-btn:hover { opacity: 0.82; transform: translateY(-1px); }
+.share-x    { background: #000; color: #fff; }
+.share-line { background: #06c755; color: #fff; }
+.share-copy { background: #f0f0f0; color: #333; }
+.share-copy.copied { background: #d4edda; color: #1e7e34; }
+
+/* ─── 今すぐ予約ボタン ─── */
+.btn-reserve-now {
+  display: inline-block;
+  background: linear-gradient(135deg, #c9a96e, #a07840);
+  color: #fff;
+  padding: 0.8rem 2.2rem;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 0.98rem;
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  box-shadow: 0 4px 14px rgba(160,120,64,0.35);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.btn-reserve-now:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(160,120,64,0.45);
+}
+
+.form-note {
+  font-size: 0.78rem;
+  color: var(--color-text-light);
+  line-height: 1.8;
+  text-align: center;
+}
+.form-note a {
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
+/* 過去イベントリンク */
+.past-events-link {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+/* レスポンシブ */
+@media (max-width: 860px) {
+  .event-detail-card {
+    grid-template-columns: 1fr;
+  }
+  .event-detail-img {
+    min-height: 280px;
+  }
+  .event-detail-body {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .event-detail-body {
+    padding: 1.5rem;
+  }
+  .meta-row {
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+}
+/* 予約方法ボタン */
+.reserve-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+}
+.reserve-contact-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1rem 1.2rem;
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+  text-decoration: none;
+}
+.reserve-contact-btn.phone {
+  background-color: var(--color-primary);
+  color: white;
+}
+.reserve-contact-btn.phone:hover {
+  background-color: var(--color-primary-dark);
+  transform: translateY(-1px);
+}
+.reserve-contact-btn.insta {
+  background-color: var(--color-base-warm);
+  color: var(--color-text);
+  border: 1.5px solid var(--color-beige);
+}
+.reserve-contact-btn.insta:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary-dark);
+  transform: translateY(-1px);
+}
+.reserve-contact-btn.gform {
+  background-color: var(--color-primary-dark);
+  color: white;
+}
+.reserve-contact-btn.gform:hover {
+  background-color: var(--color-brown);
+  transform: translateY(-1px);
+}
+
+/* 全ライブ予約バナー */
+.reserve-banner {
+  background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-brown) 100%);
+  border-radius: var(--radius);
+  padding: 1.8rem 1.5rem;
+  margin-bottom: 3rem;
+  box-shadow: var(--shadow);
+}
+.reserve-banner-heading {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 1rem;
+  text-align: center;
+  letter-spacing: .05em;
+}
+/* WEB予約ボタン（大・目立つ） */
+.reserve-banner-btn.web {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  width: 100%;
+  background: linear-gradient(135deg, #e8c88a 0%, #c8a04a 100%);
+  color: #2c1a08;
+  border: none;
+  border-radius: 16px;
+  padding: 1.3rem 1rem;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(200,160,74,.55);
+  animation: web-pulse 2.8s ease-in-out infinite;
+  transition: transform 0.15s, box-shadow 0.15s;
+  position: relative;
+  margin-bottom: 0.9rem;
+}
+.reserve-banner-btn.web:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 28px rgba(200,160,74,.75);
+}
+@keyframes web-pulse {
+  0%,100% { box-shadow: 0 4px 20px rgba(200,160,74,.5); }
+  50%      { box-shadow: 0 4px 28px rgba(200,160,74,.85); }
+}
+.rbtn-recommend {
+  position: absolute;
+  top: -11px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #e05050;
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 3px 12px;
+  border-radius: 20px;
+  letter-spacing: .08em;
+  white-space: nowrap;
+}
+.rbtn-ico { font-size: 1.6rem; line-height: 1; }
+.rbtn-label { font-size: 1rem; font-weight: 800; letter-spacing: .05em; }
+.rbtn-tags {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 0.1rem;
+}
+.rbtn-tag {
+  background: rgba(44,26,8,.2);
+  border-radius: 20px;
+  padding: 2px 10px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+}
+/* WEB予約メリット */
+.web-benefits {
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 12px;
+  padding: 0.9rem 1.1rem;
+  margin-bottom: 0.9rem;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,.92);
+  line-height: 2;
+}
+/* または区切り */
+.reserve-or-divider {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: 0.75rem;
+  color: rgba(255,255,255,.45);
+  font-size: 0.78rem;
+}
+.reserve-or-divider::before,
+.reserve-or-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(255,255,255,.2);
+}
+/* 電話・Instagram ボタン群 */
+.reserve-banner-btns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}
+.reserve-banner-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  background: rgba(255,255,255,0.12);
+  border: 1.5px solid rgba(255,255,255,0.28);
+  border-radius: 12px;
+  padding: 0.75rem 0.4rem;
+  text-decoration: none;
+  color: #fff;
+  transition: background 0.15s, transform 0.15s;
+}
+.reserve-banner-btn:hover {
+  background: rgba(255,255,255,0.22);
+  transform: translateY(-1px);
+}
+.rbtn-val { font-size: 0.68rem; opacity: 0.75; }
+.reserve-icon { font-size: 1.3rem; flex-shrink: 0; }
+.reserve-label { font-size: 0.82rem; opacity: 0.85; }
+.reserve-value { font-weight: 700; font-size: 0.95rem; margin-left: auto; }
+.reserve-note {
+  font-size: 0.8rem;
+  color: var(--color-text-light);
+  text-align: center;
+}
+
+/* モバイル：22字ルール対応（2026-06-11）
+   カード内コンテンツ幅 = 360 - 25.6*2(セクション+コンテナ) - 16*2(カード内) = 276.8px */
+@media (max-width: 640px) {
+  .event-detail-body {
+    padding: 1.5rem 1rem;
+  }
+  .event-detail-desc {
+    font-size: 0.8rem; /* 276.8/12.8 = 21.6字 */
+    max-width: none;
+  }
+  .meta-row {
+    font-size: 0.85rem;
+  }
+}

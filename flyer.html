@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>印刷用フライヤー | cafe nora</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background: #e8e2db;
+      padding: 1.5rem;
+    }
+    .screen-header { text-align: center; margin-bottom: 1.2rem; }
+    .screen-header h1 { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: #5c3d2e; }
+    .screen-header p { font-size: 0.78rem; color: #999; margin-top: 0.2rem; }
+    .btn-row { margin-top: 0.7rem; display: flex; gap: 0.5rem; justify-content: center; }
+    .btn-print { padding: 0.5rem 1.8rem; background: #5c3d2e; color: #fff; border: none; border-radius: 8px; font-size: 0.88rem; cursor: pointer; }
+    .btn-back  { padding: 0.5rem 1.8rem; background: #999; color: #fff; border: none; border-radius: 8px; font-size: 0.88rem; cursor: pointer; }
+    .btn-rsv   { padding: 0.5rem 1.8rem; background: #c47a3a; color: #fff; border: none; border-radius: 8px; font-size: 0.88rem; cursor: pointer; text-decoration: none; display: inline-block; }
+
+    /* ===== A4縦フライヤー ===== */
+    .flyer {
+      background: #1a1008;
+      width: 210mm;
+      height: 297mm;
+      margin: 0 auto;
+      padding: 7mm 8mm;
+      box-shadow: 0 6px 28px rgba(0,0,0,0.25);
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      overflow: hidden;
+    }
+
+    /* タイトルバー */
+    .flyer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 4mm;
+      margin-bottom: 4mm;
+      border-bottom: 1px solid rgba(200,168,130,0.5);
+      flex-shrink: 0;
+    }
+    .flyer-cafe-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: #c8a882;
+      letter-spacing: 0.1em;
+    }
+    .flyer-catch { font-size: 0.6rem; color: rgba(200,168,130,0.6); letter-spacing: 0.2em; margin-top: 1px; }
+    .header-qr img { width: 13mm; height: 13mm; display: block; border-radius: 2px; }
+    .header-qr p { font-size: 0.48rem; color: rgba(255,255,255,0.3); text-align: center; margin-top: 1px; }
+
+    /* イベント行（3段） */
+    .event-row {
+      flex: 1;
+      display: flex;
+      gap: 5mm;
+      min-height: 0;
+      border-bottom: 1px solid rgba(200,168,130,0.2);
+      padding-bottom: 4mm;
+      margin-bottom: 4mm;
+    }
+    .event-row:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+
+    /* チラシ画像（左・自然比率で表示） */
+    .event-img-wrap {
+      flex-shrink: 0;
+      width: 55mm;
+      /* 0.707比率: 55mm × 77.8mm */
+      aspect-ratio: 0.707 / 1;
+      overflow: hidden;
+      border-radius: 2px;
+    }
+    .event-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    /* 右側テキスト */
+    .event-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 1mm 0;
+      min-height: 0;
+    }
+    .event-info-top {}
+    .event-date-badge {
+      display: inline-block;
+      background: #c8a882;
+      color: #1a1008;
+      font-size: 0.58rem;
+      font-weight: 700;
+      padding: 1.5px 8px;
+      border-radius: 20px;
+      letter-spacing: 0.06em;
+      margin-bottom: 3mm;
+    }
+    .event-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      color: #fff;
+      line-height: 1.25;
+      margin-bottom: 2mm;
+    }
+    .event-subtitle {
+      font-size: 0.62rem;
+      color: rgba(200,168,130,0.8);
+      margin-bottom: 3mm;
+      letter-spacing: 0.05em;
+    }
+    .event-meta {
+      font-size: 0.62rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 2;
+    }
+    .event-meta span { color: rgba(200,168,130,0.9); margin-right: 1mm; }
+
+    .event-desc {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.82);
+      line-height: 1.9;
+      margin-top: 3mm;
+      border-left: 1.5px solid rgba(200,168,130,0.5);
+      padding-left: 3mm;
+      word-break: keep-all;
+      overflow-wrap: normal;
+    }
+
+    .event-info-bottom {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+    .event-price {
+      font-size: 0.9rem;
+      color: #c8a882;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+    .event-price small { font-size: 0.58rem; font-weight: 400; opacity: 0.7; }
+    .event-qr img { width: 16mm; height: 16mm; display: block; border-radius: 2px; }
+    .event-qr p { font-size: 0.48rem; color: rgba(255,255,255,0.3); text-align: center; margin-top: 1px; }
+
+    /* 印刷 */
+    @media print {
+      @page { size: A4 portrait; margin: 0; }
+      body { background: none; padding: 0; }
+      .screen-header { display: none; }
+      .flyer { box-shadow: none; margin: 0; width: 210mm; height: 297mm; }
+    }
+
+    /* 背景色・背景画像を強制印刷 */
+    * {
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+  </style>
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#7a9e7e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="cafe nora">
+  <link rel="apple-touch-icon" href="/images/icon-192.png">
+  <script src=https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js defer></script>
+  <script>
+    window.OneSignalDeferred = window.OneSignalDeferred || [];
+    OneSignalDeferred.push(function(OneSignal) {
+      OneSignal.init({
+        appId: 'f214c199-2cb9-4e02-90d4-91ca8462d321',
+        notifyButton: { enable: false }
+      });
+    });
+  </script>
+</head>
+<body>
+
+  <div class="screen-header">
+    <h1>印刷用フライヤー</h1>
+    <p>印刷設定：A4・縦向き・余白なし</p>
+    <div class="btn-row">
+      <button class="btn-print" onclick="window.print()">🖨️ 印刷する</button>
+      <a class="btn-rsv" href="https://noratool.pythonanywhere.com/yoyaku/admin" target="_blank">📋 予約管理</a>
+      <button class="btn-back" onclick="history.back()">← 戻る</button>
+    </div>
+  </div>
+
+  <div class="flyer">
+
+    <div class="flyer-header">
+      <div>
+        <p class="flyer-cafe-name">cafe nora</p>
+        <p class="flyer-catch">LIVE EVENTS 2026</p>
+      </div>
+      <div class="header-qr">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=80x80&color=c8a882&bgcolor=1a1008&data=https://cafenora-hp.pages.dev/events.html" alt="QR">
+        <p>イベント一覧</p>
+      </div>
+    </div>
+
+    <!-- ZAHATORTE -->
+    <div class="event-row">
+      <div class="event-img-wrap">
+        <img src="images/zahatorte.jpg" alt="ZAHATORTE">
+      </div>
+      <div class="event-info">
+        <div class="event-info-top">
+          <span class="event-date-badge">2026.5.24 SUN</span>
+          <p class="event-title">ZAHATORTE</p>
+          <p class="event-subtitle">LIVE at cafe nora</p>
+          <div class="event-meta">
+            <div><span>開場</span>17:00　<span>開演</span>18:30</div>
+          </div>
+          <p class="event-desc">アコーディオン・ギター・チェロが奏でる、ヨーロッパ薫るアコースティックの世界。京都発、結成20年超のインストゥルメンタルトリオ。ミュゼット、ジプシー・スウィング、ボッサなど様々な音楽のエッセンスを独自にブレンドした「音楽モザイク」が心地よく広がる夜。</p>
+        </div>
+        <div class="event-info-bottom">
+          <div>
+            <p class="event-price">¥4,000 <small>+ 1 order</small></p>
+          </div>
+          <div class="event-qr">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=80x80&color=c8a882&bgcolor=1a1008&data=https://cafenora-hp.pages.dev/event-zahatorte.html" alt="QR">
+            <p>詳細・予約</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 黒色すみれ -->
+    <div class="event-row">
+      <div class="event-img-wrap">
+        <img src="images/kuroshikisumire-omote.jpg" alt="黒色すみれ">
+      </div>
+      <div class="event-info">
+        <div class="event-info-top">
+          <span class="event-date-badge">2026.6.5 FRI</span>
+          <p class="event-title">黒色すみれ</p>
+          <p class="event-subtitle">TOUR「金星倶楽部」at cafe nora</p>
+          <div class="event-meta">
+            <div><span>開場</span>18:30　<span>開演</span>19:00</div>
+          </div>
+          <p class="event-desc">ゆか（ヴォーカル・ピアノ・アコーディオン）とさち（ヴァイオリン）によるネオクラシックデュオ。クラシックを土台に大正ロマン・シャンソンが溶け合うノスタルジックな音世界。2026年5月発売ニューアルバム「金星倶楽部」リリース記念ツアー。</p>
+        </div>
+        <div class="event-info-bottom">
+          <div>
+            <p class="event-price">前売 ¥4,000 <small>/ 当日 ¥4,500 + 1 order</small></p>
+          </div>
+          <div class="event-qr">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=80x80&color=c8a882&bgcolor=1a1008&data=https://cafenora-hp.pages.dev/event-kuroshikisumire.html" alt="QR">
+            <p>詳細・予約</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 蜂鳥あみ太 -->
+    <div class="event-row">
+      <div class="event-img-wrap">
+        <img src="images/hachinoko.jpg" alt="蜂鳥あみ太＝４号">
+      </div>
+      <div class="event-info">
+        <div class="event-info-top">
+          <span class="event-date-badge">2026.6.14 SAT</span>
+          <p class="event-title">蜂鳥あみ太＝４号</p>
+          <p class="event-subtitle">日本凱旋TOUR at cafe nora</p>
+          <div class="event-meta">
+            <div><span>開場</span>15:00　<span>開演</span>15:30</div>
+          </div>
+          <p class="event-desc">シャンソン歌手・蜂鳥あみ太＝４号と、アコーディオン奏者・田村賢太郎による「地獄シャンソン実演ワンマン」。笑いと哀愁が入り混じる本格シャンソンと、二人の間にしか生まれない濃密な掛け合いが炸裂する圧倒的な生演奏の一夜。</p>
+        </div>
+        <div class="event-info-bottom">
+          <div>
+            <p class="event-price">¥3,500 <small>+ D代</small></p>
+          </div>
+          <div class="event-qr">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=80x80&color=c8a882&bgcolor=1a1008&data=https://cafenora-hp.pages.dev/event-hachinoko.html" alt="QR">
+            <p>詳細・予約</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    if (sessionStorage.getItem('nora_admin') !== '1') {
+      window.location.href = 'flyer-login.html';
+    }
+  </script>
+
+</body>
+</html>

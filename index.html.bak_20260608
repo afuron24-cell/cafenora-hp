@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>cafe nora（カフェノラ）| 愛媛県新居浜市 自家焙煎コーヒー・まるヨガ</title>
+  <meta name="google-site-verification" content="YEt6vmIiWF3QRi9HjYwVf3zzIji54vVVu73euAuqCdQ" />
+  <meta name="description" content="愛媛県新居浜市のカフェノラ（cafe nora）。手まわし焙煎の自家焙煎コーヒー、玄米ランチ、天然酵母パン、まるヨガ、ライブイベント。新居浜市萩生のちいさなカフェです。">
+  <meta property="og:title" content="cafe nora | 愛媛県新居浜市のカフェ・まるヨガ">
+  <meta property="og:description" content="手まわし焙煎コーヒー・玄米プレート・ヨガ・ライブイベント。新居浜市のちいさなカフェです。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://cafenora.jp/">
+  <meta property="og:image" content="https://cafenora.jp/images/hero.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CafeOrCoffeeShop",
+    "name": "cafe nora",
+    "alternateName": "カフェノラ",
+    "url": "https://cafenora.jp",
+    "image": "https://cafenora.jp/images/hero.jpg",
+    "telephone": "090-9459-1733",
+    "address": {
+      "@type": "PostalAddress",
+      "postalCode": "792-0050",
+      "addressRegion": "愛媛県",
+      "addressLocality": "新居浜市",
+      "streetAddress": "萩生2133-29"
+    },
+    "openingHours": ["Mo 10:00-15:00", "Th 10:00-15:00", "Fr 10:00-15:00"],
+    "servesCuisine": ["コーヒー", "玄米ランチ", "天然酵母パン"],
+    "priceRange": "¥",
+    "description": "愛媛県新居浜市のカフェ。手まわし焙煎の自家焙煎コーヒー、玄米ランチ、天然酵母パン、まるヨガ、ライブイベント。",
+    "hasMap": "https://maps.google.com/maps?q=愛媛県新居浜市萩生2133-29"
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .event-cd-sm{display:none;background:rgba(201,169,110,.1);border:1px solid rgba(201,169,110,.35);border-radius:20px;padding:.28rem .75rem;font-size:.75rem;color:#a07840;margin:.4rem 0 .5rem;letter-spacing:.04em;font-weight:500;}
+    .event-cd-sm.cd-today{background:rgba(192,57,43,.08);border-color:rgba(192,57,43,.4);color:#c0392b;font-weight:700;}
+    .event-credential{font-size:.72rem;color:#9b7a4a;letter-spacing:.06em;margin:.25rem 0 .5rem;line-height:1.5;border-left:2px solid #c9a96e;padding-left:.55rem;}
+    .events-hook{text-align:center;margin-bottom:2rem;}
+    .events-hook-lead{font-size:.92rem;color:#7a6248;line-height:1.9;margin-bottom:1.2rem;}
+    .events-hook-lead em{font-style:normal;font-weight:700;color:#4a3728;}
+    .btn-hook{display:inline-block;background:#4a3728;color:#f5ede0;padding:.75rem 2rem;border-radius:2px;font-size:.88rem;letter-spacing:.12em;text-decoration:none;transition:background .2s,transform .15s;font-weight:500;}
+    .btn-hook:hover{background:#2d1f14;transform:translateY(-2px);}
+    /* ─── Live Ticker（ヘッダー内・ダーク） ─── */
+    .live-ticker{background:#1a0e2e;padding:7px 1.5rem 10px;display:flex;flex-direction:column;align-items:center;gap:4px;}
+    .lt-label{font-size:.6rem;font-weight:700;letter-spacing:.28em;color:#c9a96e;text-align:center;margin-bottom:1px;text-transform:uppercase;}
+    .lt-row{display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:nowrap;}
+    .lt-item{display:inline-flex;align-items:center;gap:5px;color:#e8e0f4;text-decoration:none;font-size:.82rem;letter-spacing:.02em;padding:1px 12px;transition:color .2s;white-space:nowrap;}
+    .lt-item:hover{color:#c9a96e;}
+    .lt-idate{font-family:'Playfair Display',serif;font-size:.8rem;color:rgba(201,169,110,.8);font-style:italic;letter-spacing:.08em;}
+    .lt-iname{font-size:.8rem;font-weight:500;}
+    .lt-idays{font-size:.64rem;color:rgba(255,255,255,.38);margin-left:1px;}
+    .lt-idays strong{color:#c9a96e;}
+    .lt-idays.lt-today strong{color:#f08060;}
+    .lt-new{display:inline-block;background:#e53935;color:#fff;font-size:.44rem;font-weight:700;padding:.04rem .22rem;border-radius:2px;letter-spacing:.1em;vertical-align:middle;margin-left:2px;line-height:1.4;}
+    .lt-sep{color:rgba(201,169,110,.3);font-size:.85rem;flex-shrink:0;line-height:1;}
+    /* ─── Hero buttons 3列グリッド ─── */
+    .hero-sumire-card{display:flex;flex-direction:column;align-items:center;gap:.3rem;background:rgba(55,30,10,.45);border:1px solid rgba(210,175,100,.68);border-radius:16px;padding:.75rem 1.2rem 1rem;margin:1rem 0 .9rem;backdrop-filter:blur(8px);}
+    .hero-sumire-badge{font-size:.65rem;letter-spacing:.22em;color:var(--gold,#C9A961);background:rgba(201,169,97,.15);border:1px solid rgba(201,169,97,.4);border-radius:20px;padding:.18rem .7rem;}
+    .hero-sumire-name{font-size:1.25rem;font-weight:700;color:#fff;letter-spacing:.12em;margin:0;}
+    .hero-sumire-sub{font-size:.75rem;color:rgba(255,255,255,.65);letter-spacing:.06em;margin:0;}
+    .hero-sumire-cd{font-size:.8rem;color:rgba(201,169,97,.9);letter-spacing:.04em;margin:.1rem 0 .35rem;}
+    .hero-sumire-cd strong{font-size:1.5rem;font-weight:700;color:#C9A961;}
+    .hero-sumire-link{font-size:.78rem;color:#C9A961;text-decoration:none;border-bottom:1px solid rgba(201,169,97,.4);padding-bottom:.08rem;letter-spacing:.06em;}
+    .hero-sumire-link:hover{border-bottom-color:#C9A961;}
+    .hero-amita-days{font-size:.95rem;font-weight:800;letter-spacing:.05em;margin:.05rem 0 .4rem;background:linear-gradient(90deg,#ff5a4d,#ffd76e,#ff5a4d);background-size:220% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:amita-text-shimmer 2.4s linear infinite;}
+    @keyframes amita-text-shimmer{0%{background-position:0% center;}100%{background-position:220% center;}}
+    /* ── 黒色すみれ LIVE当日 きらきら ── */
+    @keyframes sumire-glow{0%,100%{box-shadow:0 0 18px rgba(201,169,97,.4),0 0 42px rgba(160,100,220,.25),inset 0 0 14px rgba(201,169,97,.07);border-color:rgba(215,180,110,.85);}50%{box-shadow:0 0 36px rgba(201,169,97,.72),0 0 68px rgba(160,100,220,.48),inset 0 0 22px rgba(201,169,97,.13);border-color:#e8cc68;}}
+    @keyframes sumire-badge-shine{0%,100%{background:rgba(201,169,97,.22);color:#f5da7a;letter-spacing:.24em;}50%{background:rgba(201,169,97,.4);color:#fff2a8;letter-spacing:.28em;}}
+    @keyframes sumire-name-glow{0%,100%{text-shadow:0 0 22px rgba(201,169,97,.55),0 0 6px rgba(255,255,255,.2);}50%{text-shadow:0 0 40px rgba(201,169,97,.88),0 0 16px rgba(255,220,100,.4),0 0 60px rgba(180,120,240,.2);}}
+    @keyframes sumire-spark-spin{0%{opacity:0;transform:scale(0) rotate(0deg);}40%{opacity:1;transform:scale(1.25) rotate(180deg);}100%{opacity:0;transform:scale(0) rotate(360deg);}}
+    .hero-sumire-badge{color:#f5da7a!important;background:rgba(201,169,97,.22)!important;border-color:rgba(201,169,97,.65)!important;animation:sumire-badge-shine 1.7s ease-in-out infinite;}
+    .hero-sumire-name{animation:sumire-name-glow 2.3s ease-in-out infinite;}
+    .hero-sumire-today{font-size:.88rem;font-weight:700;color:#f5da7a;letter-spacing:.08em;margin:.05rem 0 .3rem;animation:sumire-badge-shine 1.7s ease-in-out .4s infinite;}
+    .hero-btn-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;margin-bottom:.85rem;}
+    .hero-btn-grid .btn-primary,.hero-btn-grid .btn-outline{width:100%;text-align:center;padding:.6rem .5rem;font-size:.82rem;box-sizing:border-box;white-space:nowrap;}
+    @keyframes new-pulse{0%,100%{opacity:1;}50%{opacity:.7;}}
+    .event-new-badge{position:absolute;top:.7rem;left:.7rem;z-index:10;background:#e03030;color:#fff;font-size:.62rem;font-weight:800;padding:.2rem .55rem;border-radius:.25rem;letter-spacing:.14em;box-shadow:0 2px 6px rgba(224,48,48,.4);animation:new-pulse 1.8s ease-in-out infinite;}
+
+    /* ── Hero enhanced（トップページ専用） ── */
+    .hero-content{animation:none;}
+    .hero-img{opacity:.50;}
+    .hero-overlay{
+      position:absolute;inset:0;
+      background:
+        linear-gradient(165deg, rgba(12,25,10,.40) 0%, transparent 52%),
+        linear-gradient(to bottom, rgba(12,25,10,.08) 0%, rgba(12,25,10,.75) 100%);
+    }
+    @keyframes heroReveal{
+      from{opacity:0;transform:translateY(18px);}
+      to  {opacity:1;transform:translateY(0);}
+    }
+    .hero-eyebrow{
+      font-family:'Playfair Display',serif;
+      font-size:.72rem;letter-spacing:.42em;
+      color:rgba(210,198,158,.82);
+      text-transform:uppercase;
+      margin-bottom:.65rem;
+      opacity:0;animation:heroReveal 1s cubic-bezier(.16,1,.3,1) .15s forwards;
+    }
+    .hero-tagline{opacity:0;animation:heroReveal 1s cubic-bezier(.16,1,.3,1) .38s forwards;}
+    .hero-title{
+      opacity:0;animation:heroReveal 1.2s cubic-bezier(.16,1,.3,1) .62s forwards;
+      text-shadow:0 0 70px rgba(160,210,130,.15),0 2px 24px rgba(0,0,0,.45);
+    }
+    .hero-sumire-card{opacity:0;animation:heroReveal 1s cubic-bezier(.16,1,.3,1) 1.05s forwards,sumire-glow 2.8s ease-in-out 2.1s infinite;}
+    @keyframes amita-glow-flicker{
+      0%,100%{box-shadow:0 0 16px rgba(224,48,48,.45),0 0 34px rgba(201,169,97,.22);border-color:rgba(224,48,48,.65);}
+      22%{box-shadow:0 0 30px rgba(245,218,122,.6),0 0 18px rgba(224,48,48,.25);border-color:#f5da7a;}
+      41%{box-shadow:0 0 14px rgba(224,48,48,.35),0 0 40px rgba(201,169,97,.45);border-color:rgba(232,160,80,.75);}
+      63%{box-shadow:0 0 36px rgba(224,48,48,.6),0 0 20px rgba(245,218,122,.4);border-color:#e03030;}
+      85%{box-shadow:0 0 22px rgba(245,218,122,.5),0 0 38px rgba(224,48,48,.28);border-color:#f5da7a;}
+    }
+    .hero-sumire-card.amita-blaze{animation:heroReveal 1s cubic-bezier(.16,1,.3,1) 1.05s forwards,amita-glow-flicker 3.4s ease-in-out 2.1s infinite;}
+    .hero-btn-grid{opacity:0;animation:heroReveal 1s cubic-bezier(.16,1,.3,1) 1.28s forwards;}
+    .hero-access-link{opacity:0;animation:heroReveal .9s cubic-bezier(.16,1,.3,1) 1.48s forwards;}
+    .hero-notice{font-size:.8rem;color:#C9A961;background:rgba(201,169,97,.15);border:1px solid rgba(201,169,97,.5);border-radius:20px;padding:.35rem 1.1rem;margin:.6rem auto .2rem;display:inline-block;letter-spacing:.07em;opacity:0;animation:heroReveal .9s cubic-bezier(.16,1,.3,1) .85s forwards;}
+  </style>
+  <link rel="canonical" href="https://cafenora.jp/">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#7a9e7e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="cafe nora">
+  <link rel="apple-touch-icon" href="/images/icon-192.png">
+  <script src=https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js defer></script>
+  <script>
+    window.OneSignalDeferred = window.OneSignalDeferred || [];
+    OneSignalDeferred.push(async function(OneSignal) {
+      await OneSignal.init({
+        appId: 'f214c199-2cb9-4e02-90d4-91ca8462d321',
+        notifyButton: { enable: false }
+      });
+      if (Notification.permission === 'granted' && !OneSignal.User.PushSubscription.optedIn) {
+        await OneSignal.User.PushSubscription.optIn();
+      }
+    });
+  </script>
+</head>
+<body>
+
+  <header class="header" id="header">
+    <div class="header-inner">
+      <div class="header-left"><a href="/" class="logo">
+        <span class="logo-en">cafe nora</span>
+        <span class="logo-jp">カフェ ノラ</span>
+      </a><a href="parking.html" class="parking-badge">🚗 臨時駐車場</a></div>
+      <button class="menu-btn" id="menuBtn" aria-label="メニューを開く">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav" id="nav">
+        <ul class="nav-list">
+          <li><a href="cafe.html">カフェ</a></li>
+          <li><a href="calendar.html">カレンダー</a></li>
+          <li><a href="events.html">イベント</a></li>
+          <li><a href="popup.html">出店情報</a></li>
+          <li><a href="access.html">アクセス</a></li>
+          <li><a href="service.html">HP制作</a></li>
+          <li><a href="notifications.html">お知らせ</a></li>
+          <li><a href="contact.html">お問い合わせ</a></li>
+        </ul>
+      </nav>
+    </div>
+    <!-- ライブ告知ティッカー -->
+    <div class="live-ticker">
+      <span class="lt-label">LIVE</span>
+      <div class="lt-row" id="lt-row1">
+        <a href="event-hachinoko.html" class="lt-item" id="lb-hachinoko">
+          <span class="lt-idate">6.14</span>
+          <span class="lt-iname">蜂鳥あみ太</span>
+          <span class="lt-idays" id="lbd-hachinoko"></span>
+        </a>
+        <span class="lt-sep" id="lbs-r1">·</span>
+        <a href="event-karitomato.html" class="lt-item" id="lb-karitomato-t1">
+          <span class="lt-idate">7.28</span>
+          <span class="lt-iname">カリトマト</span>
+          <span class="lt-idays" id="lbd-karitomato-t1"></span>
+        </a>
+      </div>
+      <div class="lt-row" id="lt-row2">
+        <a href="event-karitomato.html" class="lt-item" id="lb-karitomato">
+          <span class="lt-idate">7.28</span>
+          <span class="lt-iname">カリトマト<span class="lt-new">NEW</span></span>
+          <span class="lt-idays" id="lbd-karitomato"></span>
+        </a>
+        <span class="lt-sep" id="lbs-r2">·</span>
+        <a href="event-torubale.html" class="lt-item" id="lb-torubale">
+          <span class="lt-idate">8.2</span>
+          <span class="lt-iname">とぅるばーる</span>
+          <span class="lt-idays" id="lbd-torubale"></span>
+        </a>
+      </div>
+    </div>
+  </header>
+<script>
+  (function(){
+    var hdr = document.getElementById('header');
+    var hero = document.querySelector('.hero, .gs-hero');
+    if(hdr && hero){
+      hero.style.paddingTop = hdr.offsetHeight + 'px';
+      window.addEventListener('resize', function(){
+        hero.style.paddingTop = hdr.offsetHeight + 'px';
+      });
+    }
+  })();
+</script>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-bg">
+      <img src="images/hero.jpg" alt="cafe nora の雰囲気" class="hero-img">
+      <div class="hero-overlay"></div>
+    </div>
+
+    <div class="hero-content">
+      <p class="hero-eyebrow">✦ &thinsp; cafe nora &thinsp; ✦</p>
+      <p class="hero-tagline">愛媛県新居浜市・小さなカフェ</p>
+      <h1 class="hero-title">おいしいコーヒーと<br><em>パンに会える店</em></h1>
+      <div class="hero-sumire-card amita-blaze" id="hero-amita-card">
+        <span class="hero-sumire-badge">✦ NEXT LIVE ✦</span>
+        <p class="hero-sumire-name">蜂鳥あみ太＝４号</p>
+        <p class="hero-sumire-sub">日本凱旋TOUR</p>
+        <p class="hero-sumire-cd">6月14日（日）開場 <strong>15:00</strong> / 開演 15:30</p>
+        <p class="hero-amita-days" id="hero-amita-days"></p>
+        <a href="event-hachinoko.html" class="hero-sumire-link">詳細・ご予約はこちら →</a>
+      </div>
+      <div class="hero-btn-grid">
+        <a href="cafe.html" class="btn-primary">カフェ</a>
+        <a href="events.html" class="btn-outline">イベント</a>
+        <a href="maruyoga/" class="btn-outline">まるヨガ</a>
+      </div>
+      <div class="hero-access-link">
+        <a href="#access-guide" class="btn-access-jump">
+          <span class="access-jump-icon">📍</span>
+          初めての方へ：カフェへの道順はこちら
+          <span class="access-jump-arrow">↓</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-scroll">
+      <span class="scroll-text">scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- 3つの柱 -->
+  <section class="pillars section">
+    <div class="container">
+      <div class="section-header fade-in">
+        <p style="font-size:.68rem;letter-spacing:.3em;color:var(--color-primary);margin-bottom:.7rem;text-transform:uppercase;">About</p>
+        <h2 class="section-title">cafe nora について</h2>
+        <p class="section-lead">カフェ・ヨガ・ライブイベントの3つを軸に、<br>地域の小さなコミュニティの場として活動しています。</p>
+      </div>
+      <div class="pillars-grid">
+        <!-- カフェ：2枚の写真を重ねる -->
+        <div class="pillar-card fade-in">
+          <div class="pillar-img-wrap pillar-dual">
+            <img src="images/mame.jpg" alt="自家焙煎コーヒー豆" class="dual-img-back">
+            <img src="images/pan.jpg" alt="天然酵母パン" class="dual-img-front">
+          </div>
+          <div class="pillar-body">
+            <h3 class="pillar-title">カフェ</h3>
+            <p class="pillar-text">手まわし焙煎機による自家焙煎コーヒー。<br>玄米プレートや野菜たっぷりのランチ、<br>天然酵母パン、有機ドリンクなど。<br>ランチ・ドリンクのテイクアウトや<br>コーヒー豆の販売もしています。</p>
+            <a href="cafe.html" class="pillar-link">くわしく見る <span>→</span></a>
+          </div>
+        </div>
+        <div class="pillar-card fade-in">
+          <div class="pillar-img-wrap">
+            <img src="images/ryoko-maruyoga.jpg" alt="まるヨガ・金丸良子" class="pillar-img">
+          </div>
+          <div class="pillar-body">
+            <h3 class="pillar-title">まるヨガ</h3>
+            <p class="pillar-text">古典・ハタヨガクラス。14年のキャリアを持つ<br>インストラクター・金丸良子が指導。<br>心と体を整える時間を。</p>
+            <a href="maruyoga/" class="pillar-link">まるヨガ専用サイトへ <span>→</span></a>
+          </div>
+        </div>
+        <div class="pillar-card fade-in">
+          <div class="pillar-img-wrap">
+            <img src="images/pillar-event.svg" alt="ライブ・イベント" class="pillar-img">
+          </div>
+          <div class="pillar-body">
+            <h3 class="pillar-title">ライブ・イベント</h3>
+            <p class="pillar-text">様々なアーティストを迎えて個性的なライブを<br>しています。地域のコミュニティの場として、<br>心に残るひとときをお届けします♫</p>
+            <a href="events.html" class="pillar-link">くわしく見る <span>→</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 出店情報 -->
+  <section class="section" style="background:#f9f5f0; padding:56px 24px;">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2 class="section-title">近日の出店・参加イベント</h2>
+        <p class="section-lead">cafe noraがマルシェやクラフトフェアに出店します。<br>ぜひ会いに来てください。</p>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:20px; max-width:860px; margin:0 auto;" class="fade-in">
+        <!-- ★曜日はpopup.htmlと必ず合わせる -->
+        <a href="popup.html#craftwork" style="text-decoration:none;">
+          <div style="background:white; border-radius:12px; overflow:hidden; box-shadow:0 2px 12px rgba(0,0,0,.08); transition:transform .2s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform=''">
+            <img src="images/クラフトワーク表.jpg" alt="クラフトワーク" style="width:100%; aspect-ratio:3/2; object-fit:cover; display:block;">
+            <div style="padding:14px 16px;">
+              <p style="font-size:.75rem; color:#c9a96e; font-weight:700; letter-spacing:.1em; margin-bottom:4px;">7月4日（土）出店</p>
+              <p style="font-size:1rem; font-weight:700; color:#2c1a0e;">クラフトワーク</p>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div style="text-align:center; margin-top:28px; display:flex; flex-wrap:wrap; gap:12px; justify-content:center;" class="fade-in">
+        <a href="popup.html" class="btn-secondary">出店情報をすべて見る</a>
+        <a href="past-events.html" class="btn-secondary">思い出アーカイブを見る</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- イベント告知 -->
+  <section class="events-preview section bg-warm">
+    <div class="container">
+      <div class="section-header fade-in" style="text-align:left;">
+        <h2 class="section-title left" style="text-align:left;">近日開催のライブ</h2>
+        <p class="section-lead" style="margin:0;text-align:left;">「この人が新居浜に来るの？」<br>全国・世界で活躍するアーティストが、小さなcafe noraに来てくれます。</p>
+      </div>
+      <div class="events-hook fade-in">
+        <p class="events-hook-lead">黒色すみれ、大変盛り上がりました！ありがとうございました。<br>さあ次は6/14（日）— 蜂鳥あみ太＝４号 日本凱旋TOUR！<br>7月・8月も豪華ラインナップが続きます。</p>
+        <a href="events.html" class="btn-hook">→ アーティストと公演詳細を見る</a>
+      </div>
+      <div class="events-grid">
+        <article class="event-card fade-in">
+          <div class="event-img-wrap">
+            <img src="images/hachinoko.jpg" alt="蜂鳥あみ太＝４号 日本凱旋TOUR" class="event-img" style="width:50%;object-position:84% 0%;aspect-ratio:16/9;">
+            <div class="event-badge">6.14</div>
+          </div>
+          <div class="event-body">
+            <p class="event-date">2026年 6月 14日（日）</p>
+            <h3 class="event-name">蜂鳥あみ太＝４号<br>日本凱旋TOUR</h3>
+            <p class="event-credential">豪州ツアー帰国直後  <br>全国各地で話題の地獄のシャンソン歌手</p>
+            <div class="event-meta">
+              <p>開場 15:00 / 開演 15:30</p>
+              <p class="event-price">¥3,500 + D代</p>
+            </div>
+            <div id="cd-idx-hachinoko" class="event-cd-sm"></div>
+            <a href="events.html#hachinoko" class="btn-secondary">詳細・ご予約</a>
+          </div>
+        </article>
+        <article class="event-card fade-in">
+          <div class="event-img-wrap">
+            <img src="images/karitomato-album.jpg" alt="カリトマト 2ndアルバム発売ツアー" class="event-img" style="width:70%">
+            <div class="event-new-badge">NEW</div>
+            <div class="event-badge">7.28</div>
+          </div>
+          <div class="event-body">
+            <p class="event-date">2026年 7月 28日（火）</p>
+            <h3 class="event-name">カリトマト<br>2ndアルバム『グランスフレ』発売ツアー</h3>
+            <p class="event-credential">原田忠（ボタンacc）× 都丸智栄（鍵盤acc）<br>ダブルアコーディオンの世界</p>
+            <div class="event-meta">
+              <p>開場 18:30 / 開演 19:30</p>
+              <p class="event-price">予約 ¥4,000（1ドリンク込み）</p>
+            </div>
+            <div id="cd-idx-karitomato" class="event-cd-sm"></div>
+            <a href="events.html#karitomato" class="btn-secondary">詳細・ご予約</a>
+          </div>
+        </article>
+        <article class="event-card fade-in">
+          <div class="event-img-wrap">
+            <img src="images/cahp_04b98db1.jpg" alt="昼でも夜でもとぅるばーる" class="event-img" style="width:50%">
+            <div class="event-new-badge">NEW</div>
+            <div class="event-badge">8.2</div>
+          </div>
+          <div class="event-body">
+            <p class="event-date">2026年 8月 2日（日）</p>
+            <h3 class="event-name">昼でも夜でも<br>とぅるばーる</h3>
+            <p class="event-credential">詳細近日公開</p>
+            <div class="event-meta">
+              <p>（詳細近日公開）</p>
+            </div>
+            <div id="cd-idx-torubale" class="event-cd-sm"></div>
+            <a href="event-torubale.html" class="btn-secondary">詳細・ご予約</a>
+          </div>
+        </article>
+      </div>
+<!-- events-end -->
+      <div class="events-more fade-in">
+        <a href="events.html" class="btn-primary">すべてのイベントを見る</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- カフェへのご案内 -->
+  <section class="access-guide section" id="access-guide">
+    <div class="container">
+      <div class="section-header fade-in" style="text-align:left;">
+        <p style="font-size:.68rem;letter-spacing:.3em;color:var(--color-primary);margin-bottom:.7rem;text-transform:uppercase;">Access Guide</p>
+        <h2 class="section-title left">カフェへのご案内</h2>
+        <p class="section-lead" style="margin:0;text-align:left;">初めてお越しの方へ。駐車場からカフェまでの道順をご案内します。</p>
+      </div>
+      <div class="guide-steps">
+        <div class="guide-step fade-in">
+          <div class="step-img-wrap">
+            <img src="images/guide1.jpg" alt="駐車場" class="step-img">
+          </div>
+          <div class="step-body">
+            <span class="step-num">01</span>
+            <h3 class="step-title">駐車場に停めたら…</h3>
+            <p class="step-text">正面に<strong>スタジオの扉</strong>が見えます。<br>こちらはスタジオの入口です。<br>スタジオと隣の建物の間を進んでください。</p>
+          </div>
+        </div>
+        <div class="guide-step reverse fade-in">
+          <div class="step-img-wrap">
+            <img src="images/guide2.jpg" alt="アプローチ" class="step-img">
+          </div>
+          <div class="step-body">
+            <span class="step-num">02</span>
+            <h3 class="step-title">建物の間を奥へ</h3>
+            <p class="step-text"><strong>奥へ進む</strong>と、お店の玄関口が見えます。<br>そのまま奥へどうぞ。</p>
+          </div>
+        </div>
+        <div class="guide-step fade-in">
+          <div class="step-img-wrap">
+            <img src="images/guide3.jpg" alt="カフェ入口" class="step-img">
+          </div>
+          <div class="step-body">
+            <span class="step-num">03</span>
+            <h3 class="step-title">カフェに到着！</h3>
+            <p class="step-text">奥に<strong>カフェの入口</strong>です。ごゆっくりどうぞ！</p>
+          </div>
+        </div>
+      </div>
+      <!-- Googleマップボタン：03の直下 -->
+      <div class="guide-map-btn fade-in">
+        <a href="https://maps.google.com/maps?q=愛媛県新居浜市萩生2133-29" target="_blank" rel="noopener noreferrer" class="btn-map">
+          <span>📍</span> Googleマップで開く
+        </a>
+      </div>
+      <div class="guide-note fade-in">
+        <p>迷った場合はお気軽にお電話ください<br>090-9459-1733（かなまる）<br>営業時間内にお電話ください</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 営業時間 -->
+  <section class="info-section section bg-warm">
+    <div class="container">
+      <div class="info-hours-only fade-in">
+        <h2 class="section-title">営業時間・お問い合わせ</h2>
+        <table class="hours-table">
+          <tbody>
+            <tr>
+              <th>営業日</th>
+              <td>月・木・金曜日</td>
+            </tr>
+            <tr>
+              <th>営業時間</th>
+              <td>10:00 〜 15:00<small>（ラストオーダー）</small></td>
+            </tr>
+            <tr>
+              <th>お食事</th>
+              <td>11:00 〜</td>
+            </tr>
+            <tr>
+              <th>定休日</th>
+              <td>火・水・土・日曜日</td>
+            </tr>
+          </tbody>
+        </table>
+        <ul class="contact-list">
+          <li>
+            <span class="contact-icon">📞</span>
+            <a href="tel:090-9459-1733">090-9459-1733</a>
+            <span class="contact-note">（かなまる）</span>
+          </li>
+          <li>
+            <span class="contact-icon">📍</span>
+            <span>愛媛県新居浜市萩生2133-29</span>
+          </li>
+          <li>
+            <span class="contact-icon">📷</span>
+            <a href="https://www.instagram.com/cafenora.maru/" target="_blank" rel="noopener noreferrer">@cafenora.maru</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Instagram -->
+  <section class="instagram-section section">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2 class="section-title">Instagram</h2>
+        <p class="section-lead">日々のカフェの様子はInstagramでご覧いただけます。</p>
+        <a href="https://www.instagram.com/cafenora.maru/" target="_blank" rel="noopener noreferrer" class="instagram-link">
+          <span class="instagram-icon">📷</span> @cafenora.maru をフォローする
+        </a>
+        <a href="https://www.instagram.com/cafenora.kazu/" target="_blank" rel="noopener noreferrer" class="instagram-link" style="margin-top:8px;">
+          <span class="instagram-icon">📷</span> @cafenora.kazu をフォローする
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <p class="footer-logo">cafe nora</p>
+          <p class="footer-tagline">カフェ・ヨガ・ライブイベント</p>
+          <p class="footer-address">〒792-0050 愛媛県新居浜市萩生2133-29</p>
+          <p class="footer-tel"><a href="tel:090-9459-1733">090-9459-1733</a></p>
+        </div>
+        <nav class="footer-nav">
+          <a href="cafe.html">カフェ</a>
+          <a href="maruyoga/">まるヨガ</a>
+          <a href="events.html">イベント</a>
+          <a href="popup.html">出店情報</a>
+          <a href="past-events.html">過去のイベント</a>
+          <a href="access.html">アクセス</a>
+          <a href="https://www.instagram.com/cafenora.maru/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        </nav>
+      </div>
+      <p class="footer-copy">&copy; 2026 cafe nora. All rights reserved. <a href="flyer-login.html" style="color:rgba(255,255,255,0.2); margin-left:1rem; font-size:0.75rem; text-decoration:none;" title="管理者">🔒</a></p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+<script>
+// Live bars: 残り日数 ＋ hero-content 自動位置調整
+(function(){
+  var lives=[
+    {id:'hachinoko',       date:'2026-06-14'},
+    {id:'karitomato',       date:'2026-07-28'},
+    {id:'karitomato-t1',   date:'2026-07-28'},
+    {id:'torubale',       date:'2026-08-02'}
+  ];
+  var n=new Date(), today=new Date(n.getFullYear(),n.getMonth(),n.getDate());
+  lives.forEach(function(lv){
+    var p=lv.date.split('-');
+    var diff=Math.round((new Date(+p[0],+p[1]-1,+p[2])-today)/86400000);
+    var bar=document.getElementById('lb-'+lv.id);
+    var el=document.getElementById('lbd-'+lv.id);
+    if(!bar||!el) return;
+    if(diff<0){ bar.style.display='none'; return; }
+    if(diff===0){ el.innerHTML='<strong>本日！</strong>'; el.classList.add('lt-today'); }
+    else if(diff===1){ el.innerHTML='<strong>明日</strong>'; el.classList.add('lt-today'); }
+    else{ el.innerHTML='あと<strong>'+diff+'日</strong>'; }
+  });
+  (function(){
+    var rows=[
+      {rowId:'lt-row1',ids:['hachinoko','karitomato-t1'],sepId:'lbs-r1'},
+      {rowId:'lt-row2',ids:['karitomato','torubale'],sepId:'lbs-r2'}
+    ];
+    rows.forEach(function(r){
+      var vis=r.ids.map(function(id){var el=document.getElementById('lb-'+id);return el&&el.style.display!=='none';});
+      var sep=document.getElementById(r.sepId);
+      if(sep) sep.style.display=(vis[0]&&vis[1])?'':'none';
+      var row=document.getElementById(r.rowId);
+      if(row&&!vis[0]&&!vis[1]) row.style.display='none';
+    });
+  })();
+})();
+// ヒーロー：あみ太くんライブまでの残り日数（自動計算）
+(function(){
+  var el=document.getElementById('hero-amita-days');
+  if(!el) return;
+  var n=new Date(), today=new Date(n.getFullYear(),n.getMonth(),n.getDate());
+  var diff=Math.round((new Date(2026,5,14)-today)/86400000);
+  if(diff>0){ el.textContent='残り'+diff+'日！'; }
+  else if(diff===0){ el.textContent='本日開催！'; }
+  else{ el.style.display='none'; }
+})();
+// イベントカードのカウントダウン
+(function(){
+  var evs=[
+    {id:'idx-hachinoko',       date:'2026-06-14'},
+    {id:'idx-karitomato',       date:'2026-07-28'},
+    {id:'idx-torubale',       date:'2026-08-02'}
+  ];
+  var n=new Date(), today=new Date(n.getFullYear(),n.getMonth(),n.getDate());
+  evs.forEach(function(ev){
+    var p=ev.date.split('-');
+    var diff=Math.round((new Date(+p[0],+p[1]-1,+p[2])-today)/86400000);
+    var el=document.getElementById('cd-'+ev.id);
+    if(!el) return;
+    var text,cls='event-cd-sm';
+    if(diff>1){ text='🗓 あと '+diff+' 日'; }
+    else if(diff===1){ text='✦ いよいよ明日！'; }
+    else if(diff===0){ text='🎵 本日開催！'; cls+=' cd-today'; }
+    else { return; }
+    el.textContent=text; el.className=cls; el.style.display='inline-block';
+  });
+})();
+</script>
+<script>(function(){var p=new URLSearchParams(location.search);if(p.get("owner")==="nora")localStorage.setItem("nora_owner","1");if(p.get("owner")==="off")localStorage.removeItem("nora_owner");if(!localStorage.getItem("nora_owner"))fetch("https://noratool.pythonanywhere.com/pv?p="+encodeURIComponent(location.pathname)).catch(function(){});})();</script>
+<script>
+(function(){
+  var img = document.querySelector('.hero-img');
+  var hero = document.querySelector('.hero');
+  if (!img || !hero) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var ticking = false;
+  function update() {
+    var s = window.pageYOffset;
+    var h = hero.offsetHeight;
+    if (s <= h) {
+      var shift = Math.min(s * 0.4, h * 0.22);
+      img.style.transform = 'translateY(' + shift + 'px)';
+    }
+    ticking = false;
+  }
+  window.addEventListener('scroll', function() {
+    if (!ticking) { requestAnimationFrame(update); ticking = true; }
+  }, { passive: true });
+})();
+</script>
+
+
+
+<!-- PWAインストールバナー -->
+<div id="pwa-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#1a1a2e;color:#fff;padding:14px 20px;align-items:center;justify-content:space-between;gap:12px;box-shadow:0 -4px 20px rgba(0,0,0,0.3);">
+  <div style="display:flex;align-items:center;gap:10px;">
+    <img src="/images/icon-192.png" width="40" height="40" style="border-radius:8px;flex-shrink:0;">
+    <div>
+      <div style="font-size:0.85rem;font-weight:700;">cafe nora をホーム画面に追加</div>
+      <div style="font-size:0.72rem;color:rgba(255,255,255,0.6);margin-top:2px;">アプリのように使えます</div>
+    </div>
+  </div>
+  <div style="display:flex;gap:8px;flex-shrink:0;">
+    <button id="pwa-install-btn" style="background:#7a9e7e;color:#fff;border:none;border-radius:8px;padding:8px 16px;font-size:0.82rem;font-weight:700;cursor:pointer;">追加する</button>
+    <button id="pwa-close-btn" style="background:rgba(255,255,255,0.12);color:#fff;border:none;border-radius:8px;padding:8px 12px;font-size:0.8rem;cursor:pointer;">✕</button>
+  </div>
+</div>
+
+<!-- iOS向け手順モーダル -->
+<div id="ios-modal" style="display:none;position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,0.6);align-items:flex-end;justify-content:center;">
+  <div style="background:#fff;border-radius:20px 20px 0 0;padding:28px 24px 40px;width:100%;max-width:480px;">
+    <div style="font-size:1rem;font-weight:700;color:#1a1a2e;margin-bottom:16px;text-align:center;">ホーム画面に追加する方法</div>
+    <div style="font-size:0.88rem;color:#444;line-height:1.9;">
+      <div>① Safari 下部の <strong>共有ボタン（四角に矢印）</strong> をタップ</div>
+      <div>② 「<strong>ホーム画面に追加</strong>」を選択</div>
+      <div>③ 「<strong>追加</strong>」をタップ</div>
+    </div>
+    <button onclick="document.getElementById('ios-modal').style.display='none';" style="margin-top:20px;width:100%;background:#7a9e7e;color:#fff;border:none;border-radius:10px;padding:14px;font-size:0.9rem;font-weight:700;cursor:pointer;">閉じる</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  // スタンドアローンモード（インストール済み）なら何もしない
+  if(window.matchMedia('(display-mode: standalone)').matches) return;
+  // PCは対象外
+  if(!/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) return;
+  // このセッションで閉じた場合はスキップ
+  if(sessionStorage.getItem('pwa-dismissed')) return;
+
+  var banner = document.getElementById('pwa-banner');
+  var deferredPrompt = null;
+  var isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+  // バナーを表示
+  banner.style.display = 'flex';
+
+  // Androidの場合：beforeinstallpromptを待つ
+  window.addEventListener('beforeinstallprompt', function(e){
+    e.preventDefault();
+    deferredPrompt = e;
+  });
+
+  document.getElementById('pwa-install-btn').addEventListener('click', function(){
+    if(deferredPrompt){
+      // Chrome がインストール可能と判定済み → ダイアログ表示
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice.then(function(){
+        deferredPrompt = null;
+        banner.style.display = 'none';
+      });
+    } else if(isIOS){
+      // iOS → 手順モーダル表示
+      document.getElementById('ios-modal').style.display = 'flex';
+    } else {
+      // Android（まだChrome判定待ち）→ 手順を案内
+      alert('Chromeの右上メニュー（⋮）→「アプリをインストール」または「ホーム画面に追加」をタップしてください');
+    }
+  });
+
+  document.getElementById('pwa-close-btn').addEventListener('click', function(){
+    banner.style.display = 'none';
+    sessionStorage.setItem('pwa-dismissed', '1');
+  });
+
+  window.addEventListener('appinstalled', function(){
+    banner.style.display = 'none';
+  });
+})();
+</script>
+
+
+<!-- 通知登録バナー -->
+<div id="notify-banner" style="display:none;position:fixed;top:0;left:0;right:0;z-index:9998;background:#4d7350;color:#fff;padding:12px 20px;align-items:center;justify-content:space-between;gap:12px;">
+  <div style="font-size:0.82rem;line-height:1.5;">
+    🔔 <strong>ライブ情報をお知らせ</strong><br>
+    <span style="font-size:0.72rem;opacity:0.85;">新しいライブ・イベントを通知でお届けします</span>
+  </div>
+  <div style="display:flex;gap:8px;flex-shrink:0;">
+    <button id="notify-yes" style="background:#fff;color:#4d7350;border:none;border-radius:8px;padding:8px 14px;font-size:0.8rem;font-weight:700;cursor:pointer;white-space:nowrap;">受け取る</button>
+    <button id="notify-no" style="background:rgba(255,255,255,0.2);color:#fff;border:none;border-radius:8px;padding:8px 10px;font-size:0.8rem;cursor:pointer;">×</button>
+  </div>
+</div>
+<script>
+(function(){
+  if(typeof Notification === 'undefined') return;
+  if(Notification.permission === 'granted') return;
+  if(Notification.permission === 'denied') return;
+  setTimeout(function(){
+    var b = document.getElementById('notify-banner');
+    if(b) b.style.display = 'flex';
+  }, 3000);
+  document.getElementById('notify-yes').addEventListener('click', function(){
+    OneSignalDeferred.push(function(OneSignal){ OneSignal.Notifications.requestPermission(); });
+    document.getElementById('notify-banner').style.display = 'none';
+  });
+  document.getElementById('notify-no').addEventListener('click', function(){
+    document.getElementById('notify-banner').style.display = 'none';
+  });
+})();
+</script>
+
+</body>
+</html>

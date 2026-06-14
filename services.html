@@ -1,0 +1,1515 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>HP制作サービス | cafe nora（カフェノラ）愛媛県新居浜市</title>
+  <meta name="description" content="カフェノラのHP制作サービス。AI活用で地域の小規模店舗・個人事業主向けに低コスト・高品質なホームページを制作。予約システム・カレンダー連携込みのプランあり。愛媛県新居浜市発。">
+  <meta property="og:title" content="HP制作サービス | cafe nora">
+  <meta property="og:description" content="AIと職人の手仕事で、地域のお店のHPをつくります。予約・カレンダー・フライヤー管理まで対応。">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <style>
+    /* ===== services.html 専用スタイル ===== */
+
+    /* ヒーロー */
+    .sv-hero {
+      background: linear-gradient(145deg, #1b2f1e 0%, #2d4a30 35%, #4d7350 65%, #7a9e7e 100%);
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 8rem 1.5rem 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .sv-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 20% 80%, rgba(122,158,126,.18) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 40% at 80% 20%, rgba(196,113,74,.12) 0%, transparent 50%);
+    }
+    .sv-hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 80px;
+      background: linear-gradient(to bottom, transparent, var(--color-base));
+    }
+    .sv-hero-inner { position: relative; z-index: 1; max-width: 780px; margin: 0 auto; }
+    .sv-hero-badge {
+      display: inline-block;
+      border: 1px solid rgba(122,158,126,.6);
+      color: rgba(255,255,255,.85);
+      font-size: .72rem;
+      letter-spacing: .2em;
+      padding: .35rem 1rem;
+      border-radius: 20px;
+      margin-bottom: 2rem;
+      background: rgba(122,158,126,.15);
+    }
+    .sv-hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      color: #fff;
+      line-height: 1.25;
+      margin-bottom: 1rem;
+      letter-spacing: .04em;
+    }
+    .sv-hero-title em {
+      font-style: normal;
+      color: #b8d4b8;
+    }
+    .sv-hero-sub {
+      font-size: clamp(.95rem, 2.5vw, 1.1rem);
+      color: rgba(255,255,255,.78);
+      line-height: 2;
+      margin-bottom: 2.8rem;
+      font-weight: 300;
+    }
+    .sv-hero-ctas { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .sv-btn-hero-primary {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: var(--color-primary);
+      color: #fff;
+      padding: .95rem 2.4rem;
+      border-radius: 3rem;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      transition: all .25s;
+      box-shadow: 0 4px 20px rgba(122,158,126,.45);
+    }
+    .sv-btn-hero-primary:hover { background: #4d7350; transform: translateY(-3px); box-shadow: 0 8px 28px rgba(122,158,126,.55); }
+    .sv-btn-hero-outline {
+      display: inline-flex; align-items: center; gap: .5rem;
+      border: 2px solid rgba(255,255,255,.65);
+      color: rgba(255,255,255,.9);
+      padding: .9rem 2.2rem;
+      border-radius: 3rem;
+      font-size: 1rem;
+      font-weight: 500;
+      transition: all .25s;
+    }
+    .sv-btn-hero-outline:hover { background: rgba(255,255,255,.12); transform: translateY(-2px); }
+    .sv-hero-scroll {
+      position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+      z-index: 2;
+      display: flex; flex-direction: column; align-items: center; gap: .35rem;
+      color: rgba(255,255,255,.4); font-size: .7rem; letter-spacing: .15em;
+      animation: sv-bounce 2s infinite;
+    }
+    .sv-hero-scroll::after {
+      content: '↓';
+      font-size: 1.1rem;
+    }
+    @keyframes sv-bounce {
+      0%,100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(6px); }
+    }
+
+    /* 数字カウンター */
+    .sv-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      background: var(--color-brown);
+      padding: 0;
+    }
+    .sv-stat-item {
+      padding: 2.2rem 1rem;
+      text-align: center;
+      border-right: 1px solid rgba(255,255,255,.1);
+      transition: background .25s;
+    }
+    .sv-stat-item:last-child { border-right: none; }
+    .sv-stat-item:hover { background: rgba(255,255,255,.06); }
+    .sv-stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--color-primary-light);
+      line-height: 1;
+      margin-bottom: .35rem;
+    }
+    .sv-stat-label {
+      font-size: .78rem;
+      color: rgba(255,255,255,.6);
+      letter-spacing: .08em;
+    }
+
+    /* セクション共通 */
+    .sv-section { padding: 6rem 1.5rem; }
+    .sv-section-header { text-align: center; margin-bottom: 4rem; }
+    .sv-eyebrow {
+      font-size: .72rem;
+      letter-spacing: .25em;
+      color: var(--color-primary);
+      text-transform: uppercase;
+      margin-bottom: .6rem;
+      display: block;
+    }
+    .sv-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+      color: var(--color-primary-dark);
+      margin-bottom: .8rem;
+      line-height: 1.3;
+    }
+    .sv-lead {
+      color: var(--color-text-light);
+      font-size: .95rem;
+      max-width: 620px;
+      margin: 0 auto;
+      line-height: 2;
+    }
+
+    /* About - 自己紹介 */
+    .sv-about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+    .sv-about-icon-wrap {
+      position: relative;
+    }
+    .sv-about-card {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 3rem 2.5rem;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--color-beige-light);
+      position: relative;
+    }
+    .sv-about-card::before {
+      content: '';
+      position: absolute;
+      top: -1px; left: 3rem; right: 3rem;
+      height: 3px;
+      background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+      border-radius: 0 0 3px 3px;
+    }
+    .sv-about-avatar {
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--color-primary-light), var(--color-primary));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 16px rgba(122,158,126,.3);
+    }
+    .sv-about-name {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--color-brown);
+      margin-bottom: .25rem;
+    }
+    .sv-about-role {
+      font-size: .8rem;
+      color: var(--color-primary);
+      letter-spacing: .1em;
+      margin-bottom: 1.2rem;
+    }
+    .sv-about-desc {
+      font-size: .92rem;
+      color: var(--color-text-light);
+      line-height: 2;
+    }
+    .sv-about-tags {
+      display: flex; flex-wrap: wrap; gap: .5rem;
+      margin-top: 1.5rem;
+    }
+    .sv-about-tag {
+      display: inline-block;
+      background: var(--color-base-warm);
+      border: 1px solid var(--color-beige);
+      color: var(--color-text-light);
+      font-size: .75rem;
+      padding: .28rem .75rem;
+      border-radius: 20px;
+    }
+    .sv-about-text h3 {
+      font-size: 1.45rem;
+      color: var(--color-brown);
+      margin-bottom: 1.2rem;
+      line-height: 1.6;
+    }
+    .sv-about-text p {
+      font-size: .95rem;
+      color: var(--color-text-light);
+      line-height: 2.1;
+      margin-bottom: 1.2rem;
+    }
+    .sv-check-list { margin: 1.5rem 0; }
+    .sv-check-list li {
+      display: flex; align-items: flex-start; gap: .75rem;
+      font-size: .93rem;
+      color: var(--color-text);
+      margin-bottom: .75rem;
+      line-height: 1.7;
+    }
+    .sv-check-list li::before {
+      content: '✓';
+      color: var(--color-primary);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: .1rem;
+    }
+
+    /* ポートフォリオ */
+    .sv-portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.8rem;
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+    .sv-portfolio-card {
+      background: #fff;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--color-beige-light);
+      transition: all .3s;
+      position: relative;
+    }
+    .sv-portfolio-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-hover);
+    }
+    .sv-portfolio-img {
+      height: 200px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 3.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .sv-portfolio-img.green { background: linear-gradient(135deg, #e8f4e8, #c8e4c8); }
+    .sv-portfolio-img.warm { background: linear-gradient(135deg, #f4ece0, #e4d4c0); }
+    .sv-portfolio-img.blue { background: linear-gradient(135deg, #e0eaf4, #c8d8ec); }
+    .sv-portfolio-badge {
+      position: absolute; top: .75rem; right: .75rem;
+      background: var(--color-primary);
+      color: #fff;
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      padding: .2rem .6rem;
+      border-radius: 10px;
+    }
+    .sv-portfolio-badge.badge-accent { background: var(--color-accent); }
+    .sv-portfolio-badge.badge-preview { background: #888; }
+    .sv-portfolio-body { padding: 1.5rem; }
+    .sv-portfolio-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--color-brown);
+      margin-bottom: .4rem;
+    }
+    .sv-portfolio-desc {
+      font-size: .83rem;
+      color: var(--color-text-light);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+    .sv-portfolio-chips {
+      display: flex; flex-wrap: wrap; gap: .4rem;
+    }
+    .sv-chip {
+      font-size: .72rem;
+      background: var(--color-base-warm);
+      border: 1px solid var(--color-beige);
+      color: var(--color-text-light);
+      padding: .2rem .6rem;
+      border-radius: 10px;
+    }
+    .sv-chip.chip-primary {
+      background: rgba(122,158,126,.12);
+      border-color: rgba(122,158,126,.3);
+      color: var(--color-primary-dark);
+    }
+
+    /* 機能・強み */
+    .sv-features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+    .sv-feature-card {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 2rem 1.8rem;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--color-beige-light);
+      transition: all .3s;
+      text-align: center;
+    }
+    .sv-feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--color-primary-light);
+    }
+    .sv-feature-icon {
+      width: 64px; height: 64px;
+      border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.8rem;
+      margin: 0 auto 1.2rem;
+    }
+    .sv-feature-icon.green { background: rgba(122,158,126,.12); }
+    .sv-feature-icon.orange { background: rgba(196,113,74,.1); }
+    .sv-feature-icon.brown { background: rgba(61,43,31,.08); }
+    .sv-feature-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--color-brown);
+      margin-bottom: .6rem;
+    }
+    .sv-feature-desc {
+      font-size: .84rem;
+      color: var(--color-text-light);
+      line-height: 1.9;
+    }
+
+    /* 料金プラン */
+    .sv-pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      max-width: 960px;
+      margin: 0 auto 3rem;
+      align-items: start;
+    }
+    .sv-plan {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 2.5rem 2rem;
+      box-shadow: var(--shadow);
+      border: 2px solid var(--color-beige-light);
+      position: relative;
+      transition: all .3s;
+    }
+    .sv-plan:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+    .sv-plan.featured {
+      border-color: var(--color-primary);
+      transform: scale(1.04);
+      box-shadow: 0 12px 40px rgba(122,158,126,.25);
+    }
+    .sv-plan.featured:hover {
+      transform: scale(1.04) translateY(-4px);
+    }
+    .sv-plan-badge {
+      position: absolute;
+      top: -14px; left: 50%; transform: translateX(-50%);
+      background: var(--color-primary);
+      color: #fff;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      padding: .28rem 1rem;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+    .sv-plan-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--color-primary-dark);
+      margin-bottom: .25rem;
+    }
+    .sv-plan-tagline {
+      font-size: .8rem;
+      color: var(--color-text-light);
+      margin-bottom: 1.5rem;
+    }
+    .sv-plan-price {
+      margin-bottom: 1.8rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--color-beige-light);
+    }
+    .sv-plan-price-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      color: var(--color-brown);
+      line-height: 1;
+    }
+    .sv-plan-price-unit {
+      font-size: .8rem;
+      color: var(--color-text-light);
+      margin-left: .3rem;
+    }
+    .sv-plan-price-tax {
+      font-size: .78rem;
+      color: var(--color-text-light);
+      margin-top: .3rem;
+    }
+    .sv-plan-features {
+      list-style: none;
+      margin-bottom: 2rem;
+    }
+    .sv-plan-features li {
+      display: flex; align-items: flex-start; gap: .6rem;
+      font-size: .87rem;
+      color: var(--color-text);
+      padding: .55rem 0;
+      border-bottom: 1px solid var(--color-beige-light);
+      line-height: 1.6;
+    }
+    .sv-plan-features li:last-child { border-bottom: none; }
+    .sv-plan-features li .check { color: var(--color-primary); flex-shrink: 0; font-weight: 700; }
+    .sv-plan-features li .dash { color: #ccc; flex-shrink: 0; }
+    .sv-plan-cta {
+      display: block;
+      text-align: center;
+      padding: .85rem;
+      border-radius: 2rem;
+      font-size: .9rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      transition: all .25s;
+    }
+    .sv-plan-cta.outline {
+      border: 2px solid var(--color-primary);
+      color: var(--color-primary-dark);
+    }
+    .sv-plan-cta.outline:hover { background: var(--color-primary); color: #fff; }
+    .sv-plan-cta.solid {
+      background: var(--color-primary);
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(122,158,126,.35);
+    }
+    .sv-plan-cta.solid:hover { background: var(--color-primary-dark); transform: translateY(-2px); }
+
+    /* 月額サポート帯 */
+    .sv-support-band {
+      background: var(--color-base-warm);
+      border: 1px solid var(--color-beige);
+      border-radius: var(--radius);
+      padding: 2rem 2.5rem;
+      max-width: 960px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 2rem;
+    }
+    .sv-support-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--color-brown);
+      margin-bottom: .4rem;
+    }
+    .sv-support-desc {
+      font-size: .87rem;
+      color: var(--color-text-light);
+      line-height: 1.9;
+    }
+    .sv-support-price {
+      text-align: right;
+      white-space: nowrap;
+    }
+    .sv-support-price-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: var(--color-brown);
+    }
+    .sv-support-price-unit {
+      font-size: .8rem;
+      color: var(--color-text-light);
+    }
+
+    /* 制作フロー */
+    .sv-flow {
+      max-width: 760px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .sv-flow::before {
+      content: '';
+      position: absolute;
+      left: 28px; top: 40px; bottom: 40px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--color-primary-light), var(--color-beige));
+    }
+    .sv-flow-step {
+      display: flex; gap: 1.8rem;
+      align-items: flex-start;
+      margin-bottom: 2.5rem;
+      padding: 1.5rem 1.5rem 1.5rem 0;
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--color-beige-light);
+      position: relative;
+      transition: all .3s;
+    }
+    .sv-flow-step:hover { transform: translateX(6px); border-color: var(--color-primary-light); }
+    .sv-flow-step:last-child { margin-bottom: 0; }
+    .sv-flow-num {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+      color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+      margin-left: 1.5rem;
+      box-shadow: 0 4px 12px rgba(122,158,126,.3);
+      position: relative;
+      z-index: 1;
+    }
+    .sv-flow-content {}
+    .sv-flow-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--color-brown);
+      margin-bottom: .4rem;
+    }
+    .sv-flow-desc {
+      font-size: .87rem;
+      color: var(--color-text-light);
+      line-height: 1.9;
+    }
+    .sv-flow-days {
+      margin-top: .5rem;
+      font-size: .75rem;
+      color: var(--color-primary);
+      font-weight: 500;
+    }
+
+    /* FAQ */
+    .sv-faq {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .sv-faq-item {
+      border: 1px solid var(--color-beige-light);
+      border-radius: var(--radius-sm);
+      margin-bottom: .8rem;
+      overflow: hidden;
+      background: #fff;
+    }
+    .sv-faq-q {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.3rem 1.5rem;
+      cursor: pointer;
+      font-size: .95rem;
+      font-weight: 600;
+      color: var(--color-brown);
+      user-select: none;
+      transition: background .2s;
+    }
+    .sv-faq-q:hover { background: var(--color-base-warm); }
+    .sv-faq-q::before {
+      content: 'Q';
+      display: flex; align-items: center; justify-content: center;
+      width: 28px; height: 28px;
+      background: var(--color-primary);
+      color: #fff;
+      border-radius: 50%;
+      font-family: 'Playfair Display', serif;
+      font-size: .9rem;
+      flex-shrink: 0;
+    }
+    .sv-faq-q::after {
+      content: '＋';
+      margin-left: auto;
+      color: var(--color-primary);
+      font-size: 1.2rem;
+      transition: transform .3s;
+      flex-shrink: 0;
+    }
+    .sv-faq-item.open .sv-faq-q::after { transform: rotate(45deg); }
+    .sv-faq-a {
+      display: none;
+      padding: 0 1.5rem 1.3rem 3.5rem;
+      font-size: .9rem;
+      color: var(--color-text-light);
+      line-height: 2;
+    }
+    .sv-faq-item.open .sv-faq-a { display: block; }
+
+    /* お問い合わせ */
+    .sv-contact-wrap {
+      max-width: 680px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 3rem 3rem;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--color-beige-light);
+    }
+    .sv-form-group { margin-bottom: 1.5rem; }
+    .sv-form-label {
+      display: block;
+      font-size: .88rem;
+      font-weight: 600;
+      color: var(--color-text);
+      margin-bottom: .5rem;
+    }
+    .sv-form-label .req {
+      display: inline-block;
+      background: var(--color-accent);
+      color: #fff;
+      font-size: .65rem;
+      padding: .1rem .4rem;
+      border-radius: 3px;
+      margin-left: .4rem;
+      vertical-align: middle;
+    }
+    .sv-form-input,
+    .sv-form-select,
+    .sv-form-textarea {
+      width: 100%;
+      padding: .8rem 1rem;
+      border: 1.5px solid var(--color-beige);
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: .95rem;
+      color: var(--color-text);
+      background: var(--color-base);
+      transition: border-color .2s, box-shadow .2s;
+      -webkit-appearance: none; appearance: none;
+    }
+    .sv-form-input:focus, .sv-form-select:focus, .sv-form-textarea:focus {
+      outline: none;
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(122,158,126,.15);
+      background: #fff;
+    }
+    .sv-form-textarea { resize: vertical; min-height: 120px; }
+    .sv-form-submit {
+      text-align: center;
+      margin-top: 2rem;
+    }
+    .sv-form-submit button {
+      display: inline-flex; align-items: center; gap: .6rem;
+      background: var(--color-primary);
+      color: #fff;
+      border: none;
+      border-radius: 3rem;
+      padding: 1rem 3rem;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      cursor: pointer;
+      transition: all .25s;
+      box-shadow: 0 4px 16px rgba(122,158,126,.35);
+    }
+    .sv-form-submit button:hover { background: var(--color-primary-dark); transform: translateY(-2px); }
+    .sv-form-submit button:disabled { background: #bbb; cursor: not-allowed; transform: none; }
+    .sv-form-note {
+      text-align: center;
+      font-size: .8rem;
+      color: var(--color-text-light);
+      margin-top: .8rem;
+    }
+    #sv-thanks {
+      display: none;
+      text-align: center;
+      padding: 3rem;
+    }
+    #sv-thanks .sv-thanks-icon { font-size: 3rem; margin-bottom: 1rem; }
+    #sv-thanks p { color: var(--color-text-light); line-height: 2; }
+
+    /* CTAバナー */
+    .sv-cta-band {
+      background: linear-gradient(135deg, var(--color-primary-dark) 0%, #2d4a30 100%);
+      padding: 5rem 1.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .sv-cta-band::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 70% at 50% 50%, rgba(184,212,184,.12) 0%, transparent 60%);
+    }
+    .sv-cta-band h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      color: #fff;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+    .sv-cta-band p {
+      color: rgba(255,255,255,.75);
+      margin-bottom: 2.5rem;
+      font-size: .95rem;
+      line-height: 2;
+      position: relative;
+    }
+    .sv-cta-band .sv-cta-btns {
+      display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+      position: relative;
+    }
+
+    /* レスポンシブ */
+    @media (max-width: 900px) {
+      .sv-stats { grid-template-columns: repeat(2, 1fr); }
+      .sv-about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .sv-portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+      .sv-features-grid { grid-template-columns: repeat(2, 1fr); }
+      .sv-pricing-grid { grid-template-columns: 1fr; max-width: 420px; }
+      .sv-plan.featured { transform: scale(1); }
+      .sv-support-band { grid-template-columns: 1fr; text-align: center; }
+      .sv-support-price { text-align: center; }
+      .sv-contact-wrap { padding: 2rem 1.5rem; }
+    }
+    @media (max-width: 600px) {
+      .sv-portfolio-grid { grid-template-columns: 1fr; }
+      .sv-features-grid { grid-template-columns: 1fr; }
+      .sv-hero-ctas { flex-direction: column; align-items: center; }
+    }
+  </style>
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#7a9e7e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="cafe nora">
+  <link rel="apple-touch-icon" href="/images/icon-192.png">
+  <script src=https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js defer></script>
+  <script>
+    window.OneSignalDeferred = window.OneSignalDeferred || [];
+    OneSignalDeferred.push(function(OneSignal) {
+      OneSignal.init({
+        appId: 'f214c199-2cb9-4e02-90d4-91ca8462d321',
+        notifyButton: { enable: false }
+      });
+    });
+  </script>
+</head>
+<body>
+
+  <!-- ヘッダー -->
+  <header class="header" id="header">
+    <div class="header-inner">
+      <div class="header-left">
+        <a href="/" class="logo">
+          <span class="logo-en">cafe nora</span>
+          <span class="logo-jp">カフェ ノラ</span>
+        </a>
+      </div>
+      <button class="menu-btn" id="menuBtn" aria-label="メニューを開く">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav" id="nav">
+        <ul class="nav-list">
+          <li><a href="cafe.html">カフェ</a></li>
+          <li><a href="calendar.html">カレンダー</a></li>
+          <li><a href="events.html">ライブ</a></li>
+          <li><a href="popup.html">出店情報</a></li>
+          <li><a href="access.html">アクセス</a></li>
+          <li><a href="notifications.html">お知らせ</a></li>
+          <li><a href="contact.html">お問い合わせ</a></li>
+          <li><a href="services.html" style="color:var(--color-primary);font-weight:700;">🌿 HP制作</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== 1. ヒーロー ===== -->
+  <section class="sv-hero">
+    <div class="sv-hero-inner">
+      <span class="sv-hero-badge">WEBSITE CREATION SERVICE</span>
+      <h1 class="sv-hero-title">
+        AIと手仕事で、<br>
+        <em>あなたのお店の顔</em>をつくる。
+      </h1>
+      <p class="sv-hero-sub">
+        新居浜のちいさなカフェが、本業のかたわら<br>
+        地域の小さなお店のホームページを作っています。<br>
+        AI活用で制作コストを抑えながら、<br>
+        予約システムやSNS連携まで丸ごと対応。
+      </p>
+      <div class="sv-hero-ctas">
+        <a href="#contact" class="sv-btn-hero-primary">
+          ✉ 無料相談を申し込む
+        </a>
+        <a href="#portfolio" class="sv-btn-hero-outline">
+          制作実績を見る →
+        </a>
+      </div>
+    </div>
+    <div class="sv-hero-scroll">SCROLL</div>
+  </section>
+
+  <!-- ===== 2. 数字 ===== -->
+  <div class="sv-stats">
+    <div class="sv-stat-item">
+      <div class="sv-stat-num" data-count="8">0</div>
+      <div class="sv-stat-label">制作・稼働中のアプリ</div>
+    </div>
+    <div class="sv-stat-item">
+      <div class="sv-stat-num" data-count="100">0</div>
+      <div class="sv-stat-label">% AI活用・自社開発</div>
+    </div>
+    <div class="sv-stat-item">
+      <div class="sv-stat-num" data-count="3">0</div>
+      <div class="sv-stat-label">独自予約システム稼働中</div>
+    </div>
+    <div class="sv-stat-item">
+      <div class="sv-stat-num" data-count="0">0</div>
+      <div class="sv-stat-label">円 相談料</div>
+    </div>
+  </div>
+
+  <!-- ===== 3. About ===== -->
+  <section class="sv-section" id="about">
+    <div class="container">
+      <div class="sv-about-grid">
+        <div class="sv-about-icon-wrap">
+          <div class="sv-about-card">
+            <div class="sv-about-avatar">☕</div>
+            <div class="sv-about-name">かなまる（金丸和載）</div>
+            <div class="sv-about-role">CAFÉ OWNER / WEB CREATOR</div>
+            <div class="sv-about-desc">
+              愛媛県新居浜市でcafe noraを営む、50代のカフェ店主。
+              コーヒーを焙煎しながら、AIを使ったウェブ開発を独学で習得。
+              自店のHP・予約システム・イベント管理まで自作しています。
+            </div>
+            <div class="sv-about-tags">
+              <span class="sv-about-tag">Flask / Python</span>
+              <span class="sv-about-tag">Gemini API</span>
+              <span class="sv-about-tag">Cloudflare Pages</span>
+              <span class="sv-about-tag">Google Calendar連携</span>
+              <span class="sv-about-tag">レスポンシブデザイン</span>
+            </div>
+          </div>
+        </div>
+        <div class="sv-about-text">
+          <h3>「プロに頼むと高い」を<br>解決したくて、自分で作りはじめました。</h3>
+          <p>
+            カフェを始めたとき、ホームページを作ってもらうのに
+            数十万円かかると知って驚きました。
+            同じ思いをしている地域の小さなお店は、きっとたくさんある。
+          </p>
+          <p>
+            だから自分で作り方を覚えて、カフェのHP・ヨガ予約システム・
+            イベントフライヤー管理まで、すべて自作しました。
+            その経験をもとに、地域の仲間のお店にも届けたいと考えています。
+          </p>
+          <ul class="sv-check-list">
+            <li>自分のお店で実際に使っているシステムを提供</li>
+            <li>AIを活用することでフリーランス相場より低コストを実現</li>
+            <li>地元（新居浜・西条・今治・松山周辺）は直接対応</li>
+            <li>カフェ経営者目線で、集客に効く構成を提案</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 4. ポートフォリオ ===== -->
+  <section class="sv-section bg-warm" id="portfolio">
+    <div class="container">
+      <div class="sv-section-header">
+        <span class="sv-eyebrow">Portfolio</span>
+        <h2 class="sv-title">制作実績</h2>
+        <p class="sv-lead">すべて実際に稼働中のシステム。cafenora.jp はこのページ自体がポートフォリオです。</p>
+      </div>
+      <div class="sv-portfolio-grid">
+
+        <div class="sv-portfolio-card">
+          <div class="sv-portfolio-img green">
+            🌿
+            <span class="sv-portfolio-badge">稼働中</span>
+          </div>
+          <div class="sv-portfolio-body">
+            <div class="sv-portfolio-title">cafe nora 公式HP</div>
+            <div class="sv-portfolio-desc">
+              カフェ・ヨガ・ライブイベント情報を一元発信。
+              カウントダウン機能・カレンダー連携・フライヤー管理まで搭載。
+              cafenora.jp で今すぐ確認できます。
+            </div>
+            <div class="sv-portfolio-chips">
+              <span class="sv-chip chip-primary">静的HTML</span>
+              <span class="sv-chip">Cloudflare Pages</span>
+              <span class="sv-chip">カレンダー連携</span>
+              <span class="sv-chip">SEO対応</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="sv-portfolio-card">
+          <div class="sv-portfolio-img warm">
+            🧘
+            <span class="sv-portfolio-badge">稼働中</span>
+          </div>
+          <div class="sv-portfolio-body">
+            <div class="sv-portfolio-title">まるヨガ 予約システム</div>
+            <div class="sv-portfolio-desc">
+              ヨガスタジオ「まるヨガ」専用の予約フォーム・管理ダッシュボード。
+              メール自動返信・予約一覧管理・定員管理機能を搭載。
+              実際に生徒さんの予約受付に使用中。
+            </div>
+            <div class="sv-portfolio-chips">
+              <span class="sv-chip chip-primary">予約システム</span>
+              <span class="sv-chip">メール自動返信</span>
+              <span class="sv-chip">管理ダッシュボード</span>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="sv-portfolio-card">
+          <div class="sv-portfolio-img green">
+            📅
+            <span class="sv-portfolio-badge">稼働中</span>
+          </div>
+          <div class="sv-portfolio-body">
+            <div class="sv-portfolio-title">HP管理ダッシュボード</div>
+            <div class="sv-portfolio-desc">
+              非エンジニアでもHTMLを触らずにHP更新できる専用管理ツール。
+              イベント追加・カレンダー更新・フライヤー管理がブラウザ上で完結。
+              cafe nora で毎日使用中。
+            </div>
+            <div class="sv-portfolio-chips">
+              <span class="sv-chip chip-primary">管理ツール</span>
+              <span class="sv-chip">Flask</span>
+              <span class="sv-chip">ノーコード更新</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="sv-portfolio-card">
+          <div class="sv-portfolio-img warm">
+            🎫
+            <span class="sv-portfolio-badge">稼働中</span>
+          </div>
+          <div class="sv-portfolio-body">
+            <div class="sv-portfolio-title">イベントフライヤー自動管理</div>
+            <div class="sv-portfolio-desc">
+              チラシ画像をアップロードするだけでHP公開まで自動化。
+              PIN保護付きフライヤーページ・出店情報管理も搭載。
+              ライブイベント開催のたびに活用。
+            </div>
+            <div class="sv-portfolio-chips">
+              <span class="sv-chip chip-primary">自動化</span>
+              <span class="sv-chip">画像管理</span>
+              <span class="sv-chip">セキュリティ保護</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="sv-portfolio-card">
+          <div class="sv-portfolio-img blue">
+            🗓
+            <span class="sv-portfolio-badge">稼働中</span>
+          </div>
+          <div class="sv-portfolio-body">
+            <div class="sv-portfolio-title">Google カレンダー連携HP</div>
+            <div class="sv-portfolio-desc">
+              Googleカレンダーに入力するだけでHP上の営業カレンダーが自動更新。
+              定休日・臨時休業・特別営業日の告知がリアルタイムで反映。
+            </div>
+            <div class="sv-portfolio-chips">
+              <span class="sv-chip chip-primary">Google連携</span>
+              <span class="sv-chip">自動同期</span>
+              <span class="sv-chip">スマホ完結</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 5. 強み・機能 ===== -->
+  <section class="sv-section" id="features">
+    <div class="container">
+      <div class="sv-section-header">
+        <span class="sv-eyebrow">Features</span>
+        <h2 class="sv-title">できること</h2>
+        <p class="sv-lead">「あったらいいな」をほぼ全部、標準で対応しています。</p>
+      </div>
+      <div class="sv-features-grid">
+        <div class="sv-feature-card">
+          <div class="sv-feature-icon green">📱</div>
+          <div class="sv-feature-title">スマホ最適化デザイン</div>
+          <div class="sv-feature-desc">全デバイス対応のレスポンシブデザイン。Googleが推奨する「スマホファースト」設計で、SEO評価にも直結します。</div>
+        </div>
+        <div class="sv-feature-card">
+          <div class="sv-feature-icon orange">🗓</div>
+          <div class="sv-feature-title">Googleカレンダー連携</div>
+          <div class="sv-feature-desc">スマホのカレンダーに入力するだけで営業日・休業日がHPに自動反映。HTMLを触らずに更新できます。</div>
+        </div>
+        <div class="sv-feature-card">
+          <div class="sv-feature-icon green">📝</div>
+          <div class="sv-feature-title">予約・問い合わせフォーム</div>
+          <div class="sv-feature-desc">お客様への自動返信メール付き。予約一覧の管理画面もセットで提供。ヨガ・カフェ・教室など業種問わず対応。</div>
+        </div>
+        <div class="sv-feature-card">
+          <div class="sv-feature-icon orange">🤖</div>
+          <div class="sv-feature-title">AI活用で低コスト実現</div>
+          <div class="sv-feature-desc">Gemini AIを活用したコンテンツ生成・コード作成により、制作時間を大幅短縮。その分を料金に還元しています。</div>
+        </div>
+        <div class="sv-feature-card">
+          <div class="sv-feature-icon brown">🎪</div>
+          <div class="sv-feature-title">イベント・告知管理</div>
+          <div class="sv-feature-desc">イベント情報の追加・更新・カウントダウン自動表示。フライヤー画像のアップロードから公開まで自動化できます。</div>
+        </div>
+        <div class="sv-feature-card">
+          <div class="sv-feature-icon green">🔍</div>
+          <div class="sv-feature-title">SEO基本対応</div>
+          <div class="sv-feature-desc">Google検索対応のメタタグ・構造化データ・サイトマップを標準設定。Googleビジネスプロフィールとの連携もサポート。</div>
+        </div>
+        <div class="sv-feature-card">
+          <div class="sv-feature-icon orange">📸</div>
+          <div class="sv-feature-title">Instagram・SNS連携</div>
+          <div class="sv-feature-desc">InstagramのプロフィールURLをHPに組み込み、SNSからHPへ・HPからSNSへの相互送客ができる構成を提案します。</div>
+        </div>
+        <div class="sv-feature-card">
+          <div class="sv-feature-icon brown">🛡</div>
+          <div class="sv-feature-title">Cloudflare CDN配信</div>
+          <div class="sv-feature-desc">世界最大級のCDNで高速表示・DDoS対策・SSL証明書が自動適用。サーバー費用ゼロで運用可能なプランもあり。</div>
+        </div>
+        <div class="sv-feature-card">
+          <div class="sv-feature-icon green">🔧</div>
+          <div class="sv-feature-title">HP管理ダッシュボード</div>
+          <div class="sv-feature-desc">HTMLを触らなくてもブラウザ上でコンテンツを更新できる専用管理ツールをオプションで提供。スマホからも操作可能。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 6. 料金プラン ===== -->
+  <section class="sv-section bg-warm" id="pricing">
+    <div class="container">
+      <div class="sv-section-header">
+        <span class="sv-eyebrow">Pricing</span>
+        <h2 class="sv-title">料金プラン</h2>
+        <p class="sv-lead">
+          フリーランス相場（LP5〜15万・HP15〜30万）を参考に、<br>
+          AI活用による効率化でさらに抑えた価格設定。すべて税別表示。
+        </p>
+      </div>
+
+      <div class="sv-pricing-grid">
+
+        <!-- Lite -->
+        <div class="sv-plan">
+          <div class="sv-plan-name">Lite</div>
+          <div class="sv-plan-tagline">シンプルなLP・1ページサイト</div>
+          <div class="sv-plan-price">
+            <div class="sv-plan-price-num">¥55,000<span class="sv-plan-price-unit">〜</span></div>
+            <div class="sv-plan-price-tax">税込 ¥60,500〜</div>
+          </div>
+          <ul class="sv-plan-features">
+            <li><span class="check">✓</span>1ページLP（スクロール型）</li>
+            <li><span class="check">✓</span>スマホ最適化デザイン</li>
+            <li><span class="check">✓</span>お問い合わせフォーム</li>
+            <li><span class="check">✓</span>Google Map埋め込み</li>
+            <li><span class="check">✓</span>SSL・高速CDN配信</li>
+            <li><span class="dash">–</span>カレンダー連携</li>
+            <li><span class="dash">–</span>予約システム</li>
+            <li><span class="dash">–</span>管理ダッシュボード</li>
+          </ul>
+          <a href="#contact" class="sv-plan-cta outline">このプランで相談する</a>
+        </div>
+
+        <!-- Standard -->
+        <div class="sv-plan featured">
+          <div class="sv-plan-badge">人気No.1</div>
+          <div class="sv-plan-name">Standard</div>
+          <div class="sv-plan-tagline">5〜8ページの本格HP</div>
+          <div class="sv-plan-price">
+            <div class="sv-plan-price-num">¥148,000<span class="sv-plan-price-unit">〜</span></div>
+            <div class="sv-plan-price-tax">税込 ¥162,800〜</div>
+          </div>
+          <ul class="sv-plan-features">
+            <li><span class="check">✓</span>5〜8ページ構成</li>
+            <li><span class="check">✓</span>スマホ最適化デザイン</li>
+            <li><span class="check">✓</span>お問い合わせフォーム</li>
+            <li><span class="check">✓</span>Google Map埋め込み</li>
+            <li><span class="check">✓</span>SSL・高速CDN配信</li>
+            <li><span class="check">✓</span>SEO基本設定</li>
+            <li><span class="check">✓</span>Googleカレンダー連携</li>
+            <li><span class="dash">–</span>予約システム（別途）</li>
+          </ul>
+          <a href="#contact" class="sv-plan-cta solid">このプランで相談する</a>
+        </div>
+
+        <!-- Premium -->
+        <div class="sv-plan">
+          <div class="sv-plan-name">Premium</div>
+          <div class="sv-plan-tagline">予約・管理ツール込みのフルセット</div>
+          <div class="sv-plan-price">
+            <div class="sv-plan-price-num">¥248,000<span class="sv-plan-price-unit">〜</span></div>
+            <div class="sv-plan-price-tax">税込 ¥272,800〜</div>
+          </div>
+          <ul class="sv-plan-features">
+            <li><span class="check">✓</span>10ページ以上</li>
+            <li><span class="check">✓</span>スマホ最適化デザイン</li>
+            <li><span class="check">✓</span>お問い合わせフォーム</li>
+            <li><span class="check">✓</span>Google Map埋め込み</li>
+            <li><span class="check">✓</span>SSL・高速CDN配信</li>
+            <li><span class="check">✓</span>SEO基本設定</li>
+            <li><span class="check">✓</span>Googleカレンダー連携</li>
+            <li><span class="check">✓</span>予約システム込み</li>
+          </ul>
+          <a href="#contact" class="sv-plan-cta outline">このプランで相談する</a>
+        </div>
+
+      </div>
+
+      <!-- 月額サポート -->
+      <div class="sv-support-band">
+        <div>
+          <div class="sv-support-title">月額サポートプラン（オプション）</div>
+          <div class="sv-support-desc">
+            内容の更新代行・バグ対応・Googleアナリティクスレポート・追加機能の実装（月2時間相当）。
+            制作後も継続してお店のHPを育てます。契約は月単位で変更・解約自由。
+          </div>
+        </div>
+        <div class="sv-support-price">
+          <div class="sv-support-price-num">¥8,800</div>
+          <div class="sv-support-price-unit">/ 月（税込）</div>
+        </div>
+      </div>
+
+      <p style="text-align:center; margin-top:1.5rem; font-size:.82rem; color:var(--color-text-light);">
+        ※ 上記は標準的な構成の価格です。内容により変動します。まずはご相談ください。<br>
+        ※ 小規模事業者持続化補助金（最大50万円）の対象になる場合があります。
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== 7. 制作の流れ ===== -->
+  <section class="sv-section" id="flow">
+    <div class="container">
+      <div class="sv-section-header">
+        <span class="sv-eyebrow">Process</span>
+        <h2 class="sv-title">制作の流れ</h2>
+        <p class="sv-lead">相談から公開まで、おおよそ1〜2ヶ月。ヒアリング重視のプロセスで進めます。</p>
+      </div>
+      <div class="sv-flow">
+        <div class="sv-flow-step">
+          <div class="sv-flow-num">1</div>
+          <div class="sv-flow-content">
+            <div class="sv-flow-title">無料ヒアリング・現状分析</div>
+            <div class="sv-flow-desc">メール・LINE・対面（新居浜近郊）でお話を伺います。お店の強み・ターゲット・現状の集客課題を一緒に整理します。費用は一切かかりません。</div>
+            <div class="sv-flow-days">📅 所要時間：30〜60分</div>
+          </div>
+        </div>
+        <div class="sv-flow-step">
+          <div class="sv-flow-num">2</div>
+          <div class="sv-flow-content">
+            <div class="sv-flow-title">プラン・構成提案</div>
+            <div class="sv-flow-desc">ヒアリング内容をもとに、最適なプラン・ページ構成・機能・料金の見積もりをご提案。この段階でも費用は無料です。</div>
+            <div class="sv-flow-days">📅 提案まで：3〜5営業日</div>
+          </div>
+        </div>
+        <div class="sv-flow-step">
+          <div class="sv-flow-num">3</div>
+          <div class="sv-flow-content">
+            <div class="sv-flow-title">デザイン・コンテンツ確認</div>
+            <div class="sv-flow-desc">カラー・フォント・全体イメージを決定。使用する写真や文章のご提供をお願いします（撮影・文章作成の相談も可）。着手金（50%）をお支払いいただきます。</div>
+            <div class="sv-flow-days">📅 所要時間：1週間程度</div>
+          </div>
+        </div>
+        <div class="sv-flow-step">
+          <div class="sv-flow-num">4</div>
+          <div class="sv-flow-content">
+            <div class="sv-flow-title">初稿・フィードバック</div>
+            <div class="sv-flow-desc">初稿（プレビューURL）をお見せします。2回までの修正は無料で対応。内容・デザイン・機能の確認をお願いします。</div>
+            <div class="sv-flow-days">📅 初稿まで：2〜3週間</div>
+          </div>
+        </div>
+        <div class="sv-flow-step">
+          <div class="sv-flow-num">5</div>
+          <div class="sv-flow-content">
+            <div class="sv-flow-title">最終調整・テスト</div>
+            <div class="sv-flow-desc">フォームの動作確認・スマホ表示確認・SEO設定の最終チェック。Google Analyticsの設置もこのタイミングで行います。</div>
+            <div class="sv-flow-days">📅 所要時間：3〜5営業日</div>
+          </div>
+        </div>
+        <div class="sv-flow-step">
+          <div class="sv-flow-num">6</div>
+          <div class="sv-flow-content">
+            <div class="sv-flow-title">公開・お支払い</div>
+            <div class="sv-flow-desc">ご希望のドメインでの公開作業を行います。公開完了後に残金（50%）をお支払いください。Googleビジネスプロフィールの更新サポートも含みます。</div>
+            <div class="sv-flow-days">📅 公開作業：1〜2営業日</div>
+          </div>
+        </div>
+        <div class="sv-flow-step">
+          <div class="sv-flow-num">7</div>
+          <div class="sv-flow-content">
+            <div class="sv-flow-title">公開後サポート</div>
+            <div class="sv-flow-desc">公開後1ヶ月は無料でバグ対応・軽微な修正に対応します。その後は月額サポートプランで継続してお店のHPを育てられます。</div>
+            <div class="sv-flow-days">📅 無料サポート：1ヶ月間</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 8. FAQ ===== -->
+  <section class="sv-section bg-warm" id="faq">
+    <div class="container">
+      <div class="sv-section-header">
+        <span class="sv-eyebrow">FAQ</span>
+        <h2 class="sv-title">よくある質問</h2>
+      </div>
+      <div class="sv-faq">
+
+        <div class="sv-faq-item">
+          <div class="sv-faq-q">どんな業種でも対応できますか？</div>
+          <div class="sv-faq-a">
+            カフェ・飲食店・ヨガ・教室・マルシェ・ハンドメイド作家・整体・美容室など、地域の小規模事業者・個人事業主であれば業種問わず対応しています。
+            まずはご相談ください。
+          </div>
+        </div>
+
+        <div class="sv-faq-item">
+          <div class="sv-faq-q">新居浜以外でも対応できますか？</div>
+          <div class="sv-faq-a">
+            はい。基本的にオンライン（メール・ビデオ通話）で対応しています。
+            愛媛県内（松山・今治・西条・四国中央市など）は対面でのヒアリングも可能です。
+            県外の方もお気軽にご相談ください。
+          </div>
+        </div>
+
+        <div class="sv-faq-item">
+          <div class="sv-faq-q">ドメイン（〇〇.jp など）は別途必要ですか？</div>
+          <div class="sv-faq-a">
+            独自ドメインは年1,500〜3,000円程度の実費がかかります（Cloudflare等での取得を推奨）。
+            初期はサブドメインで公開してから独自ドメインに移行する方法もご提案できます。
+          </div>
+        </div>
+
+        <div class="sv-faq-item">
+          <div class="sv-faq-q">公開後、自分でも内容を更新できますか？</div>
+          <div class="sv-faq-a">
+            スタンダード・プレミアムプランでは、Googleカレンダーと連動した営業カレンダー更新がスマホだけで可能です。
+            プレミアムプランでは専用の管理ダッシュボードも提供するので、HTMLを触らずにコンテンツ更新ができます。
+          </div>
+        </div>
+
+        <div class="sv-faq-item">
+          <div class="sv-faq-q">支払い方法は？</div>
+          <div class="sv-faq-a">
+            銀行振込での対応となります。制作着手時に50%、公開完了時に残50%の2回払いが基本です。
+          </div>
+        </div>
+
+        <div class="sv-faq-item">
+          <div class="sv-faq-q">予約システムはどんな機能がありますか？</div>
+          <div class="sv-faq-a">
+            お客様への自動返信メール・予約一覧の管理画面・定員管理・キャンセル対応の基本機能を標準搭載しています。
+            ヨガ・教室・個別相談など「時間枠を予約してもらう」業種に特に向いています。
+            まるヨガの実際の予約受付に使用しており、動作確認済みです。
+          </div>
+        </div>
+
+        <div class="sv-faq-item">
+          <div class="sv-faq-q">補助金は使えますか？</div>
+          <div class="sv-faq-a">
+            小規模事業者持続化補助金（商工会議所経由）で、ウェブサイト関連費用が対象になる場合があります。
+            上限の1/4（最大25万円）が広報費として計上できるケースがあります。
+            詳しくはお近くの商工会議所にご確認ください。申請のサポートも可能な範囲でお手伝いします。
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 9. CTAバナー ===== -->
+  <section class="sv-cta-band">
+    <h2>まずは無料で話を聞いてみませんか？</h2>
+    <p>
+      「HPが古くなってきた」「Instagramだけで集客に限界を感じている」<br>
+      「予約を電話でしか受けられない」— そんなお悩み、お気軽にどうぞ。
+    </p>
+    <div class="sv-cta-btns">
+      <a href="#contact" class="sv-btn-hero-primary">✉ 無料相談フォームへ</a>
+      <a href="cafe.html" class="sv-btn-hero-outline">cafe noraを知る →</a>
+    </div>
+  </section>
+
+  <!-- ===== 10. お問い合わせ ===== -->
+  <section class="sv-section" id="contact">
+    <div class="container">
+      <div class="sv-section-header">
+        <span class="sv-eyebrow">Contact</span>
+        <h2 class="sv-title">無料相談・お問い合わせ</h2>
+        <p class="sv-lead">
+          お気軽にご連絡ください。返信は2〜3営業日以内を目安にしています。
+        </p>
+      </div>
+
+      <div class="sv-contact-wrap">
+        <div id="sv-form-area">
+          <form id="sv-contact-form" action="https://formsubmit.co/ajax/cafenora.k@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="【HP制作相談】cafenora.jp から">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_autoresponse" value="お問い合わせありがとうございます。cafe nora のかなまるです。2〜3営業日以内にご連絡いたします。">
+            <input type="text" name="_honey" style="display:none">
+
+            <div class="sv-form-group">
+              <label class="sv-form-label">お名前 <span class="req">必須</span></label>
+              <input type="text" name="name" class="sv-form-input" placeholder="山田 太郎" required>
+            </div>
+
+            <div class="sv-form-group">
+              <label class="sv-form-label">メールアドレス <span class="req">必須</span></label>
+              <input type="email" name="email" class="sv-form-input" placeholder="your@email.com" required>
+            </div>
+
+            <div class="sv-form-group">
+              <label class="sv-form-label">お店・屋号（任意）</label>
+              <input type="text" name="shop_name" class="sv-form-input" placeholder="〇〇カフェ・ヨガ教室〇〇 など">
+            </div>
+
+            <div class="sv-form-group">
+              <label class="sv-form-label">ご関心のプラン <span class="req">必須</span></label>
+              <select name="plan" class="sv-form-select" required>
+                <option value="">選択してください</option>
+                <option value="Lite（LP・1ページ）¥55,000〜">Lite（LP・1ページ）¥55,000〜</option>
+                <option value="Standard（5〜8ページ）¥148,000〜">Standard（5〜8ページ）¥148,000〜</option>
+                <option value="Premium（予約システム込み）¥248,000〜">Premium（予約システム込み）¥248,000〜</option>
+                <option value="月額サポートのみ ¥8,800/月">月額サポートのみ ¥8,800/月</option>
+                <option value="まだ決まっていない・相談したい">まだ決まっていない・相談したい</option>
+              </select>
+            </div>
+
+            <div class="sv-form-group">
+              <label class="sv-form-label">現在の状況・お悩み <span class="req">必須</span></label>
+              <textarea name="message" class="sv-form-textarea" placeholder="例：現在HPはなく、Instagramのみで告知しています。予約をLINEで受けているので、フォームで自動化したいと考えています。" required></textarea>
+            </div>
+
+            <div class="sv-form-submit">
+              <button type="submit" id="sv-submit-btn">
+                <span id="sv-btn-text">送信する</span>
+              </button>
+            </div>
+            <p class="sv-form-note">送信後、自動返信メールをお送りします。迷惑メールフォルダもご確認ください。</p>
+          </form>
+        </div>
+
+        <div id="sv-thanks">
+          <div class="sv-thanks-icon">✅</div>
+          <h3 style="font-size:1.2rem; color:var(--color-brown); margin-bottom:.8rem;">送信完了！</h3>
+          <p>お問い合わせありがとうございます。<br>2〜3営業日以内にご連絡いたします。<br>自動返信メールも届いているかご確認ください。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- フッター -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <p class="footer-logo">cafe nora</p>
+          <p class="footer-tagline">カフェ・ヨガ・ライブイベント</p>
+          <p class="footer-address">〒792-0050 愛媛県新居浜市萩生2133-29</p>
+          <p class="footer-tel"><a href="tel:090-9459-1733">090-9459-1733</a></p>
+        </div>
+        <nav class="footer-nav">
+          <a href="cafe.html">カフェ</a>
+          <a href="maruyoga/">まるヨガ</a>
+          <a href="events.html">ライブ</a>
+          <a href="popup.html">出店情報</a>
+          <a href="past-events.html">過去のイベント</a>
+          <a href="access.html">アクセス</a>
+          <a href="services.html">HP制作サービス</a>
+          <a href="https://www.instagram.com/cafenora.maru/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        </nav>
+      </div>
+      <p class="footer-copy">&copy; 2026 cafe nora. All rights reserved. <a href="flyer-login.html" style="color:rgba(255,255,255,0.2); margin-left:1rem; font-size:0.75rem; text-decoration:none;" title="管理者">🔒</a></p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+  // カウントアップアニメーション
+  (function(){
+    var started = false;
+    function countUp(){
+      if(started) return;
+      var els = document.querySelectorAll('[data-count]');
+      if(!els.length) return;
+      var rect = els[0].getBoundingClientRect();
+      if(rect.top > window.innerHeight) return;
+      started = true;
+      els.forEach(function(el){
+        var target = parseInt(el.getAttribute('data-count'));
+        var duration = 1200;
+        var start = null;
+        function step(ts){
+          if(!start) start = ts;
+          var p = Math.min((ts - start) / duration, 1);
+          var eased = 1 - Math.pow(1 - p, 3);
+          el.textContent = Math.round(eased * target);
+          if(p < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      });
+    }
+    window.addEventListener('scroll', countUp, {passive:true});
+    countUp();
+  })();
+
+  // FAQ アコーディオン
+  document.querySelectorAll('.sv-faq-q').forEach(function(q){
+    q.addEventListener('click', function(){
+      var item = this.closest('.sv-faq-item');
+      var wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.sv-faq-item').forEach(function(i){ i.classList.remove('open'); });
+      if(!wasOpen) item.classList.add('open');
+    });
+  });
+
+  // フォーム送信
+  document.getElementById('sv-contact-form').addEventListener('submit', function(e){
+    e.preventDefault();
+    var btn = document.getElementById('sv-submit-btn');
+    var txt = document.getElementById('sv-btn-text');
+    btn.disabled = true;
+    txt.textContent = '送信中...';
+    var data = new FormData(this);
+    fetch(this.action, {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    })
+    .then(function(r){ return r.json(); })
+    .then(function(){
+      document.getElementById('sv-form-area').style.display = 'none';
+      document.getElementById('sv-thanks').style.display = 'block';
+    })
+    .catch(function(){
+      txt.textContent = '送信する';
+      btn.disabled = false;
+      alert('送信に失敗しました。お手数ですがメールで直接ご連絡ください。');
+    });
+  });
+
+  // PVカウント
+  (function(){var p=new URLSearchParams(location.search);if(p.get("owner")==="nora")localStorage.setItem("nora_owner","1");if(p.get("owner")==="off")localStorage.removeItem("nora_owner");if(!localStorage.getItem("nora_owner"))fetch("https://noratool.pythonanywhere.com/pv?p="+encodeURIComponent(location.pathname)).catch(function(){});})();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>思い出アーカイブ | cafe nora 愛媛県新居浜市</title>
+  <meta name="description" content="cafe noraが歩んできた大切な時間の記録。主催ライブ・出店イベントのアーカイブ。愛媛県新居浜市のカフェ。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <style>
+    .archive-year-label {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 2rem;
+      color: #c9a96e;
+      border-bottom: 1px solid #e8dcc8;
+      padding-bottom: 0.5rem;
+      margin: 2.5rem 0 1.8rem;
+    }
+    .archive-card {
+      display: flex;
+      gap: 0;
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+      margin-bottom: 2.5rem;
+      transition: box-shadow 0.3s;
+    }
+    .archive-card:hover { box-shadow: 0 6px 32px rgba(0,0,0,0.12); }
+    .archive-card-img {
+      position: relative;
+      width: 260px;
+      flex-shrink: 0;
+    }
+    .archive-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .archive-done-stamp {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(60,60,60,0.78);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 20px;
+      letter-spacing: 0.12em;
+      backdrop-filter: blur(4px);
+    }
+    .archive-card-body {
+      padding: 1.8rem 2rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .archive-badges {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.7rem;
+    }
+    .badge-type {
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 12px;
+      border-radius: 20px;
+      letter-spacing: 0.06em;
+    }
+    .badge-shuten {
+      background: #fdf0e0;
+      color: #b06820;
+      border: 1px solid #f0c876;
+    }
+    .badge-shusai {
+      background: #edf5fb;
+      color: #1a6fa0;
+      border: 1px solid #9dd0f0;
+    }
+    .badge-date {
+      font-size: 0.82rem;
+      color: #999;
+    }
+    .archive-card-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #2c2c2c;
+      margin: 0.2rem 0 0.4rem;
+      line-height: 1.3;
+    }
+    .archive-card-venue {
+      font-size: 0.83rem;
+      color: #888;
+      margin-bottom: 1.1rem;
+    }
+    .archive-card-comment {
+      background: linear-gradient(135deg, #faf8f4, #f5f0e8);
+      border-left: 3px solid #c9a96e;
+      padding: 1rem 1.2rem;
+      border-radius: 0 10px 10px 0;
+      line-height: 1.85;
+      font-size: 0.92rem;
+      color: #555;
+      margin-bottom: 1rem;
+    }
+    .archive-card-comment p { margin: 0; }
+    .archive-card-tag {
+      font-size: 0.78rem;
+      color: #bbb;
+      margin: 0;
+    }
+    @media (max-width: 680px) {
+      .archive-card { flex-direction: column; }
+      .archive-card-img { width: 100%; height: 220px; }
+      .archive-card-body { padding: 1.4rem 1.4rem; }
+    }
+  </style>
+  <link rel="canonical" href="https://cafenora.jp/past-events.html">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#7a9e7e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="cafe nora">
+  <link rel="apple-touch-icon" href="/images/icon-192.png">
+  <script src=https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js defer></script>
+  <script>
+    window.OneSignalDeferred = window.OneSignalDeferred || [];
+    OneSignalDeferred.push(function(OneSignal) {
+      OneSignal.init({
+        appId: 'f214c199-2cb9-4e02-90d4-91ca8462d321',
+        notifyButton: { enable: false }
+      });
+    });
+  </script>
+</head>
+<body>
+  <header class="header" id="header">
+    <div class="header-inner">
+      <div class="header-left"><a href="index.html" class="logo">
+        <span class="logo-en">cafe nora</span>
+        <span class="logo-jp">カフェ ノラ</span>
+      </a><a href="parking.html" class="parking-badge">🚗 臨時駐車場</a></div>
+      <button class="menu-btn" id="menuBtn" aria-label="メニューを開く">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav" id="nav">
+        <ul class="nav-list">
+          <li><a href="index.html">トップ</a></li>
+          <li><a href="cafe.html">カフェ</a></li>
+          <li><a href="calendar.html">カレンダー</a></li>
+          <li><a href="events.html">イベント</a></li>
+          <li><a href="popup.html">出店情報</a></li>
+          <li><a href="access.html">アクセス</a></li>
+          <li><a href="service.html">HP制作</a></li>
+          <li><a href="notifications.html">お知らせ</a></li>
+          <li><a href="contact.html">お問い合わせ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page-hero-plain">
+    <h1 class="page-hero-en">Memories</h1>
+    <p class="page-hero-jp">思い出アーカイブ</p>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2 class="section-title">cafe nora の歩み</h2>
+        <p class="section-lead">お店で開催したライブも、<br>外に出かけた出店の記録も。<br>お客様との笑顔、音楽、会話、<br>すべてここに残していきます。</p>
+      </div>
+
+      <h3 class="archive-year-label fade-in">2026</h3>
+
+      <!-- 蜂鳥あみ太＝４号（6/14） -->
+      <article class="archive-card fade-in">
+        <div class="archive-card-img">
+          <img src="images/hachinoko.jpg" alt="蜂鳥あみ太＝４号 日本凱旋TOUR">
+          <div class="archive-done-stamp">終了</div>
+        </div>
+        <div class="archive-card-body">
+          <div class="archive-badges">
+            <span class="badge-type badge-shusai">cafe nora 主催</span>
+            <span class="badge-date">2026年6月14日</span>
+          </div>
+          <h3 class="archive-card-title">蜂鳥あみ太＝４号<br>日本凱旋TOUR</h3>
+          <p class="archive-card-venue">📍 cafe nora（愛媛県新居浜市）</p>
+          <div class="archive-card-comment">
+            <p>「全身網タイツの地獄のシャンソン歌手」が<br>オーストラリア凱旋直後、cafe noraに降臨。<br>たくさんのご来場ありがとうございました。<br>写真・ライブ詳細は後日アップ予定です。</p>
+          </div>
+          <p class="archive-card-tag">#蜂鳥あみ太 #シャンソン #日本凱旋TOUR #新居浜 #cafenora</p>
+        </div>
+      </article>
+
+      <!-- 黒色すみれ TOUR（6/5） -->
+      <article class="archive-card fade-in">
+        <div class="archive-card-img">
+          <img src="images/kuroshikisumire-omote.jpg" alt="黒色すみれ TOUR「金星倶楽部」">
+          <div class="archive-done-stamp">終了</div>
+        </div>
+        <div class="archive-card-body">
+          <div class="archive-badges">
+            <span class="badge-type badge-shusai">cafe nora 主催</span>
+            <span class="badge-date">2026年6月5日</span>
+          </div>
+          <h3 class="archive-card-title">黒色すみれ<br>TOUR「金星倶楽部」</h3>
+          <p class="archive-card-venue">📍 cafe nora（愛媛県新居浜市）</p>
+          <div class="archive-card-comment">
+            <p>ゆか（Vocal / Piano / Accordion）<br>とさち（Violin）によるネオクラシックデュオ。<br>大変盛り上がりました！<br>たくさんのご来場ありがとうございました。<br>写真・動画は後日アップします。</p>
+          </div>
+          <p class="archive-card-tag">#黒色すみれ #金星倶楽部 #ネオクラシック #新居浜 #大盛況</p>
+        </div>
+      </article>
+
+      <!-- ZAHATORTE LIVE（5/24） -->
+      <article class="archive-card fade-in">
+        <div class="archive-card-img">
+          <img src="images/zahatorte.jpg" alt="ZAHATORTE LIVE">
+          <div class="archive-done-stamp">終了</div>
+        </div>
+        <div class="archive-card-body">
+          <div class="archive-badges">
+            <span class="badge-type badge-shusai">cafe nora 主催</span>
+            <span class="badge-date">2026年5月24日</span>
+          </div>
+          <h3 class="archive-card-title">ZAHATORTE LIVE</h3>
+          <p class="archive-card-venue">📍 cafe nora（愛媛県新居浜市）</p>
+          <div class="archive-card-comment">
+            <p>Summer Sonic出演・NHK楽曲提供・<br>結成22年のZAHATORTEをお迎えした一夜。<br>素敵な夜を過ごすことができました。<br>観客の皆さんも余韻に浸っていて、<br>音楽の力を改めて感じた夜でした。<br>動画・写真は後日アップします。</p>
+          </div>
+          <p class="archive-card-tag">#ZAHATORTE #ライブ #新居浜 #素敵な夜 #余韻</p>
+        </div>
+      </article>
+
+      <!-- mago おおひがし（5/17） -->
+      <article class="archive-card fade-in">
+        <div class="archive-card-img">
+          <img src="images/おおひがし表.jpg" alt="mago おおひがし チラシ">
+          <div class="archive-done-stamp">終了</div>
+        </div>
+        <div class="archive-card-body">
+          <div class="archive-badges">
+            <span class="badge-type badge-shuten">cafe nora 出店</span>
+            <span class="badge-date">2026年5月17日</span>
+          </div>
+          <h3 class="archive-card-title">mago おおひがし</h3>
+          <p class="archive-card-venue">📍 mago おおひがし（古民家）</p>
+          <div class="archive-card-comment">
+            <p>初めての出店でしたが、とても楽しかったです。<br>ゆったりと終日お過ごしになるお客様もいて、<br>会話もたくさんさせていただいて、<br>とてもアットホームな雰囲気でした。<br>古民家の雰囲気も大変素敵で、<br>いらっしゃるお客様もオーナーさんも<br>皆さん素敵でした！</p>
+          </div>
+          <p class="archive-card-tag">#古民家 #初出店 #アットホーム #また行きたい</p>
+        </div>
+      </article>
+
+      <!-- りょーちん（5/15） -->
+      <article class="archive-card fade-in">
+        <div class="archive-card-img">
+          <img src="images/りょーちん.jpg" alt="りょーちん チラシ">
+          <div class="archive-done-stamp">終了</div>
+        </div>
+        <div class="archive-card-body">
+          <div class="archive-badges">
+            <span class="badge-type badge-shuten">cafe nora 出店</span>
+            <span class="badge-date">2026年5月15日</span>
+          </div>
+          <h3 class="archive-card-title">りょーちん</h3>
+          <p class="archive-card-venue">📍 mago おおひがし（古民家）</p>
+          <div class="archive-card-comment">
+            <p>観客も巻き込んで、<br>笑いあり・涙あり（？笑）の大盛況！<br>cafe noraはカレーとドリンクを<br>提供させていただいて、<br>とても楽しい時間を<br>一緒に過ごさせていただきました。<br>オーナーさんと<br>「来年もここで！」と大盛り上がり。<br>絶対また来ます！</p>
+          </div>
+          <p class="archive-card-tag">#りょーちん #笑いあり涙あり #カレー #来年も #大盛況</p>
+        </div>
+      </article>
+
+      <div class="past-events-link fade-in" style="margin-top: 1rem;">
+        <a href="events.html" class="btn-secondary">開催予定のイベントを見る</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <p class="footer-logo">cafe nora</p>
+          <p class="footer-tagline">カフェ・ヨガ・ライブイベント</p>
+          <p class="footer-address">〒792-0050 愛媛県新居浜市萩生2133-29</p>
+          <p class="footer-tel"><a href="tel:090-9459-1733">090-9459-1733</a></p>
+        </div>
+        <nav class="footer-nav">
+          <a href="index.html">トップ</a>
+          <a href="cafe.html">カフェ</a>
+          <a href="maruyoga/">ヨガ</a>
+          <a href="events.html">イベント</a>
+          <a href="past-events.html">思い出アーカイブ</a>
+          <a href="access.html">アクセス</a>
+        </nav>
+      </div>
+      <p class="footer-copy">&copy; 2026 cafe nora. All rights reserved. <a href="flyer-login.html" style="color:rgba(255,255,255,0.2); margin-left:1rem; font-size:0.75rem; text-decoration:none;" title="管理者">🔒</a></p>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+<script>(function(){var p=new URLSearchParams(location.search);if(p.get("owner")==="nora")localStorage.setItem("nora_owner","1");if(p.get("owner")==="off")localStorage.removeItem("nora_owner");if(!localStorage.getItem("nora_owner"))fetch("https://noratool.pythonanywhere.com/pv?p="+encodeURIComponent(location.pathname)).catch(function(){});})();</script>
+
+</body>
+</html>

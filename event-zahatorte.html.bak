@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZAHATORTE LIVE | cafe nora</title>
+  <meta name="description" content="2026年5月24日（日）cafe noraにてZAHATORTE（ザッハトルテ）ライブ開催。アコーディオン・ギター・チェロの3人が紡ぐ唯一無二の音楽の夜。残席わずか・要予約。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/events.css">
+  <link rel="stylesheet" href="css/event-detail.css">
+  <link rel="canonical" href="https://cafenora.jp/event-zahatorte.html">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#7a9e7e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="cafe nora">
+  <link rel="apple-touch-icon" href="/images/icon-192.png">
+  <script src=https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js defer></script>
+  <script>
+    window.OneSignalDeferred = window.OneSignalDeferred || [];
+    OneSignalDeferred.push(function(OneSignal) {
+      OneSignal.init({
+        appId: 'f214c199-2cb9-4e02-90d4-91ca8462d321',
+        notifyButton: { enable: false }
+      });
+    });
+  </script>
+
+</head>
+<body>
+  <header class="header" id="header">
+    <div class="header-inner">
+      <div class="header-left"><a href="index.html" class="logo">
+        <span class="logo-en">cafe nora</span>
+        <span class="logo-jp">カフェ ノラ</span>
+      </a><a href="parking.html" class="parking-badge">🚗 臨時駐車場</a></div>
+      <button class="menu-btn" id="menuBtn" aria-label="メニューを開く">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav" id="nav">
+        <ul class="nav-list">
+          <li><a href="index.html">トップ</a></li>
+          <li><a href="cafe.html">カフェ</a></li>
+          <li><a href="calendar.html">カレンダー</a></li>
+          <li><a href="events.html">イベント</a></li>
+          <li><a href="popup.html">出店情報</a></li>
+          <li><a href="access.html">アクセス</a></li>
+          <li><a href="service.html">HP制作</a></li>
+          <li><a href="notifications.html">お知らせ</a></li>
+          <li><a href="contact.html">お問い合わせ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ヒーロー -->
+  <div class="ed-hero">
+    <div class="ed-hero-content">
+      <p class="ed-hero-date">2026年 5月 24日（日）OPEN 17:00 / START 18:30</p>
+      <h1 class="ed-hero-title">ZAHATORTE<br><span class="ed-hero-sub">LIVE at cafe nora</span></h1>
+      <div class="ed-hero-countdown" id="hero-cd">
+        <span>開催まで あと</span>
+        <span class="cd-days" id="hero-days">—</span>
+        <span>日</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 緊急バナー（残7日以内に表示） -->
+  <div class="ed-urgency-banner hidden" id="urgency-banner">
+    <span class="ub-text">🎟️ 残席わずか ——「行こうかな」と思っているなら、<br>今日です。</span>
+    <a href="https://noratool.pythonanywhere.com/yoyaku" target="_blank" rel="noopener noreferrer" class="ub-btn">今すぐ予約する</a>
+  </div>
+
+  <section class="section">
+    <div class="container ed-container">
+
+      <!-- フライヤー + 基本情報 -->
+      <div class="ed-top fade-in">
+        <div class="ed-flyer">
+          <img src="images/zahatorte.jpg" alt="ZAHATORTE LIVE フライヤー">
+        </div>
+        <div class="ed-info">
+          <div class="event-detail-badge upcoming">開催予定</div>
+          <table class="ed-meta-table">
+            <tr><th>日時</th><td>2026年 5月 24日（日）</td></tr>
+            <tr><th>開場 / 開演</th><td>OPEN 17:00 / START 18:30</td></tr>
+            <tr><th>料金</th><td>¥4,000 + 1 order</td></tr>
+            <tr><th>会場</th><td>cafe nora<br><small>愛媛県新居浜市萩生2133-29</small></td></tr>
+          </table>
+          <!-- 中間CTA -->
+          <div class="ed-mid-cta">
+            <p class="ed-mid-cta-text">お席に限りがあります。お早めに。</p>
+
+
+            <a href="https://noratool.pythonanywhere.com/yoyaku" target="_blank" rel="noopener noreferrer" class="btn-reserve-mid">🎟️ 今すぐ予約する</a>
+
+
+
+
+
+
+          </div>
+        </div>
+      </div>
+
+      <!-- 感情リード文 -->
+      <div class="ed-lead fade-in">
+        <p class="ed-lead-headline">✨ 当日は、ライブとともに楽しめる特別なお食事やデザートもご用意しています ✨</p>
+<hr style="border:none;border-top:2px solid currentColor;opacity:0.25;margin:1.5rem 0;">
+
+<p style="text-align:left"><strong>🥖 AKI's KITCHENさん</strong>  <br>人気のバインミーが、この日限定で特別復活。  <br>「また食べたい！」という声も多かった味を、<br>ライブとともにぜひお楽しみください。</p>
+
+
+
+
+
+
+<div class="pk-img-grid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:1rem 0;">
+  <img src="images/cahp_eecdb599.jpg" alt="" style="width:100%;height:auto;object-fit:cover;min-height:120px;background:#e8e8e8;">
+  <img src="images/cahp_500d16a6.jpg" alt="" style="width:100%;height:auto;object-fit:cover;min-height:120px;background:#e8e8e8;">
+</div>
+<hr style="border:none;border-top:2px solid currentColor;opacity:0.25;margin:1.5rem 0;">
+
+<p style="text-align:left"><strong>🧁 なみなみBAKEさん  </strong><br>焼き菓子を詰め合わせた、<br>特別なおやつセットをご用意。  <br>ライブのおともにぴったりの、<br>やさしい甘さをお楽しみください。</p>
+<img src="images/cahp_4bace56d.jpg" alt="" style="width:40%">
+<hr style="border:none;border-top:2px solid currentColor;opacity:0.25;margin:1.5rem 0;">
+
+<p style="text-align:left"><strong>🍰 グーテさん  </strong><br>・ザッハトルテ  <br>・抹茶のガナッシュサンド  <br><br>ライブにぴったりの特別なお菓子を<br>2種類ご用意しています。</p>
+<div class="pk-img-grid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:1rem 0;">
+  <img src="images/cahp_fd5a21bd.jpg" alt="" style="width:100%;height:auto;object-fit:cover;min-height:120px;background:#e8e8e8;">
+  <img src="images/cahp_ec37117a.jpg" alt="" style="width:100%;height:auto;object-fit:cover;min-height:120px;background:#e8e8e8;">
+</div>
+<hr style="border:none;border-top:1px dotted currentColor;opacity:0.25;margin:1.5rem 0;">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+      </div>
+
+      <!-- 3つの理由 -->
+      <div class="ed-reasons fade-in">
+        <h2 class="ed-section-title">この夜に来るべき、3つの理由</h2>
+
+
+
+
+        <div class="ed-reasons-grid">
+          <div class="ed-reason-card">
+            <span class="ed-reason-icon">🎻</span>
+            <p class="ed-reason-title">全席がステージのすぐそば</p>
+            <p class="ed-reason-desc">最前列は2〜3m、最後方でも10m以内。音響越しでも確かに伝わってくる、生演奏ならではの空気感と息づかい。大きなホールでは絶対に感じられない距離です。</p>
+          </div>
+          <div class="ed-reason-card">
+            <span class="ed-reason-icon">🌍</span>
+            <p class="ed-reason-title">22年、一度も止まらなかった音楽</p>
+            <p class="ed-reason-desc">2002年に京都で結成し、月例ライブを一度も欠かさず続けてきた3人。Summer Sonic出演、NHK楽曲提供——本物のキャリアが、cafe noraに来ます。</p>
+          </div>
+          <div class="ed-reason-card">
+            <span class="ed-reason-icon">📍</span>
+            <p class="ed-reason-title">新居浜で聴けるのは、この夜だけ</p>
+            <p class="ed-reason-desc">全国を巡るZAHATORTEのツアー。愛媛・新居浜に来るのは年に一度あるかどうか。「次回」がいつかは、誰にもわかりません。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- アーティスト紹介 -->
+      <div class="ed-artist fade-in">
+        <h2 class="ed-section-title">ZAHATORTE（ザッハトルテ）とは</h2>
+        <p class="ed-text">「ザッハトルテ」——オーストリアの銘菓、チョコレートケーキの王様。アコーディオン奏者がかつて毎日3回食べていたというお気に入りのお菓子から、このバンドの名前は生まれました。甘く豊かで、少しほろ苦い。まさにその音楽を表すような名前です。</p>
+        <p class="ed-text">アコーディオン、ギター、チェロの3人が奏でる「音楽モザイク」——ミュゼット、ジプシー・スウィング、ボッサノヴァ、アイリッシュ、クラシック。どのジャンルとも言えない、でも確かに「ZAHATORTEの音」という唯一無二の世界。</p>
+        <p class="ed-text">2002年に京都の立命館大学音楽サークル出身の3人で結成。月例ライブを一度も欠かさず続ける継続力と、フランスの大型アコーディオンフェスティバル「Grand Soufflet」出演、Summer Sonic出演、NHK「おかあさんといっしょ」楽曲提供、アフラックCM起用——幅広いフィールドで評価されてきた実力は本物。年間100回以上のライブをこなす彼らが、cafe noraに3度目の登場です。</p>
+
+        <div class="ed-members">
+          <h3 class="ed-members-title">MEMBERS</h3>
+          <ul class="ed-members-list">
+            <li><span class="ed-member-name">都丸智栄</span><span class="ed-member-inst">アコーディオン</span></li>
+            <li><span class="ed-member-name">ウエッコ</span><span class="ed-member-inst">ギター</span></li>
+            <li><span class="ed-member-name">ヨース毛</span><span class="ed-member-inst">チェロ</span></li>
+          </ul>
+        </div>
+
+        <div class="ed-links">
+          <a href="https://www.zahatorte.com/" target="_blank" rel="noopener noreferrer" class="ed-link-btn">公式サイト</a>
+          <a href="https://www.instagram.com/_zahatorte_/" target="_blank" rel="noopener noreferrer" class="ed-link-btn">Instagram</a>
+          <a href="https://www.youtube.com/@zahatortevtr" target="_blank" rel="noopener noreferrer" class="ed-link-btn">YouTube</a>
+        </div>
+      </div>
+
+      <!-- 下部予約 -->
+      <div class="ed-bottom-reserve fade-in">
+        <h2 class="ed-section-title">ご予約・お問い合わせ</h2>
+        <p class="ed-text">お席に限りがございます。お早めにご予約ください。<br>Web予約フォームから複数のライブをまとめて申し込みいただけます。</p>
+        <div class="reserve-contact">
+          <a href="https://noratool.pythonanywhere.com/yoyaku" target="_blank" rel="noopener noreferrer" class="reserve-contact-btn gform">
+            <span class="reserve-icon">🎵</span>
+            <span class="reserve-label">Web予約フォーム（24時間受付・複数ライブまとめて予約OK）</span>
+          </a>
+          <a href="tel:090-9459-1733" class="reserve-contact-btn phone">
+            <span class="reserve-icon">📞</span>
+            <span class="reserve-label">お電話で予約</span>
+            <span class="reserve-value">090-9459-1733</span>
+          </a>
+
+          <a href="https://www.instagram.com/cafenora.kazu/" target="_blank" rel="noopener noreferrer" class="reserve-contact-btn insta">
+            <span class="reserve-icon">📷</span>
+            <span class="reserve-label">Instagram DM で予約</span>
+            <span class="reserve-value">@cafenora.kazu</span>
+          </a>
+          <a href="https://www.instagram.com/cafenora.maru/" target="_blank" rel="noopener noreferrer" class="reserve-contact-btn insta">
+            <span class="reserve-icon">📷</span>
+            <span class="reserve-label">Instagram DM で予約</span>
+            <span class="reserve-value">@cafenora.maru</span>
+          </a>
+        </div>
+        <div class="ed-back-link" style="margin-top:1.5rem;">
+          <a href="parking.html" style="display:inline-block; margin-bottom:0.8rem; padding:0.6rem 1.4rem; background:var(--color-base-warm); border:1px solid var(--color-beige); border-radius:2rem; font-size:0.88rem; color:var(--color-text);">🚗 臨時駐車場のご案内</a>
+        </div>
+        <div class="ed-back-link">
+          <a href="events.html">← イベント一覧に戻る</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <p class="footer-logo">cafe nora</p>
+          <p class="footer-tagline">カフェ・ヨガ・ライブイベント</p>
+          <p class="footer-address">〒792-0050 愛媛県新居浜市萩生2133-29</p>
+          <p class="footer-tel"><a href="tel:090-9459-1733">090-9459-1733</a></p>
+        </div>
+        <nav class="footer-nav">
+          <a href="index.html">トップ</a>
+          <a href="cafe.html">カフェ</a>
+          <a href="maruyoga/">ヨガ</a>
+          <a href="events.html">イベント</a>
+          <a href="past-events.html">過去のイベント</a>
+          <a href="access.html">アクセス</a>
+        </nav>
+      </div>
+      <p class="footer-copy">&copy; 2026 cafe nora. All rights reserved. <a href="flyer-login.html" style="color:rgba(255,255,255,0.2); margin-left:1rem; font-size:0.75rem; text-decoration:none;" title="管理者">🔒</a></p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // カウントダウン（JST日付ベース）
+    var liveDate = new Date('2026-05-24T00:00:00+09:00');
+    function updateCD() {
+      var now = new Date();
+      var jstMs = now.getTime() + 9 * 3600 * 1000;
+      var todayJST = new Date(Math.floor(jstMs / 86400000) * 86400000 - 9 * 3600 * 1000);
+      var diff = Math.round((liveDate - todayJST) / 86400000);
+      if (diff > 0) {
+        document.getElementById('hero-days').textContent = diff;
+        if (diff <= 7) document.getElementById('urgency-banner').classList.remove('hidden');
+      } else {
+        document.getElementById('hero-cd').textContent = '開催当日！';
+      }
+    }
+    updateCD();
+  </script>
+<script>(function(){var p=new URLSearchParams(location.search);if(p.get("owner")==="nora")localStorage.setItem("nora_owner","1");if(p.get("owner")==="off")localStorage.removeItem("nora_owner");if(!localStorage.getItem("nora_owner"))fetch("https://noratool.pythonanywhere.com/pv?p="+encodeURIComponent(location.pathname)).catch(function(){});})();</script>
+
+</body>
+</html>

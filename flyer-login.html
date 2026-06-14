@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>管理者ログイン | cafe nora</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background: #f5f0eb;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .login-box {
+      background: #fff;
+      border-radius: 16px;
+      padding: 3rem 2.5rem;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+      text-align: center;
+      width: 320px;
+    }
+    .lock-icon { font-size: 3rem; margin-bottom: 1rem; }
+    .login-title {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.4rem;
+      color: #5c3d2e;
+      margin-bottom: 0.4rem;
+    }
+    .login-sub { font-size: 0.8rem; color: #999; margin-bottom: 2rem; }
+    input[type="password"] {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: 2px solid #e0d8d0;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      text-align: center;
+      letter-spacing: 0.3em;
+      outline: none;
+      transition: border-color 0.2s;
+      margin-bottom: 1rem;
+    }
+    input[type="password"]:focus { border-color: #8b6f5e; }
+    button {
+      width: 100%;
+      padding: 0.8rem;
+      background: #5c3d2e;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button:hover { background: #7a5544; }
+    .error {
+      color: #c0392b;
+      font-size: 0.85rem;
+      margin-top: 0.8rem;
+      display: none;
+    }
+    .back-link {
+      display: block;
+      margin-top: 1.5rem;
+      font-size: 0.8rem;
+      color: #aaa;
+      text-decoration: none;
+    }
+    .back-link:hover { color: #5c3d2e; }
+  </style>
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#7a9e7e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="cafe nora">
+  <link rel="apple-touch-icon" href="/images/icon-192.png">
+  <script src=https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js defer></script>
+  <script>
+    window.OneSignalDeferred = window.OneSignalDeferred || [];
+    OneSignalDeferred.push(function(OneSignal) {
+      OneSignal.init({
+        appId: 'f214c199-2cb9-4e02-90d4-91ca8462d321',
+        notifyButton: { enable: false }
+      });
+    });
+  </script>
+</head>
+<body>
+  <div class="login-box">
+    <div class="lock-icon">🔒</div>
+    <p class="login-title">cafe nora</p>
+    <p class="login-sub">管理者エリア</p>
+    <input type="password" id="pin" placeholder="PIN" maxlength="6" autofocus>
+    <button onclick="checkPin()">ログイン</button>
+    <p class="error" id="error">PINが違います</p>
+    <a href="index.html" class="back-link">← トップへ戻る</a>
+  </div>
+  <script>
+    document.getElementById('pin').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') checkPin();
+    });
+    function checkPin() {
+      const pin = document.getElementById('pin').value;
+      if (pin === '1202') {
+        sessionStorage.setItem('nora_admin', '1');
+        window.location.href = 'flyer.html';
+      } else {
+        document.getElementById('error').style.display = 'block';
+        document.getElementById('pin').value = '';
+        document.getElementById('pin').focus();
+      }
+    }
+  </script>
+
+</body>
+</html>

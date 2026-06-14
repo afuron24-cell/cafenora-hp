@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>アクセス・道順 | cafe nora 愛媛県新居浜市萩生</title>
+  <meta name="description" content="cafe noraへのアクセス・道順案内。愛媛県新居浜市萩生2133-29。駐車場からカフェまでの道順を写真付きでご案内。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="canonical" href="https://cafenora.jp/access.html">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#7a9e7e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="cafe nora">
+  <link rel="apple-touch-icon" href="/images/icon-192.png">
+  <script src=https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js defer></script>
+  <script>
+    window.OneSignalDeferred = window.OneSignalDeferred || [];
+    OneSignalDeferred.push(function(OneSignal) {
+      OneSignal.init({
+        appId: 'f214c199-2cb9-4e02-90d4-91ca8462d321',
+        notifyButton: { enable: false }
+      });
+    });
+  </script>
+</head>
+<body>
+
+  <header class="header" id="header">
+    <div class="header-inner">
+      <div class="header-left"><a href="index.html" class="logo">
+        <span class="logo-en">cafe nora</span>
+        <span class="logo-jp">カフェ ノラ</span>
+      </a><a href="parking.html" class="parking-badge">🚗 臨時駐車場</a></div>
+      <button class="menu-btn" id="menuBtn" aria-label="メニューを開く">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav" id="nav">
+        <ul class="nav-list">
+          <li><a href="index.html">トップ</a></li>
+          <li><a href="cafe.html">カフェ</a></li>
+          <li><a href="calendar.html">カレンダー</a></li>
+          <li><a href="events.html">イベント</a></li>
+          <li><a href="popup.html">出店情報</a></li>
+          <li><a href="access.html" class="active">アクセス</a></li>
+          <li><a href="service.html">HP制作</a></li>
+          <li><a href="notifications.html">お知らせ</a></li>
+          <li><a href="contact.html">お問い合わせ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page-hero-plain">
+    <h1 class="page-hero-en">Access</h1>
+    <p class="page-hero-jp">アクセス・道順</p>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="access-grid">
+
+        <!-- 営業時間・連絡先 -->
+        <div class="access-info fade-in">
+          <h2 class="section-title left">営業時間・お問い合わせ</h2>
+          <table class="hours-table">
+            <tbody>
+              <tr>
+                <th>住所</th>
+                <td>〒792-0050<br>愛媛県新居浜市萩生2133-29</td>
+              </tr>
+              <tr>
+                <th>営業日</th>
+                <td>月・木・金曜日</td>
+              </tr>
+              <tr>
+                <th>営業時間</th>
+                <td>10:00 〜 15:00<small>（ラストオーダー）</small></td>
+              </tr>
+              <tr>
+                <th>お食事</th>
+                <td>11:00 〜</td>
+              </tr>
+              <tr>
+                <th>定休日</th>
+                <td>火・水・土・日曜日</td>
+              </tr>
+              <tr>
+                <th>お電話</th>
+                <td><a href="tel:090-9459-1733" style="color:var(--color-primary);">090-9459-1733</a>（かなまる）</td>
+              </tr>
+              <tr>
+                <th>Instagram</th>
+                <td>
+                  <a href="https://www.instagram.com/cafenora.maru/" target="_blank" rel="noopener noreferrer" style="color:var(--color-primary);">@cafenora.maru</a><br>
+                  <a href="https://www.instagram.com/cafenora.kazu/" target="_blank" rel="noopener noreferrer" style="color:var(--color-primary);">@cafenora.kazu</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- 地図 -->
+        <div class="access-map fade-in">
+          <h2 class="section-title left">地図</h2>
+          <div class="map-wrap">
+            <iframe
+              src="https://maps.google.com/maps?q=愛媛県新居浜市萩生2133-29&t=&z=15&ie=UTF8&iwloc=&output=embed"
+              width="100%" height="380" style="border:0; display:block;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="cafe nora の地図">
+            </iframe>
+          </div>
+        </div>
+      </div>
+
+      <!-- 道順案内 -->
+      <div class="section-header fade-in" style="margin-top: 4rem;">
+        <h2 class="section-title">カフェへの道順</h2>
+        <p class="section-lead">駐車場から少し奥まった場所にあります。初めてお越しの方はこちらの案内をご参照ください。</p>
+      </div>
+
+      <div class="guide-steps">
+        <div class="guide-step fade-in">
+          <div class="step-img-wrap">
+            <img src="images/guide1.jpg" alt="駐車場から見た様子" class="step-img">
+            <div class="step-img-fallback">🚗</div>
+          </div>
+          <div class="step-body">
+            <span class="step-num">01</span>
+            <h3 class="step-title">駐車場に停めたら</h3>
+            <p class="step-text">正面に<strong>スタジオの扉</strong>が見えますが、そちらはスタジオの入口です。直進せずに、スタジオと隣の建物（自宅）の間の細道へ進んでください。</p>
+          </div>
+        </div>
+        <div class="guide-step reverse fade-in">
+          <div class="step-img-wrap">
+            <img src="images/guide2.jpg" alt="建物の間のアプローチ" class="step-img">
+            <div class="step-img-fallback">🌿</div>
+          </div>
+          <div class="step-body">
+            <span class="step-num">02</span>
+            <h3 class="step-title">建物の間を奥へ</h3>
+            <p class="step-text">細道を<strong>奥へ進む</strong>と緑の木々に囲まれた小さなアプローチが続きます。「本当にここかな？」と思いながらも、そのまま奥へどうぞ。</p>
+          </div>
+        </div>
+        <div class="guide-step fade-in">
+          <div class="step-img-wrap">
+            <img src="images/guide3.jpg" alt="カフェの入口" class="step-img">
+            <div class="step-img-fallback">🚪</div>
+          </div>
+          <div class="step-body">
+            <span class="step-num">03</span>
+            <h3 class="step-title">カフェに到着！</h3>
+            <p class="step-text">奥に<strong>カフェの入口</strong>が見えてきます。ゆっくりとお入りください。お席へご案内します。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="guide-note fade-in">
+        <p>迷った場合はお気軽にお電話ください：<a href="tel:090-9459-1733">090-9459-1733</a>（かなまる）</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <p class="footer-logo">cafe nora</p>
+          <p class="footer-tagline">カフェ・ヨガ・ライブイベント</p>
+          <p class="footer-address">〒792-0050 愛媛県新居浜市萩生2133-29</p>
+          <p class="footer-tel"><a href="tel:090-9459-1733">090-9459-1733</a></p>
+        </div>
+        <nav class="footer-nav">
+          <a href="index.html">トップ</a>
+          <a href="cafe.html">カフェ</a>
+          
+          <a href="events.html">イベント</a>
+          <a href="past-events.html">過去のイベント</a>
+          <a href="access.html">アクセス</a>
+          <a href="contact.html">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="footer-copy">&copy; 2026 cafe nora. All rights reserved. <a href="flyer-login.html" style="color:rgba(255,255,255,0.2); margin-left:1rem; font-size:0.75rem; text-decoration:none;" title="管理者">🔒</a></p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+<script>(function(){var p=new URLSearchParams(location.search);if(p.get("owner")==="nora")localStorage.setItem("nora_owner","1");if(p.get("owner")==="off")localStorage.removeItem("nora_owner");if(!localStorage.getItem("nora_owner"))fetch("https://noratool.pythonanywhere.com/pv?p="+encodeURIComponent(location.pathname)).catch(function(){});})();</script>
+
+</body>
+</html>

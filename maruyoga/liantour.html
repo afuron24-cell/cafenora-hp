@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>出張ヨガ×ランチ at リアントゥール | まるヨガ</title>
+  <meta name="description" content="愛媛県新居浜市のまるヨガが毎月開催する「出張ヨガ×ランチ at リアントゥール」。リアントゥールでヨガを楽しみ、ランチもセットでお楽しみいただけます。参加費3,500円。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green-deep:  #2d5a3d;
+      --green-mid:   #4a7c59;
+      --green-light: #7aab88;
+      --green-pale:  #e8f4eb;
+      --green-bg:    #f4faf5;
+      --cream:       #fdfaf6;
+      --text:        #2c2c2c;
+      --text-sub:    #555;
+      --radius:      12px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Noto Sans JP', sans-serif; color: var(--text); background: var(--cream); line-height: 1.8; }
+
+    /* ヘッダー */
+    header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(45,90,61,.97);
+      backdrop-filter: blur(8px);
+      padding: 12px 24px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo-wrap { display: flex; flex-direction: column; line-height: 1.2; }
+    .logo-en { font-family: 'Noto Serif JP',serif; font-size: 1.1rem; font-weight: 600; color: white; letter-spacing: .08em; }
+    .logo-jp { font-size: .68rem; color: rgba(255,255,255,.65); letter-spacing: .12em; }
+    nav a {
+      color: rgba(255,255,255,.85); text-decoration: none;
+      font-size: .82rem; font-weight: 500;
+      padding: 5px 14px; border-radius: 20px;
+      border: 1.5px solid rgba(255,255,255,.4);
+      transition: all .2s;
+    }
+    nav a:hover { background: rgba(255,255,255,.15); color: white; }
+
+    /* ヒーロー */
+    .hero {
+      background: linear-gradient(160deg, #1a3a2a 0%, #2d5a3d 55%, #4a7c59 100%);
+      color: white; text-align: center; padding: 72px 24px 56px;
+    }
+    .hero-badge {
+      display: inline-block; background: rgba(255,255,255,.15);
+      border: 1px solid rgba(255,255,255,.3);
+      font-size: .75rem; font-weight: 700; letter-spacing: .15em;
+      padding: 5px 18px; border-radius: 20px; margin-bottom: 20px;
+    }
+    .hero-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(1.8rem, 6vw, 3rem); font-weight: 600;
+      letter-spacing: .1em; margin-bottom: 10px; line-height: 1.3;
+    }
+    .hero-sub { font-size: 1rem; opacity: .8; letter-spacing: .15em; margin-bottom: 28px; }
+    .hero-next {
+      display: inline-block;
+      background: white; color: var(--green-deep);
+      font-weight: 700; font-size: .95rem;
+      padding: 13px 36px; border-radius: 28px;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(0,0,0,.2);
+      transition: transform .2s;
+    }
+    .hero-next:hover { transform: translateY(-2px); }
+
+    /* セクション共通 */
+    section { padding: 64px 24px; }
+    .container { max-width: 820px; margin: 0 auto; }
+    .sec-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.45rem; font-weight: 600;
+      color: var(--green-deep); text-align: center; margin-bottom: 8px;
+    }
+    .sec-title::after {
+      content: ''; display: block; width: 40px; height: 2px;
+      background: var(--green-light); margin: 10px auto 32px;
+    }
+
+    /* イベント詳細カード */
+    .detail-card {
+      background: white; border-radius: var(--radius);
+      box-shadow: 0 4px 24px rgba(45,90,61,.12);
+      overflow: hidden;
+    }
+    .detail-hero-img {
+      width: 100%; display: block; max-height: 360px; object-fit: cover;
+    }
+    .detail-body { padding: 32px; }
+    .detail-date-badge {
+      display: inline-block; background: var(--green-deep); color: white;
+      font-size: .78rem; font-weight: 700; letter-spacing: .1em;
+      padding: 5px 16px; border-radius: 20px; margin-bottom: 16px;
+    }
+    .detail-lead {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.2rem; color: var(--green-deep);
+      margin-bottom: 24px; line-height: 1.6;
+    }
+    .timeline {
+      border-left: 3px solid var(--green-pale);
+      padding-left: 20px; margin-bottom: 28px;
+    }
+    .timeline-item { margin-bottom: 14px; display: flex; align-items: center; gap: 12px; }
+    .timeline-time { font-size: .8rem; font-weight: 700; color: var(--green-mid); min-width: 42px; }
+    .timeline-label { font-size: .92rem; color: var(--text); }
+    .info-grid { display: grid; gap: 12px; margin-bottom: 28px; }
+    .info-row { display: flex; align-items: flex-start; gap: 12px; font-size: .88rem; }
+    .info-ico { flex-shrink: 0; font-size: 1rem; color: var(--green-mid); }
+    .info-row strong { color: var(--text); }
+
+    /* 写真ギャラリー */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 12px;
+    }
+    .gallery-item {
+      border-radius: var(--radius); overflow: hidden;
+      aspect-ratio: 4/3; background: var(--green-pale);
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 8px;
+    }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .gallery-placeholder {
+      font-size: 2rem; opacity: .4;
+    }
+    .gallery-placeholder-text {
+      font-size: .75rem; color: var(--green-mid); opacity: .7;
+    }
+
+    /* 参加者の声 */
+    .voice-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+    .voice-card {
+      background: white; border-radius: var(--radius);
+      padding: 24px 22px;
+      box-shadow: 0 2px 12px rgba(45,90,61,.08);
+      border-left: 4px solid var(--green-light);
+      position: relative;
+    }
+    .voice-card::before {
+      content: '"'; font-family: Georgia, serif;
+      font-size: 3rem; color: var(--green-pale);
+      position: absolute; top: 8px; left: 14px;
+      line-height: 1;
+    }
+    .voice-text { font-size: .87rem; color: var(--text); line-height: 1.85; padding-top: 20px; }
+    .voice-name { font-size: .78rem; color: var(--green-mid); font-weight: 700; margin-top: 12px; }
+    .voice-placeholder {
+      background: var(--green-bg); border-radius: var(--radius);
+      padding: 28px; text-align: center;
+      border: 2px dashed var(--green-light);
+    }
+    .voice-placeholder p { font-size: .85rem; color: var(--text-sub); line-height: 1.8; }
+
+    /* 会場紹介 */
+    .venue-card {
+      background: white; border-radius: var(--radius);
+      padding: 28px 28px;
+      box-shadow: 0 2px 12px rgba(45,90,61,.08);
+      display: flex; gap: 24px; align-items: flex-start; flex-wrap: wrap;
+    }
+    .venue-body { flex: 1; min-width: 200px; }
+    .venue-name {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.2rem; color: var(--green-deep); margin-bottom: 8px;
+    }
+    .venue-desc { font-size: .87rem; color: var(--text-sub); line-height: 1.85; margin-bottom: 16px; }
+    .venue-links { display: flex; gap: 10px; flex-wrap: wrap; }
+    .venue-link {
+      font-size: .8rem; font-weight: 600; padding: 6px 16px;
+      border-radius: 20px; text-decoration: none; transition: opacity .2s;
+    }
+    .venue-link:hover { opacity: .8; }
+    .venue-link.web { background: var(--green-pale); color: var(--green-deep); border: 1px solid var(--green-light); }
+    .venue-link.insta { background: #fce4ec; color: #c2185b; border: 1px solid #f48fb1; }
+
+    /* CTA */
+    .cta-box {
+      background: linear-gradient(135deg, #1a3a2a, #2d5a3d);
+      color: white; border-radius: var(--radius);
+      padding: 44px 32px; text-align: center;
+    }
+    .cta-box h3 { font-family: 'Noto Serif JP',serif; font-size: 1.3rem; margin-bottom: 10px; }
+    .cta-box p { font-size: .88rem; opacity: .85; margin-bottom: 28px; line-height: 1.8; }
+    .cta-btn {
+      display: inline-block; background: white; color: var(--green-deep);
+      font-weight: 700; font-size: .95rem;
+      padding: 13px 36px; border-radius: 28px;
+      text-decoration: none; margin: 5px;
+      box-shadow: 0 4px 16px rgba(0,0,0,.2);
+      transition: transform .2s;
+    }
+    .cta-btn:hover { transform: translateY(-2px); }
+
+    /* フッター */
+    footer {
+      background: var(--green-deep); color: white;
+      text-align: center; padding: 32px 24px;
+    }
+    footer a { color: rgba(255,255,255,.7); font-size: .82rem; margin: 0 8px; text-decoration: none; }
+    footer a:hover { color: white; }
+    footer .f-copy { font-size: .72rem; opacity: .4; margin-top: 14px; }
+
+    @media (max-width: 600px) {
+      .detail-body { padding: 20px; }
+      .cta-box { padding: 32px 20px; }
+    }
+  </style>
+  <link rel="canonical" href="https://cafenora.jp/maruyoga/liantour.html">
+</head>
+<body>
+
+<header>
+  <div class="logo-wrap">
+    <span class="logo-en">MARU YOGA</span>
+    <span class="logo-jp">まるヨガ</span>
+  </div>
+  <nav>
+    <a href="index.html">← まるヨガ TOP</a>
+  </nav>
+</header>
+
+<!-- ヒーロー -->
+<div class="hero">
+  <p class="hero-badge">次回開催 ／ 2026年 6月 24日（水）</p>
+  <h1 class="hero-title">やさしいヨガ教室<br>at リアントゥール</h1>
+  <p class="hero-sub">10:30〜 ヨガ ／ 12:00〜 ランチ　参加費 3,500円</p>
+  <a href="yoyaku.html" class="hero-next">🌿 6月24日（水）予約はこちら</a>
+</div>
+
+<!-- イベント詳細 -->
+<section>
+  <div class="container">
+    <h2 class="sec-title">イベント詳細</h2>
+    <div class="detail-card">
+      <img src="../images/リアン6月.jpg" alt="やさしいヨガ教室 at リアントゥール 6月24日" class="detail-hero-img">
+      <div class="detail-body">
+        <span class="detail-date-badge">次回開催：2026年 6月 24日（水）</span>
+        <p class="detail-lead">
+          リアントゥールを会場に、<br>
+          やさしいヨガとランチをまるごと楽しむ特別な時間です。
+        </p>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <span class="timeline-time">10:30</span>
+            <span class="timeline-label">🧘 ヨガクラス スタート</span>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-time">12:00</span>
+            <span class="timeline-label">🍽️ ランチタイム</span>
+          </div>
+        </div>
+
+        <div class="info-grid">
+          <div class="info-row">
+            <span class="info-ico">💴</span>
+            <span><strong>参加費：</strong>3,500円（ヨガ＋ランチセット）</span>
+          </div>
+          <div class="info-row">
+            <span class="info-ico">🎒</span>
+            <span><strong>持ち物：</strong>ヨガマット・水分・着替え<br>
+              <span style="font-size:.82rem; color:var(--text-sub);">※ ヨガマット貸し出しあり（お気軽にどうぞ）</span>
+            </span>
+          </div>
+          <div class="info-row">
+            <span class="info-ico">📅</span>
+            <span><strong>開催頻度：</strong>毎月1回（次回日程はInstagramでお知らせ）</span>
+          </div>
+          <div class="info-row">
+            <span class="info-ico">👩‍🏫</span>
+            <span><strong>インストラクター：</strong>金丸 良子（まるヨガ・14年のキャリア）</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 写真ギャラリー -->
+<section style="background:var(--green-bg); padding:64px 24px;">
+  <div class="container">
+    <h2 class="sec-title">開催の様子</h2>
+    <p style="text-align:center; font-size:.87rem; color:var(--text-sub); margin:-16px auto 32px; max-width:480px;">
+      参加してくださった方のご厚意で、素敵な写真をご紹介します。
+    </p>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="../images/ヨガリアン523.jpg" alt="リアントゥールでのヨガの様子">
+      </div>
+      <!-- HP_GALLERY_INSERT -->
+      <div class="gallery-item">
+        <img src="../images/リアン6月.jpg" alt="リアントゥールでのヨガ×ランチ 開催の様子">
+      </div>
+      <div class="gallery-item">
+        <span class="gallery-placeholder">📸</span>
+        <span class="gallery-placeholder-text">写真追加予定</span>
+      </div>
+      <div class="gallery-item">
+        <span class="gallery-placeholder">🍽️</span>
+        <span class="gallery-placeholder-text">ランチ写真追加予定</span>
+      </div>
+      <div class="gallery-item">
+        <span class="gallery-placeholder">🧘</span>
+        <span class="gallery-placeholder-text">ヨガ写真追加予定</span>
+      </div>
+    </div>
+    <p style="text-align:center; font-size:.78rem; color:var(--text-sub); margin-top:16px;">
+      ※ 掲載写真はご本人の許可をいただいています
+    </p>
+  </div>
+</section>
+
+<!-- 参加者の声 -->
+<section>
+  <div class="container">
+    <h2 class="sec-title">参加者の声</h2>
+    <div class="voice-grid">
+      <!-- HP_VOICE_INSERT -->
+      <div class="voice-placeholder">
+        <p>💬 参加してくださった方の感想をここに掲載していきます。<br>次回のイベント後にご紹介予定です。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 会場紹介 -->
+<section style="background:var(--green-bg); padding:64px 24px;">
+  <div class="container">
+    <h2 class="sec-title">会場について</h2>
+    <div class="venue-card">
+      <div class="venue-body">
+        <h3 class="venue-name">🏛️ 新居浜リアントゥール</h3>
+        <p class="venue-desc">
+          愛媛県新居浜市のリアントゥールを毎月お借りして開催しています。
+          普段はなかなか入れない美しい空間で、非日常のヨガ体験をお楽しみください。
+        </p>
+        <div class="venue-links">
+          <a href="https://www.bellmony-wedding.jp/liantour/" target="_blank" rel="noopener" class="venue-link web">🌐 公式HP</a>
+          <a href="https://www.instagram.com/liantour_wedding/" target="_blank" rel="noopener" class="venue-link insta">📷 Instagram</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 申し込み CTA -->
+<section id="apply">
+  <div class="container">
+    <div class="cta-box">
+      <h3>参加のお申し込み</h3>
+      <p>
+        6月24日（水）10:30〜 開催！<br>
+        お申し込みは予約フォームまたはInstagramのDMへ。<br>
+        ご不明な点もお気軽にどうぞ。
+      </p>
+      <a href="past_events.html" class="cta-btn" style="background:rgba(255,255,255,.18); color:white; border:1.5px solid rgba(255,255,255,.6); box-shadow:none;">
+        📸 5月23日 開催報告を見る
+      </a>
+      <a href="yoyaku.html" class="cta-btn">
+        🌿 リアントゥールヨガの予約はこちら
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div style="margin-bottom:12px;">
+    <a href="index.html">まるヨガ TOP</a>
+    <a href="../index.html">☕ cafe nora</a>
+    <a href="../contact.html">お問い合わせ</a>
+  </div>
+  <div class="f-copy">© 2026 まるヨガ（MARU YOGA）/ cafe nora</div>
+</footer>
+
+</body>
+</html>

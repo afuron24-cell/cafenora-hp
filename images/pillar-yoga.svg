@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560">
+  <defs>
+    <linearGradient id="sky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   style="stop-color:#a8d8f0"/>
+      <stop offset="60%"  style="stop-color:#d0eaf8"/>
+      <stop offset="100%" style="stop-color:#e8f4e0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 空のグラデーション -->
+  <rect width="800" height="560" fill="url(#sky)"/>
+
+  <!-- 太陽 -->
+  <circle cx="620" cy="110" r="52" fill="#f8e08a" opacity="0.9"/>
+  <circle cx="620" cy="110" r="68" fill="#f8e08a" opacity="0.25"/>
+  <circle cx="620" cy="110" r="85" fill="#f8e08a" opacity="0.12"/>
+
+  <!-- 雲１（大） -->
+  <g fill="white" opacity="0.92">
+    <ellipse cx="200" cy="140" rx="90" ry="38"/>
+    <ellipse cx="155" cy="155" rx="58" ry="32"/>
+    <ellipse cx="255" cy="152" rx="65" ry="30"/>
+    <ellipse cx="200" cy="162" rx="80" ry="28"/>
+  </g>
+
+  <!-- 雲２（中） -->
+  <g fill="white" opacity="0.85">
+    <ellipse cx="520" cy="80"  rx="70" ry="28"/>
+    <ellipse cx="480" cy="92"  rx="46" ry="24"/>
+    <ellipse cx="562" cy="90"  rx="52" ry="22"/>
+    <ellipse cx="520" cy="100" rx="62" ry="20"/>
+  </g>
+
+  <!-- 雲３（小・遠くに） -->
+  <g fill="white" opacity="0.7">
+    <ellipse cx="370" cy="55"  rx="48" ry="18"/>
+    <ellipse cx="338" cy="64"  rx="32" ry="15"/>
+    <ellipse cx="402" cy="62"  rx="36" ry="14"/>
+  </g>
+
+  <!-- 遠くの山（やわらかい） -->
+  <ellipse cx="130" cy="480" rx="200" ry="80" fill="#8ab89a" opacity="0.35"/>
+  <ellipse cx="680" cy="495" rx="220" ry="70" fill="#8ab89a" opacity="0.28"/>
+
+  <!-- 地平線あたりの緑 -->
+  <ellipse cx="400" cy="560" rx="500" ry="60" fill="#a8c898" opacity="0.55"/>
+
+  <!-- 小鳥（シルエット） -->
+  <g fill="#4a6a8a" opacity="0.55">
+    <path d="M310,200 C314,195 320,195 322,200 C318,198 316,198 310,200Z"/>
+    <path d="M322,200 C326,195 332,196 334,201 C328,199 325,199 322,200Z"/>
+    <path d="M350,175 C354,170 360,170 362,175 C358,173 355,173 350,175Z"/>
+    <path d="M362,175 C366,170 372,171 374,176 C368,174 365,174 362,175Z"/>
+    <path d="M278,220 C281,216 286,216 288,221 C284,219 281,219 278,220Z"/>
+    <path d="M288,220 C291,216 296,217 298,222 C293,220 290,220 288,220Z"/>
+  </g>
+</svg>

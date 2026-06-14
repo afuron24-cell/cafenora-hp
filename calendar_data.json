@@ -1,0 +1,50 @@
+{
+  "default_open_days": [
+    1,
+    4,
+    5
+  ],
+  "hours": "10:00〜15:00",
+  "note": "月・木・金 営業（食事は11時〜）",
+  "entries": [
+    {
+      "date": "2026-05-24",
+      "type": "event",
+      "title": "ZAHATORTE ライブ",
+      "url": "event-zahatorte.html",
+      "description": "Summer Sonic出演！"
+    },
+    {
+      "date": "2026-07-14",
+      "type": "event",
+      "title": "萩岡神社 夏越祭出店",
+      "gcal_id": "29jn1lgoetfios9ttfvb3lasec"
+    },
+    {
+      "date": "2026-07-19",
+      "type": "event",
+      "title": "夏越祭前夜祭",
+      "gcal_id": "ba0o4gharsdi7at05v5vnp4tjg",
+      "description": "場所：石岡神社"
+    },
+    {
+      "date": "2026-07-28",
+      "type": "event",
+      "title": "カリトマトライブ",
+      "gcal_id": "414kp97j4u5q1097773j1r9u68"
+    },
+    {
+      "date": "2026-08-02",
+      "type": "event",
+      "title": "とぅるばーる",
+      "gcal_id": "ns2qk8q2b6uspk82tojdgmoabk"
+    },
+    {
+      "date": "2026-08-23",
+      "type": "event",
+      "title": "バイクイベント『疾風巡礼』",
+      "gcal_id": "65rgnnbeei0tqfig0trpi3vlfs",
+      "description": "・開催場所：石岡神社（予定）\n・出店者：クレドラペ、ハチドリ、ノラ、スイーツk"
+    }
+  ]
+}

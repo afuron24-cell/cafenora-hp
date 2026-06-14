@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>カフェへの道順 | cafe nora</title>
+  <meta name="description" content="cafe nora へのはじめてご来店の方へ。駐車場からカフェまでの道順を写真でご案内します。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@300;400&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .annai-hero{padding:4rem 1.5rem 2rem;text-align:center;background:var(--color-base);}
+    .annai-label{font-size:.62rem;letter-spacing:.38em;color:var(--color-primary);text-transform:uppercase;display:block;margin-bottom:.5rem;}
+    .annai-title{font-family:'Noto Serif JP',serif;font-size:clamp(1.3rem,3.5vw,1.9rem);font-weight:400;color:var(--color-primary-dark);letter-spacing:.1em;margin-bottom:.8rem;}
+    .annai-lead{font-size:.9rem;color:var(--color-text-light);line-height:1.9;}
+    .annai-steps{max-width:760px;margin:0 auto;padding:0 0 4rem;}
+    .annai-step{margin-bottom:0;}
+    .annai-step-img{width:100%;display:block;object-fit:cover;}
+    .annai-step-body{padding:1.8rem 1.5rem 2.2rem;}
+    .annai-step-num{font-family:'Playfair Display',serif;font-size:3rem;color:var(--color-primary-light);line-height:1;margin-bottom:.3rem;}
+    .annai-step-title{font-family:'Noto Serif JP',serif;font-size:1.15rem;font-weight:500;color:var(--color-primary-dark);margin-bottom:.7rem;letter-spacing:.06em;}
+    .annai-step-text{font-size:.9rem;line-height:2;color:var(--color-text);}
+    .annai-step-text strong{color:var(--color-primary-dark);}
+    .annai-divider{border:none;border-top:1px solid var(--color-beige-light);margin:0;}
+    .annai-map{padding:2rem 1.5rem 3.5rem;text-align:center;background:var(--color-base-warm);}
+    .annai-map p{font-size:.88rem;color:var(--color-text-light);margin-bottom:1.2rem;}
+    .annai-back{display:block;text-align:center;font-size:.84rem;color:var(--color-text-light);margin-top:2rem;}
+    @media(min-width:640px){
+      .annai-step{display:grid;grid-template-columns:1fr 1fr;align-items:center;}
+      .annai-step.reverse .annai-step-img{order:2;}
+      .annai-step.reverse .annai-step-body{order:1;}
+      .annai-step-img{height:340px;}
+      .annai-step-body{padding:2.5rem 2.5rem;}
+      .annai-divider{display:none;}
+    }
+  </style>
+</head>
+<body>
+  <header class="header" id="header">
+    <div class="header-inner">
+      <div class="header-left">
+        <a href="/" class="logo">
+          <span class="logo-en">cafe nora</span>
+          <span class="logo-jp">カフェ ノラ</span>
+        </a>
+      </div>
+      <button class="menu-btn" id="menuBtn" aria-label="メニューを開く">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav" id="nav">
+        <ul class="nav-list">
+          <li><a href="cafe.html">カフェ</a></li>
+          <li><a href="calendar.html">カレンダー</a></li>
+          <li><a href="events.html">イベント</a></li>
+          <li><a href="access.html">アクセス</a></li>
+          <li><a href="maruyoga/">まるヨガ</a></li>
+          <li><a href="service.html">HP制作</a></li>
+          <li><a href="contact.html">お問い合わせ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="annai-hero">
+    <span class="annai-label">Access Guide</span>
+    <h1 class="annai-title">カフェへの道順</h1>
+    <p class="annai-lead">はじめてご来店の方へ。<br>駐車場からカフェの入口までをご案内します。</p>
+  </div>
+
+  <div class="annai-steps">
+
+    <div class="annai-step">
+      <img src="images/guide1.jpg" alt="駐車場に停めたら" class="annai-step-img">
+      <div class="annai-step-body">
+        <div class="annai-step-num">01</div>
+        <h2 class="annai-step-title">駐車場に停めたら…</h2>
+        <p class="annai-step-text">正面に<strong>スタジオの扉</strong>が見えます。<br>こちらはスタジオの入口です。<br>スタジオと隣の建物の間を進んでください。</p>
+      </div>
+    </div>
+    <hr class="annai-divider">
+
+    <div class="annai-step reverse">
+      <img src="images/guide2.jpg" alt="建物の間を奥へ" class="annai-step-img">
+      <div class="annai-step-body">
+        <div class="annai-step-num">02</div>
+        <h2 class="annai-step-title">建物の間を奥へ</h2>
+        <p class="annai-step-text"><strong>奥へ進む</strong>と、<br>お店の玄関口が見えます。<br>そのまま奥へどうぞ。</p>
+      </div>
+    </div>
+    <hr class="annai-divider">
+
+    <div class="annai-step">
+      <img src="images/guide3.jpg" alt="カフェに到着" class="annai-step-img">
+      <div class="annai-step-body">
+        <div class="annai-step-num">03</div>
+        <h2 class="annai-step-title">カフェに到着！</h2>
+        <p class="annai-step-text">奥に<strong>カフェの入口</strong>です。<br>ごゆっくりどうぞ！</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="annai-map">
+    <p>迷ったらお気軽にお電話ください。<br>090-9459-1733（かなまる）</p>
+    <a href="https://maps.google.com/maps?q=愛媛県新居浜市萩生2133-29" target="_blank" rel="noopener noreferrer" class="btn-map" style="display:inline-flex;align-items:center;gap:.4rem;background:var(--color-primary-dark);color:#fff;padding:.75rem 1.8rem;border-radius:8px;font-size:.88rem;text-decoration:none;">📍 Googleマップで開く</a>
+    <a href="/" class="annai-back">← トップページへ戻る</a>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

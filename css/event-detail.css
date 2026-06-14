@@ -1,0 +1,386 @@
+/* event-detail.css - 個別イベントページスタイル */
+
+.ed-hero {
+  background: linear-gradient(135deg, var(--color-primary-dark) 0%, #2c1a0e 100%);
+  padding: 8rem 1.5rem 4rem;
+  text-align: center;
+  color: var(--color-white);
+}
+.ed-hero-hachinoko {
+  background: linear-gradient(135deg, #1a1a2e 0%, #4a0e2c 100%);
+}
+.ed-hero-date {
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  opacity: 0.92;
+  margin-bottom: 0.75rem;
+}
+.ed-hero-title {
+  font-family: var(--font-en);
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  font-style: italic;
+  letter-spacing: 0.05em;
+  line-height: 1.3;
+}
+.ed-hero-sub {
+  display: block;
+  font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+  font-style: normal;
+  opacity: 0.8;
+  letter-spacing: 0.1em;
+  margin-top: 0.3rem;
+  font-family: var(--font-jp);
+}
+
+.ed-container {
+  max-width: 860px;
+}
+
+/* フライヤー + 基本情報 */
+.ed-top {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 2.5rem;
+  align-items: start;
+  margin-bottom: 3rem;
+}
+.ed-flyer img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+}
+
+/* メタテーブル */
+.ed-meta-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0 1.5rem;
+}
+.ed-meta-table th,
+.ed-meta-table td {
+  padding: 0.6rem 0.5rem;
+  border-bottom: 1px solid var(--color-beige-light);
+  font-size: 0.9rem;
+  vertical-align: top;
+}
+.ed-meta-table th {
+  color: var(--color-text-light);
+  font-weight: 400;
+  white-space: nowrap;
+  padding-right: 1rem;
+  width: 7rem;
+}
+.ed-meta-table td {
+  color: var(--color-text);
+  font-weight: 500;
+}
+.ed-meta-table small {
+  font-size: 0.8rem;
+  color: var(--color-text-light);
+  font-weight: 400;
+}
+
+/* 予約ボックス（上部） */
+.ed-reserve-box {
+  background: var(--color-base-warm);
+  border-radius: 8px;
+  padding: 1.2rem 1.2rem 1rem;
+  margin-top: 0.5rem;
+}
+.ed-reserve-box .reserve-title {
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  color: var(--color-text-light);
+  margin-bottom: 0.8rem;
+}
+
+/* アーティスト紹介 */
+.ed-artist {
+  padding: 2.5rem 0;
+  border-top: 1px solid var(--color-beige-light);
+}
+.ed-section-title {
+  font-family: var(--font-jp-serif);
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--color-primary-dark);
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--color-beige);
+  letter-spacing: 0.08em;
+}
+.ed-text {
+  line-height: 1.9;
+  color: var(--color-text);
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+/* メンバー */
+.ed-members {
+  margin: 1.5rem 0;
+  background: var(--color-base-warm);
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+}
+.ed-members-title {
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  color: var(--color-text-light);
+  margin-bottom: 0.8rem;
+}
+.ed-members-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 2rem;
+}
+.ed-members-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+.ed-member-name {
+  font-weight: 500;
+  color: var(--color-primary-dark);
+}
+.ed-member-inst {
+  font-size: 0.8rem;
+  color: var(--color-text-light);
+}
+
+/* 外部リンク */
+.ed-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.5rem;
+}
+.ed-link-btn {
+  display: inline-block;
+  padding: 0.45rem 1rem;
+  border: 1px solid var(--color-primary);
+  border-radius: 4px;
+  color: var(--color-primary-dark);
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: background-color 0.2s, color 0.2s;
+}
+.ed-link-btn:hover {
+  background-color: var(--color-primary-dark);
+  color: var(--color-white);
+}
+
+/* 下部予約 */
+.ed-bottom-reserve {
+  padding: 2.5rem 0;
+  border-top: 1px solid var(--color-beige-light);
+  text-align: center;
+}
+.ed-bottom-reserve .ed-section-title {
+  text-align: center;
+}
+.ed-bottom-reserve .reserve-contact {
+  justify-content: center;
+}
+
+/* 戻るリンク */
+.ed-back-link {
+  margin-top: 2rem;
+}
+.ed-back-link a {
+  color: var(--color-text-light);
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.ed-back-link a:hover {
+  color: var(--color-primary-dark);
+}
+
+/* レスポンシブ */
+@media (max-width: 640px) {
+  /* 22字×14px(0.875rem)=308px がコンテンツ幅308.8pxに収まる */
+  .ed-text {
+    font-size: 0.875rem;
+  }
+  .ed-hero {
+    padding: 7rem 0.8rem 3.5rem;
+  }
+  .ed-hero-date {
+    font-size: 0.9rem;
+  }
+  .ed-urgency-banner {
+    padding: 1rem 0.8rem;
+  }
+  .ed-urgency-banner .ub-text {
+    font-size: 0.875rem;
+  }
+  .ed-lead {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .ed-lead-body {
+    font-size: 0.875rem;
+  }
+  .ed-reason-card {
+    padding: 1.5rem 1rem;
+  }
+  .ed-top {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .ed-flyer {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+  .ed-members-list {
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+}
+
+/* ===== 感情設計強化スタイル（2026-05-12追加）===== */
+
+/* カウントダウンバナー（ヒーロー内） */
+.ed-hero-countdown {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 100px;
+  padding: 0.4rem 1.2rem;
+  margin-top: 1.2rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.92);
+}
+.ed-hero-countdown .cd-days {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #fff;
+  font-family: var(--font-en);
+  line-height: 1;
+}
+
+/* 緊急バナー */
+.ed-urgency-banner {
+  background: linear-gradient(135deg, rgba(60,42,0,.92), rgba(100,72,0,.92));
+  color: rgba(255,240,190,.95);
+  border-top: 1px solid rgba(201,169,97,.45);
+  border-bottom: 1px solid rgba(201,169,97,.25);
+  text-align: center;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+.ed-urgency-banner .ub-text {
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+}
+.ed-urgency-banner .ub-btn {
+  display: inline-block;
+  background: #fff;
+  color: #3a2a00;
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 0.4rem 1.2rem;
+  border-radius: 100px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.ed-urgency-banner.hidden { display: none; }
+
+/* 感情リード文 */
+.ed-lead {
+  text-align: center;
+  padding: 2.5rem 1rem 2rem;
+  border-top: 1px solid var(--color-beige-light);
+}
+.ed-lead-headline {
+  font-family: var(--font-jp);
+  font-size: clamp(1.1rem, 3vw, 1.5rem);
+  font-weight: 500;
+  color: var(--color-primary-dark);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+.ed-lead-body {
+  font-size: 0.9rem;
+  color: var(--color-text-light);
+  line-height: 2;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+/* 3つの理由 */
+.ed-reasons {
+  padding: 2rem 0;
+  border-top: 1px solid var(--color-beige-light);
+}
+.ed-reasons-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+.ed-reason-card {
+  background: var(--color-base-warm);
+  border-radius: 10px;
+  padding: 1.5rem 1.2rem;
+  text-align: center;
+}
+.ed-reason-icon {
+  font-size: 1.8rem;
+  margin-bottom: 0.6rem;
+  display: block;
+}
+.ed-reason-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  margin-bottom: 0.4rem;
+  line-height: 1.5;
+}
+.ed-reason-desc {
+  font-size: 0.78rem;
+  color: var(--color-text-light);
+  line-height: 1.7;
+}
+
+/* 中間CTA */
+.ed-mid-cta {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  background: var(--color-base-warm);
+  border-radius: 10px;
+  margin: 1.5rem 0;
+}
+.ed-mid-cta-text {
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+  margin-bottom: 0.8rem;
+}
+.btn-reserve-mid {
+  display: inline-block;
+  background: var(--color-primary-dark);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 0.8rem 2.5rem;
+  border-radius: 100px;
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  transition: opacity 0.2s;
+}
+.btn-reserve-mid:hover { opacity: 0.85; }
+
+@media (max-width: 640px) {
+  .ed-reasons-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .ed-urgency-banner { flex-direction: column; gap: 0.6rem; }
+}

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>お知らせ | cafe nora 愛媛県新居浜市</title>
+  <meta name="description" content="cafe noraからのお知らせ一覧。ランチ情報・イベント・臨時休業などをお届けします。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="canonical" href="https://cafenora.jp/notifications.html">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#7a9e7e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="cafe nora">
+  <link rel="apple-touch-icon" href="/images/icon-192.png">
+  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+  <script>
+    window.OneSignalDeferred = window.OneSignalDeferred || [];
+    OneSignalDeferred.push(function(OneSignal) {
+      OneSignal.init({ appId: 'f214c199-2cb9-4e02-90d4-91ca8462d321', notifyButton: { enable: false } });
+    });
+  </script>
+  <style>
+    .notif-list { max-width: 700px; margin: 0 auto; }
+    .notif-item {
+      background: #fff;
+      border-radius: 14px;
+      padding: 1.4rem 1.6rem;
+      margin-bottom: 1rem;
+      border: 1px solid rgba(122,158,126,.18);
+      box-shadow: 0 2px 10px rgba(0,0,0,.05);
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+      transition: box-shadow .2s;
+    }
+    .notif-item:hover { box-shadow: 0 4px 18px rgba(0,0,0,.10); }
+    .notif-meta {
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+      font-size: .8rem;
+      color: #999;
+    }
+    .notif-icon { font-size: 1rem; }
+    .notif-date { letter-spacing: .04em; }
+    .notif-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #3a3028;
+      font-family: 'Noto Serif JP', serif;
+    }
+    .notif-message {
+      font-size: .95rem;
+      color: #5a4a3a;
+      line-height: 1.7;
+    }
+    .notif-link {
+      display: inline-flex;
+      align-items: center;
+      gap: .3rem;
+      font-size: .85rem;
+      color: #7a9e7e;
+      font-weight: 600;
+      text-decoration: none;
+      margin-top: .2rem;
+    }
+    .notif-link:hover { color: #5a7e5e; text-decoration: underline; }
+    .notif-empty {
+      text-align: center;
+      color: #aaa;
+      padding: 3rem 0;
+      font-size: .95rem;
+    }
+    @media (max-width: 600px) {
+      .notif-item { padding: 1.1rem 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header" id="header">
+    <div class="header-inner">
+      <div class="header-left"><a href="/" class="logo">
+        <span class="logo-en">cafe nora</span>
+        <span class="logo-jp">カフェ ノラ</span>
+      </a><a href="parking.html" class="parking-badge">🚗 臨時駐車場</a></div>
+      <button class="menu-btn" id="menuBtn" aria-label="メニューを開く">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav" id="nav">
+        <ul class="nav-list">
+          <li><a href="index.html">トップ</a></li>
+          <li><a href="cafe.html">カフェ</a></li>
+          <li><a href="calendar.html">カレンダー</a></li>
+          <li><a href="events.html">イベント</a></li>
+          <li><a href="popup.html">出店情報</a></li>
+          <li><a href="access.html">アクセス</a></li>
+          <li><a href="service.html">HP制作</a></li>
+          <li><a href="contact.html">お問い合わせ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page-hero">
+    <div class="page-hero-content">
+      <h1 class="page-hero-title">News</h1>
+      <p class="page-hero-subtitle">お知らせ</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">お知らせ一覧</h2>
+        <p class="section-lead">ランチ・イベント・営業情報などをお届けしています</p>
+      </div>
+      <div class="notif-list" id="notifList">
+        <p class="notif-empty">読み込み中...</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <span class="logo-en">cafe nora</span>
+        <span class="logo-jp">カフェ ノラ</span>
+      </div>
+      <p class="footer-address">〒792-0050 愛媛県新居浜市萩生2133-29</p>
+      <p class="footer-tel">090-9459-1733</p>
+      <nav class="footer-nav">
+        <a href="index.html">トップ</a>
+        <a href="cafe.html">カフェ</a>
+        <a href="events.html">イベント</a>
+        <a href="access.html">アクセス</a>
+        <a href="contact.html">お問い合わせ</a>
+        <a href="notifications.html">お知らせ</a>
+      </nav>
+      <p class="footer-copy">&copy; cafe nora</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    fetch('/notifications.json')
+      .then(r => r.json())
+      .then(data => {
+        const list = document.getElementById('notifList');
+        if (!data.length) {
+          list.innerHTML = '<p class="notif-empty">まだお知らせはありません</p>';
+          return;
+        }
+        list.innerHTML = data.map(n => {
+          const d = new Date(n.date);
+          const dateStr = d.toLocaleDateString('ja-JP', { year:'numeric', month:'long', day:'numeric', hour:'2-digit', minute:'2-digit' });
+          const linkHtml = n.url
+            ? `<a class="notif-link" href="${n.url}">詳細を見る →</a>`
+            : '';
+          return `
+            <div class="notif-item fade-in">
+              <div class="notif-meta">
+                <span class="notif-icon">📢</span>
+                <span class="notif-date">${dateStr}</span>
+              </div>
+              <div class="notif-message">${n.message}</div>
+              ${linkHtml}
+            </div>`;
+        }).join('');
+        document.querySelectorAll('.fade-in').forEach(el => el.classList.add('visible'));
+      })
+      .catch(() => {
+        document.getElementById('notifList').innerHTML = '<p class="notif-empty">お知らせを読み込めませんでした</p>';
+      });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ご予約について | cafe nora</title>
+  <meta name="description" content="cafe nora のランチご予約はお電話またはInstagramのDMにて受け付けています。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@300;400&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .yoyaku-page{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:5rem 1.5rem 4rem;background:var(--color-base);}
+    .yoyaku-box{max-width:480px;width:100%;text-align:center;}
+    .yoyaku-label{font-size:.62rem;letter-spacing:.38em;color:var(--color-primary);text-transform:uppercase;display:block;margin-bottom:.5rem;}
+    .yoyaku-title{font-family:'Noto Serif JP',serif;font-size:1.5rem;font-weight:400;color:var(--color-primary-dark);letter-spacing:.1em;margin-bottom:1rem;}
+    .yoyaku-lead{font-size:.9rem;color:var(--color-text-light);line-height:1.9;margin-bottom:2.5rem;}
+    .yoyaku-methods{display:flex;flex-direction:column;gap:1rem;margin-bottom:2.5rem;}
+    .yoyaku-btn{display:flex;align-items:center;justify-content:center;gap:.7rem;padding:1.1rem 1.5rem;border-radius:12px;text-decoration:none;font-size:1rem;font-weight:500;letter-spacing:.05em;transition:transform .15s,opacity .2s;}
+    .yoyaku-btn:hover{transform:translateY(-2px);opacity:.88;}
+    .yoyaku-btn-tel{background:var(--color-primary-dark);color:#fff;}
+    .yoyaku-btn-ig{background:linear-gradient(135deg,#f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);color:#fff;}
+    .yoyaku-btn-icon{font-size:1.2rem;}
+    .yoyaku-btn-sub{font-size:.72rem;opacity:.8;display:block;margin-top:.15rem;font-weight:300;}
+    .yoyaku-note{font-size:.78rem;color:var(--color-text-light);line-height:1.85;padding:1rem;background:var(--color-base-warm);border-radius:8px;margin-bottom:2rem;}
+    .yoyaku-back{font-size:.84rem;color:var(--color-text-light);border-bottom:1px solid var(--color-beige);padding-bottom:.1rem;}
+  </style>
+</head>
+<body>
+  <header class="header" id="header">
+    <div class="header-inner">
+      <div class="header-left">
+        <a href="/" class="logo">
+          <span class="logo-en">cafe nora</span>
+          <span class="logo-jp">カフェ ノラ</span>
+        </a>
+      </div>
+      <button class="menu-btn" id="menuBtn" aria-label="メニューを開く">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav" id="nav">
+        <ul class="nav-list">
+          <li><a href="cafe.html">カフェ</a></li>
+          <li><a href="calendar.html">カレンダー</a></li>
+          <li><a href="events.html">イベント</a></li>
+          <li><a href="access.html">アクセス</a></li>
+          <li><a href="maruyoga/">まるヨガ</a></li>
+          <li><a href="service.html">HP制作</a></li>
+          <li><a href="contact.html">お問い合わせ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="yoyaku-page">
+    <div class="yoyaku-box">
+      <span class="yoyaku-label">Reservation</span>
+      <h1 class="yoyaku-title">ご予約について</h1>
+      <p class="yoyaku-lead">ランチのご予約はお電話または<br>InstagramのDMにてお気軽にどうぞ。</p>
+      <div class="yoyaku-methods">
+        <a href="tel:090-9459-1733" class="yoyaku-btn yoyaku-btn-tel">
+          <span class="yoyaku-btn-icon">📞</span>
+          <span>090-9459-1733<span class="yoyaku-btn-sub">タップで電話する（かなまる）</span></span>
+        </a>
+        <a href="https://www.instagram.com/cafenora.maru/" target="_blank" rel="noopener noreferrer" class="yoyaku-btn yoyaku-btn-ig">
+          <span class="yoyaku-btn-icon">📷</span>
+          <span>@cafenora.maru<span class="yoyaku-btn-sub">タップしてInstagramを開く</span></span>
+        </a>
+      </div>
+      <div class="yoyaku-note">
+        <strong>営業日：月・木・金曜日</strong><br>
+        ドリンクは10時から。ランチは11時から。<br>
+        日替わりのため、お早めのご連絡をおすすめします。
+      </div>
+      <a href="/" class="yoyaku-back">← トップページへ戻る</a>
+    </div>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

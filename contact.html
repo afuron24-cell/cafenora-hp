@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>お問い合わせ | cafe nora 愛媛県新居浜市萩生</title>
+  <meta name="description" content="cafe nora（カフェノラ）へのお問い合わせ。愛媛県新居浜市萩生のカフェ・ヨガスタジオへのご予約・イベントのお問い合わせはこちらから。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <style>
+    .contact-section { padding: 60px 0 80px; }
+    .contact-intro { text-align: center; margin-bottom: 40px; }
+    .contact-intro p { color: #666; line-height: 1.9; font-size: 0.95rem; }
+    .contact-form-wrap {
+      max-width: 600px; margin: 0 auto;
+      background: #fff; border-radius: 16px;
+      padding: 40px 36px; box-shadow: 0 4px 24px rgba(0,0,0,.07);
+    }
+    .form-group { margin-bottom: 24px; }
+    .form-group label {
+      display: block; font-size: 0.88rem; font-weight: 500;
+      color: #555; margin-bottom: 8px; letter-spacing: .03em;
+    }
+    .form-group label .required {
+      display: inline-block; background: var(--color-primary, #6B3A2A);
+      color: #fff; font-size: 0.72rem; padding: 1px 6px;
+      border-radius: 3px; margin-left: 6px; vertical-align: middle;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%; padding: 12px 14px;
+      border: 1px solid #ddd; border-radius: 8px;
+      font-family: inherit; font-size: 0.95rem; color: #333;
+      background: #fafafa; transition: border-color .2s, box-shadow .2s;
+      -webkit-appearance: none; appearance: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none; border-color: var(--color-primary, #6B3A2A);
+      box-shadow: 0 0 0 3px rgba(107,58,42,.1); background: #fff;
+    }
+    .form-group textarea { resize: vertical; min-height: 140px; }
+    .form-submit {
+      text-align: center; margin-top: 32px;
+    }
+    .form-submit button {
+      display: inline-block; padding: 14px 48px;
+      background: var(--color-primary, #6B3A2A); color: #fff;
+      border: none; border-radius: 30px; font-family: inherit;
+      font-size: 1rem; font-weight: 500; cursor: pointer;
+      letter-spacing: .06em; transition: background .2s, transform .1s;
+    }
+    .form-submit button:hover { background: #5a3022; }
+    .form-submit button:active { transform: scale(.98); }
+    .form-submit button:disabled { background: #bbb; cursor: not-allowed; }
+    .form-note {
+      text-align: center; margin-top: 16px;
+      font-size: 0.82rem; color: #999;
+    }
+
+    /* ステップインジケーター */
+    .step-indicator {
+      display: flex; justify-content: center; align-items: center;
+      gap: 0; margin-bottom: 32px;
+    }
+    .step-dot {
+      width: 32px; height: 32px; border-radius: 50%;
+      border: 2px solid #ddd; background: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.8rem; font-weight: 700; color: #bbb;
+      transition: all .3s;
+    }
+    .step-dot.active { border-color: var(--color-primary, #6B3A2A); background: var(--color-primary, #6B3A2A); color: #fff; }
+    .step-dot.done { border-color: #888; background: #888; color: #fff; }
+    .step-line {
+      width: 48px; height: 2px; background: #ddd; transition: background .3s;
+    }
+    .step-line.done { background: #888; }
+    .step-label {
+      text-align: center; font-size: 0.72rem; color: #aaa; margin-top: 4px; margin-bottom: 20px;
+      display: flex; justify-content: center; gap: 0;
+    }
+    .step-label span { width: 32px; text-align: center; }
+    .step-label .spacer { width: 48px; }
+
+    /* 確認画面 */
+    #confirm-section { display: none; }
+    .confirm-table { width: 100%; border-collapse: collapse; margin-bottom: 28px; }
+    .confirm-table th, .confirm-table td {
+      padding: 12px 8px; border-bottom: 1px solid #eee;
+      font-size: 0.92rem; text-align: left; vertical-align: top;
+    }
+    .confirm-table th { width: 130px; color: #888; font-weight: 500; white-space: nowrap; }
+    .confirm-table td { color: #333; word-break: break-all; }
+    .confirm-table td pre { margin: 0; font-family: inherit; white-space: pre-wrap; }
+    .confirm-buttons {
+      display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+    }
+    .btn-back {
+      padding: 12px 32px; background: #f5f5f5; color: #555;
+      border: none; border-radius: 30px; font-family: inherit;
+      font-size: 0.95rem; font-weight: 500; cursor: pointer;
+      transition: background .2s;
+    }
+    .btn-back:hover { background: #e8e8e8; }
+    .btn-send {
+      padding: 12px 40px; background: var(--color-primary, #6B3A2A); color: #fff;
+      border: none; border-radius: 30px; font-family: inherit;
+      font-size: 1rem; font-weight: 500; cursor: pointer; letter-spacing: .06em;
+      transition: background .2s;
+    }
+    .btn-send:hover { background: #5a3022; }
+    .btn-send:disabled { background: #bbb; cursor: not-allowed; }
+
+    /* 完了・エラーメッセージ */
+    #form-success, #form-error {
+      display: none; text-align: center;
+      padding: 32px 24px; border-radius: 12px; margin-top: 8px;
+    }
+    #form-success { background: #f0faf0; color: #2e7d32; }
+    #form-success p { line-height: 1.9; margin: 0; }
+    #form-error   { background: #fff0f0; color: #c62828; }
+    #form-error p { line-height: 1.9; margin: 0; }
+    .error-email {
+      display: inline-block; background: #fff;
+      border: 1px solid #f5a0a0; border-radius: 6px;
+      padding: 4px 12px; margin: 8px 0; font-weight: 700; color: #c62828;
+      font-size: 1.0rem; word-break: break-all;
+    }
+
+    /* 代替連絡手段 */
+    .contact-alt {
+      max-width: 600px; margin: 40px auto 0;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+    }
+    .contact-alt-item {
+      background: #faf7f5; border-radius: 12px; padding: 20px;
+      text-align: center;
+    }
+    .contact-alt-item .alt-ico { font-size: 1.8rem; margin-bottom: 8px; }
+    .contact-alt-item .alt-label { font-size: 0.8rem; color: #888; margin-bottom: 4px; }
+    .contact-alt-item .alt-value { font-size: 0.95rem; font-weight: 500; color: #333; }
+    .contact-alt-item a { color: var(--color-primary, #6B3A2A); text-decoration: none; }
+    @media (max-width: 480px) {
+      .contact-form-wrap { padding: 28px 20px; }
+      .contact-alt { grid-template-columns: 1fr; }
+    }
+  </style>
+  <link rel="canonical" href="https://cafenora.jp/contact.html">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#7a9e7e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="cafe nora">
+  <link rel="apple-touch-icon" href="/images/icon-192.png">
+  <script src=https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js defer></script>
+  <script>
+    window.OneSignalDeferred = window.OneSignalDeferred || [];
+    OneSignalDeferred.push(function(OneSignal) {
+      OneSignal.init({
+        appId: 'f214c199-2cb9-4e02-90d4-91ca8462d321',
+        notifyButton: { enable: false }
+      });
+    });
+  </script>
+</head>
+<body>
+
+  <header class="header" id="header">
+    <div class="header-inner">
+      <div class="header-left"><a href="index.html" class="logo">
+        <span class="logo-en">cafe nora</span>
+        <span class="logo-jp">カフェ ノラ</span>
+      </a><a href="parking.html" class="parking-badge">🚗 臨時駐車場</a></div>
+      <button class="menu-btn" id="menuBtn" aria-label="メニューを開く">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav" id="nav">
+        <ul class="nav-list">
+          <li><a href="index.html">トップ</a></li>
+          <li><a href="cafe.html">カフェ</a></li>
+          <li><a href="calendar.html">カレンダー</a></li>
+          <li><a href="events.html">イベント</a></li>
+          <li><a href="popup.html">出店情報</a></li>
+          <li><a href="access.html">アクセス</a></li>
+          <li><a href="service.html">HP制作</a></li>
+          <li><a href="contact.html" class="active">お問い合わせ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <h1 class="page-title">お問い合わせ</h1>
+        <p class="page-subtitle">Contact</p>
+      </div>
+    </section>
+
+    <section class="contact-section">
+      <div class="container">
+        <div class="contact-intro fade-in">
+          <p>ご予約・営業時間・イベントのことなど、<br>お気軽にお問い合わせください。<br>
+          通常2〜3日以内にご返信いたします。</p>
+        </div>
+
+        <div class="contact-form-wrap fade-in">
+
+          <!-- ステップインジケーター -->
+          <div class="step-indicator" id="stepIndicator">
+            <div class="step-dot active" id="dot1">1</div>
+            <div class="step-line" id="line1"></div>
+            <div class="step-dot" id="dot2">2</div>
+            <div class="step-line" id="line2"></div>
+            <div class="step-dot" id="dot3">3</div>
+          </div>
+          <div class="step-label" id="stepLabel">
+            <span>入力</span><span class="spacer"></span><span>確認</span><span class="spacer"></span><span>完了</span>
+          </div>
+
+          <!-- Step 1: 入力フォーム -->
+          <form id="contactForm" novalidate>
+            <div class="form-group">
+              <label for="name">お名前 <span class="required">必須</span></label>
+              <input type="text" id="name" name="name" placeholder="山田 花子" required>
+            </div>
+
+            <div class="form-group">
+              <label for="email">メールアドレス <span class="required">必須</span></label>
+              <input type="email" id="email" name="email" placeholder="example@email.com" required>
+            </div>
+
+            <div class="form-group">
+              <label for="email2">メールアドレス（確認用） <span class="required">必須</span></label>
+              <input type="email" id="email2" name="email2" placeholder="example@email.com" required>
+              <p id="email-match-msg" style="font-size:.8rem;margin-top:6px;display:none;"></p>
+            </div>
+
+            <div class="form-group">
+              <label for="tel">電話番号 <span style="font-size:.78rem;color:#aaa;margin-left:4px;">任意</span></label>
+              <input type="tel" id="tel" name="tel" placeholder="090-0000-0000">
+            </div>
+
+            <div class="form-group">
+              <label for="category">お問い合わせの種類</label>
+              <select id="category" name="category">
+                <option value="">選択してください</option>
+                <option value="カフェ・メニュー">カフェ・メニューについて</option>
+                <option value="まるヨガ">まるヨガクラスについて</option>
+                <option value="イベント">イベント・ご予約について</option>
+                <option value="その他">その他</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">メッセージ <span class="required">必須</span></label>
+              <textarea id="message" name="message" placeholder="お問い合わせ内容をご記入ください" required></textarea>
+            </div>
+
+            <div class="form-submit">
+              <button type="submit" id="toConfirmBtn">入力内容を確認する →</button>
+            </div>
+            <p class="form-note">次の画面で入力内容をご確認いただけます</p>
+          </form>
+
+          <!-- Step 2: 確認画面 -->
+          <div id="confirm-section">
+            <p style="text-align:center;color:#555;margin-bottom:20px;font-size:0.95rem;">以下の内容でよろしいでしょうか？</p>
+            <table class="confirm-table" id="confirmTable">
+            </table>
+            <div class="confirm-buttons">
+              <button class="btn-back" id="backBtn">← 修正する</button>
+              <button class="btn-send" id="sendBtn">この内容で送信する</button>
+            </div>
+            <p class="form-note" style="margin-top:20px;" id="sendingMsg"></p>
+          </div>
+
+          <!-- Step 3a: 完了 -->
+          <div id="form-success">
+            <p>✅ お問い合わせを受け付けました。</p>
+            <p style="margin-top:16px;font-size:0.9rem;color:#555;">以下のアドレスに<br>自動返信メールをお送りしました。<br>
+            <span id="successEmailDisplay" style="display:inline-block;background:#fff;border:1px solid #a5d6a7;border-radius:6px;padding:6px 16px;margin:10px 0;font-weight:700;font-size:1.05rem;color:#2e7d32;word-break:break-all;"></span><br>
+            メールが届かない場合は、<br>上記アドレスに間違いがないか<br>ご確認ください。<br>
+            迷惑メールフォルダもご確認ください。</p>
+            <p style="margin-top:12px;font-size:0.9rem;color:#555;">通常2〜3日以内にご返信いたします。</p>
+          </div>
+
+          <!-- Step 3b: エラー -->
+          <div id="form-error">
+            <p>⚠️ 送信中にエラーが発生しました。<br><br>
+            入力されたメールアドレス：<br>
+            <span class="error-email" id="errorEmailDisplay"></span><br><br>
+            メールアドレスに間違いはありませんか？<br>
+            修正が必要な場合は<br>「もう一度入力する」を押してください。</p>
+            <div style="text-align:center;margin-top:20px;">
+              <button class="btn-back" id="retryBtn" style="margin-right:8px;">← もう一度入力する</button>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="contact-alt fade-in">
+          <div class="contact-alt-item">
+            <div class="alt-ico">📞</div>
+            <div class="alt-label">お電話</div>
+            <div class="alt-value"><a href="tel:090-9459-1733">090-9459-1733</a></div>
+          </div>
+          <div class="contact-alt-item">
+            <div class="alt-ico">📷</div>
+            <div class="alt-label">Instagram DM</div>
+            <div class="alt-value">
+              <a href="https://www.instagram.com/cafenora.maru/" target="_blank" rel="noopener noreferrer">@cafenora.maru</a><br>
+              <a href="https://www.instagram.com/cafenora.kazu/" target="_blank" rel="noopener noreferrer">@cafenora.kazu</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- メール配信停止 -->
+        <div class="fade-in" style="margin-top:2.5rem;padding:1.5rem;background:rgba(200,168,130,.06);border:1px solid rgba(200,168,130,.2);border-radius:14px;text-align:center;">
+          <p style="font-size:0.82rem;color:#c8a882;font-weight:700;letter-spacing:.06em;margin-bottom:8px;">📧 メール配信について</p>
+          <p style="font-size:0.82rem;color:rgba(255,255,255,.6);line-height:1.8;margin-bottom:16px;">
+            WEB予約時にライブ情報メールの<br>配信を希望された方で<br>配信停止をご希望の場合は<br>こちらからお手続きいただけます。
+          </p>
+          <a href="https://noratool.pythonanywhere.com/yoyaku/unsubscribe-page"
+             style="display:inline-block;padding:11px 28px;background:rgba(200,168,130,.15);
+                    border:1px solid rgba(200,168,130,.4);border-radius:10px;
+                    color:#c8a882;font-size:0.85rem;font-weight:700;text-decoration:none;
+                    transition:background .15s;"
+             onmouseover="this.style.background='rgba(200,168,130,.25)'"
+             onmouseout="this.style.background='rgba(200,168,130,.15)'">
+            メール配信を停止する
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <p class="footer-logo">cafe nora</p>
+          <p class="footer-tagline">カフェ・ヨガ・ライブイベント</p>
+          <p class="footer-address">〒792-0050 愛媛県新居浜市萩生2133-29</p>
+          <p class="footer-tel"><a href="tel:090-9459-1733">090-9459-1733</a></p>
+        </div>
+        <nav class="footer-nav">
+          <a href="index.html">トップ</a>
+          <a href="cafe.html">カフェ</a>
+          
+          <a href="events.html">イベント</a>
+          <a href="past-events.html">過去のイベント</a>
+          <a href="access.html">アクセス</a>
+          <a href="contact.html">お問い合わせ</a>
+        </nav>
+      </div>
+      <p class="footer-copy">&copy; 2026 cafe nora. All rights reserved. <a href="flyer-login.html" style="color:rgba(255,255,255,0.2); margin-left:1rem; font-size:0.75rem; text-decoration:none;" title="管理者">🔒</a></p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    const FORMSUBMIT_URL = 'https://formsubmit.co/ajax/cafenora.k@gmail.com';
+
+    const form        = document.getElementById('contactForm');
+    const confirmSec  = document.getElementById('confirm-section');
+    const successSec  = document.getElementById('form-success');
+    const errorSec    = document.getElementById('form-error');
+    const confirmTbl  = document.getElementById('confirmTable');
+    const sendBtn     = document.getElementById('sendBtn');
+    const backBtn     = document.getElementById('backBtn');
+    const retryBtn    = document.getElementById('retryBtn');
+    const sendingMsg  = document.getElementById('sendingMsg');
+    const dot1 = document.getElementById('dot1');
+    const dot2 = document.getElementById('dot2');
+    const dot3 = document.getElementById('dot3');
+    const line1 = document.getElementById('line1');
+    const line2 = document.getElementById('line2');
+
+    function setStep(n) {
+      const stepIndicator = document.getElementById('stepIndicator');
+      const stepLabel     = document.getElementById('stepLabel');
+      if (n === 3) {
+        stepIndicator.style.display = 'none';
+        stepLabel.style.display     = 'none';
+        return;
+      }
+      stepIndicator.style.display = '';
+      stepLabel.style.display     = '';
+      dot1.className = 'step-dot ' + (n > 1 ? 'done' : 'active');
+      dot2.className = 'step-dot ' + (n === 2 ? 'active' : n > 2 ? 'done' : '');
+      dot3.className = 'step-dot ' + (n === 3 ? 'active' : '');
+      line1.className = 'step-line ' + (n > 1 ? 'done' : '');
+      line2.className = 'step-line ' + (n > 2 ? 'done' : '');
+    }
+
+    // メール一致チェック
+    document.getElementById('email2').addEventListener('input', function() {
+      const e1 = document.getElementById('email').value;
+      const e2 = this.value;
+      const msg = document.getElementById('email-match-msg');
+      if (e2.length === 0) { msg.style.display = 'none'; return; }
+      if (e1 === e2) {
+        msg.style.display = 'block';
+        msg.style.color = '#2e7d32';
+        msg.textContent = '✓ メールアドレスが一致しています';
+      } else {
+        msg.style.display = 'block';
+        msg.style.color = '#c62828';
+        msg.textContent = '✗ メールアドレスが一致しません';
+      }
+    });
+
+    // Step1 → Step2: 確認画面へ
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name    = document.getElementById('name').value.trim();
+      const email   = document.getElementById('email').value.trim();
+      const email2  = document.getElementById('email2').value.trim();
+      const tel     = document.getElementById('tel').value.trim();
+      const cat     = document.getElementById('category').value;
+      const msg     = document.getElementById('message').value.trim();
+
+      if (!name)  { alert('お名前を入力してください'); return; }
+      if (!email) { alert('メールアドレスを入力してください'); return; }
+      if (!email2) { alert('確認用メールアドレスを入力してください'); return; }
+      if (email !== email2) { alert('メールアドレスが一致しません。ご確認ください'); return; }
+      if (!msg)   { alert('メッセージを入力してください'); return; }
+
+      const rows = [
+        ['お名前',     name],
+        ['メールアドレス', email],
+        ['電話番号',   tel   || '（未入力）'],
+        ['種類',       cat   || '（未選択）'],
+        ['メッセージ',  msg],
+      ];
+      confirmTbl.innerHTML = rows.map(([th, td]) =>
+        `<tr><th>${th}</th><td>${th === 'メッセージ' ? `<pre>${escHtml(td)}</pre>` : escHtml(td)}</td></tr>`
+      ).join('');
+
+      form.style.display        = 'none';
+      confirmSec.style.display  = 'block';
+      setStep(2);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Step2 → Step1: 修正
+    backBtn.addEventListener('click', function() {
+      confirmSec.style.display = 'none';
+      form.style.display       = 'block';
+      setStep(1);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Step2 → Step3: 送信
+    sendBtn.addEventListener('click', async function() {
+      sendBtn.disabled   = true;
+      sendBtn.textContent = '送信中...';
+      sendingMsg.textContent = 'しばらくお待ちください…';
+
+      const name    = document.getElementById('name').value.trim();
+      const email   = document.getElementById('email').value.trim();
+      const tel     = document.getElementById('tel').value.trim();
+      const cat     = document.getElementById('category').value;
+      const msg     = document.getElementById('message').value.trim();
+
+      const payload = {
+        name,
+        email,
+        tel: tel || '',
+        category: cat || '',
+        message: msg,
+        _subject: '【cafe nora HP】お問い合わせ',
+        _captcha: 'false',
+        _autoresponse: `${name} 様\n\ncafe nora にお問い合わせいただき、ありがとうございます。\n以下の内容でお問い合わせを受け付けました。\n通常2〜3日以内にご返信いたします。\n\n────────────────\nお名前：${name}\nメール：${email}\n${tel ? 'お電話：' + tel + '\n' : ''}${cat ? '種類：' + cat + '\n' : ''}メッセージ：\n${msg}\n────────────────\n\ncafe nora\n愛媛県新居浜市萩生2133-29\nTEL: 090-9459-1733`,
+      };
+
+      try {
+        const res = await fetch(FORMSUBMIT_URL, {
+          method:  'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body:    JSON.stringify(payload),
+        });
+        const json = await res.json().catch(() => ({}));
+        if (res.ok && json.success !== 'false') {
+          document.getElementById('successEmailDisplay').textContent = email;
+          confirmSec.style.display = 'none';
+          successSec.style.display = 'block';
+          setStep(3);
+        } else {
+          throw new Error('送信失敗');
+        }
+      } catch (_) {
+        document.getElementById('errorEmailDisplay').textContent = email;
+        confirmSec.style.display = 'none';
+        errorSec.style.display   = 'block';
+        setStep(3);
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // エラー → Step1 へ戻る
+    retryBtn.addEventListener('click', function() {
+      errorSec.style.display = 'none';
+      form.style.display     = 'block';
+      setStep(1);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    function escHtml(s) {
+      return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    }
+  </script>
+<script>(function(){var p=new URLSearchParams(location.search);if(p.get("owner")==="nora")localStorage.setItem("nora_owner","1");if(p.get("owner")==="off")localStorage.removeItem("nora_owner");if(!localStorage.getItem("nora_owner"))fetch("https://noratool.pythonanywhere.com/pv?p="+encodeURIComponent(location.pathname)).catch(function(){});})();</script>
+
+</body>
+</html>

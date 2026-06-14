@@ -1,0 +1,41 @@
+{
+  "name": "cafe nora（カフェノラ）",
+  "short_name": "cafe nora",
+  "description": "愛媛県新居浜市のカフェ・ヨガ・ライブイベント",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#faf7f2",
+  "theme_color": "#7a9e7e",
+  "lang": "ja",
+  "icons": [
+    {
+      "src": "/images/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "イベント",
+      "url": "/events.html",
+      "description": "ライブ・イベント情報"
+    },
+    {
+      "name": "アクセス",
+      "url": "/access.html",
+      "description": "場所・営業時間"
+    },
+    {
+      "name": "お問い合わせ",
+      "url": "/contact.html",
+      "description": "お問い合わせ"
+    }
+  ]
+}
