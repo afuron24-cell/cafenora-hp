@@ -71,5 +71,6 @@ if (fadeEls.length > 0 && 'IntersectionObserver' in window) {
 // cafenora.jp アクセス計測ビーコン
 (function(){
   var p = encodeURIComponent(location.pathname + location.search);
-  fetch('https://noratool.pythonanywhere.com/pv?p=' + p).catch(function(){});
+  var pwa = window.matchMedia('(display-mode: standalone)').matches ? '&pwa=1' : '';
+  fetch('https://noratool.pythonanywhere.com/pv?p=' + p + pwa).catch(function(){});
 })();
