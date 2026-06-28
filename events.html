@@ -10,7 +10,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/events.css">
-  <link rel="stylesheet" href="css/events-pickup.css">
   <style>
     .event-cd{display:none;margin:1.2rem 0 0.6rem;padding:1rem 1.5rem;border-radius:14px;background:linear-gradient(135deg,#faf6ee,#f5eddc);border:1px solid rgba(201,169,110,.4);text-align:center;}
     .event-cd .cd-num{display:block;font-family:'Playfair Display',Georgia,serif;font-size:2.8rem;font-weight:600;color:#c9a96e;line-height:1;}
@@ -119,84 +118,6 @@
     </div>
   </section>
 
-  <section class="pickup-section section">
-    <div class="container">
-      <h2 class="pickup-heading fade-in">PICK UP<span>注目のイベント</span></h2>
-      <div class="pickup-grid">
-
-        <!-- TODAY'S EVENT（当日のみJSで表示） -->
-        <a href="#" id="pickup-today" class="pickup-item fade-in pickup-today" style="display:none;">
-          <p class="pickup-banner">TODAY'S EVENT</p>
-          <div class="pickup-img"><img src="" alt=""></div>
-          <div class="pickup-detail">
-            <p class="pickup-time" id="pickup-today-time"></p>
-            <p class="pickup-ttl" id="pickup-today-ttl"></p>
-            <p class="pickup-name" id="pickup-today-name"></p>
-          </div>
-        </a>
-
-        <!-- カリトマト -->
-        <a href="#karitomato" class="pickup-item fade-in">
-          <span class="new-badge">NEW</span>
-          <div class="pickup-date">
-            <span class="pickup-month">07<small>/tue</small></span>
-            <span class="pickup-day">28</span>
-          </div>
-          <div class="pickup-img"><img src="images/karitomato-album.jpg" alt="カリトマト 2ndアルバム グランスフレ 発売ツアー"></div>
-          <div class="pickup-detail">
-            <p class="pickup-time">18:30開場 / 19:30開演</p>
-            <p class="pickup-ttl">カリトマト<br>2ndアルバム『グランスフレ』発売ツアー</p>
-            <p class="pickup-name">原田忠 × 都丸智栄</p>
-          </div>
-        </a>
-
-        <!-- とぅるばーる -->
-        <a href="#torubale" class="pickup-item fade-in">
-          <span class="new-badge">NEW</span>
-          <div class="pickup-date">
-            <span class="pickup-month">08<small>/sun</small></span>
-            <span class="pickup-day">02</span>
-          </div>
-          <div class="pickup-img"><img src="images/torubale-flyer.jpg" alt="ひるでもよるでもとぅるばーる フライヤー"></div>
-          <div class="pickup-detail">
-            <p class="pickup-time">ひる13:00 / よる17:30 開場</p>
-            <p class="pickup-ttl">ひるでもよるでも<br>とぅるばーる</p>
-            <p class="pickup-name">沖縄フード付き 2公演開催</p>
-          </div>
-        </a>
-
-        <!-- ご予約 -->
-        <a href="https://noratool.pythonanywhere.com/yoyaku" target="_blank" rel="noopener noreferrer" class="pickup-item fade-in pickup-text">
-          <div class="pickup-text-inner">
-            <h3>RESERVE</h3>
-            <p>ライブのご予約は<br>WEBフォームから24時間受付中。<br>複数のライブをまとめて予約できます。<br>お電話・Instagram DMでも承ります。</p>
-            <span class="pickup-link">ご予約はこちら →</span>
-          </div>
-        </a>
-
-        <!-- アクセス -->
-        <a href="access.html" class="pickup-item fade-in pickup-text pickup-access">
-          <div class="pickup-map">
-            <iframe src="https://maps.google.com/maps?q=愛媛県新居浜市萩生2133-29&t=&z=15&ie=UTF8&iwloc=&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-          </div>
-          <div class="pickup-text-inner">
-            <h3>ACCESS</h3>
-            <p>〒792-0050 愛媛県新居浜市萩生2133-29<br>ライブ開催日は駐車場が混み合います。<br>臨時駐車場のご案内あり。</p>
-          </div>
-        </a>
-
-        <!-- 過去のイベント -->
-        <a href="past-events.html" class="pickup-item fade-in pickup-text">
-          <div class="pickup-text-inner">
-            <h3>ARCHIVE</h3>
-            <p>cafe noraでこれまでに<br>開催したライブ・イベントの<br>記録はこちらからご覧いただけます。</p>
-            <span class="pickup-link">過去のイベントを見る →</span>
-          </div>
-        </a>
-
-      </div>
-    </div>
-  </section>
 
   <section class="events-section section">
     <div class="container">
@@ -388,18 +309,7 @@
     var p=ev.date.split('-');
     var diff=Math.round((new Date(+p[0],+p[1]-1,+p[2])-today)/86400000);
     var el=document.getElementById('cd-'+ev.id);
-    if(diff===0){
-      var card=document.getElementById('pickup-today');
-      if(card){
-        card.href='#'+ev.id;
-        card.querySelector('.pickup-img img').src=ev.img;
-        card.querySelector('.pickup-img img').alt=ev.name;
-        document.getElementById('pickup-today-time').textContent=ev.time;
-        document.getElementById('pickup-today-ttl').innerHTML=ev.title;
-        document.getElementById('pickup-today-name').textContent=ev.name;
-        card.style.display='grid';
-      }
-    }
+
     if(!el) return;
     var html,cls;
     if(diff>1){
