@@ -149,6 +149,7 @@
     .hg-main-img {
       width: 100%; height: 100%; object-fit: cover; display: block;
       cursor: zoom-in; animation: hgFade .45s ease;
+      filter: sepia(.10) saturate(.92) contrast(1.03) brightness(1.02);
     }
     .hg-main-video {
       width: 100%; height: 100%; object-fit: contain; display: block; background: #000;
@@ -165,7 +166,7 @@
       opacity: .55; transition: opacity .2s, border-color .2s, transform .2s;
       scroll-snap-align: start;
     }
-    .hg-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .hg-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; filter: sepia(.10) saturate(.92) contrast(1.03) brightness(1.02); }
     .hg-thumb:hover { opacity: 1; transform: translateY(-2px); }
     .hg-thumb.is-active { opacity: 1; border-color: var(--green-mid); }
     .hg-thumb .hg-play {
@@ -224,7 +225,7 @@
     </div>
 
     <div class="event-card">
-      <img src="../images/rean_0624_01.jpg" alt="2026年6月24日 リアントゥールでのヨガクラスの様子" class="event-cover">
+      <img src="../images/rean_0624_03.jpg" alt="2026年6月24日 リアントゥールでのヨガクラスの様子" class="event-cover">
       <div class="event-body">
         <span class="badge-done">✓ 開催終了</span>
         <p class="event-date">2026年 6月 24日（水）</p>
@@ -234,20 +235,18 @@
           <p class="gallery-title">📸 当日の様子</p>
           <div class="hero-gallery" id="hg-0624">
             <div class="hg-main">
-              <img class="hg-main-img" id="hg-img-0624" src="../images/rean_0624_01.jpg" alt="2026年6月24日 リアントゥールでのヨガ×ランチ">
-              <video class="hg-main-video" id="hg-vid-0624" controls playsinline preload="metadata" poster="../images/rean_0624_02.jpg" style="display:none;">
+              <img class="hg-main-img" id="hg-img-0624" src="../images/rean_0624_03.jpg" alt="2026年6月24日 リアントゥールでのヨガ×ランチ">
+              <video class="hg-main-video" id="hg-vid-0624" controls playsinline preload="metadata" poster="../images/rean_0624_10.jpg" style="display:none;">
                 <source src="../videos/rean_0624.mp4" type="video/mp4">
                 お使いのブラウザは動画再生に対応していません。
               </video>
             </div>
             <div class="hg-thumbs">
               <button type="button" class="hg-thumb" data-type="video" aria-label="動画を再生">
-                <img src="../images/rean_0624_02.jpg" alt="">
+                <img src="../images/rean_0624_10.jpg" alt="">
                 <span class="hg-play">▶</span>
               </button>
-              <button type="button" class="hg-thumb is-active" data-type="img" data-src="../images/rean_0624_01.jpg"><img src="../images/rean_0624_01.jpg" alt="6月24日 リアントゥール 写真1"></button>
-              <button type="button" class="hg-thumb" data-type="img" data-src="../images/rean_0624_02.jpg"><img src="../images/rean_0624_02.jpg" alt="6月24日 リアントゥール 写真2"></button>
-              <button type="button" class="hg-thumb" data-type="img" data-src="../images/rean_0624_03.jpg"><img src="../images/rean_0624_03.jpg" alt="6月24日 リアントゥール 写真3"></button>
+              <button type="button" class="hg-thumb is-active" data-type="img" data-src="../images/rean_0624_03.jpg"><img src="../images/rean_0624_03.jpg" alt="6月24日 リアントゥール 写真3"></button>
               <button type="button" class="hg-thumb" data-type="img" data-src="../images/rean_0624_04.jpg"><img src="../images/rean_0624_04.jpg" alt="6月24日 リアントゥール 写真4"></button>
               <button type="button" class="hg-thumb" data-type="img" data-src="../images/rean_0624_05.jpg"><img src="../images/rean_0624_05.jpg" alt="6月24日 リアントゥール 写真5"></button>
               <button type="button" class="hg-thumb" data-type="img" data-src="../images/rean_0624_06.jpg"><img src="../images/rean_0624_06.jpg" alt="6月24日 リアントゥール 写真6"></button>
