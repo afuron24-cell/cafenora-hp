@@ -499,3 +499,19 @@
     font-size: 0.85rem;
   }
 }
+
+/* 【ルール】イベント詳細チラシは画像の実寸比どおり横幅いっぱいに表示し、全体が切れないようにする（ベージュ枠も実寸に合わせる）。全イベント共通（2026-06-27確定） */
+.event-detail-img {
+  display: block;
+  align-self: start;   /* グリッド行の高さに引き伸ばさない（下の余白を出さない） */
+  min-height: 0;       /* 400px固定を解除 */
+}
+.event-detail-img img {
+  position: static;
+  width: 100%;
+  height: auto;        /* 実寸の縦横比どおり＝切れない・余白なし */
+  max-width: none;
+  max-height: none;
+  object-fit: contain;
+  display: block;
+}

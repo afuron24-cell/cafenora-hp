@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>やさしいヨガ教室 予約フォーム | まるヨガ × リアントゥール</title>
-  <meta name="description" content="新居浜リアントゥールのやさしいヨガ教室（2026年6月24日）の予約フォーム。まるヨガ（MARU YOGA）主催。参加費3,500円。">
+  <meta name="description" content="新居浜リアントゥールのやさしいヨガ教室（2026年7月29日）の予約フォーム。まるヨガ（MARU YOGA）主催。参加費3,500円。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;600&display=swap" rel="stylesheet">
@@ -269,7 +269,7 @@
   <div class="hero-strip">
     <span class="hero-leaf">🌿</span>
     <h1>やさしいヨガ教室<br>ご予約フォーム</h1>
-    <span class="hero-date">2026年 6月 24日（水）</span>
+    <span class="hero-date">2026年 7月 29日（水）</span>
     <p>新居浜リアントゥールで開催。<br>ヨガ 10:30〜 ／ ランチ 12:00〜</p>
   </div>
 
@@ -355,7 +355,7 @@
     <div class="card">
       <p style="font-size:.9rem; color:var(--text-sub); margin-bottom:20px; text-align:center;">以下の内容でよろしければ「送信する」を押してください。</p>
       <table class="confirm-table">
-        <tr><th>イベント</th><td>やさしいヨガ教室 at リアントゥール<br><span style="font-size:.82rem; color:var(--text-sub);">2026年6月24日（水）10:30〜 ／ 3,500円</span></td></tr>
+        <tr><th>イベント</th><td>やさしいヨガ教室 at リアントゥール<br><span style="font-size:.82rem; color:var(--text-sub);">2026年7月29日（水）10:30〜 ／ 3,500円</span></td></tr>
         <tr><th>お名前</th><td id="cfName"></td></tr>
         <tr><th>電話番号</th><td id="cfPhone"></td></tr>
         <tr><th>メール</th><td id="cfEmail"></td></tr>
@@ -439,8 +439,8 @@ async function sendForm() {
   const data = {
     _subject: '【やさしいヨガ教室予約】' + document.getElementById('cfName').textContent + ' 様',
     _captcha: 'false',
-    _autoresponse: 'この度は、出張ヨガ×ランチ at リアントゥールへのご予約をいただきありがとうございます。\n\n【イベント詳細】\n日時：2026年6月24日（水）\nヨガクラス：10:30スタート\nランチタイム：12:00〜\n会場：新居浜リアントゥール\n参加費：3,500円（ヨガ＋ランチセット）\n\n内容を確認次第、担当よりご連絡いたします（通常1〜2営業日以内）。\n\n―まるヨガ（cafe nora 内）―\n〒792-0050 愛媛県新居浜市萩生2133-29\nTEL：090-9459-1733',
-    イベント: 'やさしいヨガ教室 at リアントゥール（2026年6月24日 水曜 10:30〜）',
+    _autoresponse: 'この度は、出張ヨガ×ランチ at リアントゥールへのご予約をいただきありがとうございます。\n\n【イベント詳細】\n日時：2026年7月29日（水）\nヨガクラス：10:30スタート\nランチタイム：12:00〜\n会場：新居浜リアントゥール\n参加費：3,500円（ヨガ＋ランチセット）\n\n内容を確認次第、担当よりご連絡いたします（通常1〜2営業日以内）。\n\n―まるヨガ（cafe nora 内）―\n〒792-0050 愛媛県新居浜市萩生2133-29\nTEL：090-9459-1733',
+    イベント: 'やさしいヨガ教室 at リアントゥール（2026年7月29日 水曜 10:30〜）',
     お名前: document.getElementById('cfName').textContent,
     電話番号: document.getElementById('cfPhone').textContent,
     メールアドレス: document.getElementById('cfEmail').textContent,
