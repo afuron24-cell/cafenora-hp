@@ -213,6 +213,63 @@
     footer a:hover { color: white; }
     footer .f-copy { font-size: .72rem; opacity: .4; margin-top: 14px; }
 
+
+    /* モザイクギャラリー */
+    .mosaic-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(4, 200px);
+      gap: 10px;
+    }
+    .mosaic-item {
+      overflow: hidden; border-radius: 10px;
+      cursor: zoom-in; position: relative;
+      background: var(--green-pale);
+    }
+    .mosaic-item img {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+      transition: transform .35s ease;
+    }
+    .mosaic-item:hover img { transform: scale(1.06); }
+    .mosaic-item.tall { grid-row: span 2; }
+    .mosaic-item.wide { grid-column: span 2; }
+
+    /* ライトボックス */
+    #lb-modal {
+      display: none; position: fixed; inset: 0; z-index: 9999;
+      background: rgba(0,0,0,.88); align-items: center; justify-content: center;
+      cursor: zoom-out;
+    }
+    #lb-modal.open { display: flex; }
+    #lb-img {
+      max-width: 92vw; max-height: 88vh;
+      border-radius: 10px;
+      box-shadow: 0 8px 48px rgba(0,0,0,.6);
+      object-fit: contain;
+    }
+    #lb-close {
+      position: absolute; top: 16px; right: 20px;
+      color: white; font-size: 2rem; line-height: 1;
+      cursor: pointer; opacity: .8; user-select: none;
+    }
+    #lb-close:hover { opacity: 1; }
+
+    /* 開催報告ヘッダー */
+    .report-tag {
+      display: inline-block; background: var(--green-mid); color: white;
+      font-size: .72rem; font-weight: 700; letter-spacing: .15em;
+      padding: 4px 16px; border-radius: 20px; margin-bottom: 12px;
+    }
+
+    @media (max-width: 640px) {
+      .mosaic-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(6, 140px);
+      }
+      .mosaic-item.tall { grid-row: span 1; }
+    }
+
     @media (max-width: 600px) {
       .detail-body { padding: 20px; }
       .cta-box { padding: 32px 20px; }
@@ -234,10 +291,10 @@
 
 <!-- ヒーロー -->
 <div class="hero">
-  <p class="hero-badge">次回開催 ／ 2026年 6月 24日（水）</p>
+  <p class="hero-badge">次回開催 ／ 2026年 7月 29日（水）</p>
   <h1 class="hero-title">やさしいヨガ教室<br>at リアントゥール</h1>
   <p class="hero-sub">10:30〜 ヨガ ／ 12:00〜 ランチ　参加費 3,500円</p>
-  <a href="yoyaku.html" class="hero-next">🌿 6月24日（水）予約はこちら</a>
+  <a href="yoyaku.html" class="hero-next">🌿 7月29日（水）予約はこちら</a>
 </div>
 
 <!-- イベント詳細 -->
@@ -245,9 +302,9 @@
   <div class="container">
     <h2 class="sec-title">イベント詳細</h2>
     <div class="detail-card">
-      <img src="../images/リアン6月.jpg" alt="やさしいヨガ教室 at リアントゥール 6月24日" class="detail-hero-img">
+      <img src="../images/リアン6月.jpg" alt="やさしいヨガ教室 at リアントゥール 7月29日" class="detail-hero-img">
       <div class="detail-body">
-        <span class="detail-date-badge">次回開催：2026年 6月 24日（水）</span>
+        <span class="detail-date-badge">次回開催：2026年 7月 29日（水）</span>
         <p class="detail-lead">
           リアントゥールを会場に、<br>
           やさしいヨガとランチをまるごと楽しむ特別な時間です。
@@ -323,6 +380,52 @@
   </div>
 </section>
 
+<!-- 6月24日 開催報告 -->
+<section id="report-0624" style="padding:64px 24px;">
+  <div class="container">
+    <p style="text-align:center;"><span class="report-tag">開催報告</span></p>
+    <h2 class="sec-title">6月24日（火）開催の様子</h2>
+    <p style="text-align:center; font-size:.87rem; color:var(--text-sub); margin:-16px auto 32px; max-width:500px;">
+      晴れやかな梅雨の合間に、今月も素敵な時間が生まれました。<br>写真をタップすると大きく見られます。
+    </p>
+    <div class="mosaic-grid">
+      <div class="mosaic-item tall">
+        <img src="../images/rean_0624_01.jpg" alt="6月24日 リアントゥール ヨガ" loading="lazy">
+      </div>
+      <div class="mosaic-item">
+        <img src="../images/rean_0624_02.jpg" alt="6月24日 リアントゥール ヨガ" loading="lazy">
+      </div>
+      <div class="mosaic-item">
+        <img src="../images/rean_0624_03.jpg" alt="6月24日 リアントゥール ヨガ" loading="lazy">
+      </div>
+      <div class="mosaic-item">
+        <img src="../images/rean_0624_04.jpg" alt="6月24日 リアントゥール ランチ" loading="lazy">
+      </div>
+      <div class="mosaic-item">
+        <img src="../images/rean_0624_05.jpg" alt="6月24日 リアントゥール ランチ" loading="lazy">
+      </div>
+      <div class="mosaic-item">
+        <img src="../images/rean_0624_06.jpg" alt="6月24日 リアントゥール ヨガ" loading="lazy">
+      </div>
+      <div class="mosaic-item">
+        <img src="../images/rean_0624_07.jpg" alt="6月24日 リアントゥール ヨガ" loading="lazy">
+      </div>
+      <div class="mosaic-item tall">
+        <img src="../images/rean_0624_08.jpg" alt="6月24日 リアントゥール ヨガ" loading="lazy">
+      </div>
+      <div class="mosaic-item">
+        <img src="../images/rean_0624_09.jpg" alt="6月24日 リアントゥール ヨガ" loading="lazy">
+      </div>
+      <div class="mosaic-item">
+        <img src="../images/rean_0624_10.jpg" alt="6月24日 リアントゥール ランチ" loading="lazy">
+      </div>
+    </div>
+    <p style="text-align:center; font-size:.78rem; color:var(--text-sub); margin-top:16px;">
+      ※ 掲載写真はご本人の許可をいただいています
+    </p>
+  </div>
+</section>
+
 <!-- 参加者の声 -->
 <section>
   <div class="container">
@@ -362,12 +465,12 @@
     <div class="cta-box">
       <h3>参加のお申し込み</h3>
       <p>
-        6月24日（水）10:30〜 開催！<br>
+        7月29日（水）10:30〜 開催！<br>
         お申し込みは予約フォームまたはInstagramのDMへ。<br>
         ご不明な点もお気軽にどうぞ。
       </p>
-      <a href="past_events.html" class="cta-btn" style="background:rgba(255,255,255,.18); color:white; border:1.5px solid rgba(255,255,255,.6); box-shadow:none;">
-        📸 5月23日 開催報告を見る
+      <a href="#report-0624" class="cta-btn" style="background:rgba(255,255,255,.18); color:white; border:1.5px solid rgba(255,255,255,.6); box-shadow:none;">
+        📸 6月24日 開催報告を見る
       </a>
       <a href="yoyaku.html" class="cta-btn">
         🌿 リアントゥールヨガの予約はこちら
@@ -384,6 +487,44 @@
   </div>
   <div class="f-copy">© 2026 まるヨガ（MARU YOGA）/ cafe nora</div>
 </footer>
+
+
+<!-- ライトボックスモーダル -->
+<div id="lb-modal" role="dialog" aria-modal="true">
+  <span id="lb-close" aria-label="閉じる">&times;</span>
+  <img id="lb-img" src="" alt="拡大写真">
+</div>
+
+<script>
+(function() {
+  var modal = document.getElementById("lb-modal");
+  var lbImg = document.getElementById("lb-img");
+  var lbClose = document.getElementById("lb-close");
+
+  document.querySelectorAll(".mosaic-item img").forEach(function(img) {
+    img.addEventListener("click", function() {
+      lbImg.src = img.src;
+      lbImg.alt = img.alt;
+      modal.classList.add("open");
+      document.body.style.overflow = "hidden";
+    });
+  });
+
+  function closeModal() {
+    modal.classList.remove("open");
+    document.body.style.overflow = "";
+    lbImg.src = "";
+  }
+
+  modal.addEventListener("click", function(e) {
+    if (e.target === modal || e.target === lbClose) closeModal();
+  });
+
+  document.addEventListener("keydown", function(e) {
+    if (e.key === "Escape") closeModal();
+  });
+})();
+</script>
 
 </body>
 </html>
