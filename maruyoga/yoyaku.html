@@ -129,6 +129,23 @@
       border-top: 1px solid var(--green-pale);
       font-size: .88rem; color: var(--green-deep); font-weight: 600;
     }
+    .event-fee { line-height: 1.9; }
+    .venue-map-link {
+      color: var(--green-mid); font-weight: 700;
+      text-decoration: underline; text-underline-offset: 2px;
+    }
+    .venue-map-link:hover { color: var(--green-deep); }
+    .lunch-gallery {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;
+    }
+    .lunch-gallery img {
+      width: 100%; aspect-ratio: 1/1; object-fit: cover;
+      border-radius: 8px; display: block;
+      filter: sepia(.10) saturate(.92) contrast(1.03) brightness(1.02);
+      transition: transform .25s;
+    }
+    .lunch-gallery img:hover { transform: scale(1.04); }
+    @media (max-width: 400px) { .lunch-gallery { grid-template-columns: repeat(2, 1fr); } }
 
     /* ── カード ── */
     .card {
@@ -290,7 +307,21 @@
       </div>
       <div class="event-sub">リアントゥールのランチをお楽しみください</div>
     </div>
-    <p class="event-fee">💴 参加費：3,500円（ヨガ＋ランチセット）　📍 会場：新居浜リアントゥール</p>
+    <p class="event-fee">💴 参加費：3,500円（ヨガ＋ランチセット）<br>📍 会場：<a href="https://www.google.com/maps/search/?api=1&query=%E3%83%AA%E3%82%A2%E3%83%B3%E3%83%88%E3%82%A5%E3%83%BC%E3%83%AB%20%E6%96%B0%E5%B1%85%E6%B5%9C%E5%B8%82%E6%9D%B1%E7%94%B03-%E4%B9%9911-6" target="_blank" rel="noopener noreferrer" class="venue-map-link">新居浜リアントゥール（Googleマップ）</a></p>
+  </div>
+
+  <!-- 当日のランチ（食事写真） -->
+  <div class="event-info" style="margin-top:20px;">
+    <p class="event-info-title">🍽️ 当日のランチ（一例）</p>
+    <p style="font-size:.8rem; color:var(--text-sub); margin:-4px 0 14px;">リアントゥールのシェフによる本格コース。ヨガのあとのお楽しみです。</p>
+    <div class="lunch-gallery">
+      <img src="../images/rean_0624_05.jpg" alt="リアントゥールのランチ 前菜" loading="lazy">
+      <img src="../images/rean_0624_06.jpg" alt="リアントゥールのランチ スープ" loading="lazy">
+      <img src="../images/rean_0624_07.jpg" alt="リアントゥールのランチ 一品" loading="lazy">
+      <img src="../images/rean_0624_08.jpg" alt="リアントゥールのランチ メイン" loading="lazy">
+      <img src="../images/rean_0624_09.jpg" alt="リアントゥールのランチ メイン" loading="lazy">
+      <img src="../images/rean_0624_10.jpg" alt="リアントゥールのランチ デザート" loading="lazy">
+    </div>
   </div>
 
   <!-- ステップバー -->
