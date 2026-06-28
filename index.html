@@ -181,6 +181,66 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
+    .hero-cta {
+      display: inline-flex; align-items: center; gap: .6rem;
+      margin-top: 2.1rem;
+      font-family: var(--font-jp); font-size: .98rem; letter-spacing: .14em;
+      color: #fff; text-decoration: none;
+      padding: .95rem 2.3rem;
+      border: 1px solid rgba(255,255,255,.55); border-radius: 40px;
+      background: rgba(255,255,255,.1);
+      backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+      box-shadow: 0 2px 18px rgba(0,0,0,.25);
+      transition: background .3s ease, border-color .3s ease, transform .3s ease, color .3s ease;
+      animation: heroUp 1s ease .8s both;
+    }
+    .hero-cta:hover {
+      background: rgba(255,255,255,.92); color: var(--green);
+      border-color: #fff; transform: translateY(-2px);
+    }
+    .hero-cta .cta-arrow { transition: transform .3s ease; }
+    .hero-cta:hover .cta-arrow { transform: translateX(3px); }
+
+    /* =============================================
+       ライブ情報バー（ヒーロー上部）
+       ============================================= */
+    .live-info {
+      position: absolute; top: 72px; left: 0; right: 0; z-index: 3;
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+      gap: .5rem 1.1rem; padding: .65rem 1rem;
+      background: linear-gradient(90deg, rgba(20,40,24,.58), rgba(20,40,24,.38));
+      backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+      border-bottom: 1px solid rgba(255,255,255,.14);
+      animation: heroUp .9s ease .15s both;
+    }
+    .live-info-label {
+      font-family: var(--font-jp); font-size: .72rem; letter-spacing: .16em;
+      color: #fff; font-weight: 600; text-shadow: 0 1px 4px rgba(0,0,0,.6);
+      display: inline-flex; align-items: center; gap: .35rem;
+    }
+    .live-info-acts { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; }
+    .live-info-btn {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .42rem 1.05rem; border-radius: 30px;
+      background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.48);
+      color: #fff; text-decoration: none;
+      font-family: var(--font-jp); font-size: .8rem; letter-spacing: .05em;
+      backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+      transition: background .3s ease, transform .3s ease, color .3s ease, border-color .3s ease;
+    }
+    .live-info-btn:hover {
+      background: rgba(255,255,255,.95); color: var(--green);
+      border-color: #fff; transform: translateY(-1px);
+    }
+    .live-info-btn .lib-date { font-family: var(--font-en); font-weight: 700; letter-spacing: .03em; }
+    .live-info-btn .lib-arrow { transition: transform .3s ease; }
+    .live-info-btn:hover .lib-arrow { transform: translateX(3px); }
+    @media (max-width: 768px) {
+      .live-info { flex-direction: column; gap: .45rem; padding: .55rem .8rem; }
+      .live-info-label { font-size: .66rem; }
+      .live-info-btn { font-size: .76rem; padding: .38rem .9rem; }
+    }
+
     /* =============================================
        はじめての方へ バー
        ============================================= */
@@ -408,9 +468,12 @@
        ナビタイル（4枚グリッド）
        ============================================= */
     .nav-tiles {
-      display: grid; grid-template-columns: repeat(4, 1fr);
+      display: grid; grid-template-columns: repeat(5, 1fr);
     }
-    @media (max-width: 580px) { .nav-tiles { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 580px) {
+      .nav-tiles { grid-template-columns: repeat(2, 1fr); }
+      .nav-tile-marche { grid-column: 1 / -1; aspect-ratio: 16 / 7; }
+    }
     .nav-tile { position: relative; aspect-ratio: 1; overflow: hidden; display: block; }
     .nav-tile-bg {
       position: absolute; inset: 0;
@@ -418,6 +481,8 @@
       transition: transform .5s ease;
     }
     .nav-tile:hover .nav-tile-bg { transform: scale(1.08); }
+    .marche-bg { opacity: 0; transition: opacity 1.4s ease, transform .5s ease; }
+    .marche-bg.is-active { opacity: 1; }
     .nav-tile-overlay {
       position: absolute; inset: 0;
       background: rgba(0,0,0,.42); transition: background var(--r);
@@ -556,6 +621,20 @@
     </div>
   </div>
   <div class="hero-overlay"></div>
+
+  <!-- ════ ライブ情報バー（ヒーロー上部） ════ -->
+  <div class="live-info">
+    <span class="live-info-label">🎵 LIVE 開催情報</span>
+    <div class="live-info-acts">
+      <a href="event-karitomato.html" class="live-info-btn">
+        <span class="lib-date">7/28</span><span class="lib-name">カリトマト</span><span class="lib-arrow">&rarr;</span>
+      </a>
+      <a href="event-torubale.html" class="live-info-btn">
+        <span class="lib-date">8/2</span><span class="lib-name">とぅるばーる</span><span class="lib-arrow">&rarr;</span>
+      </a>
+    </div>
+  </div>
+
   <div class="hero-content">
     <p class="hero-eyebrow">cafe &thinsp; nora &ensp;—&ensp; カフェノラ</p>
     <h1 class="hero-main-title">
@@ -563,6 +642,7 @@
       <span>コーヒーに会えるお店</span>
     </h1>
     <p class="hero-sub">愛媛県新居浜市<br>てまわし焙煎コーヒー・天然酵母パン</p>
+    <a href="popup.html" class="hero-cta">🌿 出店・マルシェ情報 <span class="cta-arrow">&rarr;</span></a>
   </div>
   <div class="hero-scroll">
     <span class="scroll-text">scroll</span>
@@ -762,7 +842,35 @@
       <p class="nav-tile-jp">お問い合わせ</p>
     </div>
   </a>
+  <a class="nav-tile nav-tile-marche" href="popup.html">
+    <div class="nav-tile-bg marche-bg is-active" style="background-image: url('images/クラフトワーク表.jpg');"></div>
+    <div class="nav-tile-bg marche-bg" style="background-image: url('images/クラフトワーク裏.jpg');"></div>
+    <div class="nav-tile-overlay"></div>
+    <div class="nav-tile-text">
+      <p class="nav-tile-en">pop up</p>
+      <p class="nav-tile-jp">出店・マルシェ</p>
+    </div>
+  </a>
 </div>
+
+<!-- 出店・マルシェ タイル画像を2秒ごとに入れ替え（popup.htmlの開催中フライヤーのみ、終了イベントは除外） -->
+<script>
+(function(){
+  var imgs = ['images/クラフトワーク表.jpg', 'images/クラフトワーク裏.jpg'];
+  imgs.forEach(function(src){ var im = new Image(); im.src = src; });
+  var layers = document.querySelectorAll('.nav-tile-marche .marche-bg');
+  if (layers.length < 2 || imgs.length < 2) return;
+  var idx = 0, active = 0;
+  setInterval(function(){
+    idx = (idx + 1) % imgs.length;
+    var next = 1 - active;
+    layers[next].style.backgroundImage = "url('" + imgs[idx] + "')";
+    layers[next].classList.add('is-active');
+    layers[active].classList.remove('is-active');
+    active = next;
+  }, 3000);
+})();
+</script>
 
 <!-- ════ まるヨガ ════ -->
 <div class="yoga-strip">
