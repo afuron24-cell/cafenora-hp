@@ -139,25 +139,41 @@
       .gallery-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
-    /* メディア・メイソンリー配置（6/24・動画＋写真） */
-    .media-masonry { column-count: 3; column-gap: 10px; }
-    .media-masonry .mm-item {
-      break-inside: avoid; margin-bottom: 10px;
-      border-radius: 10px; overflow: hidden;
-      background: var(--green-pale);
-      box-shadow: 0 2px 10px rgba(45,90,61,.10);
+    /* ヒーロー＋サムネ ギャラリー（6/24） */
+    .hero-gallery { margin-top: 4px; }
+    .hg-main {
+      position: relative; width: 100%; max-width: 420px; margin: 0 auto;
+      aspect-ratio: 3 / 4; border-radius: 14px; overflow: hidden;
+      background: #ece9e3; box-shadow: 0 8px 30px rgba(45,90,61,.22);
     }
-    .media-masonry .mm-item img {
-      width: 100%; display: block; cursor: zoom-in;
-      transition: transform .35s ease;
+    .hg-main-img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      cursor: zoom-in; animation: hgFade .45s ease;
     }
-    .media-masonry .mm-item img:hover { transform: scale(1.05); }
-    .media-masonry .mm-video video { width: 100%; display: block; background: #000; }
-    .media-masonry .mm-video {
-      position: relative;
-      box-shadow: 0 4px 18px rgba(45,90,61,.20);
+    .hg-main-video {
+      width: 100%; height: 100%; object-fit: contain; display: block; background: #000;
     }
-    @media (max-width: 600px) { .media-masonry { column-count: 2; } }
+    @keyframes hgFade { from { opacity: .25; } to { opacity: 1; } }
+    .hg-thumbs {
+      display: flex; gap: 8px; margin: 14px auto 0; max-width: 560px;
+      overflow-x: auto; padding-bottom: 8px; scroll-snap-type: x proximity;
+    }
+    .hg-thumb {
+      flex: 0 0 auto; width: 62px; height: 62px; padding: 0;
+      border: 2px solid transparent; border-radius: 9px; overflow: hidden;
+      cursor: pointer; background: none; position: relative;
+      opacity: .55; transition: opacity .2s, border-color .2s, transform .2s;
+      scroll-snap-align: start;
+    }
+    .hg-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .hg-thumb:hover { opacity: 1; transform: translateY(-2px); }
+    .hg-thumb.is-active { opacity: 1; border-color: var(--green-mid); }
+    .hg-thumb .hg-play {
+      position: absolute; inset: 0; display: flex; align-items: center;
+      justify-content: center; background: rgba(0,0,0,.34); color: #fff; font-size: 1rem;
+    }
+    .hg-thumbs::-webkit-scrollbar { height: 5px; }
+    .hg-thumbs::-webkit-scrollbar-thumb { background: var(--green-light); border-radius: 3px; }
 
     /* ライトボックス（タップで拡大） */
     #lb-modal {
@@ -216,23 +232,30 @@
 
         <div class="gallery">
           <p class="gallery-title">📸 当日の様子</p>
-          <div class="media-masonry">
-            <div class="mm-item mm-video">
-              <video controls preload="metadata" playsinline poster="../images/rean_0624_02.jpg">
+          <div class="hero-gallery" id="hg-0624">
+            <div class="hg-main">
+              <img class="hg-main-img" id="hg-img-0624" src="../images/rean_0624_01.jpg" alt="2026年6月24日 リアントゥールでのヨガ×ランチ">
+              <video class="hg-main-video" id="hg-vid-0624" controls playsinline preload="metadata" poster="../images/rean_0624_02.jpg" style="display:none;">
                 <source src="../videos/rean_0624.mp4" type="video/mp4">
                 お使いのブラウザは動画再生に対応していません。
               </video>
             </div>
-            <div class="mm-item"><img src="../images/rean_0624_01.jpg" alt="2026年6月24日 リアントゥール ヨガ×ランチ 1"></div>
-            <div class="mm-item"><img src="../images/rean_0624_02.jpg" alt="2026年6月24日 リアントゥール ヨガ×ランチ 2"></div>
-            <div class="mm-item"><img src="../images/rean_0624_03.jpg" alt="2026年6月24日 リアントゥール ヨガ×ランチ 3"></div>
-            <div class="mm-item"><img src="../images/rean_0624_04.jpg" alt="2026年6月24日 リアントゥール ヨガ×ランチ 4"></div>
-            <div class="mm-item"><img src="../images/rean_0624_05.jpg" alt="2026年6月24日 リアントゥール ヨガ×ランチ 5"></div>
-            <div class="mm-item"><img src="../images/rean_0624_06.jpg" alt="2026年6月24日 リアントゥール ヨガ×ランチ 6"></div>
-            <div class="mm-item"><img src="../images/rean_0624_07.jpg" alt="2026年6月24日 リアントゥール ヨガ×ランチ 7"></div>
-            <div class="mm-item"><img src="../images/rean_0624_08.jpg" alt="2026年6月24日 リアントゥール ヨガ×ランチ 8"></div>
-            <div class="mm-item"><img src="../images/rean_0624_09.jpg" alt="2026年6月24日 リアントゥール ヨガ×ランチ 9"></div>
-            <div class="mm-item"><img src="../images/rean_0624_10.jpg" alt="2026年6月24日 リアントゥール ヨガ×ランチ 10"></div>
+            <div class="hg-thumbs">
+              <button type="button" class="hg-thumb" data-type="video" aria-label="動画を再生">
+                <img src="../images/rean_0624_02.jpg" alt="">
+                <span class="hg-play">▶</span>
+              </button>
+              <button type="button" class="hg-thumb is-active" data-type="img" data-src="../images/rean_0624_01.jpg"><img src="../images/rean_0624_01.jpg" alt="6月24日 リアントゥール 写真1"></button>
+              <button type="button" class="hg-thumb" data-type="img" data-src="../images/rean_0624_02.jpg"><img src="../images/rean_0624_02.jpg" alt="6月24日 リアントゥール 写真2"></button>
+              <button type="button" class="hg-thumb" data-type="img" data-src="../images/rean_0624_03.jpg"><img src="../images/rean_0624_03.jpg" alt="6月24日 リアントゥール 写真3"></button>
+              <button type="button" class="hg-thumb" data-type="img" data-src="../images/rean_0624_04.jpg"><img src="../images/rean_0624_04.jpg" alt="6月24日 リアントゥール 写真4"></button>
+              <button type="button" class="hg-thumb" data-type="img" data-src="../images/rean_0624_05.jpg"><img src="../images/rean_0624_05.jpg" alt="6月24日 リアントゥール 写真5"></button>
+              <button type="button" class="hg-thumb" data-type="img" data-src="../images/rean_0624_06.jpg"><img src="../images/rean_0624_06.jpg" alt="6月24日 リアントゥール 写真6"></button>
+              <button type="button" class="hg-thumb" data-type="img" data-src="../images/rean_0624_07.jpg"><img src="../images/rean_0624_07.jpg" alt="6月24日 リアントゥール 写真7"></button>
+              <button type="button" class="hg-thumb" data-type="img" data-src="../images/rean_0624_08.jpg"><img src="../images/rean_0624_08.jpg" alt="6月24日 リアントゥール 写真8"></button>
+              <button type="button" class="hg-thumb" data-type="img" data-src="../images/rean_0624_09.jpg"><img src="../images/rean_0624_09.jpg" alt="6月24日 リアントゥール 写真9"></button>
+              <button type="button" class="hg-thumb" data-type="img" data-src="../images/rean_0624_10.jpg"><img src="../images/rean_0624_10.jpg" alt="6月24日 リアントゥール 写真10"></button>
+            </div>
           </div>
         </div>
       </div>
@@ -301,7 +324,7 @@
   var lbImg = document.getElementById('lb-img');
   var lbClose = document.getElementById('lb-close');
   // 画像タップで拡大（メイソンリー＋通常ギャラリー両対応）
-  document.querySelectorAll('.media-masonry img, .gallery-grid img').forEach(function(img){
+  document.querySelectorAll('.hg-main-img, .gallery-grid img').forEach(function(img){
     img.addEventListener('click', function(){
       lbImg.src = img.src; lbImg.alt = img.alt;
       modal.classList.add('open');
@@ -315,6 +338,31 @@
   }
   modal.addEventListener('click', function(e){ if(e.target===modal||e.target===lbClose) closeLb(); });
   document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeLb(); });
+
+  // ヒーロー＋サムネ：サムネタップでメイン切替（6/24）
+  (function(){
+    var hg = document.getElementById('hg-0624');
+    if(!hg) return;
+    var mainImg = document.getElementById('hg-img-0624');
+    var mainVid = document.getElementById('hg-vid-0624');
+    hg.querySelectorAll('.hg-thumb').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        hg.querySelectorAll('.hg-thumb').forEach(function(b){ b.classList.remove('is-active'); });
+        btn.classList.add('is-active');
+        if(btn.dataset.type === 'video'){
+          mainImg.style.display = 'none';
+          mainVid.style.display = 'block';
+        } else {
+          mainVid.pause();
+          mainVid.style.display = 'none';
+          mainImg.style.display = 'block';
+          mainImg.src = btn.dataset.src;
+          var t = btn.querySelector('img');
+          if(t) mainImg.alt = t.alt;
+        }
+      });
+    });
+  })();
 
   // 動画は同時に1本のみ再生
   var vids = document.querySelectorAll('video');
