@@ -322,6 +322,10 @@
           <input type="text" id="fname" name="name" placeholder="例：金丸 花子" autocomplete="name">
         </div>
         <div class="form-group">
+          <label>ふりがな <span class="required">必須</span></label>
+          <input type="text" id="fkana" name="kana" placeholder="例：かなまる はなこ">
+        </div>
+        <div class="form-group">
           <label>電話番号 <span class="required">必須</span></label>
           <input type="tel" id="fphone" name="phone" placeholder="例：090-0000-0000" autocomplete="tel">
           <p class="form-hint">確認のご連絡にお電話させていただく場合があります</p>
@@ -332,6 +336,24 @@
           <p class="form-hint">確認メールをお送りします。迷惑メールフォルダもご確認ください</p>
         </div>
         <div class="form-group">
+          <label>ランチのメイン <span class="required">必須</span></label>
+          <select id="flunch" name="lunch">
+            <option value="">-- 魚 or 肉 を選んでください --</option>
+            <option value="魚">魚</option>
+            <option value="肉">肉</option>
+          </select>
+          <p class="form-hint">ランチコースのメインをお選びください</p>
+        </div>
+        <div class="form-group">
+          <label>ヨガマット <span class="required">必須</span></label>
+          <select id="fmat" name="mat">
+            <option value="">-- 選んでください --</option>
+            <option value="持参する">持参する</option>
+            <option value="貸出を希望（無料）">貸出を希望（無料）</option>
+          </select>
+          <p class="form-hint">お持ちでない場合は無料でお貸しします（要予約）</p>
+        </div>
+        <div class="form-group">
           <label>ヨガの経験 <span class="optional">任意</span></label>
           <select id="fexp" name="experience">
             <option value="">-- 選んでください --</option>
@@ -339,6 +361,11 @@
             <option value="少し経験あり（数回程度）">少し経験あり（数回程度）</option>
             <option value="経験あり（定期的に通っていた）">経験あり（定期的に通っていた）</option>
           </select>
+        </div>
+        <div class="form-group">
+          <label>お子様の年齢 <span class="optional">任意</span></label>
+          <input type="text" id="fchild" name="child" placeholder="例：3歳・6歳（お子様とご参加の場合）">
+          <p class="form-hint">お子様とご一緒の場合のみ、年齢をご記入ください</p>
         </div>
         <div class="form-group">
           <label>ご質問・メッセージ <span class="optional">任意</span></label>
@@ -357,9 +384,13 @@
       <table class="confirm-table">
         <tr><th>イベント</th><td>やさしいヨガ教室 at リアントゥール<br><span style="font-size:.82rem; color:var(--text-sub);">2026年7月29日（水）10:30〜 ／ 3,500円</span></td></tr>
         <tr><th>お名前</th><td id="cfName"></td></tr>
+        <tr><th>ふりがな</th><td id="cfKana"></td></tr>
         <tr><th>電話番号</th><td id="cfPhone"></td></tr>
         <tr><th>メール</th><td id="cfEmail"></td></tr>
+        <tr><th>ランチのメイン</th><td id="cfLunch"></td></tr>
+        <tr><th>ヨガマット</th><td id="cfMat"></td></tr>
         <tr><th>ヨガ経験</th><td id="cfExp"></td></tr>
+        <tr><th>お子様の年齢</th><td id="cfChild"></td></tr>
         <tr><th>メッセージ</th><td id="cfMessage" style="white-space:pre-wrap;"></td></tr>
       </table>
       <div class="confirm-note">
@@ -413,17 +444,27 @@ function setStep(n) {
 
 function goConfirm() {
   const name  = document.getElementById('fname').value.trim();
+  const kana  = document.getElementById('fkana').value.trim();
   const phone = document.getElementById('fphone').value.trim();
   const email = document.getElementById('femail').value.trim();
+  const lunch = document.getElementById('flunch').value;
+  const mat   = document.getElementById('fmat').value;
 
   if (!name)  { alert('お名前をご記入ください。'); return; }
+  if (!kana)  { alert('ふりがなをご記入ください。'); return; }
   if (!phone) { alert('電話番号をご記入ください。'); return; }
   if (!email || !email.includes('@')) { alert('メールアドレスを正しくご記入ください。'); return; }
+  if (!lunch) { alert('ランチのメイン（魚 or 肉）をお選びください。'); return; }
+  if (!mat)   { alert('ヨガマットの有無をお選びください。'); return; }
 
   document.getElementById('cfName').textContent    = name;
+  document.getElementById('cfKana').textContent    = kana;
   document.getElementById('cfPhone').textContent   = phone;
   document.getElementById('cfEmail').textContent   = email;
+  document.getElementById('cfLunch').textContent   = lunch;
+  document.getElementById('cfMat').textContent     = mat;
   document.getElementById('cfExp').textContent     = document.getElementById('fexp').value || '（未記入）';
+  document.getElementById('cfChild').textContent   = document.getElementById('fchild').value.trim() || '（なし）';
   document.getElementById('cfMessage').textContent = document.getElementById('fmessage').value.trim() || '（なし）';
 
   setStep(2);
@@ -442,9 +483,13 @@ async function sendForm() {
     _autoresponse: 'この度は、出張ヨガ×ランチ at リアントゥールへのご予約をいただきありがとうございます。\n\n【イベント詳細】\n日時：2026年7月29日（水）\nヨガクラス：10:30スタート\nランチタイム：12:00〜\n会場：新居浜リアントゥール\n参加費：3,500円（ヨガ＋ランチセット）\n\n内容を確認次第、担当よりご連絡いたします（通常1〜2営業日以内）。\n\n―まるヨガ（cafe nora 内）―\n〒792-0050 愛媛県新居浜市萩生2133-29\nTEL：090-9459-1733',
     イベント: 'やさしいヨガ教室 at リアントゥール（2026年7月29日 水曜 10:30〜）',
     お名前: document.getElementById('cfName').textContent,
+    ふりがな: document.getElementById('cfKana').textContent,
     電話番号: document.getElementById('cfPhone').textContent,
     メールアドレス: document.getElementById('cfEmail').textContent,
+    ランチのメイン: document.getElementById('cfLunch').textContent,
+    ヨガマット: document.getElementById('cfMat').textContent,
     ヨガ経験: document.getElementById('cfExp').textContent,
+    お子様の年齢: document.getElementById('cfChild').textContent,
     メッセージ: document.getElementById('cfMessage').textContent,
   };
 
@@ -458,7 +503,10 @@ async function sendForm() {
         name:    data['お名前'],
         phone:   data['電話番号'],
         email:   data['メールアドレス'],
+        lunch:   data['ランチのメイン'],
+        mat:     data['ヨガマット'],
         exp:     data['ヨガ経験'],
+        child:   data['お子様の年齢'],
         message: data['メッセージ'],
       }),
     });
