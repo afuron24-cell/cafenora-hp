@@ -68,6 +68,50 @@ if (fadeEls.length > 0 && 'IntersectionObserver' in window) {
 }
 
 
+// ページ共有ボタン（全ページ共通・footer-copyの上に自動挿入）
+(function(){
+  var style = document.createElement('style');
+  style.textContent = [
+    '.share-bar{text-align:center;padding:1.6rem 1rem 1rem;border-top:1px solid rgba(255,255,255,.1);}',
+    '.share-bar p{font-size:.72rem;letter-spacing:.12em;color:rgba(255,255,255,.45);margin-bottom:.8rem;}',
+    '.share-copy-btn{display:inline-flex;align-items:center;gap:.5rem;padding:.55rem 1.4rem;',
+    'border-radius:30px;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.07);',
+    'color:rgba(255,255,255,.75);font-size:.8rem;letter-spacing:.1em;cursor:pointer;',
+    'transition:background .2s,border-color .2s,color .2s;font-family:inherit;}',
+    '.share-copy-btn:hover{background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.55);color:#fff;}',
+    '.share-copy-btn.copied{background:rgba(80,180,100,.2);border-color:rgba(80,180,100,.6);color:#8fda9f;}',
+  ].join('');
+  document.head.appendChild(style);
+
+  var fc = document.querySelector('.footer-copy');
+  if(!fc) return;
+
+  var bar = document.createElement('div');
+  bar.className = 'share-bar';
+  bar.innerHTML = '<p>このページをシェア</p>'
+    + '<button class="share-copy-btn" id="shareCopyBtn">🔗 URLをコピー</button>';
+  fc.parentNode.insertBefore(bar, fc);
+
+  document.getElementById('shareCopyBtn').addEventListener('click', function(){
+    var btn = this;
+    var url = location.href;
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(url).then(done).catch(fallback);
+    } else { fallback(); }
+    function done(){
+      btn.textContent = '✓ コピーしました';
+      btn.classList.add('copied');
+      setTimeout(function(){ btn.textContent = '🔗 URLをコピー'; btn.classList.remove('copied'); }, 2000);
+    }
+    function fallback(){
+      var ta = document.createElement('textarea');
+      ta.value = url; ta.style.position='fixed'; ta.style.opacity='0';
+      document.body.appendChild(ta); ta.select();
+      try{ document.execCommand('copy'); done(); }catch(e){}
+      document.body.removeChild(ta);
+    }
+  });
+})();
 // cafenora.jp アクセス計測ビーコン
 (function(){
   var p = encodeURIComponent(location.pathname + location.search);
