@@ -73,12 +73,19 @@
     color: rgba(232,228,222,.9);
   }
   .reserve-contact-btn:hover { background: rgba(224,85,64,.12); }
-  .reserve-contact-btn .reserve-label { color: rgba(210,206,200,.85); }
+  .reserve-contact-btn .reserve-label { color: #000; }
   .reserve-contact-btn .reserve-value { color: #e05540; }
   .ed-bottom-reserve { border-top-color: rgba(255,255,255,.1); }
   .ed-artist { border-top-color: rgba(255,255,255,.1); }
   .ed-lead { border-top-color: rgba(255,255,255,.08); }
   .ed-reasons { border-top-color: rgba(255,255,255,.08); }
+  .ed-videos { border-top: 1px solid rgba(255,255,255,.1); margin-top: 2.6rem; padding-top: 2.4rem; }
+  .ed-archive { display: grid; grid-template-columns: minmax(0,0.82fr) minmax(0,1fr); gap: 1.6rem; align-items: start; margin-top: 1.6rem; }
+  .ed-archive-flyer img { width: 100%; display: block; border-radius: 12px; box-shadow: 0 12px 44px rgba(0,0,0,.6); }
+  .ed-archive-flyer figcaption { text-align: center; font-size: .72rem; letter-spacing: .12em; color: rgba(202,198,192,.55); margin-top: .6rem; }
+  .ed-video-grid { display: grid; grid-template-columns: 1fr; gap: 1.1rem; }
+  .ed-video { width: 100%; display: block; border-radius: 12px; background: #000; box-shadow: 0 10px 40px rgba(0,0,0,.55); aspect-ratio: 966 / 720; }
+  @media (max-width: 760px) { .ed-archive { grid-template-columns: 1fr; } }
   .footer { background: #0a0a0c; }
 
   /* 黒テーマ追加：ヘッダー・ナビ・メンバー欄 */
@@ -103,6 +110,9 @@
     border-bottom: 1px solid rgba(224,85,64,.25);
   }
   .ed-urgency-banner .ub-btn { color: #641a0e; }
+  @media (max-width: 768px) {
+    .ed-flyer { max-width: 100%; }
+  }
 </style>
 </head>
 <body>
@@ -236,6 +246,28 @@
         </div>
       </div>
 
+      <!-- ライブ映像（2024年の記録） -->
+      <div class="ed-videos fade-in">
+        <h2 class="ed-section-title">2024年12月5日、あの夜の記録</h2>
+        <p class="ed-text" style="text-align:center;">下の動画は、2024年12月5日に cafe nora で開催した<br>カリトマトのライブの様子です。<br>あの感動が、7月28日にまた帰ってきます。</p>
+        <div class="ed-archive">
+          <figure class="ed-archive-flyer">
+            <img src="images/karitomato-2024-flyer.jpg" alt="2024年12月5日 カリトマト THE LIVE @ CAFE NORA フライヤー">
+            <figcaption>2024.12.05 当日のフライヤー</figcaption>
+          </figure>
+          <div class="ed-video-grid">
+            <video class="ed-video" controls preload="metadata" playsinline poster="images/karitomato.jpg">
+              <source src="videos/karitomato-1.mp4" type="video/mp4">
+              お使いのブラウザは動画再生に対応していません。
+            </video>
+            <video class="ed-video" controls preload="metadata" playsinline poster="images/karitomato.jpg">
+              <source src="videos/karitomato-2.mp4" type="video/mp4">
+              お使いのブラウザは動画再生に対応していません。
+            </video>
+          </div>
+        </div>
+      </div>
+
       <!-- 下部予約 -->
       <div class="ed-bottom-reserve fade-in">
         <h2 class="ed-section-title">ご予約・お問い合わせ</h2>
@@ -347,6 +379,18 @@
       if(row&&!vis[0]&&!vis[1]) row.style.display='none';
     });
   })();
+})();
+</script>
+<!-- 動画の同時再生を防止：1本再生したら他は一時停止 -->
+<script>
+(function(){
+  var vids = document.querySelectorAll('video');
+  if (vids.length < 2) return;
+  vids.forEach(function(v){
+    v.addEventListener('play', function(){
+      vids.forEach(function(other){ if (other !== v) other.pause(); });
+    });
+  });
 })();
 </script>
 </body>
